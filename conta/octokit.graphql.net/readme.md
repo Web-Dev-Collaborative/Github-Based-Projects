@@ -23,7 +23,7 @@ Install-Package Octokit.GraphQL -IncludePrerelease
 ```csharp
 using Octokit.GraphQL;
 using static Octokit.GraphQL.Variable;
-   
+
 var productInformation = new ProductHeaderValue("YOUR_PRODUCT_NAME", "YOUR_PRODUCT_VERSION");
 var connection = new Connection(productInformation, YOUR_OAUTH_TOKEN);
 
@@ -78,7 +78,7 @@ namespace Octokit
                 {
                     User = sponsoring.Sponsorable
                             .Cast<User>()
-                            .Select(x => new { 
+                            .Select(x => new {
                                 x.Login,
                                 x.Name,
                                 x.Id

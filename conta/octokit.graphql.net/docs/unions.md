@@ -47,4 +47,4 @@ The generic parameter passed to `Switch<T>` is the type of model to return. In t
 don't have a common base class, `object` can be used.
 
 > Note that currently, if a type is returned for which there is no selection in the `Switch`
-  then `null` will be returned. This may change in future.
+> then `null` will be returned. This may change in future.

@@ -5,11 +5,11 @@ on:
 
   # Runs at 00:00 UTC every day
   schedule:
-    - cron: '0 */24 * * *'  
+    - cron: "0 */24 * * *"
 
   # Runs when repository is starred
   watch:
-    types: [started]  
+    types: [started]
 
 env:
   config: Release
@@ -19,18 +19,18 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.101
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.101
 
-    - name: Build using .NET Core
-      run: dotnet build Octokit.GraphQL.sln -c ${{ env.config }}
+      - name: Build using .NET Core
+        run: dotnet build Octokit.GraphQL.sln -c ${{ env.config }}
 
-    - name: Run integration tests
-      run: dotnet test -c ${{ env.config }} --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[Octokit.GraphQL]Octokit.GraphQL.*" .\Octokit.GraphQL.IntegrationTests\Octokit.GraphQL.IntegrationTests.csproj
-      env:
-        OCTOKIT_GQL_OAUTHTOKEN: "${{ secrets.OCTOKIT_GQL_OAUTHTOKEN }}"
-        OCTOKIT_GQL_GITHUBUSERNAME: "${{ secrets.OCTOKIT_GQL_GITHUBUSERNAME }}"
+      - name: Run integration tests
+        run: dotnet test -c ${{ env.config }} --no-build /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:Exclude="[Octokit.GraphQL]Octokit.GraphQL.*" .\Octokit.GraphQL.IntegrationTests\Octokit.GraphQL.IntegrationTests.csproj
+        env:
+          OCTOKIT_GQL_OAUTHTOKEN: "${{ secrets.OCTOKIT_GQL_OAUTHTOKEN }}"
+          OCTOKIT_GQL_GITHUBUSERNAME: "${{ secrets.OCTOKIT_GQL_GITHUBUSERNAME }}"

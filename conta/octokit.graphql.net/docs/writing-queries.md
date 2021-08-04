@@ -33,7 +33,7 @@ var query = new Query()
 This will build the following GraphQL query:
 
 ```
-query { 
+query {
   repositoryOwner(login: "octokit") {
     repositories(first:30) {
       nodes {
@@ -85,8 +85,8 @@ var query = new Query()
 ```
 
 > You can see a bunch of `null` parameters in the `r.Issues()` call. This is because expressions in
-  C# do not support default parameter values, so all the unused values need to be supplied an explicit
-  null. It sucks.
+> C# do not support default parameter values, so all the unused values need to be supplied an explicit
+> null. It sucks.
 
 For `IQueryableValue<T>` you can use `Single()` or `SingleOrDefault()`:
 

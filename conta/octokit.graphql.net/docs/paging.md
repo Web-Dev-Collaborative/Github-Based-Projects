@@ -6,12 +6,12 @@ For more information see: https://graphql.org/learn/pagination/
 
 Many GraphQL fields can be paged. These fields typically define at least four paging parameters:
 
-|Parameter|Description|
-|---------|-----------|
-|`first`|Pages forward N results at a time|
-|`after`|The end cursor of the previous page|
-|`last`|Pages backwards N results at a time|
-|`before`|The start cursor of the previous page|
+| Parameter | Description                           |
+| --------- | ------------------------------------- |
+| `first`   | Pages forward N results at a time     |
+| `after`   | The end cursor of the previous page   |
+| `last`    | Pages backwards N results at a time   |
+| `before`  | The start cursor of the previous page |
 
 In addition, these fields produce a `Connection` object which contains a list of `edges` and
 `nodes`, together with a `totalCount` and a `pageInfo` object.

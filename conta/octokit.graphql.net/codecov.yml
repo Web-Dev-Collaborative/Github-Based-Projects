@@ -24,9 +24,9 @@ comment:
   layout: "header, diff, files"
   behavior: once
   require_changes: no
-  
+
 fixes:
   - "/C/projects/octokit-graphql/::"
-  
+
 ignore:
-- "*Tests/"
+  - "*Tests/"
