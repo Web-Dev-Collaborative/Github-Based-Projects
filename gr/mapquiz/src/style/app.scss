@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  font-family: helvetica, arial;
+  background-color: #49a8fd;
+}
+
+
+// vendor
+@import '../vendor/leaflet/leaflet.css';
+@import '../vendor/animate.css/animate.css';
+
+// app
+@import 'views/map';
+@import 'views/controls';
+@import 'views/answer';

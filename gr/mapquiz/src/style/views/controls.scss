@@ -1,0 +1,60 @@
+@import "compass";
+
+#controls svg {
+  z-index: 2;
+  position: fixed;
+  bottom: -3px;
+  right: -3px;
+  height: 200px;
+  width: 240px;
+  pointer-events: none;
+
+  // prevent anything from being selected
+  // on touch & hold
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  g {
+    cursor: pointer;
+    pointer-events: all;
+
+    path {
+      fill: #fff;
+      fill-opacity: 0.3;
+    }
+    path, text {
+      transition-property: fill, fill-opacity;
+      transition-duration: 0.3s;
+    }
+    &:hover path {
+      fill-opacity:0.5;
+    }
+
+    text {
+      fill: #fff;
+      font-size: 70px;
+    }
+
+    &.incorrect {
+      pointer-events: none;
+
+      path, text {
+        fill-opacity: 0.1;
+      }
+    }
+
+    &.correct path {
+      fill-opacity: 0.6;
+    }
+  }
+
+
+
+  text {
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "lambda-shell-commands",
+  "version": "1.0.0",
+  "description": "AWS Lambda shell commands in $PATH available to runtime subprocesses",
+  "scripts": {
+    "lint": "eslint . --fix",
+    "test": "npm run lint",
+    "start": "NODE_ENV=testing npx sandbox",
+    "before": "scripts/before.js",
+    "update": "scripts/update.js",
+    "after": "scripts/after.js",
+    "publish": "npm run before && npm run update && npm run after",
+    "publish:local": "ARC_LOCAL=true npm run publish"
+  },
+  "keywords": [
+    "Amazon",
+    "AWS Lambda",
+    "AWS",
+    "cloud functions",
+    "Cloud",
+    "Lambda",
+    "serverless"
+  ],
+  "author": "Ryan Block <hello@ryanblock.com>",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/ryanblock/lambda-shell-commands",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanblock/lambda-shell-commands.git"
+  },
+  "dependencies": {
+    "@architect/architect": "^7.0.5",
+    "@octokit/rest": "^16.43.2",
+    "tiny-json-http": "^7.3.0"
+  },
+  "devDependencies": {
+    "@ryanblock/eslint-config": "^1.0.0",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.10.0"
+  },
+  "eslintConfig": {
+    "extends": "@ryanblock/eslint-config"
+  }
+}
