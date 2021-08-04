@@ -7,8 +7,8 @@ into the Octokit source without having the repository on your local machine.
 
 To enable this, you need to enable this in VS:
 
- - From the top **Tools** menu, select **Options**
- - Select **Debugging** from the left sidebar and expand **General**
+- From the top **Tools** menu, select **Options**
+- Select **Debugging** from the left sidebar and expand **General**
 
 Ensure you have checked **Enable source server support**:
 
@@ -22,7 +22,7 @@ with a specific type, and cache it in your local symbols cache.
 
 ![F11 step into symbol](https://cloud.githubusercontent.com/assets/359239/5389259/74600502-8149-11e4-94f7-10dc79a0573f.gif)
 
-You can then set subsequent breakpoints inside the source code, to return to 
+You can then set subsequent breakpoints inside the source code, to return to
 in the debugging session.
 
 ### Acknowledgements

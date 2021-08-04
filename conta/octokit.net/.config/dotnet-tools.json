@@ -4,15 +4,11 @@
   "tools": {
     "sourcelink": {
       "version": "3.1.1",
-      "commands": [
-        "sourcelink"
-      ]
+      "commands": ["sourcelink"]
     },
     "dotnet-format": {
       "version": "3.3.111304",
-      "commands": [
-        "dotnet-format"
-      ]
+      "commands": ["dotnet-format"]
     }
   }
 }

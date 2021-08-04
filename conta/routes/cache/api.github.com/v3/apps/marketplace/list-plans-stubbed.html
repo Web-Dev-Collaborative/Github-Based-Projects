@@ -1,16 +1,37 @@
 <h2>
-<a id="list-plans-stubbed" class="anchor" href="#list-plans-stubbed" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List plans (stubbed)</h2>
+  <a
+    id="list-plans-stubbed"
+    class="anchor"
+    href="#list-plans-stubbed"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >List plans (stubbed)
+</h2>
 <p>Lists all plans that are part of your GitHub Marketplace listing.</p>
-<p>GitHub Apps must use a <a href="/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app">JWT</a> to access this endpoint. OAuth Apps must use <a href="/v3/auth/#basic-authentication">basic authentication</a> with their client ID and client secret to access this endpoint.</p>
+<p>
+  GitHub Apps must use a
+  <a
+    href="/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app"
+    >JWT</a
+  >
+  to access this endpoint. OAuth Apps must use
+  <a href="/v3/auth/#basic-authentication">basic authentication</a> with their
+  client ID and client secret to access this endpoint.
+</p>
 <pre><code>GET /marketplace_listing/stubbed/plans
 </code></pre>
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-1" class="anchor" href="#response-1" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 Link: &lt;https://api.github.com/resource?page=2&gt;; rel=&quot;next&quot;,
       &lt;https://api.github.com/resource?page=5&gt;; rel=&quot;last&quot;
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/marketplace_listing/plans/1313&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nt">&quot;accounts_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/marketplace_listing/plans/1313/accounts&quot;</span><span class="p">,</span><span class="w">

@@ -36,7 +36,7 @@
     "@octokit/auth-app": "^2.1.2",
     "@octokit/core": "^3.0.0",
     "@octokit/plugin-paginate-rest": "^2.0.0",
-    "cheerio": "^1.0.0-rc.2",
+    "cheerio": "^1.0.0-rc.10",
     "execa": "^4.0.0",
     "fs-extra": "^9.0.0",
     "generate-schema": "^2.6.0",

@@ -32,12 +32,12 @@ Each of these methods has an overload which takes a parameter to filter results.
 
 The simplest request is `IssueRequest` which has these options:
 
- - `Filter` - specify which issues to display - by default it will display issues assigned to you
- - `State` - by default it will display open issues, you can specify closed or all issues
- - `Labels` - specify a set of labels to include
- - `SortProperty` - sort by when the issue was created, when it was updated, or comment count
- - `SortDirection` - whether to sort in ascending or descending fashion
- - `Since` - ignore issues before a specific date
+- `Filter` - specify which issues to display - by default it will display issues assigned to you
+- `State` - by default it will display open issues, you can specify closed or all issues
+- `Labels` - specify a set of labels to include
+- `SortProperty` - sort by when the issue was created, when it was updated, or comment count
+- `SortDirection` - whether to sort in ascending or descending fashion
+- `Since` - ignore issues before a specific date
 
 For example, this is how you could find all issues updated in the past two weeks:
 
@@ -53,10 +53,10 @@ var issues = await client.Issue.GetAllForCurrent(recently);
 
 `RepositoryIssueRequest` extends `IssueRequest` and adds these options:
 
- - `Milestone` - use `*` for any issue in a milestone, "none" for issues not assigned to a milestone
- - `Assignee` - specify the GitHub username, or "none" for unassigned issues
- - `Creator` - specify the GitHub username
- - `Mentioned` - specify the GitHub username
+- `Milestone` - use `*` for any issue in a milestone, "none" for issues not assigned to a milestone
+- `Assignee` - specify the GitHub username, or "none" for unassigned issues
+- `Creator` - specify the GitHub username
+- `Mentioned` - specify the GitHub username
 
 For example, to find all issues which need to be prioritized:
 
@@ -84,10 +84,10 @@ var issue = await client.Issue.Create("owner", "name", createIssue);
 
 There's also a number of additional fields:
 
- - `Body` - details about the issue (Markdown)
- - `Assignee` - the GitHub user to associate with the issue
- - `Milestone` - the milestone id to assign the issue to
- - `Labels` - a collection of labels to assign to the issue
+- `Body` - details about the issue (Markdown)
+- `Assignee` - the GitHub user to associate with the issue
+- `Milestone` - the milestone id to assign the issue to
+- `Labels` - a collection of labels to assign to the issue
 
 Note that `Milestones` and `Labels` need to exist in the repository before
 creating the issue. Refer to the [Milestones](https://github.com/octokit/octokit.net/blob/main/docs/milestones.md)
@@ -112,11 +112,11 @@ var update = issue.ToUpdate();
 This creates an `IssueUpdate` which lets you specify the necessary changes.
 Label changes probably requires some explanation:
 
- - by default, no labels are set in an `IssueUpdate` - this is to indicate
-   to the server that no change is necessary when doing the update
- - to set a new label as part of the update, call `AddLabel()` specifying
-   the name of the new label
- - to remove all labels as part of the update, call `ClearLabels()`
+- by default, no labels are set in an `IssueUpdate` - this is to indicate
+  to the server that no change is necessary when doing the update
+- to set a new label as part of the update, call `AddLabel()` specifying
+  the name of the new label
+- to remove all labels as part of the update, call `ClearLabels()`
 
 If you're trying to populate the `Labels` collection by hand, you might hit
 some exceptional behaviour due to these rules.

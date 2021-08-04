@@ -1,0 +1,37 @@
+<% layout('layout') -%>
+<link rel='stylesheet' href='/stylesheets/tutorial.css' />
+<script type="text/javascript" charset="utf-8" src="/vendor/jquery/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="/vendor/jquery-ui/ui/minified/jquery-ui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/javascripts/tutorial.js"></script>
+<div class="top-line"></div>
+<div id="home-mozilla">
+	<a href="http://www.mozilla.org"><img src="images/mozilla.png"></a>
+</div>
+<div class="home-logo">
+	<img src="images/chef-man.png">
+	<div class="app-logo">
+		<%- gettext("app-logo") %>
+	</div>
+	<div class="home-sub">
+		<%- gettext("home-sub") %>
+	</div>
+</div>
+<div class="home-container clearfix">
+	<div class="home-left">
+		<div class="explanation">
+			<%- gettext("explanation") %>
+		</div>
+			  <button class="btn-std btn-start-app" onclick="window.location='/<%- localeInfo.lang %>/designer'">
+  		<%- gettext("Build App") %>
+		</button>
+		<a href="https://github.com/mozilla/appmaker" target="_blank"><div class="github"></div></a>
+		<a href="https://twitter.com/MozillaAppmaker" target="_blank"><div class="twitter"></div></a>
+	</div>
+	<div class="home-right">
+		<div class="right-inner">
+			<div class="video-splash">
+				<iframe src="//www.youtube.com/embed/RaRIdLgZTPI?html5=1" width="960" height="540" frameborder="0"></iframe>
+			</div>
+		</div>
+	</div>
+</div>

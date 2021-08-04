@@ -1,16 +1,38 @@
 <h2>
-<a id="list-assignees" class="anchor" href="#list-assignees" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List assignees<a href="/enterprise/2.18/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="list-assignees"
+    class="anchor"
+    href="#list-assignees"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >List assignees<a
+    href="/enterprise/2.18/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
-<p>Lists the <a href="https://help.github.com/articles/assigning-issues-and-pull-requests-to-other-github-users/">available assignees</a> for issues in a repository.</p>
+<p>
+  Lists the
+  <a
+    href="https://help.github.com/articles/assigning-issues-and-pull-requests-to-other-github-users/"
+    >available assignees</a
+  >
+  for issues in a repository.
+</p>
 <pre><code>GET /repos/:owner/:repo/assignees
 </code></pre>
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response" class="anchor" href="#response" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 Link: &lt;https://api.github.com/resource?page=2&gt;; rel=&quot;next&quot;,
       &lt;https://api.github.com/resource?page=5&gt;; rel=&quot;last&quot;
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;octocat&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">

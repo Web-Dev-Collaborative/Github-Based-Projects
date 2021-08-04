@@ -8,8 +8,8 @@ To retrieve all releases for a repository:
 var releases = await client.Repository.Release.GetAll("octokit", "octokit.net");
 var latest = releases[0];
 Console.WriteLine(
-    "The latest release is tagged at {0} and is named {1}", 
-    latest.TagName, 
+    "The latest release is tagged at {0} and is named {1}",
+    latest.TagName,
     latest.Name);
 ```
 
@@ -49,7 +49,7 @@ If you have any assets to include with the release, you can upload them after cr
 
 ```csharp
 using(var archiveContents = File.OpenRead("output.zip")) { // TODO: better sample
-    var assetUpload = new ReleaseAssetUpload() 
+    var assetUpload = new ReleaseAssetUpload()
     {
          FileName = "my-cool-project-1.0.zip",
          ContentType = "application/zip",

@@ -1,50 +1,80 @@
 <h2>
-<a id="merge-a-branch" class="anchor" href="#merge-a-branch" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Merge a branch<a href="/enterprise/2.19/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="merge-a-branch"
+    class="anchor"
+    href="#merge-a-branch"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Merge a branch<a
+    href="/enterprise/2.19/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
 <pre><code>POST /repos/:owner/:repo/merges
 </code></pre>
 <h3>
-<a id="input" class="anchor" href="#input" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Input</h3>
+  <a id="input" class="anchor" href="#input" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Input
+</h3>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>base</code></td>
-<td><code>string</code></td>
-<td>
-<strong>Required</strong>. The name of the base branch that the head will be merged into.</td>
-</tr>
-<tr>
-<td><code>head</code></td>
-<td><code>string</code></td>
-<td>
-<strong>Required</strong>. The head to merge. This can be a branch name or a commit SHA1.</td>
-</tr>
-<tr>
-<td><code>commit_message</code></td>
-<td><code>string</code></td>
-<td>Commit message to use for the merge commit. If omitted, a default message will be used.</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>base</code></td>
+      <td><code>string</code></td>
+      <td>
+        <strong>Required</strong>. The name of the base branch that the head
+        will be merged into.
+      </td>
+    </tr>
+    <tr>
+      <td><code>head</code></td>
+      <td><code>string</code></td>
+      <td>
+        <strong>Required</strong>. The head to merge. This can be a branch name
+        or a commit SHA1.
+      </td>
+    </tr>
+    <tr>
+      <td><code>commit_message</code></td>
+      <td><code>string</code></td>
+      <td>
+        Commit message to use for the merge commit. If omitted, a default
+        message will be used.
+      </td>
+    </tr>
+  </tbody>
 </table>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;base&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;master&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;head&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cool_feature&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;commit_message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Shipped cool_feature!&quot;</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3>
-<a id="successful-response-the-resulting-merge-commit" class="anchor" href="#successful-response-the-resulting-merge-commit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Successful Response <em>(The resulting merge commit)</em>
+  <a
+    id="successful-response-the-resulting-merge-commit"
+    class="anchor"
+    href="#successful-response-the-resulting-merge-commit"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Successful Response <em>(The resulting merge commit)</em>
 </h3>
 <pre class="highlight highlight-headers"><code>Status: 201 Created
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;sha&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7fd1a60b01f91b314f59955a4e4d4e80d8edf11d&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MDY6Q29tbWl0N2ZkMWE2MGIwMWY5MWIzMTRmNTk5NTVhNGU0ZDRlODBkOGVkZjExZA==&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;commit&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -128,30 +158,64 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3>
-<a id="no-op-response-base-already-contains-the-head-nothing-to-merge" class="anchor" href="#no-op-response-base-already-contains-the-head-nothing-to-merge" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>No-op response (base already contains the head, nothing to merge)</h3>
+  <a
+    id="no-op-response-base-already-contains-the-head-nothing-to-merge"
+    class="anchor"
+    href="#no-op-response-base-already-contains-the-head-nothing-to-merge"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >No-op response (base already contains the head, nothing to merge)
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 204 No Content
 </code></pre>
 <h3>
-<a id="merge-conflict-response" class="anchor" href="#merge-conflict-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Merge conflict response</h3>
+  <a
+    id="merge-conflict-response"
+    class="anchor"
+    href="#merge-conflict-response"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Merge conflict response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 409 Conflict
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Merge Conflict&quot;</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3>
-<a id="missing-base-response" class="anchor" href="#missing-base-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Missing base response</h3>
+  <a
+    id="missing-base-response"
+    class="anchor"
+    href="#missing-base-response"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Missing base response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 404 Not Found
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Base does not exist&quot;</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3>
-<a id="missing-head-response" class="anchor" href="#missing-head-response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Missing head response</h3>
+  <a
+    id="missing-head-response"
+    class="anchor"
+    href="#missing-head-response"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Missing head response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 404 Not Found
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Head does not exist&quot;</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>

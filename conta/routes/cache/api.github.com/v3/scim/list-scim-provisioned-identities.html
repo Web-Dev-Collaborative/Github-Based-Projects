@@ -1,50 +1,89 @@
 <h2>
-<a id="list-scim-provisioned-identities" class="anchor" href="#list-scim-provisioned-identities" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List SCIM provisioned identities<a href="/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="list-scim-provisioned-identities"
+    class="anchor"
+    href="#list-scim-provisioned-identities"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >List SCIM provisioned identities<a
+    href="/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
 <pre><code>GET /scim/v2/organizations/:org/Users
 </code></pre>
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+  <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Parameters
+</h3>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>startIndex</code></td>
-<td><code>integer</code></td>
-<td>Used for pagination: the index of the first result to return.</td>
-</tr>
-<tr>
-<td><code>count</code></td>
-<td><code>integer</code></td>
-<td>Used for pagination: the number of results to return.</td>
-</tr>
-<tr>
-<td><code>filter</code></td>
-<td><code>string</code></td>
-<td>Filters results using the equals query parameter operator (<code>eq</code>). You can filter results that are equal to <code>id</code>, <code>userName</code>, <code>emails</code>, and <code>external_id</code>. For example, to search for an identity with the <code>userName</code> Octocat, you would use this query: <code>?filter=userName%20eq%20\&quot;Octocat\&quot;</code>.</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>startIndex</code></td>
+      <td><code>integer</code></td>
+      <td>Used for pagination: the index of the first result to return.</td>
+    </tr>
+    <tr>
+      <td><code>count</code></td>
+      <td><code>integer</code></td>
+      <td>Used for pagination: the number of results to return.</td>
+    </tr>
+    <tr>
+      <td><code>filter</code></td>
+      <td><code>string</code></td>
+      <td>
+        Filters results using the equals query parameter operator
+        (<code>eq</code>). You can filter results that are equal to
+        <code>id</code>, <code>userName</code>, <code>emails</code>, and
+        <code>external_id</code>. For example, to search for an identity with
+        the <code>userName</code> Octocat, you would use this query:
+        <code>?filter=userName%20eq%20\&quot;Octocat\&quot;</code>.
+      </td>
+    </tr>
+  </tbody>
 </table>
 <h3>
-<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
-<p>To filter for a specific email address, use the <code>email</code> query parameter and the <code>eq</code> operator:</p>
+  <a id="example" class="anchor" href="#example" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Example
+</h3>
+<p>
+  To filter for a specific email address, use the <code>email</code> query
+  parameter and the <code>eq</code> operator:
+</p>
 <pre><code>GET /scim/v2/organizations/:org/Users?filter=emails eq user@example.com
 </code></pre>
 <p>Your filter would look like this cURL command:</p>
-<pre class="command-line">curl -u octocat:$token https://api.github.com/scim/v2/organizations/octo-org/Users?filter=emails%20eq%20\&quot;octocat@github.com\&quot;
+<pre class="command-line">
+curl -u octocat:$token https://api.github.com/scim/v2/organizations/octo-org/Users?filter=emails%20eq%20\&quot;octocat@github.com\&quot;
 </pre>
 <h3>
-<a id="response-with-filter" class="anchor" href="#response-with-filter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response with filter</h3>
-<p>Retrieves users that match the filter. In the example, we searched only for <a href="mailto:octocat@github.com">octocat@github.com</a>.</p>
+  <a
+    id="response-with-filter"
+    class="anchor"
+    href="#response-with-filter"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response with filter
+</h3>
+<p>
+  Retrieves users that match the filter. In the example, we searched only for
+  <a href="mailto:octocat@github.com">octocat@github.com</a>.
+</p>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;schemas&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">&quot;urn:ietf:params:scim:api:messages:2.0:ListResponse&quot;</span><span class="w">
   </span><span class="p">],</span><span class="w">
@@ -82,11 +121,23 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3>
-<a id="response-without-filter" class="anchor" href="#response-without-filter" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response without filter</h3>
-<p>Retrieves a paginated list of all provisioned organization members, including pending invitations.</p>
+  <a
+    id="response-without-filter"
+    class="anchor"
+    href="#response-without-filter"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response without filter
+</h3>
+<p>
+  Retrieves a paginated list of all provisioned organization members, including
+  pending invitations.
+</p>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;schemas&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">&quot;urn:ietf:params:scim:api:messages:2.0:ListResponse&quot;</span><span class="w">
   </span><span class="p">],</span><span class="w">

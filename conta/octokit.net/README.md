@@ -25,8 +25,8 @@ Console.WriteLine(user.Followers + " folks love the half ogre!");
 
 ## Supported Platforms
 
-* .NET 4.6 (Desktop / Server) or greater
-* [.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) or greater
+- .NET 4.6 (Desktop / Server) or greater
+- [.NET Standard 2.0](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) or greater
 
 ## Getting Started
 
@@ -42,12 +42,12 @@ There is also an IObservable based GitHub API client library for .NET using Reac
 dotnet add package Octokit.Reactive
 ```
 
+### Beta packages
 
-### Beta packages ###
 Unstable NuGet packages that track the master branch of this repository are available at
 [https://ci.appveyor.com/nuget/octokit-net](https://ci.appveyor.com/nuget/octokit-net)
 
-In Xamarin Studio you can find this option under the project's context menu: **Add | Add Packages...***.
+In Xamarin Studio you can find this option under the project's context menu: **Add | Add Packages...\***.
 
 ## Documentation
 
@@ -87,18 +87,18 @@ a new one. If you're pressed for time, log it anyways.
 
 When creating an issue, clearly explain
 
-* What you were trying to do.
-* What you expected to happen.
-* What actually happened.
-* Steps to reproduce the problem.
+- What you were trying to do.
+- What you expected to happen.
+- What actually happened.
+- Steps to reproduce the problem.
 
 Also include any other information you think is relevant to reproduce the
 problem.
 
 ## Related Projects
 
- - [ScriptCs.OctoKit](https://github.com/hnrkndrssn/ScriptCs.OctoKit) - a [script pack](https://github.com/scriptcs/scriptcs/wiki/Script-Packs) to use Octokit in scriptcs
- - [ScriptCs.OctokitLibrary](https://github.com/ryanrousseau/ScriptCs.OctokitLibrary) - a [script library](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries) to use Octokit in scriptcs
+- [ScriptCs.OctoKit](https://github.com/hnrkndrssn/ScriptCs.OctoKit) - a [script pack](https://github.com/scriptcs/scriptcs/wiki/Script-Packs) to use Octokit in scriptcs
+- [ScriptCs.OctokitLibrary](https://github.com/ryanrousseau/ScriptCs.OctokitLibrary) - a [script library](https://github.com/scriptcs/scriptcs/wiki/Script-Libraries) to use Octokit in scriptcs
 
 ## Copyright and License
 

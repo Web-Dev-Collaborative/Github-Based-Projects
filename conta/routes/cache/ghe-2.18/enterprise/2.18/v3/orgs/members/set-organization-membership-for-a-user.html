@@ -1,33 +1,59 @@
 <h2>
-<a id="set-organization-membership-for-a-user" class="anchor" href="#set-organization-membership-for-a-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Set organization membership for a user<a href="/enterprise/2.18/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="set-organization-membership-for-a-user"
+    class="anchor"
+    href="#set-organization-membership-for-a-user"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Set organization membership for a user<a
+    href="/enterprise/2.18/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
-<p>Only authenticated organization owners can add a member to the organization or update the member&apos;s role.</p>
+<p>
+  Only authenticated organization owners can add a member to the organization or
+  update the member&apos;s role.
+</p>
 <pre><code>PUT /orgs/:org/memberships/:username
 </code></pre>
 <h3>
-<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+  <a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Parameters
+</h3>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>role</code></td>
-<td><code>string</code></td>
-<td>The role to give the user in the organization. Can be one of:<br> * <code>admin</code> - The user will become an owner of the organization.<br> * <code>member</code> - The user will become a non-owner member of the organization.<br><br>Default: <code>member</code>
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>role</code></td>
+      <td><code>string</code></td>
+      <td>
+        The role to give the user in the organization. Can be one of:<br />
+        * <code>admin</code> - The user will become an owner of the
+        organization.<br />
+        * <code>member</code> - The user will become a non-owner member of the
+        organization.<br /><br />Default: <code>member</code>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <h3>
-<a id="response-5" class="anchor" href="#response-5" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-5" class="anchor" href="#response-5" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/orgs/octocat/memberships/defunkt&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;role&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w">

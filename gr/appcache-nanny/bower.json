@@ -1,0 +1,22 @@
+{
+  "name": "appcache-nanny",
+  "authors": [
+    "Gregor Martynus <gregor@martynus.net>"
+  ],
+  "description": "Teaches the applicationCache douchebag some manners!",
+  "main": "appcache-nanny.js",
+  "keywords": [
+    "appcache",
+    "Auto Updates for Offline First Applications",
+    "offline"
+  ],
+  "license": "MIT",
+  "homepage": "http://gr2m.github.io/appcache-nanny",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

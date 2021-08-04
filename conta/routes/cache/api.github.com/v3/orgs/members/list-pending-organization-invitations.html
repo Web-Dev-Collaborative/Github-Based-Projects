@@ -1,16 +1,38 @@
 <h2>
-<a id="list-pending-organization-invitations" class="anchor" href="#list-pending-organization-invitations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List pending organization invitations<a href="/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="list-pending-organization-invitations"
+    class="anchor"
+    href="#list-pending-organization-invitations"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >List pending organization invitations<a
+    href="/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
-<p>The return hash contains a <code>role</code> field which refers to the Organization Invitation role and will be one of the following values: <code>direct_member</code>, <code>admin</code>, <code>billing_manager</code>,  <code>hiring_manager</code>, or <code>reinstate</code>. If the invitee is not a GitHub member, the <code>login</code> field in the return hash will be <code>null</code>.</p>
+<p>
+  The return hash contains a <code>role</code> field which refers to the
+  Organization Invitation role and will be one of the following values:
+  <code>direct_member</code>, <code>admin</code>, <code>billing_manager</code>,
+  <code>hiring_manager</code>, or <code>reinstate</code>. If the invitee is not
+  a GitHub member, the <code>login</code> field in the return hash will be
+  <code>null</code>.
+</p>
 <pre><code>GET /orgs/:org/invitations
 </code></pre>
 <h3>
-<a id="response-7" class="anchor" href="#response-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-7" class="anchor" href="#response-7" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 Link: &lt;https://api.github.com/resource?page=2&gt;; rel=&quot;next&quot;,
       &lt;https://api.github.com/resource?page=5&gt;; rel=&quot;last&quot;
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;monalisa&quot;</span><span class="p">,</span><span class="w">

@@ -1,18 +1,38 @@
 <h2>
-<a id="get-access-restrictions" class="anchor" href="#get-access-restrictions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get access restrictions<a href="/enterprise/2.19/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="get-access-restrictions"
+    class="anchor"
+    href="#get-access-restrictions"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Get access restrictions<a
+    href="/enterprise/2.19/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
-<div class="alert product"><p>
-Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. 
-</p></div>
+<div class="alert product">
+  <p>
+    Protected branches are available in public repositories with GitHub Free and
+    GitHub Free for organizations, and in public and private repositories with
+    GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise
+    Server.
+  </p>
+</div>
 <p>Lists who has access to this protected branch.</p>
 <div class="alert note">
-<p><strong>Note</strong>: Users, apps, and teams <code>restrictions</code> are only available for organization-owned repositories.</p>
+  <p>
+    <strong>Note</strong>: Users, apps, and teams <code>restrictions</code> are
+    only available for organization-owned repositories.
+  </p>
 </div>
 <pre><code>GET /repos/:owner/:repo/branches/:branch/protection/restrictions
 </code></pre>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/octocat/Hello-World/branches/master/protection/restrictions&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;users_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/octocat/Hello-World/branches/master/protection/restrictions/users&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;teams_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/octocat/Hello-World/branches/master/protection/restrictions/teams&quot;</span><span class="p">,</span><span class="w">

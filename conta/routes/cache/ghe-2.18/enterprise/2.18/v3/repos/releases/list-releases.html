@@ -1,22 +1,40 @@
 <h2>
-<a id="list-releases" class="anchor" href="#list-releases" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List releases<a href="/enterprise/2.18/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a id="list-releases" class="anchor" href="#list-releases" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >List releases<a
+    href="/enterprise/2.18/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
 <div class="alert tip">
-<p>This returns a list of releases, which does not include regular
-Git tags that have not been associated with a release.
-To get a list of Git tags, use the <a href="/enterprise/2.18/v3/repos/#list-repository-tags">Repository Tags API</a>.</p>
+  <p>
+    This returns a list of releases, which does not include regular Git tags
+    that have not been associated with a release. To get a list of Git tags, use
+    the
+    <a href="/enterprise/2.18/v3/repos/#list-repository-tags"
+      >Repository Tags API</a
+    >.
+  </p>
 </div>
-<p>Information about published releases are available to everyone.
-Only users with push access will receive listings for draft releases.</p>
+<p>
+  Information about published releases are available to everyone. Only users
+  with push access will receive listings for draft releases.
+</p>
 <pre><code>GET /repos/:owner/:repo/releases
 </code></pre>
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response" class="anchor" href="#response" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 Link: &lt;https://api.github.com/resource?page=2&gt;; rel=&quot;next&quot;,
       &lt;https://api.github.com/resource?page=5&gt;; rel=&quot;last&quot;
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/octocat/Hello-World/releases/1&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nt">&quot;html_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/octocat/Hello-World/releases/v1.0.0&quot;</span><span class="p">,</span><span class="w">

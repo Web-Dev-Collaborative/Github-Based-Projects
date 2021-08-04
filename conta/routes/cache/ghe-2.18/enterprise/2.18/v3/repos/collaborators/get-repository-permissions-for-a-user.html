@@ -1,14 +1,37 @@
 <h2>
-<a id="get-repository-permissions-for-a-user" class="anchor" href="#get-repository-permissions-for-a-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get repository permissions for a user<a href="/enterprise/2.18/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="get-repository-permissions-for-a-user"
+    class="anchor"
+    href="#get-repository-permissions-for-a-user"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Get repository permissions for a user<a
+    href="/enterprise/2.18/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
-<p>Checks the repository permission of a collaborator. The possible repository permissions are <code>admin</code>, <code>write</code>, <code>read</code>, and <code>none</code>.</p>
+<p>
+  Checks the repository permission of a collaborator. The possible repository
+  permissions are <code>admin</code>, <code>write</code>, <code>read</code>, and
+  <code>none</code>.
+</p>
 <pre><code>GET /repos/:owner/:repo/collaborators/:username/permission
 </code></pre>
 <h3>
-<a id="response-if-user-has-admin-permissions" class="anchor" href="#response-if-user-has-admin-permissions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response if user has admin permissions</h3>
+  <a
+    id="response-if-user-has-admin-permissions"
+    class="anchor"
+    href="#response-if-user-has-admin-permissions"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response if user has admin permissions
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;permission&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;user&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;octocat&quot;</span><span class="p">,</span><span class="w">

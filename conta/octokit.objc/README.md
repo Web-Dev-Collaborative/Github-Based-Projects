@@ -1,6 +1,7 @@
 **NOTE:** This repository is no longer supported or updated by GitHub. If you wish to continue to develop this code yourself, we recommend you fork it.
 
 # OctoKit
+
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 OctoKit is a Cocoa and Cocoa Touch framework for interacting with the [GitHub
@@ -15,10 +16,10 @@ In order to begin interacting with the API, you must instantiate an
 [OCTClient](OctoKit/OCTClient.h). There are two ways to create a client without
 [authenticating](#authentication):
 
- 1. `-initWithServer:` is the most basic way to initialize a client. It accepts
+1.  `-initWithServer:` is the most basic way to initialize a client. It accepts
     an [OCTServer](OctoKit/OCTServer.h), which determines whether to connect to
     GitHub.com or a [GitHub Enterprise](https://enterprise.github.com) instance.
- 1. `+unauthenticatedClientWithUser:` is similar, but lets you set an _active
+1.  `+unauthenticatedClientWithUser:` is similar, but lets you set an _active
     user_, which is required for certain requests.
 
 We'll focus on the second method, since we can do more with it. Let's create
@@ -336,21 +337,20 @@ in [GitHub for Mac](https://desktop.github.com/)'s production code.
 
 To add OctoKit to your application:
 
- 1. Add the OctoKit repository as a submodule of your application's
+1.  Add the OctoKit repository as a submodule of your application's
     repository.
- 1. Run `script/bootstrap` from within the OctoKit folder.
- 1. Drag and drop `OctoKit.xcodeproj`, `OctoKitDependencies.xcodeproj`,
+1.  Run `script/bootstrap` from within the OctoKit folder.
+1.  Drag and drop `OctoKit.xcodeproj`, `OctoKitDependencies.xcodeproj`,
     `ReactiveCocoa.xcodeproj`, and `Mantle.xcodeproj` into the top-level of your
     application's project file or workspace. The latter three projects can be
     found within the `External` folder.
- 1. On the "Build Phases" tab of your application target, add the following to the "Link Binary With Libraries" phase:
-    * **On iOS**, add the `.a` libraries for OctoKit, AFNetworking, and ISO8601DateFormatter.
-    * **On OS X**, add the `.framework` bundles for OctoKit, ReactiveCocoa, Mantle, AFNetworking, and ISO8601DateFormatter. All of the frames must also be
+1.  On the "Build Phases" tab of your application target, add the following to the "Link Binary With Libraries" phase:
+    - **On iOS**, add the `.a` libraries for OctoKit, AFNetworking, and ISO8601DateFormatter.
+    - **On OS X**, add the `.framework` bundles for OctoKit, ReactiveCocoa, Mantle, AFNetworking, and ISO8601DateFormatter. All of the frames must also be
       added to any ["Copy Frameworks"](#copying-the-frameworks) build phase.
- 1. Add `$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include
-    $(inherited)` to the "Header Search Paths" build setting (this is only
+1.  Add `$(BUILD_ROOT)/../IntermediateBuildFilesPath/UninstalledProducts/include $(inherited)` to the "Header Search Paths" build setting (this is only
     necessary for archive builds, but it has no negative effect otherwise).
- 1. **For iOS targets**, add `-ObjC` to the "Other Linker Flags" build setting.
+1.  **For iOS targets**, add `-ObjC` to the "Other Linker Flags" build setting.
 
 If you would prefer to use [CocoaPods](https://cocoapods.org/), there are some [OctoKit podspecs](https://github.com/CocoaPods/Specs/tree/master/Specs/OctoKit)
 that have been generously contributed by third parties.
@@ -361,16 +361,16 @@ If you’re developing OctoKit on its own, then use `OctoKit.xcworkspace`.
 
 _This is only needed **on OS X**._
 
- 1. Go to the "Build Phases" tab of your application target.
- 1. If you don't already have one, add a "Copy Files" build phase and target
+1.  Go to the "Build Phases" tab of your application target.
+1.  If you don't already have one, add a "Copy Files" build phase and target
     the "Frameworks" destination.
- 1. Drag `OctoKit.framework` from the OctoKit project’s `Products` Xcode group
+1.  Drag `OctoKit.framework` from the OctoKit project’s `Products` Xcode group
     into the "Copy Files" build phase you just created (or the one that you
     already had).
- 1. A reference to the framework will now appear at the top of your
+1.  A reference to the framework will now appear at the top of your
     application’s Xcode group, select it and show the "File Inspector".
- 1. Change the "Location" to "Relative to Build Products".
- 1. Now do the same (starting at step 2) for the frameworks within the External
+1.  Change the "Location" to "Relative to Build Products".
+1.  Now do the same (starting at step 2) for the frameworks within the External
     folder.
 
 ## License

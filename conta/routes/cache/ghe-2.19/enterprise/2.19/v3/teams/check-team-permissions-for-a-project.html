@@ -1,27 +1,67 @@
 <h2>
-<a id="check-team-permissions-for-a-project" class="anchor" href="#check-team-permissions-for-a-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Check team permissions for a project<a href="/enterprise/2.19/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="check-team-permissions-for-a-project"
+    class="anchor"
+    href="#check-team-permissions-for-a-project"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Check team permissions for a project<a
+    href="/enterprise/2.19/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
 <div class="alert note">
-<p><strong>Note:</strong> The Projects API is currently available for developers to preview. During the preview period, the API may change without advance notice. Please see the <a href="/changes/2016-10-27-changes-to-projects-api">blog post</a> for full details. To access the API during the preview period, you must provide a custom <a href="/enterprise/2.19/v3/media">media type</a> in the <code>Accept</code> header:</p>
-<pre><code>application/vnd.github.inertia-preview+json
+  <p>
+    <strong>Note:</strong> The Projects API is currently available for
+    developers to preview. During the preview period, the API may change without
+    advance notice. Please see the
+    <a href="/changes/2016-10-27-changes-to-projects-api">blog post</a> for full
+    details. To access the API during the preview period, you must provide a
+    custom <a href="/enterprise/2.19/v3/media">media type</a> in the
+    <code>Accept</code> header:
+  </p>
+  <pre><code>application/vnd.github.inertia-preview+json
 </code></pre>
 </div>
 <div class="alert note">
-<p><strong>Note:</strong> The Nested Teams API is currently available for developers to preview. See the <a href="/changes/2017-08-30-preview-nested-teams">blog post</a> for full details. To access the API, you must provide a custom <a href="/enterprise/2.19/v3/media">media type</a> in the <code>Accept</code> header:</p>
-<pre><code>application/vnd.github.hellcat-preview+json
+  <p>
+    <strong>Note:</strong> The Nested Teams API is currently available for
+    developers to preview. See the
+    <a href="/changes/2017-08-30-preview-nested-teams">blog post</a> for full
+    details. To access the API, you must provide a custom
+    <a href="/enterprise/2.19/v3/media">media type</a> in the
+    <code>Accept</code> header:
+  </p>
+  <pre><code>application/vnd.github.hellcat-preview+json
 </code></pre>
 </div>
 <div class="alert warning">
-<p><strong>Warning:</strong> The API may change without advance notice during the preview period. Preview features are not supported for production use. If you experience any issues, contact your GitHub Enterprise site administrator.</p>
+  <p>
+    <strong>Warning:</strong> The API may change without advance notice during
+    the preview period. Preview features are not supported for production use.
+    If you experience any issues, contact your GitHub Enterprise site
+    administrator.
+  </p>
 </div>
-<p>Checks whether a team has <code>read</code>, <code>write</code>, or <code>admin</code> permissions for an organization project.  If you pass the <code>hellcat-preview</code> media type, the response will include  projects inherited from a parent team.</p>
+<p>
+  Checks whether a team has <code>read</code>, <code>write</code>, or
+  <code>admin</code> permissions for an organization project. If you pass the
+  <code>hellcat-preview</code> media type, the response will include projects
+  inherited from a parent team.
+</p>
 <pre><code>GET /teams/:team_id/projects/:project_id
 </code></pre>
 <h3>
-<a id="response-11" class="anchor" href="#response-11" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-11" class="anchor" href="#response-11" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;owner_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/orgs/octocat&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/projects/1002605&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;html_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/orgs/api-playground/projects/1&quot;</span><span class="p">,</span><span class="w">
@@ -64,6 +104,13 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3>
-<a id="response-if-project-is-not-managed-by-this-team" class="anchor" href="#response-if-project-is-not-managed-by-this-team" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response if project is not managed by this team</h3>
+  <a
+    id="response-if-project-is-not-managed-by-this-team"
+    class="anchor"
+    href="#response-if-project-is-not-managed-by-this-team"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response if project is not managed by this team
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 404 Not Found
 </code></pre>

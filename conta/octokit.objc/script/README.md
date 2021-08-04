@@ -2,8 +2,8 @@
 
 This project is a collection of scripts created with two goals:
 
- 1. To standardize how Objective-C projects are bootstrapped after cloning
- 1. To easily build Objective-C projects on continuous integration servers
+1.  To standardize how Objective-C projects are bootstrapped after cloning
+1.  To easily build Objective-C projects on continuous integration servers
 
 ## Scripts
 

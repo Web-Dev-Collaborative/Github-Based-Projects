@@ -1,15 +1,30 @@
 <h2>
-<a id="list-release-assets" class="anchor" href="#list-release-assets" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List release assets<a href="/enterprise/2.19/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="list-release-assets"
+    class="anchor"
+    href="#list-release-assets"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >List release assets<a
+    href="/enterprise/2.19/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
 <pre><code>GET /repos/:owner/:repo/releases/:release_id/assets
 </code></pre>
 <h3>
-<a id="response-7" class="anchor" href="#response-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-7" class="anchor" href="#response-7" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 Link: &lt;https://api.github.com/resource?page=2&gt;; rel=&quot;next&quot;,
       &lt;https://api.github.com/resource?page=5&gt;; rel=&quot;last&quot;
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/octocat/Hello-World/releases/assets/1&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nt">&quot;browser_download_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/octocat/Hello-World/releases/download/v1.0.0/example.zip&quot;</span><span class="p">,</span><span class="w">

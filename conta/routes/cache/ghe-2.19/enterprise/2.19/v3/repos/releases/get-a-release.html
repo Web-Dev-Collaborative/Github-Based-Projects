@@ -1,17 +1,32 @@
 <h2>
-<a id="get-a-release" class="anchor" href="#get-a-release" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get a release<a href="/enterprise/2.19/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a id="get-a-release" class="anchor" href="#get-a-release" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Get a release<a
+    href="/enterprise/2.19/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
 <pre><code>GET /repos/:owner/:repo/releases/:release_id
 </code></pre>
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-1" class="anchor" href="#response-1" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <div class="alert tip">
-<p><a id="releases-hypermedia-url"></a></p>
-<p><strong>Note:</strong> This returns an <code>upload_url</code> key corresponding to the endpoint for uploading release assets. This key is a <a href="/enterprise/2.19/v3/#hypermedia">hypermedia resource</a>.</p>
+  <p><a id="releases-hypermedia-url"></a></p>
+  <p>
+    <strong>Note:</strong> This returns an <code>upload_url</code> key
+    corresponding to the endpoint for uploading release assets. This key is a
+    <a href="/enterprise/2.19/v3/#hypermedia">hypermedia resource</a>.
+  </p>
 </div>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/octocat/Hello-World/releases/1&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;html_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/octocat/Hello-World/releases/v1.0.0&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;assets_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/octocat/Hello-World/releases/1/assets&quot;</span><span class="p">,</span><span class="w">

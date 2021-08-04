@@ -3,10 +3,10 @@
 You can use Octokit to search for different sorts of data available
 on the GitHub or GitHub Enterprise server:
 
- - issues
- - repositories
- - code
- - users
+- issues
+- repositories
+- code
+- users
 
 ## Search Issues
 

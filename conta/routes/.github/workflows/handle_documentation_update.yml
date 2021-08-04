@@ -2,7 +2,7 @@ name: Handle documentation update
 on:
   repository_dispatch:
     types: [documentation_update]
-    
+
 jobs:
   update_routes:
     runs-on: ubuntu-latest

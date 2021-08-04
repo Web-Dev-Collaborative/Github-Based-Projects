@@ -15,7 +15,7 @@ var tag = new NewTag {
         Name = "Brendan Forster",
         Email = "brendan@github.com",
         Date = DateTime.UtcNow
-    }	
+    }
 };
 var result = await client.Git.Tag.Create("octokit", "octokit.net", tag);
 Console.WriteLine("Created a tag for {0} at {1}", result.Tag, result.Sha);

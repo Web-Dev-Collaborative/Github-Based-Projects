@@ -11,9 +11,9 @@
     "content": "dGhlIGJhc2U2NCBlbmNvZGVkIGRhdGHigKY=",
     "encoding": "base64",
     "_links": {
-        "self": "https://api.github.com/repos/octokit/octokit.objc/contents/README.md?ref=master",
-        "git": "https://api.github.com/repos/octokit/octokit.objc/git/blobs/2eee5e61e61bec2346fd40d56719c2f28f5e0fc3",
-        "html": "https://github.com/octokit/octokit.objc/blob/master/README.md"
+      "self": "https://api.github.com/repos/octokit/octokit.objc/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/octokit/octokit.objc/git/blobs/2eee5e61e61bec2346fd40d56719c2f28f5e0fc3",
+      "html": "https://github.com/octokit/octokit.objc/blob/master/README.md"
     }
   },
   {

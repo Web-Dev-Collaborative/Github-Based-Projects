@@ -1,15 +1,35 @@
 <h2>
-<a id="get-the-latest-release" class="anchor" href="#get-the-latest-release" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get the latest release<a href="/enterprise/2.18/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="get-the-latest-release"
+    class="anchor"
+    href="#get-the-latest-release"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Get the latest release<a
+    href="/enterprise/2.18/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
 <p>View the latest published full release for the repository.</p>
-<p>The latest release is the most recent non-prerelease, non-draft  release, sorted by the <code>created_at</code> attribute. The <code>created_at</code> attribute is the date of the commit used for the release, and not the date when the release was drafted or published.</p>
+<p>
+  The latest release is the most recent non-prerelease, non-draft release,
+  sorted by the <code>created_at</code> attribute. The
+  <code>created_at</code> attribute is the date of the commit used for the
+  release, and not the date when the release was drafted or published.
+</p>
 <pre><code>GET /repos/:owner/:repo/releases/latest
 </code></pre>
 <h3>
-<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-2" class="anchor" href="#response-2" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/octocat/Hello-World/releases/1&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;html_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://github.com/octocat/Hello-World/releases/v1.0.0&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;assets_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/octocat/Hello-World/releases/1/assets&quot;</span><span class="p">,</span><span class="w">

@@ -1,4 +1,5 @@
 ### Creating new pull request from a fork
+
 **Scenario:**  
 Creating a pull request from a fork/branch (head) and pulling into octokit.net/main (base)  
 When you are opening a PR against a repository within an organization, owner is the name of the organization
@@ -6,7 +7,7 @@ In this scenario as we are merging to octokit/octokit.net:main, owner=octokit
 
 ```csharp
 public async Task CreatePullRequestFromFork()
-{   
+{
     GitHubClient ghClient = new GitHubClient(new ProductHeaderValue("MyLib", "v2.0.0"));
     ghClient.Credentials = new Credentials("apiToken");
 
@@ -20,8 +21,9 @@ public async Task CreatePullRequestFromFork()
 ```
 
 **Scenario:** I have a lot of small pull requests to review, but things are a mess
+
 - old pull requests which might be superseded by new ones, and it's hard to see from
-the descriptions what the changes actually represent.
+  the descriptions what the changes actually represent.
 
 **Goal:** a list of files, ordered by the number of pull requests which modify the
 file (most popular at the top). This then gives me a list of pull requests that I
@@ -101,7 +103,6 @@ class Program
     }
 }
 ```
-
 
 **Notes:**
 

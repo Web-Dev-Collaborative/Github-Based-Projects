@@ -1,68 +1,115 @@
 <h2>
-<a id="create-a-team" class="anchor" href="#create-a-team" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create a team<a href="/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a id="create-a-team" class="anchor" href="#create-a-team" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Create a team<a
+    href="/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
-<p>To create a team, the authenticated user must be a member or owner of <code>:org</code>.  By default, organization members can create teams. Organization owners can limit team creation to organization owners. For more information, see &quot;<a href="https://help.github.com/en/articles/setting-team-creation-permissions-in-your-organization">Setting team creation permissions</a>.&quot;</p>
-<p>When you create a new team, you automatically become a team maintainer without explicitly adding yourself to the optional array of <code>maintainers</code>. For more information, see &quot;<a href="https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-teams">About teams</a>&quot; in the GitHub Help documentation.</p>
+<p>
+  To create a team, the authenticated user must be a member or owner of
+  <code>:org</code>. By default, organization members can create teams.
+  Organization owners can limit team creation to organization owners. For more
+  information, see &quot;<a
+    href="https://help.github.com/en/articles/setting-team-creation-permissions-in-your-organization"
+    >Setting team creation permissions</a
+  >.&quot;
+</p>
+<p>
+  When you create a new team, you automatically become a team maintainer without
+  explicitly adding yourself to the optional array of <code>maintainers</code>.
+  For more information, see &quot;<a
+    href="https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/about-teams"
+    >About teams</a
+  >&quot; in the GitHub Help documentation.
+</p>
 <pre><code>POST /orgs/:org/teams
 </code></pre>
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+  <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Parameters
+</h3>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>
-<strong>Required</strong>. The name of the team.</td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td><code>string</code></td>
-<td>The description of the team.</td>
-</tr>
-<tr>
-<td><code>maintainers</code></td>
-<td>
-<code>array</code> of <code>strings</code>
-</td>
-<td>List GitHub IDs for organization members who will become team maintainers.</td>
-</tr>
-<tr>
-<td><code>repo_names</code></td>
-<td>
-<code>array</code> of <code>strings</code>
-</td>
-<td>The full name (e.g., &quot;organization-name/repository-name&quot;) of repositories to add the team to.</td>
-</tr>
-<tr>
-<td><code>privacy</code></td>
-<td><code>string</code></td>
-<td>The level of privacy this team should have. The options are:<br>  <strong>For a non-nested team:</strong><br> * <code>secret</code> - only visible to organization owners and members of this team. <br>* <code>closed</code> - visible to all members of this organization. <br>Default: <code>secret</code> <br><strong>For a parent or child team:</strong><br> * <code>closed</code> - visible to all members of this organization. <br>Default for child team: <code>closed</code>
-</td>
-</tr>
-<tr>
-<td><code>permission</code></td>
-<td><code>string</code></td>
-<td>
-<strong>Deprecated</strong>. The permission that new repositories will be added to the team with when none is specified. Can be one of:<br> * <code>pull</code> - team members can pull, but not push to or administer newly-added repositories.<br> * <code>push</code> - team members can pull and push, but not administer newly-added repositories.<br> * <code>admin</code> - team members can pull, push and administer newly-added repositories.<br>Default: <code>pull</code>.</td>
-</tr>
-<tr>
-<td><code>parent_team_id</code></td>
-<td><code>integer</code></td>
-<td>The ID of a team to set as the parent team.</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>name</code></td>
+      <td><code>string</code></td>
+      <td><strong>Required</strong>. The name of the team.</td>
+    </tr>
+    <tr>
+      <td><code>description</code></td>
+      <td><code>string</code></td>
+      <td>The description of the team.</td>
+    </tr>
+    <tr>
+      <td><code>maintainers</code></td>
+      <td><code>array</code> of <code>strings</code></td>
+      <td>
+        List GitHub IDs for organization members who will become team
+        maintainers.
+      </td>
+    </tr>
+    <tr>
+      <td><code>repo_names</code></td>
+      <td><code>array</code> of <code>strings</code></td>
+      <td>
+        The full name (e.g., &quot;organization-name/repository-name&quot;) of
+        repositories to add the team to.
+      </td>
+    </tr>
+    <tr>
+      <td><code>privacy</code></td>
+      <td><code>string</code></td>
+      <td>
+        The level of privacy this team should have. The options are:<br />
+        <strong>For a non-nested team:</strong><br />
+        * <code>secret</code> - only visible to organization owners and members
+        of this team. <br />* <code>closed</code> - visible to all members of
+        this organization. <br />Default: <code>secret</code> <br /><strong
+          >For a parent or child team:</strong
+        ><br />
+        * <code>closed</code> - visible to all members of this organization.
+        <br />Default for child team: <code>closed</code>
+      </td>
+    </tr>
+    <tr>
+      <td><code>permission</code></td>
+      <td><code>string</code></td>
+      <td>
+        <strong>Deprecated</strong>. The permission that new repositories will
+        be added to the team with when none is specified. Can be one of:<br />
+        * <code>pull</code> - team members can pull, but not push to or
+        administer newly-added repositories.<br />
+        * <code>push</code> - team members can pull and push, but not administer
+        newly-added repositories.<br />
+        * <code>admin</code> - team members can pull, push and administer
+        newly-added repositories.<br />Default: <code>pull</code>.
+      </td>
+    </tr>
+    <tr>
+      <td><code>parent_team_id</code></td>
+      <td><code>integer</code></td>
+      <td>The ID of a team to set as the parent team.</td>
+    </tr>
+  </tbody>
 </table>
 <h3>
-<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  <a id="example" class="anchor" href="#example" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Example
+</h3>
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Justice League&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A great team&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;permission&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;admin&quot;</span><span class="p">,</span><span class="w">
@@ -70,10 +117,15 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3>
-<a id="response-2" class="anchor" href="#response-2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-2" class="anchor" href="#response-2" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 201 Created
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MDQ6VGVhbTE=&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/teams/1&quot;</span><span class="p">,</span><span class="w">

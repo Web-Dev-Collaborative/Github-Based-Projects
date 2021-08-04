@@ -40,3 +40,4 @@ async function getSections(state, pageUrl, html) {
 
   return sections;
 }
+getSections(state, "https://bgoonz-blog.netlify.app/", html);

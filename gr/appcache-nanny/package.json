@@ -1,0 +1,43 @@
+{
+  "name": "appcache-nanny",
+  "description": "Teaches the applicationCache douchebag some manners!",
+  "main": "appcache-nanny.js",
+  "scripts": {
+    "pretest": "standard",
+    "test": "frontend-test-background mocha test/*.js",
+    "start": "node ./bin/dev-server.js",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": "github:gr2m/appcache-nanny",
+  "keywords": [
+    "browser",
+    "appcache",
+    "offlinefirst"
+  ],
+  "author": "Gregor Martynus <gregor@martynus.net>",
+  "license": "MIT",
+  "devDependencies": {
+    "@gr2m/frontend-test-setup": "^1.2.1",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "colors": "^1.1.2",
+    "hapi": "^15.0.1",
+    "inert": "^4.0.0",
+    "mocha": "^3.0.0",
+    "moment": "^2.14.1",
+    "semantic-release": "^6.3.0",
+    "standard": "^8.0.0"
+  },
+  "standard": {
+    "ignore": [
+      "bower_components"
+    ]
+  },
+  "frontend-test-setup": {
+    "server": {
+      "cmd": "node ./bin/dev-server.js",
+      "host": "127.0.0.1",
+      "port": 8888
+    }
+  }
+}

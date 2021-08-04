@@ -1,0 +1,18 @@
+example_id                         | status | run_time        |
+---------------------------------- | ------ | --------------- |
+./spec/octopoller_spec.rb[1:1]     | passed | 0.00049 seconds |
+./spec/octopoller_spec.rb[1:2:1]   | passed | 0.00089 seconds |
+./spec/octopoller_spec.rb[1:2:2]   | passed | 0.00007 seconds |
+./spec/octopoller_spec.rb[1:2:3]   | failed | 0.08094 seconds |
+./spec/octopoller_spec.rb[1:2:4]   | passed | 0.00056 seconds |
+./spec/octopoller_spec.rb[1:2:5]   | passed | 0.01028 seconds |
+./spec/octopoller_spec.rb[1:2:6]   | passed | 0.00022 seconds |
+./spec/octopoller_spec.rb[1:3:1]   | passed | 0.00011 seconds |
+./spec/octopoller_spec.rb[1:3:2]   | passed | 0.00014 seconds |
+./spec/octopoller_spec.rb[1:3:3]   | passed | 0.0001 seconds  |
+./spec/octopoller_spec.rb[1:3:4]   | passed | 0.03053 seconds |
+./spec/octopoller_spec.rb[1:3:5]   | passed | 0.0407 seconds  |
+./spec/octopoller_spec.rb[1:3:6:1] | passed | 0.00131 seconds |
+./spec/octopoller_spec.rb[1:3:7]   | passed | 0.00013 seconds |
+./spec/octopoller_spec.rb[1:3:8]   | passed | 0.01027 seconds |
+./spec/octopoller_spec.rb[1:3:9]   | passed | 0.00019 seconds |

@@ -1,15 +1,15 @@
 name: CI
 
 on:
-   push:
-     branches:
-     - master
-     - 4-stable
-     - '*'
-   pull_request:
-     branches:
-     - master
-     - 4-stable
+  push:
+    branches:
+      - master
+      - 4-stable
+      - "*"
+  pull_request:
+    branches:
+      - master
+      - 4-stable
 
 jobs:
   ci:
@@ -19,8 +19,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ ubuntu ]
-        ruby: [ 2.5, 2.6, 2.7, head ]
+        os: [ubuntu]
+        ruby: [2.5, 2.6, 2.7, head]
 
     steps:
       - uses: actions/checkout@v2

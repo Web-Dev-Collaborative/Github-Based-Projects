@@ -17,9 +17,9 @@ var repositories = await client.Repository.GetAllForCurrent(options);
 
 `ApiOptions` has a number of properties:
 
- - `PageCount` - return a set number of pages
- - `PageSize` - change the number of results to return per page
- - `StartPage` - start results from a given page
+- `PageCount` - return a set number of pages
+- `PageSize` - change the number of results to return per page
+- `StartPage` - start results from a given page
 
 If `PageSize` is not set the default page size is 30.
 

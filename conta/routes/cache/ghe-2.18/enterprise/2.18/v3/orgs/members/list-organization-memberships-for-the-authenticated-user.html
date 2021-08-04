@@ -1,32 +1,51 @@
 <h2>
-<a id="list-organization-memberships-for-the-authenticated-user" class="anchor" href="#list-organization-memberships-for-the-authenticated-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>List organization memberships for the authenticated user</h2>
+  <a
+    id="list-organization-memberships-for-the-authenticated-user"
+    class="anchor"
+    href="#list-organization-memberships-for-the-authenticated-user"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >List organization memberships for the authenticated user
+</h2>
 <pre><code>GET /user/memberships/orgs
 </code></pre>
 <h3>
-<a id="input" class="anchor" href="#input" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Input</h3>
+  <a id="input" class="anchor" href="#input" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Input
+</h3>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>state</code></td>
-<td><code>string</code></td>
-<td>Indicates the state of the memberships to return. Can be either <code>active</code> or <code>pending</code>. If not specified, the API returns both active and pending memberships.</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>state</code></td>
+      <td><code>string</code></td>
+      <td>
+        Indicates the state of the memberships to return. Can be either
+        <code>active</code> or <code>pending</code>. If not specified, the API
+        returns both active and pending memberships.
+      </td>
+    </tr>
+  </tbody>
 </table>
 <h3>
-<a id="response-7" class="anchor" href="#response-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-7" class="anchor" href="#response-7" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 Link: &lt;https://api.github.com/resource?page=2&gt;; rel=&quot;next&quot;,
       &lt;https://api.github.com/resource?page=5&gt;; rel=&quot;last&quot;
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/orgs/octocat/memberships/defunkt&quot;</span><span class="p">,</span><span class="w">
     </span><span class="nt">&quot;state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span><span class="w">

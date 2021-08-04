@@ -1,12 +1,38 @@
 <h2>
-<a id="get-a-subscription-plan-for-an-account" class="anchor" href="#get-a-subscription-plan-for-an-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get a subscription plan for an account</h2>
-<p>Shows whether the user or organization account actively subscribes to a plan listed by the authenticated GitHub App. When someone submits a plan change that won&apos;t be processed until the end of their billing cycle, you will also see the upcoming pending change.</p>
-<p>GitHub Apps must use a <a href="/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app">JWT</a> to access this endpoint. OAuth Apps must use <a href="/v3/auth/#basic-authentication">basic authentication</a> with their client ID and client secret to access this endpoint.</p>
+  <a
+    id="get-a-subscription-plan-for-an-account"
+    class="anchor"
+    href="#get-a-subscription-plan-for-an-account"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Get a subscription plan for an account
+</h2>
+<p>
+  Shows whether the user or organization account actively subscribes to a plan
+  listed by the authenticated GitHub App. When someone submits a plan change
+  that won&apos;t be processed until the end of their billing cycle, you will
+  also see the upcoming pending change.
+</p>
+<p>
+  GitHub Apps must use a
+  <a
+    href="/apps/building-github-apps/authenticating-with-github-apps/#authenticating-as-a-github-app"
+    >JWT</a
+  >
+  to access this endpoint. OAuth Apps must use
+  <a href="/v3/auth/#basic-authentication">basic authentication</a> with their
+  client ID and client secret to access this endpoint.
+</p>
 <pre><code>GET /marketplace_listing/accounts/:account_id
 </code></pre>
 <h3>
-<a id="response-4" class="anchor" href="#response-4" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  <a id="response-4" class="anchor" href="#response-4" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/orgs/github&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Organization&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
@@ -65,6 +91,13 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3>
-<a id="response-when-the-account-has-not-purchased-the-listing" class="anchor" href="#response-when-the-account-has-not-purchased-the-listing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response when the account has not purchased the listing</h3>
+  <a
+    id="response-when-the-account-has-not-purchased-the-listing"
+    class="anchor"
+    href="#response-when-the-account-has-not-purchased-the-listing"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response when the account has not purchased the listing
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 404 Not Found
 </code></pre>

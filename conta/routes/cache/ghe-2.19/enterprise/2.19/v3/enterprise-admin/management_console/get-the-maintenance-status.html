@@ -1,17 +1,34 @@
 <h2>
-<a id="get-the-maintenance-status" class="anchor" href="#get-the-maintenance-status" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get the maintenance status</h2>
+  <a
+    id="get-the-maintenance-status"
+    class="anchor"
+    href="#get-the-maintenance-status"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Get the maintenance status
+</h2>
 <p>Check your installation&apos;s maintenance status:</p>
 <pre><code>GET /setup/api/maintenance
 </code></pre>
 <h3>
-<a id="example-6" class="anchor" href="#example-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
-<pre class="command-line"><span class="command">curl -L &apos;https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>admin_port</em>/setup/api/maintenance&apos;</span>
+  <a id="example-6" class="anchor" href="#example-6" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Example
+</h3>
+<pre
+  class="command-line"
+><span class="command">curl -L &apos;https://api_key:<em>your-amazing-password</em>@<em>hostname</em>:<em>admin_port</em>/setup/api/maintenance&apos;</span>
 </pre>
 <h3>
-<a id="response-6" class="anchor" href="#response-6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-6" class="anchor" href="#response-6" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scheduled&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;scheduled_time&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tuesday, January 22 at 15 =&gt; 34 -0800&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;connection_services&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">

@@ -1,56 +1,77 @@
 <h2>
-<a id="update-a-gist" class="anchor" href="#update-a-gist" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Update a gist</h2>
-<p>Allows you to update or delete a gist file and rename gist files. Files from the previous version of the gist that aren&apos;t explicitly changed during an edit are unchanged.</p>
+  <a id="update-a-gist" class="anchor" href="#update-a-gist" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Update a gist
+</h2>
+<p>
+  Allows you to update or delete a gist file and rename gist files. Files from
+  the previous version of the gist that aren&apos;t explicitly changed during an
+  edit are unchanged.
+</p>
 <pre><code>PATCH /gists/:gist_id
 </code></pre>
 <h3>
-<a id="input-1" class="anchor" href="#input-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Input</h3>
+  <a id="input-1" class="anchor" href="#input-1" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Input
+</h3>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>description</code></td>
-<td><code>string</code></td>
-<td>A descriptive name for this gist.</td>
-</tr>
-<tr>
-<td><code>files</code></td>
-<td><code>object</code></td>
-<td>The filenames and content that make up this gist.</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>description</code></td>
+      <td><code>string</code></td>
+      <td>A descriptive name for this gist.</td>
+    </tr>
+    <tr>
+      <td><code>files</code></td>
+      <td><code>object</code></td>
+      <td>The filenames and content that make up this gist.</td>
+    </tr>
+  </tbody>
 </table>
-<p>The value for each of the filenames in <code>files</code> is an object with these keys:</p>
+<p>
+  The value for each of the filenames in <code>files</code> is an object with
+  these keys:
+</p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>content</code></td>
-<td><code>string</code></td>
-<td>The updated content of the file.</td>
-</tr>
-<tr>
-<td><code>filename</code></td>
-<td><code>string</code></td>
-<td>The new name for this file. To delete a file, set the value of the filename to <code>null</code>.</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>content</code></td>
+      <td><code>string</code></td>
+      <td>The updated content of the file.</td>
+    </tr>
+    <tr>
+      <td><code>filename</code></td>
+      <td><code>string</code></td>
+      <td>
+        The new name for this file. To delete a file, set the value of the
+        filename to <code>null</code>.
+      </td>
+    </tr>
+  </tbody>
 </table>
 <h3>
-<a id="example-1" class="anchor" href="#example-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h3>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  <a id="example-1" class="anchor" href="#example-1" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Example
+</h3>
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello World Examples&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;files&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;hello_world_ruby.txt&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -65,10 +86,15 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h3>
-<a id="response-7" class="anchor" href="#response-7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-7" class="anchor" href="#response-7" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/gists/aa5a315d61ae9438b18d&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;forks_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/gists/aa5a315d61ae9438b18d/forks&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;commits_url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/gists/aa5a315d61ae9438b18d/commits&quot;</span><span class="p">,</span><span class="w">

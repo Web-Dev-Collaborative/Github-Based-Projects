@@ -1,86 +1,149 @@
 <h2>
-<a id="create-a-commit" class="anchor" href="#create-a-commit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create a commit<a href="/enterprise/2.19/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="create-a-commit"
+    class="anchor"
+    href="#create-a-commit"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Create a commit<a
+    href="/enterprise/2.19/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
-<p>Creates a new Git <a href="https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects">commit object</a>.</p>
+<p>
+  Creates a new Git
+  <a
+    href="https://git-scm.com/book/en/v1/Git-Internals-Git-Objects#Commit-Objects"
+    >commit object</a
+  >.
+</p>
 <pre><code>POST /repos/:owner/:repo/git/commits
 </code></pre>
 <h3>
-<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Parameters</h3>
+  <a id="parameters" class="anchor" href="#parameters" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Parameters
+</h3>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>message</code></td>
-<td><code>string</code></td>
-<td>
-<strong>Required</strong>. The commit message</td>
-</tr>
-<tr>
-<td><code>tree</code></td>
-<td><code>string</code></td>
-<td>
-<strong>Required</strong>. The SHA of the tree object this commit points to</td>
-</tr>
-<tr>
-<td><code>parents</code></td>
-<td>
-<code>array</code> of <code>string</code>s</td>
-<td>
-<strong>Required</strong>. The SHAs of the commits that were the parents of this commit.  If omitted or empty, the commit will be written as a root commit.  For a single parent, an array of one SHA should be provided; for a merge commit, an array of more than one should be provided.</td>
-</tr>
-<tr>
-<td><code>author</code></td>
-<td><code>object</code></td>
-<td>Information about the author of the commit. By default, the <code>author</code> will be the authenticated user and the current date. See the <code>author</code> and <code>committer</code> object below for details.</td>
-</tr>
-<tr>
-<td><code>committer</code></td>
-<td><code>object</code></td>
-<td>Information about the person who is making the commit. By default, <code>committer</code> will use the information set in <code>author</code>. See the <code>author</code> and <code>committer</code> object below for details.</td>
-</tr>
-<tr>
-<td><code>signature</code></td>
-<td><code>string</code></td>
-<td>The <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy">PGP signature</a> of the commit. GitHub adds the signature to the <code>gpgsig</code> header of the created commit. For a commit signature to be verifiable by Git or GitHub, it must be an ASCII-armored detached PGP signature over the string commit as it would be written to the object database. To pass a <code>signature</code> parameter, you need to first manually create a valid PGP signature, which can be complicated. You may find it easier to <a href="https://git-scm.com/book/id/v2/Git-Tools-Signing-Your-Work">use the command line</a> to create signed commits.</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>message</code></td>
+      <td><code>string</code></td>
+      <td><strong>Required</strong>. The commit message</td>
+    </tr>
+    <tr>
+      <td><code>tree</code></td>
+      <td><code>string</code></td>
+      <td>
+        <strong>Required</strong>. The SHA of the tree object this commit points
+        to
+      </td>
+    </tr>
+    <tr>
+      <td><code>parents</code></td>
+      <td><code>array</code> of <code>string</code>s</td>
+      <td>
+        <strong>Required</strong>. The SHAs of the commits that were the parents
+        of this commit. If omitted or empty, the commit will be written as a
+        root commit. For a single parent, an array of one SHA should be
+        provided; for a merge commit, an array of more than one should be
+        provided.
+      </td>
+    </tr>
+    <tr>
+      <td><code>author</code></td>
+      <td><code>object</code></td>
+      <td>
+        Information about the author of the commit. By default, the
+        <code>author</code> will be the authenticated user and the current date.
+        See the <code>author</code> and <code>committer</code> object below for
+        details.
+      </td>
+    </tr>
+    <tr>
+      <td><code>committer</code></td>
+      <td><code>object</code></td>
+      <td>
+        Information about the person who is making the commit. By default,
+        <code>committer</code> will use the information set in
+        <code>author</code>. See the <code>author</code> and
+        <code>committer</code> object below for details.
+      </td>
+    </tr>
+    <tr>
+      <td><code>signature</code></td>
+      <td><code>string</code></td>
+      <td>
+        The
+        <a href="https://en.wikipedia.org/wiki/Pretty_Good_Privacy"
+          >PGP signature</a
+        >
+        of the commit. GitHub adds the signature to the
+        <code>gpgsig</code> header of the created commit. For a commit signature
+        to be verifiable by Git or GitHub, it must be an ASCII-armored detached
+        PGP signature over the string commit as it would be written to the
+        object database. To pass a <code>signature</code> parameter, you need to
+        first manually create a valid PGP signature, which can be complicated.
+        You may find it easier to
+        <a href="https://git-scm.com/book/id/v2/Git-Tools-Signing-Your-Work"
+          >use the command line</a
+        >
+        to create signed commits.
+      </td>
+    </tr>
+  </tbody>
 </table>
-<p>The <code>author</code> and <code>committer</code> objects have the following keys:</p>
+<p>
+  The <code>author</code> and <code>committer</code> objects have the following
+  keys:
+</p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>name</code></td>
-<td><code>string</code></td>
-<td>The name of the author (or committer) of the commit</td>
-</tr>
-<tr>
-<td><code>email</code></td>
-<td><code>string</code></td>
-<td>The email of the author (or committer) of the commit</td>
-</tr>
-<tr>
-<td><code>date</code></td>
-<td><code>string</code></td>
-<td>Indicates when this commit was authored (or committed). This is a timestamp in <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format: <code>YYYY-MM-DDTHH:MM:SSZ</code>.</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>name</code></td>
+      <td><code>string</code></td>
+      <td>The name of the author (or committer) of the commit</td>
+    </tr>
+    <tr>
+      <td><code>email</code></td>
+      <td><code>string</code></td>
+      <td>The email of the author (or committer) of the commit</td>
+    </tr>
+    <tr>
+      <td><code>date</code></td>
+      <td><code>string</code></td>
+      <td>
+        Indicates when this commit was authored (or committed). This is a
+        timestamp in
+        <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> format:
+        <code>YYYY-MM-DDTHH:MM:SSZ</code>.
+      </td>
+    </tr>
+  </tbody>
 </table>
 <h3>
-<a id="example-input" class="anchor" href="#example-input" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example input</h3>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+  <a id="example-input" class="anchor" href="#example-input" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Example input
+</h3>
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my commit message&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mona Octocat&quot;</span><span class="p">,</span><span class="w">
@@ -102,11 +165,16 @@ committer Mona Octocat &lt;octocat@github.com&gt; 1215576810 +1200
 my commit message
 </code></pre>
 <h3>
-<a id="response-1" class="anchor" href="#response-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response-1" class="anchor" href="#response-1" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <pre class="highlight highlight-headers"><code>Status: 201 Created
 Location: https://api.github.com/repos/octocat/Hello-World/git/commits/7638417db6d59f3c431d3e1f261cc637155684cd
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">{</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">{</span><span class="w">
   </span><span class="nt">&quot;sha&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7638417db6d59f3c431d3e1f261cc637155684cd&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;node_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MDY6Q29tbWl0NzYzODQxN2RiNmQ1OWYzYzQzMWQzZTFmMjYxY2M2MzcxNTU2ODRjZA==&quot;</span><span class="p">,</span><span class="w">
   </span><span class="nt">&quot;url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://api.github.com/repos/octocat/Hello-World/git/commits/7638417db6d59f3c431d3e1f261cc637155684cd&quot;</span><span class="p">,</span><span class="w">
@@ -140,99 +208,143 @@ Location: https://api.github.com/repos/octocat/Hello-World/git/commits/7638417db
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <h4>
-<a id="signature-verification-object-1" class="anchor" href="#signature-verification-object-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Signature verification object</h4>
-<p>The response will include a <code>verification</code> object that describes the result of verifying the commit&apos;s signature. The following fields are included in the <code>verification</code> object:</p>
+  <a
+    id="signature-verification-object-1"
+    class="anchor"
+    href="#signature-verification-object-1"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Signature verification object
+</h4>
+<p>
+  The response will include a <code>verification</code> object that describes
+  the result of verifying the commit&apos;s signature. The following fields are
+  included in the <code>verification</code> object:
+</p>
 <table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>verified</code></td>
-<td><code>boolean</code></td>
-<td>Indicates whether GitHub considers the signature in this commit to be verified.</td>
-</tr>
-<tr>
-<td><code>reason</code></td>
-<td><code>string</code></td>
-<td>The reason for <code>verified</code> value. Possible values and their meanings are enumerated in table below.</td>
-</tr>
-<tr>
-<td><code>signature</code></td>
-<td><code>string</code></td>
-<td>The signature that was extracted from the commit.</td>
-</tr>
-<tr>
-<td><code>payload</code></td>
-<td><code>string</code></td>
-<td>The value that was signed.</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>verified</code></td>
+      <td><code>boolean</code></td>
+      <td>
+        Indicates whether GitHub considers the signature in this commit to be
+        verified.
+      </td>
+    </tr>
+    <tr>
+      <td><code>reason</code></td>
+      <td><code>string</code></td>
+      <td>
+        The reason for <code>verified</code> value. Possible values and their
+        meanings are enumerated in table below.
+      </td>
+    </tr>
+    <tr>
+      <td><code>signature</code></td>
+      <td><code>string</code></td>
+      <td>The signature that was extracted from the commit.</td>
+    </tr>
+    <tr>
+      <td><code>payload</code></td>
+      <td><code>string</code></td>
+      <td>The value that was signed.</td>
+    </tr>
+  </tbody>
 </table>
-<p>These are the possible values for <code>reason</code> in the <code>verification</code> object:</p>
+<p>
+  These are the possible values for <code>reason</code> in the
+  <code>verification</code> object:
+</p>
 <table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>expired_key</code></td>
-<td>The key that made the signature is expired.</td>
-</tr>
-<tr>
-<td><code>not_signing_key</code></td>
-<td>The &quot;signing&quot; flag is not among the usage flags in the GPG key that made the signature.</td>
-</tr>
-<tr>
-<td><code>gpgverify_error</code></td>
-<td>There was an error communicating with the signature verification service.</td>
-</tr>
-<tr>
-<td><code>gpgverify_unavailable</code></td>
-<td>The signature verification service is currently unavailable.</td>
-</tr>
-<tr>
-<td><code>unsigned</code></td>
-<td>The object does not include a signature.</td>
-</tr>
-<tr>
-<td><code>unknown_signature_type</code></td>
-<td>A non-PGP signature was found in the commit.</td>
-</tr>
-<tr>
-<td><code>no_user</code></td>
-<td>No user was associated with the <code>committer</code> email address in the commit.</td>
-</tr>
-<tr>
-<td><code>unverified_email</code></td>
-<td>The <code>committer</code> email address in the commit was associated with a user, but the email address is not verified on her/his account.</td>
-</tr>
-<tr>
-<td><code>bad_email</code></td>
-<td>The <code>committer</code> email address in the commit is not included in the identities of the PGP key that made the signature.</td>
-</tr>
-<tr>
-<td><code>unknown_key</code></td>
-<td>The key that made the signature has not been registered with any user&apos;s account.</td>
-</tr>
-<tr>
-<td><code>malformed_signature</code></td>
-<td>There was an error parsing the signature.</td>
-</tr>
-<tr>
-<td><code>invalid</code></td>
-<td>The signature could not be cryptographically verified using the key whose key-id was found in the signature.</td>
-</tr>
-<tr>
-<td><code>valid</code></td>
-<td>None of the above errors applied, so the signature is considered to be verified.</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>expired_key</code></td>
+      <td>The key that made the signature is expired.</td>
+    </tr>
+    <tr>
+      <td><code>not_signing_key</code></td>
+      <td>
+        The &quot;signing&quot; flag is not among the usage flags in the GPG key
+        that made the signature.
+      </td>
+    </tr>
+    <tr>
+      <td><code>gpgverify_error</code></td>
+      <td>
+        There was an error communicating with the signature verification
+        service.
+      </td>
+    </tr>
+    <tr>
+      <td><code>gpgverify_unavailable</code></td>
+      <td>The signature verification service is currently unavailable.</td>
+    </tr>
+    <tr>
+      <td><code>unsigned</code></td>
+      <td>The object does not include a signature.</td>
+    </tr>
+    <tr>
+      <td><code>unknown_signature_type</code></td>
+      <td>A non-PGP signature was found in the commit.</td>
+    </tr>
+    <tr>
+      <td><code>no_user</code></td>
+      <td>
+        No user was associated with the <code>committer</code> email address in
+        the commit.
+      </td>
+    </tr>
+    <tr>
+      <td><code>unverified_email</code></td>
+      <td>
+        The <code>committer</code> email address in the commit was associated
+        with a user, but the email address is not verified on her/his account.
+      </td>
+    </tr>
+    <tr>
+      <td><code>bad_email</code></td>
+      <td>
+        The <code>committer</code> email address in the commit is not included
+        in the identities of the PGP key that made the signature.
+      </td>
+    </tr>
+    <tr>
+      <td><code>unknown_key</code></td>
+      <td>
+        The key that made the signature has not been registered with any
+        user&apos;s account.
+      </td>
+    </tr>
+    <tr>
+      <td><code>malformed_signature</code></td>
+      <td>There was an error parsing the signature.</td>
+    </tr>
+    <tr>
+      <td><code>invalid</code></td>
+      <td>
+        The signature could not be cryptographically verified using the key
+        whose key-id was found in the signature.
+      </td>
+    </tr>
+    <tr>
+      <td><code>valid</code></td>
+      <td>
+        None of the above errors applied, so the signature is considered to be
+        verified.
+      </td>
+    </tr>
+  </tbody>
 </table>

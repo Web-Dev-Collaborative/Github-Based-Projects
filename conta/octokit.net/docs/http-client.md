@@ -7,7 +7,7 @@ defaults.
 ### Redirects
 
 A recent feature of the GitHub API is to handle redirects automatically.
-This means the client needs to handle 30* responses and redirect correctly.
+This means the client needs to handle 30\* responses and redirect correctly.
 
 Due to the default behaviour of `HttpWebRequest`, we need to implement this
 as a custom handler in `HttpClient`.
@@ -34,7 +34,7 @@ Here's how you can do it today:
 
 ```csharp
 // set your proxy details here
-var proxy = new WebProxy(); 
+var proxy = new WebProxy();
 
 // this is the core connection
 var connection = new Connection(new ProductHeaderValue("my-cool-app"),

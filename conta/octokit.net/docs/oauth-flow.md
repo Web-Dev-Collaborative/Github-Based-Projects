@@ -4,7 +4,7 @@ If you have a service which needs to interact with the GitHub API on behalf of a
 
 ### Setup
 
-First, you need to register your application on GitHub (or GitHub Enterprise). While logged in, go to your account settings and click the Applications tab. Then click "Register new application". 
+First, you need to register your application on GitHub (or GitHub Enterprise). While logged in, go to your account settings and click the Applications tab. Then click "Register new application".
 
 Or just navigate to [https://github.com/settings/applications/new](https://github.com/settings/applications/new) if you're lazy.
 
@@ -30,7 +30,7 @@ To start the authentication flow, you need to craft a URL indicating your applic
 
 ```csharp
 // NOTE: this is not required, but highly recommended!
-// ask the ASP.NET Membership provider to generate a random value 
+// ask the ASP.NET Membership provider to generate a random value
 // and store it in the current user's session
 string csrf = Membership.GeneratePassword(24, 1);
 Session["CSRF:State"] = csrf;
@@ -91,10 +91,10 @@ public async Task<ActionResult> Index()
     if (accessToken != null)
     {
         client.Credentials = new Credentials(accessToken);
-        
+
         var repositories = await client.Repository.GetAllForCurrent();
     }
-    
+
     /* TODO: all the rest of the webapp */
 }
 ```

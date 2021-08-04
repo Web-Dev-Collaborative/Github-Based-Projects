@@ -17,7 +17,8 @@ Therefore Octokit now uses a wrapper class `StringEnum<TEnum>` to represent thes
 Whilst existing code will continue to function due to the implicit conversions, users should update their code to the "safe" usage patterns shown below in order to guard against future API additions causing deserialization failures.
 
 #### Implicit conversions:
-``` csharp
+
+```csharp
 public enum EncodingType
 {
     Ascii, // api value "ascii"
@@ -32,8 +33,10 @@ StringEnum<EncodingType> encoding = "utf-8";
 ```
 
 #### When dealing with a known API value
+
 Accessing the string value (safe):
-``` csharp
+
+```csharp
 StringEnum<EncodingType> encoding = "utf-8";
 Console.WriteLine(encoding.StringValue);
 
@@ -41,7 +44,8 @@ Console.WriteLine(encoding.StringValue);
 ```
 
 Accessing the Enum value (not safe, but works as the value is known):
-``` csharp
+
+```csharp
 StringEnum<EncodingType> encoding = "utf-8";
 Console.WriteLine(encoding.Value);
 
@@ -49,8 +53,10 @@ Console.WriteLine(encoding.Value);
 ```
 
 #### When dealing with an unknown API value
+
 Accessing the string value (safe):
-``` csharp
+
+```csharp
 StringEnum<EncodingType> encoding = "new_hoopy_format";
 Console.WriteLine(encoding.StringValue);
 
@@ -58,7 +64,8 @@ Console.WriteLine(encoding.StringValue);
 ```
 
 Accessing the Enum value (not safe, throws exceptionn as the value is not known)
-``` csharp
+
+```csharp
 StringEnum<EncodingType> encoding = "new_hoopy_format";
 encoding.Value;
 
@@ -66,7 +73,8 @@ encoding.Value;
 ```
 
 Evaluating the value safely, using `TryParse()`
-``` csharp
+
+```csharp
 StringEnum<EncodingType> encoding = "new_hoopy_format";
 if (encoding.TryParse(out EncodingType type))
 {
@@ -82,10 +90,11 @@ else
 
 ## Activity/Timeline APIs and EventInfoState
 
-Of particular importance are the `Enum`'s used in activity/event stream APIs, such as `EventInfoState`.  Since new functionality introduced on GitHub.com frequently leads to additional event types being received, Octokit was constantly playing catchup with these `Enum` values.  Now, with `StringEnum<TEnum>` we have a solution to keep your code functioning, without needing to wait for a new Octokit release!
+Of particular importance are the `Enum`'s used in activity/event stream APIs, such as `EventInfoState`. Since new functionality introduced on GitHub.com frequently leads to additional event types being received, Octokit was constantly playing catchup with these `Enum` values. Now, with `StringEnum<TEnum>` we have a solution to keep your code functioning, without needing to wait for a new Octokit release!
 
 ### Safe Issue Timeline EventInfoState Example
-``` csharp
+
+```csharp
 // Get the event timeline for a PullRequest
 var timelineEventInfos = await client.Issue.Timeline.GetAllForIssue("octokit", "octokit.net", 1595);
 

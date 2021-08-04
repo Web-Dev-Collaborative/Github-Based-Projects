@@ -1,4 +1,5 @@
 # Octopoller 🦑
+
 <a href="https://classroom.github.com"><img src="https://raw.githubusercontent.com/education/classroom/7c8577c29cf354965559503c009bcf4d29b85c2f/app/assets/images/wordmark%402x.png" height="15px"></a> battle tested.
 
 Octopoller is a micro gem for polling and retrying, perfect for making repeating requests.
@@ -16,6 +17,7 @@ end
 ```
 
 ## About
+
 Octopoller was originally created for the purpose of polling GitHub's [Source Imports API](https://developer.github.com/v3/migrations/source_imports/) for a repo's import status. It is now the backbone of [GitHub Classroom's](https://classroom.github.com) _import starter code_ process.
 
 ## Installation
@@ -27,16 +29,21 @@ gem 'octopoller'
 ```
 
 And then execute:
+
 ```bash
 $ bundle
 ```
+
 Or install it yourself as:
+
 ```bash
 $ gem install octopoller
 ```
+
 ## Usage
 
 Octopoller exposes a single function `poll`. Here is what the API looks like:
+
 ```ruby
 # Polls until success
 # Re-runs when the block returns `:re_poll`
@@ -55,12 +62,15 @@ def poll(wait: 1.second, timeout: nil, retries: nil)
 ```
 
 Octopoller has 3 use cases:
-* Poll something with a set timeout
-* Poll something with a set number of retries
-* Poll something with exponential backoff
+
+- Poll something with a set timeout
+- Poll something with a set number of retries
+- Poll something with exponential backoff
 
 Here's what using Octpoller is like for each of the use cases listed above:
-* Poll with a timeout:
+
+- Poll with a timeout:
+
   ```ruby
   Octopoller.poll(timeout: 15.seconds) do
     puts "🦑"
@@ -73,7 +83,8 @@ Here's what using Octpoller is like for each of the use cases listed above:
   # Timed out patiently (Octopoller::TimeOutError)
   ```
 
-* Poll with retries:
+- Poll with retries:
+
   ```ruby
   Octopoller.poll(retries: 2) do
     puts "🦑"
@@ -86,7 +97,8 @@ Here's what using Octpoller is like for each of the use cases listed above:
   # Tried maximum number of attempts (Octopoller::TooManyAttemptsError)
   ```
 
-* Poll with exponential backoff:
+- Poll with exponential backoff:
+
   ```ruby
   start = Time.now
   Octopoller.poll(wait: :exponentially, retries: 4) do

@@ -1,28 +1,44 @@
 <h2>
-<a id="get-all-contributor-commit-activity" class="anchor" href="#get-all-contributor-commit-activity" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Get all contributor commit activity<a href="/enterprise/2.19/apps/" class="tooltip-link github-apps-marker octicon octicon-info" title="Enabled for GitHub Apps"></a>
+  <a
+    id="get-all-contributor-commit-activity"
+    class="anchor"
+    href="#get-all-contributor-commit-activity"
+    aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Get all contributor commit activity<a
+    href="/enterprise/2.19/apps/"
+    class="tooltip-link github-apps-marker octicon octicon-info"
+    title="Enabled for GitHub Apps"
+  ></a>
 </h2>
 <pre><code>GET /repos/:owner/:repo/stats/contributors
 </code></pre>
 <h3>
-<a id="response" class="anchor" href="#response" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Response</h3>
+  <a id="response" class="anchor" href="#response" aria-hidden="true"
+    ><span aria-hidden="true" class="octicon octicon-link"></span></a
+  >Response
+</h3>
 <ul>
-<li>
-<code>total</code> - The Total number of commits authored by the contributor.</li>
+  <li>
+    <code>total</code> - The Total number of commits authored by the
+    contributor.
+  </li>
 </ul>
 <p>Weekly Hash (<code>weeks</code> array):</p>
 <ul>
-<li>
-<code>w</code> - Start of the week, given as a <a href="http://en.wikipedia.org/wiki/Unix_time">Unix timestamp</a>.</li>
-<li>
-<code>a</code> - Number of additions</li>
-<li>
-<code>d</code> - Number of deletions</li>
-<li>
-<code>c</code> - Number of commits</li>
+  <li>
+    <code>w</code> - Start of the week, given as a
+    <a href="http://en.wikipedia.org/wiki/Unix_time">Unix timestamp</a>.
+  </li>
+  <li><code>a</code> - Number of additions</li>
+  <li><code>d</code> - Number of deletions</li>
+  <li><code>c</code> - Number of commits</li>
 </ul>
 <pre class="highlight highlight-headers"><code>Status: 200 OK
 </code></pre>
-<pre class="highlight highlight-json"><code><span class="p">[</span><span class="w">
+<pre
+  class="highlight highlight-json"
+><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
     </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nt">&quot;login&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;octocat&quot;</span><span class="p">,</span><span class="w">
