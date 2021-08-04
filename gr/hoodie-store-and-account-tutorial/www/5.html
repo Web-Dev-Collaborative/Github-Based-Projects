@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Hoodie Store &amp; Account Tutorial</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/prism/prism.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <script src="assets/vendor/jquery-2.1.0.min.js"></script>
+    <script src="assets/vendor/bootstrap/bootstrap.js"></script>
+    <script src="assets/vendor/prism/prism.js"></script>
+    <!-- Load the dynamic version of hoodie.js that includes all the plugin code-->
+    <script src="/_api/_files/hoodie.js"></script>
+    <script>
+      // initialize Hoodie
+      var hoodie  = new Hoodie();
+    </script>
+
+    <script src="assets/vendor/bootstrap.modalform.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Hoodie Store &amp; Account</h1>
+        <p>
+          Learn how to work with data and user accounts.
+        </p>
+      </div>
+
+      <div class="content">
+        <h2>Creating a user account</h2>
+
+        <p>
+          You are currently <var class="status"></var>.
+          The code below shows how to find out.
+        </p>
+
+        <p class="signed-in-note" style="display:none">
+          Please sign out before you proceed:
+          <code>hoodie.account.signOut()</code>.
+          Then reload the page.
+        </p>
+
+<script>
+if (hoodie.account.username) {
+  $('.status').text('signed in as ' + hoodie.account.username)
+  $('.signed-in-note').show()
+} else {
+  $('.status').text('signed out')
+}
+</script>
+
+        <p>
+          Let's create a new account. Guess what, it's just one
+          line of code :)
+        </p>
+
+<script>
+function signUp() {
+  hoodie.account.signUp(prompt('username'), prompt('password'))
+    .done(function() {
+      alert("Good Job! On to the next side!")
+    })
+    .fail(function(errror) {
+      alert('Ooops, something went wrong: ' + error.message)
+    })
+}
+</script>
+        <p>
+          <button class="btn btn-primary" onclick="signUp()">run <code>signUp()</code></button>
+        </p>
+
+        <p>
+          In <a href="/6.html">the next step</a>, we build a sign in form and a sign out button.
+          So make sure you remember your username and password :)
+        </p>
+      </div>
+
+      <footer class="copy">
+        <p>&hearts; hood.ie 2014</p>
+      </footer>
+    </div> <!-- /.container -->
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

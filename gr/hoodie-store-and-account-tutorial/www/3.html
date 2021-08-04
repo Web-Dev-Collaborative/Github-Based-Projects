@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Hoodie Store &amp; Account Tutorial</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/prism/prism.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+
+    <script src="assets/vendor/jquery-2.1.0.min.js"></script>
+    <script src="assets/vendor/bootstrap/bootstrap.js"></script>
+    <script src="assets/vendor/prism/prism.js"></script>
+    <!-- Load the dynamic version of hoodie.js that includes all the plugin code-->
+    <script src="/_api/_files/hoodie.js"></script>
+    <script>
+      // initialize Hoodie
+      var hoodie  = new Hoodie();
+    </script>
+
+    <script src="assets/vendor/bootstrap.modalform.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>Hoodie Store &amp; Account</h1>
+        <p>
+          Learn how to work with data and user accounts.
+        </p>
+      </div>
+
+      <div class="content">
+        <h2>Finding and removing colors</h2>
+
+        <p>The list below shows all colors that you added in <a href="/2.html">step two</a>.</p>
+
+        <ul class="colorList"></ul>
+
+        Here is the code that populates the list above
+
+<script>
+
+// when the site loads in the browser, 
+// load all previously saved colors from hoodie
+// and set the last one as the background color
+hoodie.store.findAll('color').done(function(colors) {
+  var $list = $('.colorList');
+
+  // check if color entries exist
+  if (colors.length === 0) {
+    $list.replaceWith('<hr><p>Looks like you did not add colors yet, go back to <a href="/2.html">step two</a>.</p><hr>')
+    return
+  }
+
+  // add all saved colors to the list
+  colors.forEach(function(color) {
+    $list.append('<li>'+color.name+' <a style="color: #c00; font-weight: bold;" href="#" data-id="'+color.id+'">×</a></li>');
+  });
+})
+
+// delete a color when the "x"-Button is pressed
+$('.colorList a').on('click', function(event) {
+  var id = $(event.target).data('id');
+  $(event.target).closest('li').remove();
+  hoodie.store.remove('color', id);
+
+  // prevent the site to reload in the browser
+  event.preventDefault();
+})
+</script>
+
+        <p>
+          Now you learned how you can load and display all
+          objects of one type, in this case "color". You also
+          learned how to remove a single object. In the next
+          part of the tutorial, we will make it more dynamic,
+          and also write own code: <a href="/4.html">Part 4</a>.
+        </p>
+      </div>
+
+      <footer class="copy">
+        <p>&hearts; hood.ie 2014</p>
+      </footer>
+    </div> <!-- /.container -->
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

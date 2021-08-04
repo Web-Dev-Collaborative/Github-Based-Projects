@@ -1,0 +1,10 @@
+{
+  "name": "hoodie-plugin-user-data",
+  "description": "Hoodie plugin to store custom data on user accounts",
+  "dependencies": {},
+  "version": "1.0.0",
+  "repository": "github:gr2m/hoodie-plugin-user-data",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "hoodietaskdebug",
+  "version": "1.0.0",
+  "type": "app",
+  "dependencies": {
+    "hoodie-plugin-appconfig": "^2.0.1",
+    "hoodie-plugin-test": "^1.0.0",
+    "hoodie-plugin-users": "^1.0.0",
+    "hoodie-server": "2.0.0"
+  },
+  "files": [
+    "www/"
+  ],
+  "engines": {
+    "node": ">=0.10.22"
+  },
+  "scripts": {
+    "start": "node node_modules/hoodie-server/bin/start"
+  },
+  "hoodie": {
+    "plugins": [
+      "hoodie-plugin-appconfig",
+      "hoodie-plugin-users",
+      "hoodie-plugin-test"
+    ]
+  },
+  "repository": "github:gr2m/hoodietaskdebug"
+}
