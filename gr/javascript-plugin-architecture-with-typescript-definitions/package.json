@@ -1,0 +1,57 @@
+{
+  "name": "javascript-plugin-architecture-with-typescript-definitions",
+  "version": "0.0.0-development",
+  "description": "Plugin architecture example with full TypeScript support",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./plugins/foo": "./plugins/foo/index.js",
+    "./plugins/bar": "./plugins/bar/index.js",
+    "./plugins/void": "./plugins/void/index.js"
+  },
+  "types": "./index.d.ts",
+  "scripts": {
+    "lint": "prettier --check '*.{md,json,js,ts}' 'examples/**' 'plugins/**'",
+    "lint:fix": "prettier --write '*.{md,json,js,ts}' 'examples/**' 'plugins/**'",
+    "test": "npm run -s test:code && npm run -s test:typescript && npm run -s test:coverage && npm run -s lint",
+    "test:code": "c8 uvu . '^(examples/.*/)?test.js$'",
+    "test:coverage": "c8 check-coverage",
+    "test:typescript": "tsd && tsd examples/*"
+  },
+  "repository": "github:gr2m/javascript-plugin-architecture-with-typescript-definitions",
+  "keywords": [
+    "typescript",
+    "plugin",
+    "architecture"
+  ],
+  "author": "Gregor Martynus (https://twitter.com/gr2m)",
+  "contributors": [
+    {
+      "name": "Karol Majewski",
+      "url": "https://github.com/karol-majewski"
+    }
+  ],
+  "license": "ISC",
+  "devDependencies": {
+    "c8": "^7.7.2",
+    "prettier": "^2.3.2",
+    "tsd": "^0.17.0",
+    "uvu": "^0.5.1"
+  },
+  "c8": {
+    "lines": 100,
+    "branches": 100,
+    "functions": 100,
+    "statements": 100
+  },
+  "renovate": {
+    "extends": [
+      "github>gr2m/.github"
+    ]
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  }
+}

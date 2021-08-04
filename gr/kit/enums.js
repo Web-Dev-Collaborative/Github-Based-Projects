@@ -1,0 +1,13 @@
+export var MODE;
+(function (MODE) {
+    MODE["GENERATE"] = "GENERATE";
+    MODE["FILTER"] = "FILTER";
+    MODE["MANUAL"] = "MANUAL";
+    MODE["HOTKEY"] = "HOTKEY";
+})(MODE || (MODE = {}));
+export var CHANNELS;
+(function (CHANNELS) {
+    CHANNELS["GENERATE_CHOICES"] = "GENERATE_CHOICES";
+    CHANNELS["TAB_CHANGED"] = "TAB_CHANGED";
+    CHANNELS["VALUE_SUBMITTED"] = "VALUE_SUBMITTED";
+})(CHANNELS || (CHANNELS = {}));

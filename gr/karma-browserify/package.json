@@ -1,0 +1,57 @@
+{
+  "name": "karma-browserify",
+  "description": "Browserify for Karma",
+  "keywords": [
+    "karma-plugin",
+    "browserify"
+  ],
+  "version": "0.2.1",
+  "author": {
+    "name": "Greg Thornton",
+    "email": "xdissent@me.com",
+    "url": "http://xdissent.com"
+  },
+  "contributors": [
+    {
+      "name": "Alexandre Lacheze",
+      "url": "https://github.com/alexstrat"
+    },
+    {
+      "name": "Alex Gorbatchev",
+      "url": "https://github.com/alexgorbatchev"
+    },
+    {
+      "name": "Peter Lyons",
+      "url": "https://github.com/focusaurus"
+    },
+    {
+      "name": "Alex Arnell",
+      "url": "https://github.com/voidlock"
+    }
+  ],
+  "main": "./index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/xdissent/karma-browserify",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xdissent/karma-browserify.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xdissent/karma-browserify/issues"
+  },
+  "dependencies": {
+    "through": "~2.x.x",
+    "chokidar": "~0.x.x"
+  },
+  "peerDependencies": {
+    "karma": ">=0.9",
+    "browserify": ">=3.30.5"
+  },
+  "devDependencies": {
+    "groc": "0.x.x",
+    "coffee-script": "~1.7.1"
+  },
+  "scripts": {
+    "prepublish": "./node_modules/.bin/coffee -cbo lib src"
+  }
+}

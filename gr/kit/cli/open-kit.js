@@ -1,0 +1,2 @@
+await edit(kitPath());
+export {};

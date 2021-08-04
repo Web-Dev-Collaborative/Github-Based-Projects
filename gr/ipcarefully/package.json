@@ -1,0 +1,33 @@
+{
+  "name": "ipcarefully",
+  "version": "1.0.2",
+  "description": "Creates HTTP or HTTPS agents for node.js that can filter based on IP",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "lab -fL -m 3000"
+  },
+  "keywords": [
+    "ip",
+    "filter",
+    "http",
+    "https",
+    "agent"
+  ],
+  "author": "Gar <gar+npm@danger.computer>",
+  "license": "MIT",
+  "dependencies": {
+    "ip-range-check": "0.0.2"
+  },
+  "devDependencies": {
+    "code": "^5.1.2",
+    "eslint": "^4.17.0",
+    "eslint-config-hapi": "^11.0.0",
+    "git-validate": "^2.2.2",
+    "lab": "^15.2.1",
+    "nock": "^9.1.6"
+  },
+  "pre-commit": [
+    "test"
+  ]
+}

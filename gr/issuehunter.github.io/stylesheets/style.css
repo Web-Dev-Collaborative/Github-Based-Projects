@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'StandardCT-Bold';
+  src: url('https://s3.amazonaws.com/issuehunter/fonts/standardct-bold.eot');
+  src: url('https://s3.amazonaws.com/issuehunter/fonts/standardct-bold.eot?#iefix') format('embedded-opentype'),
+    url('https://s3.amazonaws.com/issuehunter/fonts/standardct-bold.woff') format('woff'),
+    url('https://s3.amazonaws.com/issuehunter/fonts/standardct-bold.ttf') format('truetype'),
+    url('https://s3.amazonaws.com/issuehunter/fonts/standardct-bold.svg#StandardCT-Bold') format('svg');
+}
+
+.markdown-body {
+	box-sizing: border-box;
+	min-width: 200px;
+	max-width: 980px;
+	margin: 0 auto;
+	padding: 45px;
+}
+
+header.logo h1 {
+  font-family: 'StandardCT-Bold';
+  font-weight: normal;
+  font-size: 775%;
+  letter-spacing: -5px;
+  line-height: 88%;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+header.logo h1 span {
+  display: inline-block;
+}
+
+header.logo h2 {
+  border-bottom: none;
+}
+
+header.logo {
+  margin-bottom: 60px;
+}
+
+footer {
+  margin-top: 60px;
+}
+
+footer p {
+  font-size: 90%;
+}
+
+@media (max-width: 767px) {
+  header.logo h1 {
+    font-size: 450%;
+    letter-spacing: -3px;
+  }
+
+	.markdown-body {
+		padding: 15px;
+	}
+}
+
+/* Layout */
+
+.blue {
+  color: #33CCFF;
+}
+
+.red {
+  color: #FF4400;
+}
