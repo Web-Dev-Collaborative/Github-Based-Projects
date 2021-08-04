@@ -7,40 +7,51 @@ import { getCache } from "./cache";
 import { VERSION } from "./version";
 export { createOAuthUserAuth } from "@octokit/auth-oauth-user";
 export function createAppAuth(options) {
-    if (!options.appId) {
-        throw new Error("[@octokit/auth-app] appId option is required");
-    }
-    if (!options.privateKey) {
-        throw new Error("[@octokit/auth-app] privateKey option is required");
-    }
-    if ("installationId" in options && !options.installationId) {
-        throw new Error("[@octokit/auth-app] installationId is set to a falsy value");
-    }
-    const log = Object.assign({
-        warn: console.warn.bind(console),
-    }, options.log);
-    const request = options.request ||
-        defaultRequest.defaults({
-            headers: {
-                "user-agent": `octokit-auth-app.js/${VERSION} ${getUserAgent()}`,
-            },
-        });
-    const state = Object.assign({
+  if (!options.appId) {
+    throw new Error("[@octokit/auth-app] appId option is required");
+  }
+  if (!options.privateKey) {
+    throw new Error("[@octokit/auth-app] privateKey option is required");
+  }
+  if ("installationId" in options && !options.installationId) {
+    throw new Error(
+      "[@octokit/auth-app] installationId is set to a falsy value"
+    );
+  }
+  const log = Object.assign(
+    {
+      warn: console.warn.bind(console),
+    },
+    options.log
+  );
+  const request =
+    options.request ||
+    defaultRequest.defaults({
+      headers: {
+        "user-agent": `octokit-auth-app.js/${VERSION} ${getUserAgent()}`,
+      },
+    });
+  const state = Object.assign(
+    {
+      request,
+      cache: getCache(),
+    },
+    options,
+    options.installationId
+      ? { installationId: Number(options.installationId) }
+      : {},
+    {
+      log,
+      oauthApp: createOAuthAppAuth({
+        clientType: "github-app",
+        clientId: options.clientId || "",
+        clientSecret: options.clientSecret || "",
         request,
-        cache: getCache(),
-    }, options, options.installationId
-        ? { installationId: Number(options.installationId) }
-        : {}, {
-        log,
-        oauthApp: createOAuthAppAuth({
-            clientType: "github-app",
-            clientId: options.clientId || "",
-            clientSecret: options.clientSecret || "",
-            request,
-        }),
-    });
-    // @ts-expect-error not worth the extra code to appease TS
-    return Object.assign(auth.bind(null, state), {
-        hook: hook.bind(null, state),
-    });
+      }),
+    }
+  );
+  // @ts-expect-error not worth the extra code to appease TS
+  return Object.assign(auth.bind(null, state), {
+    hook: hook.bind(null, state),
+  });
 }

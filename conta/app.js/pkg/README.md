@@ -5,7 +5,6 @@
 [![@latest](https://img.shields.io/npm/v/@octokit/app.svg)](https://www.npmjs.com/package/@octokit/app)
 [![Build Status](https://github.com/octokit/app.js/workflows/Test/badge.svg)](https://github.com/octokit/app.js/actions?workflow=Test)
 
-
 # Results of Test
 
 ```
@@ -32,7 +31,7 @@ Time:        30.08 s
 Ran all test suites.
 Waiting for the debugger to disconnect...
 Waiting for the debugger to disconnect...
-gitpod /workspace/octokit/conta/app.js $ 
+gitpod /workspace/octokit/conta/app.js $
 
 ```
 
@@ -217,7 +216,6 @@ An [`@octokit/oauth-app` instance](https://github.com/octokit/oauth-app.js/#read
 A middleware is a method or set of methods to handle requests for common environments.
 
 By default, all middlewares expose the following routes
-
 
 | Route                            | Route Description                                                                                                                                                                                                                                              |
 | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', { value: true });
+Object.defineProperty(exports, "__esModule", { value: true });
 
-var core = require('@octokit/core');
-var authApp = require('@octokit/auth-app');
-var oauthApp = require('@octokit/oauth-app');
-var authUnauthenticated = require('@octokit/auth-unauthenticated');
-var webhooks$1 = require('@octokit/webhooks');
-var pluginPaginateRest = require('@octokit/plugin-paginate-rest');
+var core = require("@octokit/core");
+var authApp = require("@octokit/auth-app");
+var oauthApp = require("@octokit/oauth-app");
+var authUnauthenticated = require("@octokit/auth-unauthenticated");
+var webhooks$1 = require("@octokit/webhooks");
+var pluginPaginateRest = require("@octokit/plugin-paginate-rest");
 
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
@@ -39,7 +39,11 @@ function _objectSpread2(target) {
       Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
     } else {
       ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        Object.defineProperty(
+          target,
+          key,
+          Object.getOwnPropertyDescriptor(source, key)
+        );
       });
     }
   }
@@ -75,7 +79,7 @@ function _AsyncGenerator(gen) {
         arg: arg,
         resolve: resolve,
         reject: reject,
-        next: null
+        next: null,
       };
 
       if (back) {
@@ -92,16 +96,19 @@ function _AsyncGenerator(gen) {
       var result = gen[key](arg);
       var value = result.value;
       var wrappedAwait = value instanceof _AwaitValue;
-      Promise.resolve(wrappedAwait ? value.wrapped : value).then(function (arg) {
-        if (wrappedAwait) {
-          resume(key === "return" ? "return" : "next", arg);
-          return;
-        }
+      Promise.resolve(wrappedAwait ? value.wrapped : value).then(
+        function (arg) {
+          if (wrappedAwait) {
+            resume(key === "return" ? "return" : "next", arg);
+            return;
+          }
 
-        settle(result.done ? "return" : "normal", arg);
-      }, function (err) {
-        resume("throw", err);
-      });
+          settle(result.done ? "return" : "normal", arg);
+        },
+        function (err) {
+          resume("throw", err);
+        }
+      );
     } catch (err) {
       settle("throw", err);
     }
@@ -112,7 +119,7 @@ function _AsyncGenerator(gen) {
       case "return":
         front.resolve({
           value: value,
-          done: true
+          done: true,
         });
         break;
 
@@ -123,7 +130,7 @@ function _AsyncGenerator(gen) {
       default:
         front.resolve({
           value: value,
-          done: false
+          done: false,
         });
         break;
     }
@@ -144,7 +151,9 @@ function _AsyncGenerator(gen) {
   }
 }
 
-_AsyncGenerator.prototype[typeof Symbol === "function" && Symbol.asyncIterator || "@@asyncIterator"] = function () {
+_AsyncGenerator.prototype[
+  (typeof Symbol === "function" && Symbol.asyncIterator) || "@@asyncIterator"
+] = function () {
   return this;
 };
 
@@ -176,7 +185,7 @@ function _defineProperty(obj, key, value) {
       value: value,
       enumerable: true,
       configurable: true,
-      writable: true
+      writable: true,
     });
   } else {
     obj[key] = value;
@@ -187,22 +196,31 @@ function _defineProperty(obj, key, value) {
 
 const VERSION = "0.0.0-development";
 
-function webhooks(appOctokit, options // Explict return type for better debugability and performance,
-// see https://github.com/octokit/app.js/pull/201
+function webhooks(
+  appOctokit,
+  options // Explict return type for better debugability and performance,
+  // see https://github.com/octokit/app.js/pull/201
 ) {
   return new webhooks$1.Webhooks({
     secret: options.secret,
-    transform: async event => {
-      if (!("installation" in event.payload) || typeof event.payload.installation !== "object") {
+    transform: async (event) => {
+      if (
+        !("installation" in event.payload) ||
+        typeof event.payload.installation !== "object"
+      ) {
         const octokit = new appOctokit.constructor({
           authStrategy: authUnauthenticated.createUnauthenticatedAuth,
           auth: {
-            reason: `"installation" key missing in webhook event payload`
+            reason: `"installation" key missing in webhook event payload`,
+          },
+        });
+        return _objectSpread2(
+          _objectSpread2({}, event),
+          {},
+          {
+            octokit: octokit,
           }
-        });
-        return _objectSpread2(_objectSpread2({}, event), {}, {
-          octokit: octokit
-        });
+        );
       }
 
       const installationId = event.payload.installation.id;
@@ -211,20 +229,34 @@ function webhooks(appOctokit, options // Explict return type for better debugabi
         installationId,
 
         factory(auth) {
-          return new auth.octokit.constructor(_objectSpread2(_objectSpread2({}, auth.octokitOptions), {}, {
-            authStrategy: authApp.createAppAuth
-          }, {
-            auth: _objectSpread2(_objectSpread2({}, auth), {}, {
-              installationId
-            })
-          }));
+          return new auth.octokit.constructor(
+            _objectSpread2(
+              _objectSpread2({}, auth.octokitOptions),
+              {},
+              {
+                authStrategy: authApp.createAppAuth,
+              },
+              {
+                auth: _objectSpread2(
+                  _objectSpread2({}, auth),
+                  {},
+                  {
+                    installationId,
+                  }
+                ),
+              }
+            )
+          );
+        },
+      });
+      return _objectSpread2(
+        _objectSpread2({}, event),
+        {},
+        {
+          octokit: octokit,
         }
-
-      });
-      return _objectSpread2(_objectSpread2({}, event), {}, {
-        octokit: octokit
-      });
-    }
+      );
+    },
   });
 }
 
@@ -234,23 +266,31 @@ async function getInstallationOctokit(app, installationId) {
     installationId: installationId,
 
     factory(auth) {
-      const options = _objectSpread2(_objectSpread2({}, auth.octokitOptions), {}, {
-        authStrategy: authApp.createAppAuth
-      }, {
-        auth: _objectSpread2(_objectSpread2({}, auth), {}, {
-          installationId: installationId
-        })
-      });
+      const options = _objectSpread2(
+        _objectSpread2({}, auth.octokitOptions),
+        {},
+        {
+          authStrategy: authApp.createAppAuth,
+        },
+        {
+          auth: _objectSpread2(
+            _objectSpread2({}, auth),
+            {},
+            {
+              installationId: installationId,
+            }
+          ),
+        }
+      );
 
       return new auth.octokit.constructor(options);
-    }
-
+    },
   });
 }
 
 function eachInstallationFactory(app) {
   return Object.assign(eachInstallation.bind(null, app), {
-    iterator: eachInstallationIterator.bind(null, app)
+    iterator: eachInstallationIterator.bind(null, app),
   });
 }
 async function eachInstallation(app, callback) {
@@ -266,23 +306,33 @@ function eachInstallationIterator(app) {
   return {
     [Symbol.asyncIterator]() {
       return _wrapAsyncGenerator(function* () {
-        const iterator = pluginPaginateRest.composePaginateRest.iterator(app.octokit, "GET /app/installations");
+        const iterator = pluginPaginateRest.composePaginateRest.iterator(
+          app.octokit,
+          "GET /app/installations"
+        );
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
 
         var _iteratorError;
 
         try {
-          for (var _iterator = _asyncIterator(iterator), _step, _value; _step = yield _awaitAsyncGenerator(_iterator.next()), _iteratorNormalCompletion = _step.done, _value = yield _awaitAsyncGenerator(_step.value), !_iteratorNormalCompletion; _iteratorNormalCompletion = true) {
-            const {
-              data: installations
-            } = _value;
+          for (
+            var _iterator = _asyncIterator(iterator), _step, _value;
+            (_step = yield _awaitAsyncGenerator(_iterator.next())),
+              (_iteratorNormalCompletion = _step.done),
+              (_value = yield _awaitAsyncGenerator(_step.value)),
+              !_iteratorNormalCompletion;
+            _iteratorNormalCompletion = true
+          ) {
+            const { data: installations } = _value;
 
             for (const installation of installations) {
-              const installationOctokit = yield _awaitAsyncGenerator(getInstallationOctokit(app, installation.id));
+              const installationOctokit = yield _awaitAsyncGenerator(
+                getInstallationOctokit(app, installation.id)
+              );
               yield {
                 octokit: installationOctokit,
-                installation
+                installation,
               };
             }
           }
@@ -301,18 +351,19 @@ function eachInstallationIterator(app) {
           }
         }
       })();
-    }
-
+    },
   };
 }
 
 function eachRepositoryFactory(app) {
   return Object.assign(eachRepository.bind(null, app), {
-    iterator: eachRepositoryIterator.bind(null, app)
+    iterator: eachRepositoryIterator.bind(null, app),
   });
 }
 async function eachRepository(app, queryOrCallback, callback) {
-  const i = eachRepositoryIterator(app, callback ? queryOrCallback : undefined)[Symbol.asyncIterator]();
+  const i = eachRepositoryIterator(app, callback ? queryOrCallback : undefined)[
+    Symbol.asyncIterator
+  ]();
   let result = await i.next();
 
   while (!result.done) {
@@ -331,11 +382,12 @@ function singleInstallationIterator(app, installationId) {
     [Symbol.asyncIterator]() {
       return _wrapAsyncGenerator(function* () {
         yield {
-          octokit: yield _awaitAsyncGenerator(app.getInstallationOctokit(installationId))
+          octokit: yield _awaitAsyncGenerator(
+            app.getInstallationOctokit(installationId)
+          ),
         };
       })();
-    }
-
+    },
   };
 }
 
@@ -343,33 +395,51 @@ function eachRepositoryIterator(app, query) {
   return {
     [Symbol.asyncIterator]() {
       return _wrapAsyncGenerator(function* () {
-        const iterator = query ? singleInstallationIterator(app, query.installationId) : app.eachInstallation.iterator();
+        const iterator = query
+          ? singleInstallationIterator(app, query.installationId)
+          : app.eachInstallation.iterator();
         var _iteratorNormalCompletion = true;
         var _didIteratorError = false;
 
         var _iteratorError;
 
         try {
-          for (var _iterator = _asyncIterator(iterator), _step, _value; _step = yield _awaitAsyncGenerator(_iterator.next()), _iteratorNormalCompletion = _step.done, _value = yield _awaitAsyncGenerator(_step.value), !_iteratorNormalCompletion; _iteratorNormalCompletion = true) {
-            const {
-              octokit
-            } = _value;
-            const repositoriesIterator = pluginPaginateRest.composePaginateRest.iterator(octokit, "GET /installation/repositories");
+          for (
+            var _iterator = _asyncIterator(iterator), _step, _value;
+            (_step = yield _awaitAsyncGenerator(_iterator.next())),
+              (_iteratorNormalCompletion = _step.done),
+              (_value = yield _awaitAsyncGenerator(_step.value)),
+              !_iteratorNormalCompletion;
+            _iteratorNormalCompletion = true
+          ) {
+            const { octokit } = _value;
+            const repositoriesIterator =
+              pluginPaginateRest.composePaginateRest.iterator(
+                octokit,
+                "GET /installation/repositories"
+              );
             var _iteratorNormalCompletion2 = true;
             var _didIteratorError2 = false;
 
             var _iteratorError2;
 
             try {
-              for (var _iterator2 = _asyncIterator(repositoriesIterator), _step2, _value2; _step2 = yield _awaitAsyncGenerator(_iterator2.next()), _iteratorNormalCompletion2 = _step2.done, _value2 = yield _awaitAsyncGenerator(_step2.value), !_iteratorNormalCompletion2; _iteratorNormalCompletion2 = true) {
-                const {
-                  data: repositories
-                } = _value2;
+              for (
+                var _iterator2 = _asyncIterator(repositoriesIterator),
+                  _step2,
+                  _value2;
+                (_step2 = yield _awaitAsyncGenerator(_iterator2.next())),
+                  (_iteratorNormalCompletion2 = _step2.done),
+                  (_value2 = yield _awaitAsyncGenerator(_step2.value)),
+                  !_iteratorNormalCompletion2;
+                _iteratorNormalCompletion2 = true
+              ) {
+                const { data: repositories } = _value2;
 
                 for (const repository of repositories) {
                   yield {
                     octokit: octokit,
-                    repository
+                    repository,
                   };
                 }
               }
@@ -403,58 +473,70 @@ function eachRepositoryIterator(app, query) {
           }
         }
       })();
-    }
-
+    },
   };
 }
 
 function onUnhandledRequestDefault(request, response) {
   response.writeHead(404, {
-    "content-type": "application/json"
+    "content-type": "application/json",
   });
-  response.end(JSON.stringify({
-    error: `Unknown route: ${request.method} ${request.url}`
-  }));
+  response.end(
+    JSON.stringify({
+      error: `Unknown route: ${request.method} ${request.url}`,
+    })
+  );
 }
 
 function noop() {}
 
 function createNodeMiddleware(app, options = {}) {
-  const log = Object.assign({
-    debug: noop,
-    info: noop,
-    warn: console.warn.bind(console),
-    error: console.error.bind(console)
-  }, options.log);
+  const log = Object.assign(
+    {
+      debug: noop,
+      info: noop,
+      warn: console.warn.bind(console),
+      error: console.error.bind(console),
+    },
+    options.log
+  );
 
-  const optionsWithDefaults = _objectSpread2(_objectSpread2({
-    onUnhandledRequest: onUnhandledRequestDefault,
-    pathPrefix: "/api/github"
-  }, options), {}, {
-    log
-  });
+  const optionsWithDefaults = _objectSpread2(
+    _objectSpread2(
+      {
+        onUnhandledRequest: onUnhandledRequestDefault,
+        pathPrefix: "/api/github",
+      },
+      options
+    ),
+    {},
+    {
+      log,
+    }
+  );
 
   const webhooksMiddleware = webhooks$1.createNodeMiddleware(app.webhooks, {
     path: optionsWithDefaults.pathPrefix + "/webhooks",
     log,
-    onUnhandledRequest: optionsWithDefaults.onUnhandledRequest
+    onUnhandledRequest: optionsWithDefaults.onUnhandledRequest,
   });
   const oauthMiddleware = oauthApp.createNodeMiddleware(app.oauth, {
     pathPrefix: optionsWithDefaults.pathPrefix + "/oauth",
-    onUnhandledRequest: optionsWithDefaults.onUnhandledRequest
+    onUnhandledRequest: optionsWithDefaults.onUnhandledRequest,
   });
   return middleware.bind(null, optionsWithDefaults, {
     webhooksMiddleware,
-    oauthMiddleware
+    oauthMiddleware,
   });
 }
-async function middleware(options, {
-  webhooksMiddleware,
-  oauthMiddleware
-}, request, response, next) {
-  const {
-    pathname
-  } = new URL(request.url, "http://localhost");
+async function middleware(
+  options,
+  { webhooksMiddleware, oauthMiddleware },
+  request,
+  response,
+  next
+) {
+  const { pathname } = new URL(request.url, "http://localhost");
 
   if (pathname === `${options.pathPrefix}/webhooks`) {
     return webhooksMiddleware(request, response, next);
@@ -477,24 +559,32 @@ async function middleware(options, {
 class App {
   constructor(options) {
     const Octokit = options.Octokit || core.Octokit;
-    const authOptions = Object.assign({
-      appId: options.appId,
-      privateKey: options.privateKey
-    }, options.oauth ? {
-      clientId: options.oauth.clientId,
-      clientSecret: options.oauth.clientSecret
-    } : {});
+    const authOptions = Object.assign(
+      {
+        appId: options.appId,
+        privateKey: options.privateKey,
+      },
+      options.oauth
+        ? {
+            clientId: options.oauth.clientId,
+            clientSecret: options.oauth.clientSecret,
+          }
+        : {}
+    );
     this.octokit = new Octokit({
       authStrategy: authApp.createAppAuth,
       auth: authOptions,
-      log: options.log
+      log: options.log,
     });
-    this.log = Object.assign({
-      debug: () => {},
-      info: () => {},
-      warn: console.warn.bind(console),
-      error: console.error.bind(console)
-    }, options.log); // set app.webhooks depending on whether "webhooks" option has been passed
+    this.log = Object.assign(
+      {
+        debug: () => {},
+        info: () => {},
+        warn: console.warn.bind(console),
+        error: console.error.bind(console),
+      },
+      options.log
+    ); // set app.webhooks depending on whether "webhooks" option has been passed
 
     if (options.webhooks) {
       // @ts-expect-error TODO: figure this out
@@ -503,23 +593,28 @@ class App {
       Object.defineProperty(this, "webhooks", {
         get() {
           throw new Error("[@octokit/app] webhooks option not set");
-        }
-
+        },
       });
     } // set app.oauth depending on whether "oauth" option has been passed
 
-
     if (options.oauth) {
-      this.oauth = new oauthApp.OAuthApp(_objectSpread2(_objectSpread2({}, options.oauth), {}, {
-        clientType: "github-app",
-        Octokit
-      }));
+      this.oauth = new oauthApp.OAuthApp(
+        _objectSpread2(
+          _objectSpread2({}, options.oauth),
+          {},
+          {
+            clientType: "github-app",
+            Octokit,
+          }
+        )
+      );
     } else {
       Object.defineProperty(this, "oauth", {
         get() {
-          throw new Error("[@octokit/app] oauth.clientId / oauth.clientSecret options are not set");
-        }
-
+          throw new Error(
+            "[@octokit/app] oauth.clientId / oauth.clientSecret options are not set"
+          );
+        },
       });
     }
 
@@ -533,11 +628,9 @@ class App {
       constructor(...args) {
         super(_objectSpread2(_objectSpread2({}, defaults), args[0]));
       }
-
     };
     return AppWithDefaults;
   }
-
 }
 App.VERSION = VERSION;
 
