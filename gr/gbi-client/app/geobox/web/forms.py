@@ -19,7 +19,13 @@ from jinja2 import Markup
 
 from flask import request, session, current_app, g
 
-from wtforms.fields import HiddenField, TextField, SelectField, PasswordField, BooleanField
+from wtforms.fields import (
+    HiddenField,
+    TextField,
+    SelectField,
+    PasswordField,
+    BooleanField,
+)
 from wtforms.validators import Required, ValidationError, Optional
 
 from wtforms.ext.csrf.session import SessionSecureForm
@@ -29,6 +35,7 @@ from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from flaskext.babel import lazy_gettext, gettext, ngettext
 from geobox.model import LocalWMTSSource, ExternalWMTSSource, Project
 
+
 class BabelTranslations(object):
     def gettext(self, string):
         return gettext(string)
@@ -36,13 +43,16 @@ class BabelTranslations(object):
     def ngettext(self, singular, pluaral, n):
         return ngettext(singular, pluaral, n)
 
+
 babel = BabelTranslations()
 
-class _Auto():
-    '''Placeholder for unspecified variables that should be set to defaults.
+
+class _Auto:
+    """Placeholder for unspecified variables that should be set to defaults.
 
     Used when None is a valid option and should not be replaced by a default.
-    '''
+    """
+
     pass
 
 
@@ -70,11 +80,21 @@ class Form(SessionSecureForm):
       is suppressed. Default: check app.config for CSRF_ENABLED, else True
 
     """
-    def __init__(self, formdata=_Auto, obj=None, prefix='', csrf_context=None,
-                 secret_key=None, csrf_enabled=None, *args, **kwargs):
+
+    def __init__(
+        self,
+        formdata=_Auto,
+        obj=None,
+        prefix="",
+        csrf_context=None,
+        secret_key=None,
+        csrf_enabled=None,
+        *args,
+        **kwargs
+    ):
 
         if csrf_enabled is None:
-            csrf_enabled = current_app.config.get('CSRF_ENABLED', True)
+            csrf_enabled = current_app.config.get("CSRF_ENABLED", True)
         self.csrf_enabled = csrf_enabled
 
         if formdata is _Auto:
@@ -84,7 +104,7 @@ class Form(SessionSecureForm):
                     formdata = formdata.copy()
                     formdata.update(request.files)
                 elif request.json:
-                    formdata = werkzeug.datastructures.MultiDict(request.json);
+                    formdata = werkzeug.datastructures.MultiDict(request.json)
             else:
                 formdata = None
         if self.csrf_enabled:
@@ -101,13 +121,15 @@ class Form(SessionSecureForm):
                 secret_key = session.secret_key
             if secret_key is None:
                 # It wasn't anywhere. This is an error.
-                raise Exception('Must provide secret_key to use csrf.')
+                raise Exception("Must provide secret_key to use csrf.")
 
             self.SECRET_KEY = secret_key
         else:
             csrf_context = {}
             self.SECRET_KEY = ""
-        super(Form, self).__init__(formdata, obj, prefix, csrf_context=csrf_context, *args, **kwargs)
+        super(Form, self).__init__(
+            formdata, obj, prefix, csrf_context=csrf_context, *args, **kwargs
+        )
 
     def generate_csrf_token(self, csrf_context=None):
         if not self.csrf_enabled:
@@ -160,56 +182,95 @@ class Form(SessionSecureForm):
     def _get_translations(self):
         return babel
 
+
 class ProjectEdit(Form):
-    title = TextField(lazy_gettext('title'), validators=[Required()])
+    title = TextField(lazy_gettext("title"), validators=[Required()])
     start = HiddenField(default=0)
 
     def validate_download_level_end(form, field):
-        if form.data['download_level_start'] > field.data:
-            raise ValidationError(lazy_gettext('level needs to be bigger or equal to start level'))
+        if form.data["download_level_start"] > field.data:
+            raise ValidationError(
+                lazy_gettext("level needs to be bigger or equal to start level")
+            )
+
 
 class LoginForm(Form):
-    username = TextField(lazy_gettext('username'), validators=[Required()])
-    password = PasswordField(lazy_gettext('Password'), validators=[Required()])
+    username = TextField(lazy_gettext("username"), validators=[Required()])
+    password = PasswordField(lazy_gettext("Password"), validators=[Required()])
+
 
 def get_local_wmts_source():
     return g.db.query(LocalWMTSSource).all()
 
+
 def get_external_wmts_source():
     return g.db.query(ExternalWMTSSource).filter_by(active=True).all()
 
+
 def get_all_projects_withs_coverages():
-    query = g.db.query(Project).with_polymorphic('*').filter(Project.coverage!=None)
-    return query.filter(Project.coverage!='').all()
+    query = g.db.query(Project).with_polymorphic("*").filter(Project.coverage != None)
+    return query.filter(Project.coverage != "").all()
 
 
 class SelectCoverage(Form):
-    select_coverage = QuerySelectField(lazy_gettext('select coverage'), query_factory=get_all_projects_withs_coverages, get_label='title')
+    select_coverage = QuerySelectField(
+        lazy_gettext("select coverage"),
+        query_factory=get_all_projects_withs_coverages,
+        get_label="title",
+    )
+
 
 class ImportProjectEdit(ProjectEdit):
-    start_level = SelectField(lazy_gettext('start level'), coerce=int)
-    end_level = SelectField(lazy_gettext('end level'), coerce=int)
-    raster_source = QuerySelectField(lazy_gettext('raster_source'), query_factory=get_external_wmts_source, get_label='title')
-    update_tiles = BooleanField(lazy_gettext('update_tiles'))
+    start_level = SelectField(lazy_gettext("start level"), coerce=int)
+    end_level = SelectField(lazy_gettext("end level"), coerce=int)
+    raster_source = QuerySelectField(
+        lazy_gettext("raster_source"),
+        query_factory=get_external_wmts_source,
+        get_label="title",
+    )
+    update_tiles = BooleanField(lazy_gettext("update_tiles"))
     coverage = HiddenField()
     download_size = HiddenField()
 
 
 class ExportProjectEdit(ProjectEdit):
-    format = SelectField(lazy_gettext('format'), choices=[('MBTiles', 'MBTiles'), ('GTiff', 'TIFF'), ('JPEG', 'JPEG'), ('CouchDB', 'CouchDB')], coerce=str)
-    srs = SelectField(lazy_gettext('srs'), validators=[Optional()])
-    start_level = SelectField(lazy_gettext('start level'), coerce=int, validators=[Optional()])
-    end_level = SelectField(lazy_gettext('end level'), coerce=int, validators=[Optional()])
-    raster_source = QuerySelectField(lazy_gettext('raster_source'),query_factory=get_local_wmts_source, get_label='wmts_source.title', validators=[Optional()])
-    mapping_name = SelectField(lazy_gettext('mapping name'), coerce=str, validators=[Optional()])
+    format = SelectField(
+        lazy_gettext("format"),
+        choices=[
+            ("MBTiles", "MBTiles"),
+            ("GTiff", "TIFF"),
+            ("JPEG", "JPEG"),
+            ("CouchDB", "CouchDB"),
+        ],
+        coerce=str,
+    )
+    srs = SelectField(lazy_gettext("srs"), validators=[Optional()])
+    start_level = SelectField(
+        lazy_gettext("start level"), coerce=int, validators=[Optional()]
+    )
+    end_level = SelectField(
+        lazy_gettext("end level"), coerce=int, validators=[Optional()]
+    )
+    raster_source = QuerySelectField(
+        lazy_gettext("raster_source"),
+        query_factory=get_local_wmts_source,
+        get_label="wmts_source.title",
+        validators=[Optional()],
+    )
+    mapping_name = SelectField(
+        lazy_gettext("mapping name"), coerce=str, validators=[Optional()]
+    )
     raster_layers = HiddenField(validators=[Optional()])
     coverage = HiddenField(validators=[Optional()])
     download_size = HiddenField()
 
+
 class ImportVectorEdit(Form):
-    file_name = SelectField(lazy_gettext('file name'), validators=[Required()])
-    mapping_name = SelectField(lazy_gettext('mapping name'), validators=[Required()], coerce=str)
+    file_name = SelectField(lazy_gettext("file name"), validators=[Required()])
+    mapping_name = SelectField(
+        lazy_gettext("mapping name"), validators=[Required()], coerce=str
+    )
 
 
 class TileBoxPathForm(Form):
-    path = TextField(lazy_gettext('path'), validators=[])
+    path = TextField(lazy_gettext("path"), validators=[])

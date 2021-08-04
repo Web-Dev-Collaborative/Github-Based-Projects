@@ -23,16 +23,18 @@ from flask.ext.babel import gettext as _
 
 from gbi_server.extensions import db
 
-__all__ = ['User', 'EmailVerification', 'DummyUser']
+__all__ = ["User", "EmailVerification", "DummyUser"]
 
 RECOVER_VALID_FOR = datetime.timedelta(hours=24)
+
 
 class DummyUser(UserMixin):
     def __init__(self, id):
         self.id = id
 
+
 class User(db.Model, UserMixin):
-    __tablename__ = 'users'
+    __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(256), unique=True, nullable=False)
@@ -47,10 +49,15 @@ class User(db.Model, UserMixin):
     password = db.Column(db.String(256))
     active = db.Column(db.Boolean, default=False, nullable=False)
     verified = db.Column(db.Boolean, default=False, nullable=False)
-    authproxy_token = db.Column(db.String(32), unique=True,
-        default=lambda: uuid.uuid4().hex)
-    email_verification = db.relationship('EmailVerification', backref='user',
-        uselist=False, cascade='all,delete,delete-orphan')
+    authproxy_token = db.Column(
+        db.String(32), unique=True, default=lambda: uuid.uuid4().hex
+    )
+    email_verification = db.relationship(
+        "EmailVerification",
+        backref="user",
+        uselist=False,
+        cascade="all,delete,delete-orphan",
+    )
     type = db.Column(db.Integer, default=0)
 
     def __init__(self, email, password=None):
@@ -60,14 +67,19 @@ class User(db.Model, UserMixin):
             self.update_password(password)
 
     class Type(object):
-        CUSTOMER = 0 #landwirte
-        SERVICE_PROVIDER = 1 #dienstleister
-        CONSULTANT = 50 #berater
+        CUSTOMER = 0  # landwirte
+        SERVICE_PROVIDER = 1  # dienstleister
+        CONSULTANT = 50  # berater
         ADMIN = 99
 
         @classmethod
         def as_string(self, type):
-            _types = {0: _('customer'), 1: _('service_provider'), 50: _('consultant'), 99:_('admin')}
+            _types = {
+                0: _("customer"),
+                1: _("service_provider"),
+                50: _("consultant"),
+                99: _("admin"),
+            }
             return _types[type or 0]
 
     @property
@@ -92,7 +104,7 @@ class User(db.Model, UserMixin):
 
     @classmethod
     def from_dict(cls, data):
-        user = User(data['email'], data['password'])
+        user = User(data["email"], data["password"])
         for name, value in data.iteritems():
             if hasattr(user, name):
                 setattr(user, name, value)
@@ -123,7 +135,7 @@ class User(db.Model, UserMixin):
             raise ValueError("Password must be non empty.")
         password = str(password)
 
-        rounds = current_app.config.get('BCRYPT_LOG_ROUNDS', 10)
+        rounds = current_app.config.get("BCRYPT_LOG_ROUNDS", 10)
         self.password = bcrypt.hashpw(password, bcrypt.gensalt(rounds))
 
     def check_password(self, password):
@@ -143,25 +155,26 @@ class User(db.Model, UserMixin):
 
     def get_address(self):
         return {
-            'realname': self.realname if self.realname else '',
-            'street': self.street if self.street else '',
-            'housenumber': self.housenumber if self.housenumber else '',
-            'zipcode': self.zipcode if self.zipcode else '',
-            'city': self.city if self.city else ''
+            "realname": self.realname if self.realname else "",
+            "street": self.street if self.street else "",
+            "housenumber": self.housenumber if self.housenumber else "",
+            "zipcode": self.zipcode if self.zipcode else "",
+            "city": self.city if self.city else "",
         }
 
     def __repr__(self):
-        return '<User email=%s type=%s>' % (
-            self.email, self.type
-        )
+        return "<User email=%s type=%s>" % (self.email, self.type)
+
 
 class EmailVerification(db.Model):
-    __tablename__ = 'password_recovery'
+    __tablename__ = "password_recovery"
     id = db.Column(db.Integer, primary_key=True)
     hash = db.Column(db.String(36), unique=True, nullable=False)
     type = db.Column(db.String(10), nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    valid_till = db.Column(db.DateTime, default=lambda: datetime.datetime.utcnow() + RECOVER_VALID_FOR)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    valid_till = db.Column(
+        db.DateTime, default=lambda: datetime.datetime.utcnow() + RECOVER_VALID_FOR
+    )
 
     @classmethod
     def by_hash(cls, hash):
@@ -175,34 +188,34 @@ class EmailVerification(db.Model):
 
     @classmethod
     def recover(cls, user):
-        return EmailVerification(user=user, hash=str(uuid.uuid4()), type='recover')
+        return EmailVerification(user=user, hash=str(uuid.uuid4()), type="recover")
 
     @classmethod
     def verify(cls, user):
-        return EmailVerification(user=user, hash=str(uuid.uuid4()), type='verify')
+        return EmailVerification(user=user, hash=str(uuid.uuid4()), type="verify")
 
     @classmethod
     def verify_import(cls, user):
-        return EmailVerification(user=user, hash=str(uuid.uuid4()), type='import')
+        return EmailVerification(user=user, hash=str(uuid.uuid4()), type="import")
 
     @property
     def is_recover(self):
-        return self.type == 'recover'
+        return self.type == "recover"
 
     @property
     def is_verify(self):
-        return self.type == 'verify'
+        return self.type == "verify"
 
     @property
     def is_import(self):
-        return self.type == 'import'
+        return self.type == "import"
 
     @property
     def url(self):
-        if self.type == 'recover':
-            return url_for('user.recover_password', uuid=self.hash, _external=True)
-        if self.type == 'verify':
-            return url_for('user.verify', uuid=self.hash, _external=True)
-        if self.type == 'import':
-            return url_for('user.new_password', uuid=self.hash, _external=True)
-        raise AssertionError('unknown verification type: %s', self.type)
+        if self.type == "recover":
+            return url_for("user.recover_password", uuid=self.hash, _external=True)
+        if self.type == "verify":
+            return url_for("user.verify", uuid=self.hash, _external=True)
+        if self.type == "import":
+            return url_for("user.new_password", uuid=self.hash, _external=True)
+        raise AssertionError("unknown verification type: %s", self.type)

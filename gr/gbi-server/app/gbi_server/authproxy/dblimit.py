@@ -18,16 +18,17 @@ import os
 from gbi_server.authproxy.limiter import LimiterCache, InvalidUserToken
 from gbi_server.config import SystemConfig
 
+
 class CouchDBLimiter(LimiterCache):
     def cache_file(self, user_token, name):
         return os.path.join(self.cache_path(user_token), name)
 
     def is_permitted(self, user_token, dbname, method):
         permissions = self.load(user_token, dbname)
-        if method in ('GET', 'HEAD', 'OPTIONS'):
-            return permissions in ('r', 'rw')
+        if method in ("GET", "HEAD", "OPTIONS"):
+            return permissions in ("r", "rw")
         else:
-            return permissions == 'rw'
+            return permissions == "rw"
 
     def create(self, user_token, dbname):
         from gbi_server.model import User
@@ -38,21 +39,19 @@ class CouchDBLimiter(LimiterCache):
 
         if user.is_customer or user.is_service_provider:
             if dbname in (
-                '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id),
-                '%s_%s' % (SystemConfig.CUSTOMER_BOX_NAME, user.id),
+                "%s_%s" % (SystemConfig.AREA_BOX_NAME, user.id),
+                "%s_%s" % (SystemConfig.CUSTOMER_BOX_NAME, user.id),
             ):
-                return 'rw'
-            if dbname in (
-                '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, user.id),
-            ):
-                return 'r'
+                return "rw"
+            if dbname in ("%s_%s" % (SystemConfig.CONSULTANT_BOX_NAME, user.id),):
+                return "r"
         elif user.is_admin or user.is_consultant:
-            if dbname.startswith('%s_' % (SystemConfig.CONSULTANT_BOX_NAME, )):
-                return 'rw'
-            elif dbname.startswith('%s_' % (SystemConfig.CUSTOMER_BOX_NAME, )):
-                return 'r'
+            if dbname.startswith("%s_" % (SystemConfig.CONSULTANT_BOX_NAME,)):
+                return "rw"
+            elif dbname.startswith("%s_" % (SystemConfig.CUSTOMER_BOX_NAME,)):
+                return "r"
 
-        return 'no'
+        return "no"
 
     def serialize(self, data):
         return data

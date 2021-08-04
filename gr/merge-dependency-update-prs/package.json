@@ -1,0 +1,26 @@
+{
+  "name": "merge-dependency-update-prs",
+  "version": "0.0.0-development",
+  "description": "Load Dependabot & Renovate PRs from your notifications, merge the green ones and remove notifications",
+  "main": "index.js",
+  "bin": {
+    "merge-dependency-update-prs": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "dependabot",
+    "cli"
+  ],
+  "author": "Gregor Martynus (https://twitter.com/gr2m)",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/core": "^2.2.0",
+    "@octokit/plugin-paginate-rest": "^1.1.1"
+  },
+  "devDependencies": {
+    "semantic-release": "^17.0.1"
+  },
+  "repository": "github:gr2m/merge-dependency-update-prs"
+}

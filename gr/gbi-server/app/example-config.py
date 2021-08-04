@@ -21,10 +21,11 @@ the setup of the GBI-Server ``application`` itself for the use
 with gunicorn.
 """
 
+
 class GBIConfig(object):
     SQLALCHEMY_ECHO = False
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql://gbi:gbi@localhost/gbi'
+    SQLALCHEMY_DATABASE_URI = "postgresql://gbi:gbi@localhost/gbi"
 
     TINYOWS_SCHEMA_DIR = "/opt/gbi/local/share/tinyows/schema/"
     TINYOWS_BIN = "/opt/gbi/bin/tinyows"
@@ -34,23 +35,26 @@ class GBIConfig(object):
     TEMP_PG_USER = "gbi"
     TEMP_PG_PASSWORD = "gbi"
 
-    SESSION_COOKIE_NAME = 'gbi_server_session'
-    SECRET_KEY = 'INSERT RANDOM STRING HERE!!!'
+    SESSION_COOKIE_NAME = "gbi_server_session"
+    SECRET_KEY = "INSERT RANDOM STRING HERE!!!"
 
-    COUCH_DB_ADMIN_USER = 'admin'
-    COUCH_DB_ADMIN_PASSWORD = 'INSERT COUCHDB ADMIN PASSWORD HERE'
+    COUCH_DB_ADMIN_USER = "admin"
+    COUCH_DB_ADMIN_PASSWORD = "INSERT COUCHDB ADMIN PASSWORD HERE"
 
     MAIL_SERVER = "smtp.example.org"
-    MAIL_USERNAME = 'gbi-admin@example.org'
-    MAIL_PASSWORD = 'XXXXX'
+    MAIL_USERNAME = "gbi-admin@example.org"
+    MAIL_PASSWORD = "XXXXX"
     DEFAULT_MAIL_SENDER = "GBI Server <gbi-admin@example.org>"
 
     COUCH_DB_URL = "http://gbiserver.omniscale.net/couchdb"
 
-    GBI_CLIENT_DOWNLOAD_URL = "http://download.omniscale.de/geobox/dist/setup-geobox-0.2.8.exe"
+    GBI_CLIENT_DOWNLOAD_URL = (
+        "http://download.omniscale.de/geobox/dist/setup-geobox-0.2.8.exe"
+    )
 
 
 from gbi_server import create_app
+
 application = create_app(config=GBIConfig)
 
 # logging configuration
@@ -58,14 +62,18 @@ application = create_app(config=GBIConfig)
 import logging
 from logging import Formatter, handlers
 
-formatter = Formatter('%(asctime)s - %(levelname)s - %(name)s - %(message)s [@%(pathname)s:%(lineno)s]')
-file_handler = handlers.RotatingFileHandler('/var/log/gbi/gbi-server.log', maxBytes=100000, backupCount=10)
+formatter = Formatter(
+    "%(asctime)s - %(levelname)s - %(name)s - %(message)s [@%(pathname)s:%(lineno)s]"
+)
+file_handler = handlers.RotatingFileHandler(
+    "/var/log/gbi/gbi-server.log", maxBytes=100000, backupCount=10
+)
 
 file_handler.setLevel(logging.INFO)
 file_handler.setFormatter(formatter)
 application.logger.addHandler(file_handler)
 
-gbi_server_logger = logging.getLogger('gbi_server')
+gbi_server_logger = logging.getLogger("gbi_server")
 gbi_server_logger.setLevel(logging.INFO)
 gbi_server_logger.addHandler(file_handler)
 

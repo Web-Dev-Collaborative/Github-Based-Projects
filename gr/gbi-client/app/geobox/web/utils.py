@@ -15,5 +15,11 @@
 
 from flask import request
 
+
 def request_is_local():
-    return request.remote_addr in ('127.0.0.1', 'localhost', '::1', request.host.split(':')[0])
+    return request.remote_addr in (
+        "127.0.0.1",
+        "localhost",
+        "::1",
+        request.host.split(":")[0],
+    )

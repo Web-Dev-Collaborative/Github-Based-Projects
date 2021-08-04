@@ -15,6 +15,7 @@
 
 from mapproxy.srs import SRS
 
+
 def transform_features(from_srs, to_srs, features):
     """
     Transform list of `features`. Modifies `features` in-place.
@@ -34,22 +35,28 @@ def transform_geojson(from_srs, to_srs, geojson):
     from_srs = SRS(from_srs)
     to_srs = SRS(to_srs)
 
-    feature_type = geojson.get('type', 'Feature')
-    if feature_type == 'FeatureCollection':
-        for feature in geojson['features']:
-            feature['geometry']['coordinates'] = _transform_coordinates(
-                from_srs, to_srs, feature['geometry']['coordinates'])
-    elif feature_type == 'Feature':
-        geojson['geometry']['coordinates'] = _transform_coordinates(
-            from_srs, to_srs, geojson['geometry']['coordinates'])
+    feature_type = geojson.get("type", "Feature")
+    if feature_type == "FeatureCollection":
+        for feature in geojson["features"]:
+            feature["geometry"]["coordinates"] = _transform_coordinates(
+                from_srs, to_srs, feature["geometry"]["coordinates"]
+            )
+    elif feature_type == "Feature":
+        geojson["geometry"]["coordinates"] = _transform_coordinates(
+            from_srs, to_srs, geojson["geometry"]["coordinates"]
+        )
     else:
-        geojson['coordinates'] = _transform_coordinates(
-            from_srs, to_srs, geojson['coordinates'])
+        geojson["coordinates"] = _transform_coordinates(
+            from_srs, to_srs, geojson["coordinates"]
+        )
 
     return geojson
 
+
 def _transform_coordinates(from_srs, to_srs, coordinates):
     if coordinates and isinstance(coordinates[0], (tuple, list)):
-        return [_transform_coordinates(from_srs, to_srs, coords) for coords in coordinates]
+        return [
+            _transform_coordinates(from_srs, to_srs, coords) for coords in coordinates
+        ]
 
     return from_srs.transform_to(to_srs, coordinates)

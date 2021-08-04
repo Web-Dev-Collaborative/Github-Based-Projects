@@ -18,19 +18,20 @@ import sqlalchemy as sa
 from sqlalchemy import orm
 from flaskext.babel import lazy_gettext
 
-from . meta import Base
+from .meta import Base
 
 
 class TaskStatus(object):
-    STOPPING = 'STOPPING'
-    RUNNING = 'RUNNING'
-    PAUSED = 'PAUSED'
-    DONE = 'DONE'
-    STOPPED = 'STOPPED'
-    QUEUED = 'QUEUED'
+    STOPPING = "STOPPING"
+    RUNNING = "RUNNING"
+    PAUSED = "PAUSED"
+    DONE = "DONE"
+    STOPPED = "STOPPED"
+    QUEUED = "QUEUED"
+
 
 class Task(Base):
-    __tablename__ = 'tasks'
+    __tablename__ = "tasks"
 
     id = sa.Column(sa.Integer, primary_key=True)
     time_created = sa.Column(sa.DateTime(), default=datetime.datetime.utcnow)
@@ -41,11 +42,10 @@ class Task(Base):
     error = sa.Column(sa.String)
     progress = sa.Column(sa.Float)
 
-    project_id = sa.Column(sa.Integer, sa.ForeignKey('projects.id'))
+    project_id = sa.Column(sa.Integer, sa.ForeignKey("projects.id"))
 
-
-    type = sa.Column('type', sa.String(50))
-    __mapper_args__ = {'polymorphic_on': type}
+    type = sa.Column("type", sa.String(50))
+    __mapper_args__ = {"polymorphic_on": type}
 
     def refresh_time_updated(self):
         self.time_updated = datetime.datetime.utcnow()
@@ -75,29 +75,31 @@ class Task(Base):
 
 
 class VectorImportTask(Task):
-    task_type = lazy_gettext('vector import')
-    __tablename__ = 'tasks_vector_import'
-    __mapper_args__ = {'polymorphic_identity': 'vector_import'}
-    id = sa.Column(sa.Integer, sa.ForeignKey('tasks.id'), primary_key=True)
+    task_type = lazy_gettext("vector import")
+    __tablename__ = "tasks_vector_import"
+    __mapper_args__ = {"polymorphic_identity": "vector_import"}
+    id = sa.Column(sa.Integer, sa.ForeignKey("tasks.id"), primary_key=True)
     db_name = sa.Column(sa.String())
     file_name = sa.Column(sa.String())
     mapping_name = sa.Column(sa.String())
+
 
 class VectorExportTask(Task):
-    task_type = lazy_gettext('vector export')
-    __tablename__ = 'tasks_vector_export'
-    __mapper_args__ = {'polymorphic_identity': 'vector_export'}
-    id = sa.Column(sa.Integer, sa.ForeignKey('tasks.id'), primary_key=True)
+    task_type = lazy_gettext("vector export")
+    __tablename__ = "tasks_vector_export"
+    __mapper_args__ = {"polymorphic_identity": "vector_export"}
+    id = sa.Column(sa.Integer, sa.ForeignKey("tasks.id"), primary_key=True)
     db_name = sa.Column(sa.String())
     file_name = sa.Column(sa.String())
     mapping_name = sa.Column(sa.String())
 
-class ReplicationTask(Task):
-    task_type = lazy_gettext('replication')
 
-    __tablename__ = 'tasks_replication'
-    __mapper_args__ = {'polymorphic_identity': 'replication'}
-    id = sa.Column(sa.Integer, sa.ForeignKey('tasks.id'), primary_key=True)
+class ReplicationTask(Task):
+    task_type = lazy_gettext("replication")
+
+    __tablename__ = "tasks_replication"
+    __mapper_args__ = {"polymorphic_identity": "replication"}
+    id = sa.Column(sa.Integer, sa.ForeignKey("tasks.id"), primary_key=True)
     db_name = sa.Column(sa.String())
     remote_db_url = sa.Column(sa.String())
     remote_db_name = sa.Column(sa.String())
@@ -106,15 +108,17 @@ class ReplicationTask(Task):
 
 
 class RasterImportTask(Task):
-    task_type = lazy_gettext('raster import')
-    __tablename__ = 'tasks_raster_import'
-    __mapper_args__ = {'polymorphic_identity': 'raster_import'}
-    id = sa.Column(sa.Integer, sa.ForeignKey('tasks.id'), primary_key=True)
-    source_id = sa.Column(sa.Integer, sa.ForeignKey('external_wmts_sources.id'), nullable=False)
-    source = orm.relationship('ExternalWMTSSource', backref='import_tasks')
+    task_type = lazy_gettext("raster import")
+    __tablename__ = "tasks_raster_import"
+    __mapper_args__ = {"polymorphic_identity": "raster_import"}
+    id = sa.Column(sa.Integer, sa.ForeignKey("tasks.id"), primary_key=True)
+    source_id = sa.Column(
+        sa.Integer, sa.ForeignKey("external_wmts_sources.id"), nullable=False
+    )
+    source = orm.relationship("ExternalWMTSSource", backref="import_tasks")
 
-    layer_id = sa.Column(sa.Integer, sa.ForeignKey('local_wmts_sources.id'))
-    layer = orm.relationship('LocalWMTSSource', backref='layers')
+    layer_id = sa.Column(sa.Integer, sa.ForeignKey("local_wmts_sources.id"))
+    layer = orm.relationship("LocalWMTSSource", backref="layers")
 
     tiles = sa.Column(sa.Integer)
     seed_progress = sa.Column(sa.String)
@@ -124,15 +128,21 @@ class RasterImportTask(Task):
     zoom_level_end = sa.Column(sa.Integer)
     coverage = sa.Column(sa.String())
 
+
 class RasterExportTask(Task):
-    task_type = lazy_gettext('raster export')
+    task_type = lazy_gettext("raster export")
 
-    __tablename__ = 'tasks_raster_export'
-    __mapper_args__ = {'polymorphic_identity': 'raster_export'}
-    id = sa.Column(sa.Integer, sa.ForeignKey('tasks.id'), primary_key=True)
+    __tablename__ = "tasks_raster_export"
+    __mapper_args__ = {"polymorphic_identity": "raster_export"}
+    id = sa.Column(sa.Integer, sa.ForeignKey("tasks.id"), primary_key=True)
 
-    layer_id = sa.Column(sa.Integer, sa.ForeignKey('local_wmts_sources.id'), nullable=False)
-    layer = orm.relationship('LocalWMTSSource', backref=orm.backref('export_tasks', cascade="all, delete, delete-orphan"))
+    layer_id = sa.Column(
+        sa.Integer, sa.ForeignKey("local_wmts_sources.id"), nullable=False
+    )
+    layer = orm.relationship(
+        "LocalWMTSSource",
+        backref=orm.backref("export_tasks", cascade="all, delete, delete-orphan"),
+    )
 
     export_format = sa.Column(sa.String, nullable=False)
     export_srs = sa.Column(sa.String)

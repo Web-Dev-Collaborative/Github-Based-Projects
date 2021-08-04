@@ -18,8 +18,9 @@ from geoalchemy.postgis import PGComparator
 
 from gbi_server.extensions import db
 
+
 class WMTS(db.Model):
-    __tablename__ = 'wmts'
+    __tablename__ = "wmts"
 
     id = db.Column(db.Integer, primary_key=True)
 
@@ -32,7 +33,7 @@ class WMTS(db.Model):
     layer = db.Column(db.String(256), nullable=False)
     format = db.Column(db.String, nullable=False)
     srs = db.Column(db.String(64), default="EPSG:3857")
-    matrix_set = db.Column(db.String(64), default='GoogleMapsCompatible')
+    matrix_set = db.Column(db.String(64), default="GoogleMapsCompatible")
 
     view_coverage = GeometryColumn(Polygon(), comparator=PGComparator)
     view_level_start = db.Column(db.Integer)
@@ -54,5 +55,6 @@ class WMTS(db.Model):
     def by_name(cls, name):
         q = cls.query.filter(cls.name == name)
         return q.first_or_404()
+
 
 GeometryDDL(WMTS.__table__)

@@ -15,9 +15,10 @@
 
 from shapely.ops import cascaded_union
 
+
 def optimize_geometry(geom):
     geom = geom.buffer(1.0)
-    if geom.type == 'MultiPolygon':
+    if geom.type == "MultiPolygon":
         geom = cascaded_union(geom)
     geom = geom.simplify(1.0, preserve_topology=True)
     return geom

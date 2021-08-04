@@ -31,6 +31,7 @@ from gbi_server.lib.geometry import optimize_geometry
 
 context = Blueprint("context", __name__, template_folder="../templates")
 
+
 def check_auth(username, password):
     user = User.by_email(username)
     if user and user.check_password(password) and user.active:
@@ -39,37 +40,49 @@ def check_auth(username, password):
     else:
         return False
 
+
 def authenticate():
     """Sends a 401 response that enables basic auth"""
     return Response(
-    'Could not verify your access level for that URL.\n'
-    'You have to login with proper credentials', 401,
-    {'WWW-Authenticate': 'Basic realm="Login Required"'})
+        "Could not verify your access level for that URL.\n"
+        "You have to login with proper credentials",
+        401,
+        {"WWW-Authenticate": 'Basic realm="Login Required"'},
+    )
+
 
 def requires_auth(f):
     @wraps(f)
     def decorated(*args, **kwargs):
         auth = request.authorization
         if not auth or not check_auth(auth.username, auth.password):
-            return Response("""
+            return Response(
+                """
                 Could not verify your access level for that URL.
-                You have to login with proper credentials""", 401,
-                {'WWW-Authenticate': 'Basic realm="Login Required"'})
+                You have to login with proper credentials""",
+                401,
+                {"WWW-Authenticate": 'Basic realm="Login Required"'},
+            )
         return f(*args, **kwargs)
+
     return decorated
 
-@context.route('/context')
+
+@context.route("/context")
 @requires_auth
 def get_context_document():
-    sources = db.session.query(WMTS, pg_functions.geojson(WMTS.view_coverage.transform(3857))).order_by(desc(WMTS.is_background_layer)).all()
-    response = {
-        "version": "0.1",
-        "wmts_sources": [],
-        "couchdb_sources": [],
-    }
+    sources = (
+        db.session.query(WMTS, pg_functions.geojson(WMTS.view_coverage.transform(3857)))
+        .order_by(desc(WMTS.is_background_layer))
+        .all()
+    )
+    response = {"version": "0.1", "wmts_sources": [], "couchdb_sources": []}
 
-    couchdb = CouchDBBox(current_app.config['COUCH_DB_URL'], '%s_%s' % (SystemConfig.AREA_BOX_NAME, g.user.id))
-    user_geom = couchdb.layer_extent(current_app.config['USER_WORKON_LAYER'])
+    couchdb = CouchDBBox(
+        current_app.config["COUCH_DB_URL"],
+        "%s_%s" % (SystemConfig.AREA_BOX_NAME, g.user.id),
+    )
+    user_geom = couchdb.layer_extent(current_app.config["USER_WORKON_LAYER"])
     if user_geom:
         user_geom = optimize_geometry(user_geom)
         user_geom = shapely.geometry.mapping(user_geom)
@@ -82,52 +95,63 @@ def get_context_document():
             geom = user_geom
         else:
             continue
-        response['wmts_sources'].append({
-            "name": wmts.name,
-            "title": wmts.title,
-            "url": url_for('authproxy.tile_proxy', user_token=g.user.authproxy_token, _external=True).rstrip('/') + '/',
-            "layer": wmts.layer,
-            "tile_matrix": wmts.matrix_set,
-            "format": wmts.format,
-            "baselayer": wmts.is_baselayer,
-            "overlay": wmts.is_overlay,
-            "username": wmts.username,
-            "password": wmts.password,
-            "srs": wmts.srs,
-            "view_restriction": {
-                "zoom_level_start": wmts.view_level_start,
-                "zoom_level_end": wmts.view_level_end,
-                "geometry": geom
-            },
-            "download_restriction": {
-                "zoom_level_start": wmts.view_level_start,
-                "zoom_level_end": wmts.view_level_end,
-                "geometry": geom
+        response["wmts_sources"].append(
+            {
+                "name": wmts.name,
+                "title": wmts.title,
+                "url": url_for(
+                    "authproxy.tile_proxy",
+                    user_token=g.user.authproxy_token,
+                    _external=True,
+                ).rstrip("/")
+                + "/",
+                "layer": wmts.layer,
+                "tile_matrix": wmts.matrix_set,
+                "format": wmts.format,
+                "baselayer": wmts.is_baselayer,
+                "overlay": wmts.is_overlay,
+                "username": wmts.username,
+                "password": wmts.password,
+                "srs": wmts.srs,
+                "view_restriction": {
+                    "zoom_level_start": wmts.view_level_start,
+                    "zoom_level_end": wmts.view_level_end,
+                    "geometry": geom,
+                },
+                "download_restriction": {
+                    "zoom_level_start": wmts.view_level_start,
+                    "zoom_level_end": wmts.view_level_end,
+                    "geometry": geom,
+                },
             }
-        })
+        )
 
-    response['couchdb_sources'].append({
-        "name": _('area box'),
-        "url": current_app.config['COUCH_DB_URL'],
-        "dbname": '%s_%s' % (SystemConfig.AREA_BOX_NAME, g.user.id),
-        "username": 'user_%d' % g.user.id,
-        "password": g.user.authproxy_token,
-        "writable": True,
-        "dbname_user":  SystemConfig.AREA_BOX_NAME_LOCAL,
-    })
+    response["couchdb_sources"].append(
+        {
+            "name": _("area box"),
+            "url": current_app.config["COUCH_DB_URL"],
+            "dbname": "%s_%s" % (SystemConfig.AREA_BOX_NAME, g.user.id),
+            "username": "user_%d" % g.user.id,
+            "password": g.user.authproxy_token,
+            "writable": True,
+            "dbname_user": SystemConfig.AREA_BOX_NAME_LOCAL,
+        }
+    )
 
-    response['couchdb_sources'].append({
-        "name": _('consultant box'),
-        "url": current_app.config['COUCH_DB_URL'],
-        "dbname": '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, g.user.id),
-        "username": 'user_%d' % g.user.id,
-        "password": g.user.authproxy_token,
-        "writable": False,
-        "dbname_user":  SystemConfig.CONSULTANT_BOX_NAME_LOCAL,
-    })
+    response["couchdb_sources"].append(
+        {
+            "name": _("consultant box"),
+            "url": current_app.config["COUCH_DB_URL"],
+            "dbname": "%s_%s" % (SystemConfig.CONSULTANT_BOX_NAME, g.user.id),
+            "username": "user_%d" % g.user.id,
+            "password": g.user.authproxy_token,
+            "writable": False,
+            "dbname_user": SystemConfig.CONSULTANT_BOX_NAME_LOCAL,
+        }
+    )
 
-    response['logging'] = {
-        'url': url_for('logserv.log', user_token=g.user.authproxy_token, _external=True),
+    response["logging"] = {
+        "url": url_for("logserv.log", user_token=g.user.authproxy_token, _external=True)
     }
 
     return json.dumps(response)

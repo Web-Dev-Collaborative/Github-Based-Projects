@@ -18,4 +18,5 @@
 # Flask-Babel imports werkzeug.ImmutableDict
 import werkzeug.datastructures
 import werkzeug
+
 werkzeug.ImmutableDict = werkzeug.datastructures.ImmutableDict

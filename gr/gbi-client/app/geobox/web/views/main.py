@@ -18,21 +18,27 @@ from flask import Blueprint, render_template, current_app, abort, send_from_dire
 
 from ..utils import request_is_local
 
-main = Blueprint('main', __name__)
+main = Blueprint("main", __name__)
 
-@main.route('/')
+
+@main.route("/")
 def index():
-    return render_template('index.html', is_local=request_is_local())
+    return render_template("index.html", is_local=request_is_local())
 
-@main.route('/__terminate')
+
+@main.route("/__terminate")
 def terminate():
     if request_is_local():
         current_app.config.geobox_state.shutdown_app()
-        return 'OK'
+        return "OK"
     else:
         abort(403)
 
-@main.route('/favicon.ico')
+
+@main.route("/favicon.ico")
 def favicon():
-    return send_from_directory(os.path.join(current_app.root_path, 'static'),
-                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    return send_from_directory(
+        os.path.join(current_app.root_path, "static"),
+        "favicon.ico",
+        mimetype="image/vnd.microsoft.icon",
+    )

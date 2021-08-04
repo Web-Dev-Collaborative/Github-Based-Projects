@@ -1,0 +1,16 @@
+{
+  "action": "created",
+  "issue": {
+    "labels": [
+      {
+        "name": "urgent"
+      },
+      {
+        "name": "bug"
+      }
+    ],
+    "user": {
+      "login": "issue-user"
+    }
+  }
+}

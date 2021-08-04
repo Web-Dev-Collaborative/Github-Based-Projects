@@ -15,15 +15,20 @@
 
 import os
 from flask import (
-    Blueprint, render_template_string, abort, current_app,
-    safe_join, send_file,
+    Blueprint,
+    render_template_string,
+    abort,
+    current_app,
+    safe_join,
+    send_file,
 )
 
 pages = Blueprint("pages", __name__)
 
-@pages.route('/page/<lang>/<name>')
+
+@pages.route("/page/<lang>/<name>")
 def page(lang, name):
-    pages_dir = current_app.config.get('STATIC_PAGES_DIR')
+    pages_dir = current_app.config.get("STATIC_PAGES_DIR")
     if not pages_dir:
         abort(404)
 
@@ -31,9 +36,8 @@ def page(lang, name):
     if not os.path.isfile(page_file):
         abort(404)
 
-    if page_file.endswith('.html'):
+    if page_file.endswith(".html"):
         with open(page_file) as f:
             return render_template_string(f.read())
     else:
         return send_file(page_file)
-

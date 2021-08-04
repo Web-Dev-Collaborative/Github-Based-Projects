@@ -16,6 +16,7 @@
 # -:- encoding: utf8 -:-
 from os import path as p
 
+
 class DefaultConfig(object):
     """
     Default configuration
@@ -25,7 +26,7 @@ class DefaultConfig(object):
 
     DEBUG = True
 
-    SESSION_COOKIE_NAME = 'gbi_server_session'
+    SESSION_COOKIE_NAME = "gbi_server_session"
 
     # allow access to admin URLs without authentication
     # (e.g. for testing with curl)
@@ -37,18 +38,18 @@ class DefaultConfig(object):
 
     # keys for localhost. Change as appropriate.
 
-    SQLALCHEMY_DATABASE_URI = 'postgresql://igreen:igreen@127.0.0.1:5432/igreen'
+    SQLALCHEMY_DATABASE_URI = "postgresql://igreen:igreen@127.0.0.1:5432/igreen"
 
     SQLALCHEMY_ECHO = False
 
-    ACCEPT_LANGUAGES = ['de']
+    ACCEPT_LANGUAGES = ["de"]
 
     ASSETS_DEBUG = True
-    ASSETS_BUNDLES_CONF = p.join(p.dirname(__file__), 'asset_bundles.yaml')
+    ASSETS_BUNDLES_CONF = p.join(p.dirname(__file__), "asset_bundles.yaml")
 
-    LOG_DIR = p.abspath(p.join(p.dirname(__file__), '../../var/log'))
-    DEBUG_LOG = 'debug.log'
-    ERROR_LOG = 'error.log'
+    LOG_DIR = p.abspath(p.join(p.dirname(__file__), "../../var/log"))
+    DEBUG_LOG = "debug.log"
+    ERROR_LOG = "error.log"
 
     CACHE_TYPE = "simple"
     CACHE_DEFAULT_TIMEOUT = 300
@@ -56,8 +57,8 @@ class DefaultConfig(object):
     BCRYPT_LOG_ROUNDS = 10
 
     MAIL_SERVER = "smtp.example.org"
-    MAIL_USERNAME = 'gbi_server@example.org'
-    MAIL_PASSWORD = 'XXXXX'
+    MAIL_USERNAME = "gbi_server@example.org"
+    MAIL_PASSWORD = "XXXXX"
     MAIL_DEBUG = DEBUG
     DEFAULT_MAIL_SENDER = "GBI Server <gbi_server@example.org>"
 
@@ -80,46 +81,49 @@ class DefaultConfig(object):
     USER_READONLY_LAYER = "florlp"
     USER_READONLY_LAYER_TITLE = "FLOrlp"
     USER_WORKON_LAYER = "baselayer"
-    USER_WORKON_LAYER_TITLE ="Basis Layer"
+    USER_WORKON_LAYER_TITLE = "Basis Layer"
 
     COUCH_DB_URL = "http://127.0.0.1:5984"
     # user name and password for db admin that is allowed to
     # create new user boxes
-    COUCH_DB_ADMIN_USER = 'gbi'
-    COUCH_DB_ADMIN_PASSWORD = 'secure'
+    COUCH_DB_ADMIN_USER = "gbi"
+    COUCH_DB_ADMIN_PASSWORD = "secure"
 
     AUTHPROXY_CACHE_DIR = "/tmp/authproxy"
 
     EXTERNAL_WFS_HOST = "www.ks.rlp.de"
     EXTERNAL_WFS_URL = "https://www.ks.rlp.de/fc_wfs/wfs.php?user=XXXXX&password=XXXXX&"
     EXTERNAL_WFS_GEOMETRY = "geom"
-    EXTERNAL_WFS_LAYER = 'kataster'
-    EXTERNAL_WFS_SRS = 'EPSG:3857'
-    EXTERNAL_WFS_NAME = 'GeoServer Web Feature Service'
+    EXTERNAL_WFS_LAYER = "kataster"
+    EXTERNAL_WFS_SRS = "EPSG:3857"
+    EXTERNAL_WFS_NAME = "GeoServer Web Feature Service"
     EXTERNAL_WFS_NS_PREFIX = "MWKEL"
     EXTERNAL_WFS_NS_URI = ""
     EXTERNAL_WFS_SEARCH_PROPERTY = "flurstueckskennzeichen"
     EXTERNAL_WFS_SEARCH_MIN_LENGTH = 7
-    EXTERNAL_WFS_SEARCH_PREFIX = '07'
+    EXTERNAL_WFS_SEARCH_PREFIX = "07"
     EXTERNAL_WFS_MAX_FEATURES = 500
 
-    MAPPROXY_SRS = ['EPSG:25832']
+    MAPPROXY_SRS = ["EPSG:25832"]
     MAPPROXY_YAML_DIR = "/tmp/"
 
-    GBI_CLIENT_DOWNLOAD_URL = "http://download.omniscale.de/geobox/dist/setup-geobox-0.2.7.exe"
+    GBI_CLIENT_DOWNLOAD_URL = (
+        "http://download.omniscale.de/geobox/dist/setup-geobox-0.2.7.exe"
+    )
 
-    STATIC_PAGES_DIR = p.join(p.dirname(__file__), '..', 'pages')
+    STATIC_PAGES_DIR = p.join(p.dirname(__file__), "..", "pages")
 
     FLORLP_SHP_SRS = 25832
+
 
 class SystemConfig(object):
     # name of the databases on the server
     # will be suffixed by the user id
-    AREA_BOX_NAME = 'gbi_flaechenbox'
-    CUSTOMER_BOX_NAME = 'gbi_customerbox'
-    CONSULTANT_BOX_NAME = 'gbi_consultantbox'
+    AREA_BOX_NAME = "gbi_flaechenbox"
+    CUSTOMER_BOX_NAME = "gbi_customerbox"
+    CONSULTANT_BOX_NAME = "gbi_consultantbox"
 
     # name of the databases on the client
-    AREA_BOX_NAME_LOCAL = 'flaechen-box'
-    CUSTOMER_BOX_NAME_LOCAL = 'beratungs-inbox'
-    CONSULTANT_BOX_NAME_LOCAL = 'beratungs-outbox'
+    AREA_BOX_NAME_LOCAL = "flaechen-box"
+    CUSTOMER_BOX_NAME_LOCAL = "beratungs-inbox"
+    CONSULTANT_BOX_NAME_LOCAL = "beratungs-outbox"

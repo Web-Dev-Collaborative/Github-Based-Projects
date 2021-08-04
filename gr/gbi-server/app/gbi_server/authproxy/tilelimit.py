@@ -27,7 +27,8 @@ from gbi_server.lib.geometry import optimize_geometry
 from gbi_server.lib.couchdb import CouchDBBox
 from gbi_server.config import SystemConfig
 
-DEFAULT_GRID = tile_grid(3857, origin='nw')
+DEFAULT_GRID = tile_grid(3857, origin="nw")
+
 
 class TileCoverages(LimiterCache):
     def __init__(self, cache_dir, couchdb_url, geometry_layer, tile_grid=DEFAULT_GRID):
@@ -38,7 +39,7 @@ class TileCoverages(LimiterCache):
         self.tile_grid = tile_grid
 
     def cache_file(self, user_token, name):
-        return os.path.join(self.cache_path(user_token), name + '.wkb')
+        return os.path.join(self.cache_path(user_token), name + ".wkb")
 
     def is_permitted(self, user_token, layer, tile_coord):
         geometry = self.load(user_token, layer)
@@ -54,7 +55,11 @@ class TileCoverages(LimiterCache):
         if not user:
             raise InvalidUserToken()
 
-        result = db.session.query(WMTS, WMTS.view_coverage.transform(3857).wkt()).filter_by(name=layer).first()
+        result = (
+            db.session.query(WMTS, WMTS.view_coverage.transform(3857).wkt())
+            .filter_by(name=layer)
+            .first()
+        )
         if result:
             wmts, view_coverage = result
             if wmts and wmts.is_public:
@@ -62,12 +67,16 @@ class TileCoverages(LimiterCache):
 
         if user.is_customer:
             couch_url = self.couchdb_url
-            couchdb = CouchDBBox(couch_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
+            couchdb = CouchDBBox(
+                couch_url, "%s_%s" % (SystemConfig.AREA_BOX_NAME, user.id)
+            )
             geom = couchdb.layer_extent(self.geometry_layer)
             return optimize_geometry(geom) if geom else None
         elif user.is_service_provider:
             couch_url = self.couchdb_url
-            couchdb = CouchDBBox(couch_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
+            couchdb = CouchDBBox(
+                couch_url, "%s_%s" % (SystemConfig.AREA_BOX_NAME, user.id)
+            )
             geom = couchdb.layer_extent()
             return optimize_geometry(geom) if geom else None
         elif user.is_admin or user.is_consultant:
@@ -80,7 +89,7 @@ class TileCoverages(LimiterCache):
         if data:
             return data.wkb
         else:
-            return ''
+            return ""
 
     def deserialize(self, data):
         if data:

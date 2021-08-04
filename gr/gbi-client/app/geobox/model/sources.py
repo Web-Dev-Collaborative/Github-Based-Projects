@@ -17,12 +17,13 @@ import sqlalchemy as sa
 
 from sqlalchemy import orm
 from geobox.lib.coverage import coverage_from_geojson
-from . meta import Base
+from .meta import Base
 
-__all__ = ['ExternalWMTSSource', 'LocalWMTSSource']
+__all__ = ["ExternalWMTSSource", "LocalWMTSSource"]
+
 
 class ExternalWMTSSource(Base):
-    __tablename__ = 'external_wmts_sources'
+    __tablename__ = "external_wmts_sources"
 
     id = sa.Column(sa.Integer, primary_key=True)
     url = sa.Column(sa.String(256), nullable=False)
@@ -33,7 +34,7 @@ class ExternalWMTSSource(Base):
     layer = sa.Column(sa.String(256), nullable=False)
     format = sa.Column(sa.String, nullable=False)
     srs = sa.Column(sa.String(64), default="EPSG:3857")
-    matrix_set = sa.Column(sa.String(64), default='GoogleMapsCompatible')
+    matrix_set = sa.Column(sa.String(64), default="GoogleMapsCompatible")
     download_coverage = sa.Column(sa.String())
     download_level_start = sa.Column(sa.Integer())
     download_level_end = sa.Column(sa.Integer())
@@ -52,12 +53,15 @@ class ExternalWMTSSource(Base):
         bbox = coverage.bbox
         return bbox
 
+
 class LocalWMTSSource(Base):
-    __tablename__ = 'local_wmts_sources'
+    __tablename__ = "local_wmts_sources"
 
     id = sa.Column(sa.Integer, primary_key=True)
-    wmts_source_id = sa.Column(sa.Integer, sa.ForeignKey('external_wmts_sources.id'), nullable=False)
-    wmts_source = orm.relationship('ExternalWMTSSource', backref='local_wmts_sources')
+    wmts_source_id = sa.Column(
+        sa.Integer, sa.ForeignKey("external_wmts_sources.id"), nullable=False
+    )
+    wmts_source = orm.relationship("ExternalWMTSSource", backref="local_wmts_sources")
     download_level_start = sa.Column(sa.Integer())
     download_level_end = sa.Column(sa.Integer())
 
@@ -65,4 +69,4 @@ class LocalWMTSSource(Base):
 
     @property
     def zoom_level(self):
-        return range(self.download_level_start, self.download_level_end+1)
+        return range(self.download_level_start, self.download_level_end + 1)

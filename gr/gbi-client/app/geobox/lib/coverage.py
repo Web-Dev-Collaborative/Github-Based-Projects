@@ -22,15 +22,18 @@ from mapproxy.srs import SRS
 from mapproxy.util.coverage import GeomCoverage as GeomCoverage_, BBOXCoverage
 from shapely.geometry import asShape, MultiPolygon
 
-if platform.release() == 'XP':
+if platform.release() == "XP":
     # disable prepared geometries to work around
     # http://trac.osgeo.org/geos/ticket/603
     class GeomCoverage(GeomCoverage_):
         @property
         def prepared_geom(self):
             return self.geom
+
+
 else:
     GeomCoverage = GeomCoverage_
+
 
 def coverage(geom, srs):
     if isinstance(geom, (list, tuple)):
@@ -38,12 +41,13 @@ def coverage(geom, srs):
     else:
         return GeomCoverage(geom, srs)
 
+
 def geometry_from_feature_collection(feature_collection):
     polygons = []
-    if 'features' in feature_collection:
-        for feature in feature_collection['features']:
-            geometry = feature['geometry']
-            if geometry['type'] == 'Polygon':
+    if "features" in feature_collection:
+        for feature in feature_collection["features"]:
+            geometry = feature["geometry"]
+            if geometry["type"] == "Polygon":
                 polygons.append(asShape(geometry))
 
     if polygons:
@@ -52,14 +56,16 @@ def geometry_from_feature_collection(feature_collection):
             mp = mp.buffer(0)
         return mp
 
+
 def coverage_from_geojson(geojson):
     if not geojson:
         return None
     geojson_obj = json.loads(geojson)
-    if geojson_obj['type'] == 'FeatureCollection':
+    if geojson_obj["type"] == "FeatureCollection":
         return coverage_from_feature_collection(geojson_obj)
     else:
         return coverage_from_geojson_object(geojson_obj)
+
 
 def coverage_from_geojson_object(geojson):
     if not geojson:
@@ -68,10 +74,12 @@ def coverage_from_geojson_object(geojson):
     geom = asShape(geojson)
     return coverage(geom, SRS(3857))
 
+
 def coverage_from_feature_collection(feature_collection):
     geom = geometry_from_feature_collection(feature_collection)
     if geom:
         return coverage(geom, SRS(3857))
+
 
 def coverage_intersection(a, b):
     if a and not b:

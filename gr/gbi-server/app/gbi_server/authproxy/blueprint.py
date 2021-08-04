@@ -21,32 +21,44 @@ from gbi_server.extensions import couchdbproxy
 authproxy = Blueprint("authproxy", __name__)
 
 for code in [401, 403, 404, 405]:
+
     @authproxy.errorhandler(code)
     def on_error(error):
         return error
 
-@authproxy.route('/authproxy/<string:user_token>/couchdb/', build_only=True)
-@authproxy.route('/authproxy/<string:user_token>/couchdb/<path:url>', methods=['GET', 'POST', 'PUT', 'DELETE'])
+
+@authproxy.route("/authproxy/<string:user_token>/couchdb/", build_only=True)
+@authproxy.route(
+    "/authproxy/<string:user_token>/couchdb/<path:url>",
+    methods=["GET", "POST", "PUT", "DELETE"],
+)
 def couchdb_proxy(url, user_token):
     return couchdbproxy.on_proxy(request, user_token=user_token, url=url)
 
-@authproxy.route('/authproxy/couchdb/<path:url>', methods=['GET'])
+
+@authproxy.route("/authproxy/couchdb/<path:url>", methods=["GET"])
 def couchdb_proxy_file(url):
-    user_token = session.get('authproxy_token')
+    user_token = session.get("authproxy_token")
     if user_token is None:
         abort(401)
-    url += '/file'
+    url += "/file"
     return couchdbproxy.on_proxy(request, user_token=user_token, url=url)
 
 
-@authproxy.route('/authproxy/tiles/', build_only=True)
-@authproxy.route('/authproxy/tiles/<string:layer>/<path:url>', methods=['GET', 'POST'])
-@authproxy.route('/authproxy/<string:user_token>/tiles/', build_only=True)
-@authproxy.route('/authproxy/<string:user_token>/tiles/<string:layer>/<path:url>', methods=['GET', 'POST'])
-@authproxy.route('/authproxy/<string:user_token>/tiles//<string:layer>/<path:url>', methods=['GET', 'POST'])
+@authproxy.route("/authproxy/tiles/", build_only=True)
+@authproxy.route("/authproxy/tiles/<string:layer>/<path:url>", methods=["GET", "POST"])
+@authproxy.route("/authproxy/<string:user_token>/tiles/", build_only=True)
+@authproxy.route(
+    "/authproxy/<string:user_token>/tiles/<string:layer>/<path:url>",
+    methods=["GET", "POST"],
+)
+@authproxy.route(
+    "/authproxy/<string:user_token>/tiles//<string:layer>/<path:url>",
+    methods=["GET", "POST"],
+)
 def tile_proxy(layer, url, user_token=None):
     if user_token is None:
-        user_token = session.get('authproxy_token')
+        user_token = session.get("authproxy_token")
         if user_token is None:
             abort(401)
     return tileproxy.on_proxy(request, user_token=user_token, layer=layer, url=url)

@@ -1,0 +1,16 @@
+{
+  "action": "created",
+  "pull_request": {
+    "labels": [
+      {
+        "name": "urgent"
+      },
+      {
+        "name": "bug"
+      }
+    ],
+    "user": {
+      "login": "pr-user"
+    }
+  }
+}

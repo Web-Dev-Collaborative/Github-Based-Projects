@@ -16,19 +16,20 @@
 from werkzeug.exceptions import HTTPException
 import json
 
+
 class JSONHTTPException(HTTPException):
     description = "error"
+
     def get_headers(self, environ):
-        return [('Content-Type', 'application/json')]
+        return [("Content-Type", "application/json")]
 
     def get_body(self, environ):
-        return json.dumps({
-            'error': self.get_description(environ)
-        }, indent=4)
+        return json.dumps({"error": self.get_description(environ)}, indent=4)
 
 
 def json_abort(code, description=None):
     code_ = code
+
     class WrappedException(JSONHTTPException):
         code = code_
 

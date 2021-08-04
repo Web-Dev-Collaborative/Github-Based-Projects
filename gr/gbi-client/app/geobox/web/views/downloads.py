@@ -26,11 +26,12 @@ from geobox.lib.fs import open_file_explorer
 from ..helper import redirect_back
 from ..utils import request_is_local
 
-download_view = Blueprint('downloads', __name__)
+download_view = Blueprint("downloads", __name__)
 
-@download_view.route('/downloads')
+
+@download_view.route("/downloads")
 def download_list():
-    export_path = current_app.config.geobox_state.user_data_path('export')
+    export_path = current_app.config.geobox_state.user_data_path("export")
 
     export_projects = g.db.query(model.ExportProject).all()
     exports_overview = []
@@ -43,60 +44,72 @@ def download_list():
                 continue
 
             export = {}
-            export['name'] = export_dirname
+            export["name"] = export_dirname
 
             extensions = (
-                '.shp',
-                '.mbtiles',
-                '.jpeg',
-                '.tiff',
-                '.jgw',
-                '.tfw',
-                '.couchdb',
+                ".shp",
+                ".mbtiles",
+                ".jpeg",
+                ".tiff",
+                ".jgw",
+                ".tfw",
+                ".couchdb",
             )
 
-            export['files'] = [files for files in listdir(export_dir)
-                if files.lower().endswith(extensions)]
+            export["files"] = [
+                files
+                for files in listdir(export_dir)
+                if files.lower().endswith(extensions)
+            ]
 
             # normalize dirname (e.g. Mac OS uses combining diaresis for
             # umlauts which are not handled by comparision)
-            export_dirname = unicodedata.normalize('NFC', export_dirname)
+            export_dirname = unicodedata.normalize("NFC", export_dirname)
 
             for project in export_projects:
                 if export_dirname == project.title:
-                    export['title'] = project.title
-                    export['id'] = project.id
-                    export['updated'] = project.time_updated.strftime('%d.%m.%Y')
+                    export["title"] = project.title
+                    export["id"] = project.id
+                    export["updated"] = project.time_updated.strftime("%d.%m.%Y")
 
             exports_overview.append(export)
 
     file_browser = request_is_local()
 
-    return render_template('downloads.html', exports_overview=exports_overview,
-        export_projects=export_projects, file_browser=file_browser)
+    return render_template(
+        "downloads.html",
+        exports_overview=exports_overview,
+        export_projects=export_projects,
+        file_browser=file_browser,
+    )
 
 
-@download_view.route('/file_browser/<export_dir>')
+@download_view.route("/file_browser/<export_dir>")
 def export_file_browser(export_dir):
-    open_file_explorer(join(current_app.config.geobox_state.user_data_path('export'), export_dir))
-    return redirect_back('.download_list')
+    open_file_explorer(
+        join(current_app.config.geobox_state.user_data_path("export"), export_dir)
+    )
+    return redirect_back(".download_list")
 
-@download_view.route('/download/<export_dir>/<filename>')
+
+@download_view.route("/download/<export_dir>/<filename>")
 def download_file(export_dir, filename):
-    export_path = current_app.config.geobox_state.user_data_path('export')
-    download_path =  join(export_path, export_dir) +"/"+filename
+    export_path = current_app.config.geobox_state.user_data_path("export")
+    download_path = join(export_path, export_dir) + "/" + filename
 
-    if '.shp' in filename:
-        download_path =  join(export_path, export_dir) +"/"+filename
+    if ".shp" in filename:
+        download_path = join(export_path, export_dir) + "/" + filename
         zip_file = zip_shapefiles(download_path)
         download_file = zip_file.getvalue()
-        filename = filename.replace('.shp', '.zip')
+        filename = filename.replace(".shp", ".zip")
     else:
-        download_file = open(download_path, 'rb')
+        download_file = open(download_path, "rb")
 
-    return Response(download_file, direct_passthrough=True,
+    return Response(
+        download_file,
+        direct_passthrough=True,
         headers={
-            'Content-disposition': 'attachment; filename=%s' % (filename),
-            'Content-type': 'application/octet-stream',
-        })
-
+            "Content-disposition": "attachment; filename=%s" % (filename),
+            "Content-type": "application/octet-stream",
+        },
+    )

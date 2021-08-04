@@ -16,7 +16,18 @@
 
 import codecs
 
-from flask import Blueprint, render_template, current_app, abort, flash, g, request, redirect, url_for, session
+from flask import (
+    Blueprint,
+    render_template,
+    current_app,
+    abort,
+    flash,
+    g,
+    request,
+    redirect,
+    url_for,
+    session,
+)
 from flaskext.babel import _
 from ...model.sources import LocalWMTSSource
 
@@ -29,110 +40,135 @@ from geobox.lib.context import reload_context_document
 from geobox.lib.mapproxy import write_mapproxy_config
 from geobox.web import forms
 
-admin_view = Blueprint('admin', __name__)
+admin_view = Blueprint("admin", __name__)
+
 
 @admin_view.before_request
 def restrict_to_local():
     if not request_is_local():
         abort(403)
 
-@admin_view.route('/admin')
+
+@admin_view.route("/admin")
 def admin():
     form = forms.LoginForm(request.form)
-    del(form.username)
-
+    del form.username
 
     tilebox_form = forms.TileBoxPathForm()
-    tilebox_form.path.data = current_app.config.geobox_state.config.get('tilebox', 'path')
+    tilebox_form.path.data = current_app.config.geobox_state.config.get(
+        "tilebox", "path"
+    )
 
     query = g.db.query(LocalWMTSSource)
     raster_sources = query.all()
 
-    vector_dbs = [{'title': u'Flächen-Box', 'name': 'flaechen-box'}]
-    return render_template('admin.html', raster_sources=raster_sources, localnet=get_localnet_status(),
-        form=form, tilebox_form=tilebox_form, vector_dbs=vector_dbs)
+    vector_dbs = [{"title": u"Flächen-Box", "name": "flaechen-box"}]
+    return render_template(
+        "admin.html",
+        raster_sources=raster_sources,
+        localnet=get_localnet_status(),
+        form=form,
+        tilebox_form=tilebox_form,
+        vector_dbs=vector_dbs,
+    )
 
 
-@admin_view.route('/admin/refresh_context', methods=['POST'])
+@admin_view.route("/admin/refresh_context", methods=["POST"])
 def refresh_context():
-    if reload_context_document(current_app.config.geobox_state, session['username'], request.form['password']):
-        flash(_('load context document successful'), 'sucess')
+    if reload_context_document(
+        current_app.config.geobox_state, session["username"], request.form["password"]
+    ):
+        flash(_("load context document successful"), "sucess")
     else:
-        flash(_('password not correct'), 'error')
+        flash(_("password not correct"), "error")
 
-    return redirect(url_for('.admin'))
+    return redirect(url_for(".admin"))
 
 
-@admin_view.route('/admin/tilebox_restart', methods=['POST'])
+@admin_view.route("/admin/tilebox_restart", methods=["POST"])
 def tilebox_restart():
     form = forms.TileBoxPathForm()
     if form.validate_on_submit():
         app_state = current_app.config.geobox_state
 
-        if 'stop' in request.form:
-            app_state.config.set('tilebox', 'path', '')
+        if "stop" in request.form:
+            app_state.config.set("tilebox", "path", "")
         else:
-            app_state.config.set('tilebox', 'path', form.data['path'])
+            app_state.config.set("tilebox", "path", form.data["path"])
         app_state.config.write()
         app_state.tilebox.restart()
-    return redirect_back(url_for('.admin'))
+    return redirect_back(url_for(".admin"))
 
 
-@admin_view.route('/admin/clear/<name>', methods=['POST'])
+@admin_view.route("/admin/clear/<name>", methods=["POST"])
 def clear_couchdb(name):
     # delete from couch db
-    couch = CouchDB('http://127.0.0.1:%s' %
-        (current_app.config.geobox_state.config.get('couchdb', 'port'), ),
-        name
+    couch = CouchDB(
+        "http://127.0.0.1:%s"
+        % (current_app.config.geobox_state.config.get("couchdb", "port"),),
+        name,
     )
     couch.clear_db()
-    flash(_('cleared database'))
+    flash(_("cleared database"))
 
-    return redirect(url_for('.admin'))
+    return redirect(url_for(".admin"))
 
 
-@admin_view.route('/admin/delete/<int:id>', methods=['POST'])
+@admin_view.route("/admin/delete/<int:id>", methods=["POST"])
 def remove_source(id):
     query = g.db.query(LocalWMTSSource).filter_by(id=id)
     source = query.first()
 
     if source:
         # delete from couch db
-        couch = CouchDB('http://127.0.0.1:%s' %
-            (current_app.config.geobox_state.config.get('couchdb', 'port'), ),
-            source.wmts_source.name
+        couch = CouchDB(
+            "http://127.0.0.1:%s"
+            % (current_app.config.geobox_state.config.get("couchdb", "port"),),
+            source.wmts_source.name,
         )
         # if delete from couch is successfull delete from db
         if couch.delete_db():
             g.db.delete(source)
             g.db.commit()
             write_mapproxy_config(current_app.config.geobox_state)
-            flash(_('delete sucessful'))
+            flash(_("delete sucessful"))
         else:
-            flash(_('delete not sucessful'))
+            flash(_("delete not sucessful"))
 
-    return redirect(url_for('.admin'))
+    return redirect(url_for(".admin"))
 
-@admin_view.route('/localnet_access', methods=['POST'])
+
+@admin_view.route("/localnet_access", methods=["POST"])
 def localnet_access():
     localnet_status = get_localnet_status()
     if localnet_status:
-        current_app.config.geobox_state.config.set('app', 'host', '127.0.0.1')
+        current_app.config.geobox_state.config.set("app", "host", "127.0.0.1")
     else:
-        current_app.config.geobox_state.config.set('app', 'host', '0.0.0.0')
+        current_app.config.geobox_state.config.set("app", "host", "0.0.0.0")
     current_app.config.geobox_state.config.write()
-    flash(_('settings changed. restart required'), 'error')
-    return redirect(url_for('.admin'))
+    flash(_("settings changed. restart required"), "error")
+    return redirect(url_for(".admin"))
 
-@admin_view.route('/log_view', methods=['GET'])
+
+@admin_view.route("/log_view", methods=["GET"])
 def log_view():
-    log = codecs.open(current_app.config.geobox_state.user_data_path('log', 'geobox.log'), "r", "utf-8").read()
-    return render_template('log_view.html', log=log)
+    log = codecs.open(
+        current_app.config.geobox_state.user_data_path("log", "geobox.log"),
+        "r",
+        "utf-8",
+    ).read()
+    return render_template("log_view.html", log=log)
 
-@admin_view.route('/file_browser', methods=['GET'])
+
+@admin_view.route("/file_browser", methods=["GET"])
 def file_browser():
     open_file_explorer(current_app.config.geobox_state.user_data_path())
-    return redirect_back('.admin')
+    return redirect_back(".admin")
+
 
 def get_localnet_status():
-    return False if current_app.config.geobox_state.config.get('app', 'host') == '127.0.0.1' else True
+    return (
+        False
+        if current_app.config.geobox_state.config.get("app", "host") == "127.0.0.1"
+        else True
+    )

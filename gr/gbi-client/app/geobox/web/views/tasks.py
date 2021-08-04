@@ -19,12 +19,12 @@ from flaskext.babel import _
 from ..helper import redirect_back
 from ...model.tasks import Task
 
-tasks_view = Blueprint('tasks', __name__)
+tasks_view = Blueprint("tasks", __name__)
 
 
-@tasks_view.route('/tasks')
+@tasks_view.route("/tasks")
 def list():
-    query = g.db.query(Task).with_polymorphic('*').group_by(Task.project)
+    query = g.db.query(Task).with_polymorphic("*").group_by(Task.project)
     tasks = query.all()
     unprojected_tasks = []
     projects = []
@@ -35,19 +35,21 @@ def list():
                 projects.append(task.project)
         else:
             unprojected_tasks.append(task)
-    return render_template('tasks/task_list.html', tasks=unprojected_tasks, projects=projects)
+    return render_template(
+        "tasks/task_list.html", tasks=unprojected_tasks, projects=projects
+    )
 
 
-@tasks_view.route('/task/<int:id>')
+@tasks_view.route("/task/<int:id>")
 def detail(id):
-    query = g.db.query(Task).with_polymorphic('*')
+    query = g.db.query(Task).with_polymorphic("*")
     task = query.get(id)
     if not task:
         abort(404)
-    return render_template('tasks/detail.html', task=task)
+    return render_template("tasks/detail.html", task=task)
 
 
-@tasks_view.route('/task/<int:id>/pause', methods=['POST'])
+@tasks_view.route("/task/<int:id>/pause", methods=["POST"])
 def pause(id):
     query = g.db.query(Task)
     task = query.get(id)
@@ -56,10 +58,11 @@ def pause(id):
     # the task process handles is_active/is_running
     task.is_paused = True
     g.db.commit()
-    flash(_('paused task successful'))
-    return redirect_back('.list')
+    flash(_("paused task successful"))
+    return redirect_back(".list")
 
-@tasks_view.route('/task/<int:id>/start', methods=['POST'])
+
+@tasks_view.route("/task/<int:id>/start", methods=["POST"])
 def start(id):
     query = g.db.query(Task)
     task = query.get(id)
@@ -67,15 +70,16 @@ def start(id):
         abort(404)
     task.is_paused = False
     g.db.commit()
-    flash(_('start task successful'))
-    return redirect_back('.list')
+    flash(_("start task successful"))
+    return redirect_back(".list")
 
-@tasks_view.route('/task/<int:id>/remove', methods=['POST'])
+
+@tasks_view.route("/task/<int:id>/remove", methods=["POST"])
 def remove(id):
-    task = g.db.query(Task).with_polymorphic('*').filter_by(id = id).first()
+    task = g.db.query(Task).with_polymorphic("*").filter_by(id=id).first()
     if not task:
         abort(404)
     g.db.delete(task)
     g.db.commit()
-    flash(_('delete task successful'))
-    return redirect_back('.list')
+    flash(_("delete task successful"))
+    return redirect_back(".list")

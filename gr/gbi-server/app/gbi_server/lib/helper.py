@@ -19,26 +19,29 @@ from flask.ext.mail import Message
 
 from gbi_server.extensions import mail
 
-__all__ = ['css_alert_category']
+__all__ = ["css_alert_category"]
+
 
 def css_alert_category(cat):
-    if cat == 'notice':
-        cat = 'info'
+    if cat == "notice":
+        cat = "info"
 
-    return 'alert-' + cat
+    return "alert-" + cat
+
 
 def is_safe_url(target):
     ref_url = urlparse(request.host_url)
     test_url = urlparse(urljoin(request.host_url, target))
-    return test_url.scheme in ('http', 'https') and \
-           ref_url.netloc == test_url.netloc
+    return test_url.scheme in ("http", "https") and ref_url.netloc == test_url.netloc
+
 
 def get_redirect_target():
-    for target in request.values.get('next'), request.referrer:
+    for target in request.values.get("next"), request.referrer:
         if not target:
             continue
         if is_safe_url(target):
             return target
+
 
 def redirect_back(endpoint, **values):
     target = get_redirect_target()
@@ -46,25 +49,31 @@ def redirect_back(endpoint, **values):
         target = url_for(endpoint, **values)
     return redirect(target)
 
+
 def request_for_static():
-    if request.endpoint == 'static' or request.endpoint == 'favicon':
+    if request.endpoint == "static" or request.endpoint == "favicon":
         return True
     else:
         return False
+
 
 def send_mail(subject, body, recipients):
     msg = Message(subject, recipients=recipients)
     msg.body = body
     mail.send(msg)
 
+
 def add_auth_to_url(url, username, password):
     if url and username and password:
         parse_result = urlparse(url)
-        url = urlunparse(ParseResult(
-            scheme=parse_result.scheme,
-            netloc='%s:%s@%s' % (username, password, parse_result.netloc),
-            path=parse_result.path,
-            params=parse_result.params,
-            query=parse_result.query,
-            fragment=parse_result.fragment))
+        url = urlunparse(
+            ParseResult(
+                scheme=parse_result.scheme,
+                netloc="%s:%s@%s" % (username, password, parse_result.netloc),
+                path=parse_result.path,
+                params=parse_result.params,
+                query=parse_result.query,
+                fragment=parse_result.fragment,
+            )
+        )
     return url

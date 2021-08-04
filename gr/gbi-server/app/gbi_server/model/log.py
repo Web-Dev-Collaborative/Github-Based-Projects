@@ -19,15 +19,18 @@ from geoalchemy.postgis import PGComparator
 
 from gbi_server.extensions import db
 
+
 class Log(db.Model):
-    __tablename__ = 'logs'
+    __tablename__ = "logs"
 
     id = db.Column(db.Integer, primary_key=True)
 
     time = db.Column(db.DateTime, nullable=False)
 
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    user = db.relationship('User', backref=backref('logs', cascade="all,delete,delete-orphan"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    user = db.relationship(
+        "User", backref=backref("logs", cascade="all,delete,delete-orphan")
+    )
 
     action = db.Column(db.String(24), nullable=False)
 

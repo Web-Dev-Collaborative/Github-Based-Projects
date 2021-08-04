@@ -18,17 +18,27 @@ from flask.ext.wtf import SelectField, HiddenField, TextField, validators
 from flask.ext.babel import lazy_gettext as _l
 from .base import Form
 
+
 class WFSEditForm(Form):
     def is_submitted(self):
-        return request and request.method in ("PUT", "POST") and request.form.get('edit_form')
+        return (
+            request
+            and request.method in ("PUT", "POST")
+            and request.form.get("edit_form")
+        )
 
-    layer = SelectField(_l('wfs_layer'))
+    layer = SelectField(_l("wfs_layer"))
     external_editor = HiddenField()
     edit_form = HiddenField()
 
+
 class WFSAddLayerForm(Form):
     def is_submitted(self):
-        return request and request.method in ("PUT", "POST") and request.form.get('add_form')
+        return (
+            request
+            and request.method in ("PUT", "POST")
+            and request.form.get("add_form")
+        )
 
-    new_layer = TextField(_l('wfs_new_layer_name'), validators=[validators.Required(),])
+    new_layer = TextField(_l("wfs_new_layer_name"), validators=[validators.Required()])
     add_form = HiddenField()

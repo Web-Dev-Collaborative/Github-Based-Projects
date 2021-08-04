@@ -16,6 +16,7 @@
 from flask.ext.wtf import Form as BaseForm
 from flask.ext.babel import gettext, ngettext
 
+
 class BabelTranslations(object):
     def gettext(self, string):
         return gettext(string)
@@ -23,7 +24,9 @@ class BabelTranslations(object):
     def ngettext(self, singular, pluaral, n):
         return ngettext(singular, pluaral, n)
 
+
 babel = BabelTranslations()
+
 
 class Form(BaseForm):
     def _get_translations(self):

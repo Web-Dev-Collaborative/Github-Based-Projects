@@ -17,8 +17,9 @@ from datetime import datetime
 from sqlalchemy.orm import backref
 from gbi_server.extensions import db
 
+
 class WFSSession(db.Model):
-    __tablename__ = 'wfs_sessions'
+    __tablename__ = "wfs_sessions"
 
     id = db.Column(db.Integer, primary_key=True)
     active = db.Column(db.Boolean, default=True)
@@ -26,8 +27,10 @@ class WFSSession(db.Model):
     url = db.Column(db.String, nullable=False)
     start_edit = db.Column(db.DateTime, default=datetime.utcnow)
     last_update = db.Column(db.DateTime, default=None)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    user = db.relationship('User', backref=backref('wfs_sessions', cascade="all,delete,delete-orphan"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    user = db.relationship(
+        "User", backref=backref("wfs_sessions", cascade="all,delete,delete-orphan")
+    )
 
     @classmethod
     def by_active_user_layer(cls, layer, user):

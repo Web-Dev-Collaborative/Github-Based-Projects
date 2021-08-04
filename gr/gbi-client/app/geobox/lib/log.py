@@ -19,16 +19,20 @@ import logging.config
 import threading
 from geobox.config import path
 
-def init_logging(app_state):
-    user_log_dir = app_state.user_data_path('log', make_dirs=True)
 
-    user_log_file = app_state.user_data_path('log.ini')
+def init_logging(app_state):
+    user_log_dir = app_state.user_data_path("log", make_dirs=True)
+
+    user_log_file = app_state.user_data_path("log.ini")
     if os.path.exists(user_log_file):
-        logging.config.fileConfig(user_log_file,
-            defaults={'user_log_dir': user_log_dir})
+        logging.config.fileConfig(
+            user_log_file, defaults={"user_log_dir": user_log_dir}
+        )
     else:
-        logging.config.fileConfig(path(['geobox/lib/default_log.ini']),
-            defaults={'user_log_dir': user_log_dir})
+        logging.config.fileConfig(
+            path(["geobox/lib/default_log.ini"]),
+            defaults={"user_log_dir": user_log_dir},
+        )
 
 
 class LineLoggerThread(threading.Thread):

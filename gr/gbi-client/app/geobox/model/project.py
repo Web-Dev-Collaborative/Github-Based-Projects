@@ -17,13 +17,13 @@ import datetime
 import sqlalchemy as sa
 from sqlalchemy import orm
 from flaskext.babel import lazy_gettext
-from . meta import Base
+from .meta import Base
 
-__all__ = ['Project', 'ExportProject', 'ImportProject']
+__all__ = ["Project", "ExportProject", "ImportProject"]
 
 
 class Project(Base):
-    __tablename__ = 'projects'
+    __tablename__ = "projects"
 
     id = sa.Column(sa.Integer, primary_key=True)
     title = sa.Column(sa.String, nullable=False)
@@ -48,26 +48,33 @@ class Project(Base):
 
     coverage = sa.Column(sa.String())
     download_size = sa.Column(sa.Float())
-    type = sa.Column('type', sa.String(50))
-    __mapper_args__ = {'polymorphic_on': type}
+    type = sa.Column("type", sa.String(50))
+    __mapper_args__ = {"polymorphic_on": type}
 
-    tasks = orm.relationship('Task', backref="project")
+    tasks = orm.relationship("Task", backref="project")
+
 
 class ExportProject(Project):
-    __tablename__ = 'projects_export'
-    __mapper_args__ = {'polymorphic_identity': 'export_project'}
-    project_type = task_type = lazy_gettext('project export')
-    id = sa.Column(sa.Integer, sa.ForeignKey('projects.id'), primary_key=True)
-    export_raster_layers = orm.relationship('ExportRasterLayer', backref='project', cascade="all, delete, delete-orphan")
-    export_vector_layers = orm.relationship('ExportVectorLayer', backref='project', cascade="all, delete, delete-orphan")
+    __tablename__ = "projects_export"
+    __mapper_args__ = {"polymorphic_identity": "export_project"}
+    project_type = task_type = lazy_gettext("project export")
+    id = sa.Column(sa.Integer, sa.ForeignKey("projects.id"), primary_key=True)
+    export_raster_layers = orm.relationship(
+        "ExportRasterLayer", backref="project", cascade="all, delete, delete-orphan"
+    )
+    export_vector_layers = orm.relationship(
+        "ExportVectorLayer", backref="project", cascade="all, delete, delete-orphan"
+    )
     export_format = sa.Column(sa.String)
     export_srs = sa.Column(sa.String)
 
 
 class ImportProject(Project):
-    __tablename__ = 'projects_import'
-    __mapper_args__ = {'polymorphic_identity': 'import_project'}
-    task_type = lazy_gettext('project import')
-    id = sa.Column(sa.Integer, sa.ForeignKey('projects.id'), primary_key=True)
-    import_raster_layers = orm.relationship('ImportRasterLayer', backref='project', cascade="all, delete, delete-orphan")
+    __tablename__ = "projects_import"
+    __mapper_args__ = {"polymorphic_identity": "import_project"}
+    task_type = lazy_gettext("project import")
+    id = sa.Column(sa.Integer, sa.ForeignKey("projects.id"), primary_key=True)
+    import_raster_layers = orm.relationship(
+        "ImportRasterLayer", backref="project", cascade="all, delete, delete-orphan"
+    )
     update_tiles = sa.Column(sa.Boolean(), default=False)

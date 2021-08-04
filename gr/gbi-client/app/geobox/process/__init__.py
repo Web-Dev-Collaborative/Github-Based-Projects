@@ -19,21 +19,24 @@ from geobox.process.replication import ReplicationProcess
 
 from geobox.model.tasks import (
     RasterImportTask,
-    VectorExportTask, VectorImportTask, ReplicationTask, RasterExportTask,
+    VectorExportTask,
+    VectorImportTask,
+    ReplicationTask,
+    RasterExportTask,
 )
 
 
 task_class_mapping = {
-    'vector_export': VectorExportTask,
-    'vector_import': VectorImportTask,
-    'replication': ReplicationTask,
-    'raster_import': RasterImportTask,
-    'raster_export': RasterExportTask,
+    "vector_export": VectorExportTask,
+    "vector_import": VectorImportTask,
+    "replication": ReplicationTask,
+    "raster_import": RasterImportTask,
+    "raster_export": RasterExportTask,
 }
 task_process_mapping = {
-    'vector_export': VectorExportProcess,
-    'vector_import': VectorImportProcess,
-    'replication': ReplicationProcess,
-    'raster_import': RasterImportProcess,
-    'raster_export': RasterExportProcess,
+    "vector_export": VectorExportProcess,
+    "vector_import": VectorImportProcess,
+    "replication": ReplicationProcess,
+    "raster_import": RasterImportProcess,
+    "raster_export": RasterExportProcess,
 }

@@ -22,24 +22,36 @@ from gbi_server import create_app
 from gbi_server.model import fixtures
 from gbi_server.extensions import db
 
+
 def babel_init_lang_command(lang):
     "Initialize new language."
-    sh('pybabel init -i gbi_server/translations/messages.pot -d gbi_server/translations -l %s' % (lang,))
+    sh(
+        "pybabel init -i gbi_server/translations/messages.pot -d gbi_server/translations -l %s"
+        % (lang,)
+    )
+
 
 def babel_refresh_command():
     "Extract messages and update translation files."
 
     # get directory of all extension that also use translations
     import wtforms
-    wtforms_dir = os.path.dirname(wtforms.__file__)
-    extensions = ' '.join([wtforms_dir])
 
-    sh('pybabel extract -F babel.cfg -k lazy_gettext -k _l -o gbi_server/translations/messages.pot gbi_server gbi_server/model gbi_server/lib ' + extensions)
-    sh('pybabel update -i gbi_server/translations/messages.pot -d gbi_server/translations')
+    wtforms_dir = os.path.dirname(wtforms.__file__)
+    extensions = " ".join([wtforms_dir])
+
+    sh(
+        "pybabel extract -F babel.cfg -k lazy_gettext -k _l -o gbi_server/translations/messages.pot gbi_server gbi_server/model gbi_server/lib "
+        + extensions
+    )
+    sh(
+        "pybabel update -i gbi_server/translations/messages.pot -d gbi_server/translations"
+    )
+
 
 def babel_compile_command():
     "Compile translations."
-    sh('pybabel compile -d gbi_server/translations')
+    sh("pybabel compile -d gbi_server/translations")
 
 
 def init_db_command(app=None):
@@ -49,6 +61,7 @@ def init_db_command(app=None):
     db.drop_all()
     db.create_all()
 
+
 def fixtures_command():
     app = create_app()
     init_db_command(app)
@@ -57,20 +70,30 @@ def fixtures_command():
     with app.test_request_context():
         fixtures.init_couchdb(app.config)
 
-def runserver_command(host='127.0.0.1', port=5000):
+
+def runserver_command(host="127.0.0.1", port=5000):
     app = create_app()
 
     # scriptine removed sub-command from argv,
     # but Flask reloader needs complete sys.argv
-    sys.argv[1:1] = ['runserver']
+    sys.argv[1:1] = ["runserver"]
 
     from werkzeug.serving import run_simple, WSGIRequestHandler
+
     # use custom request handler to force HTTP/1.1
     # needed for chunked encoding in CouchDB AuthProxy
     class HTTP11WSGIRequestHandler(WSGIRequestHandler):
-        protocol_version = 'HTTP/1.1'
-    run_simple(application=app, hostname=host, port=port, threaded=True,
-        request_handler=HTTP11WSGIRequestHandler, use_reloader=True)
+        protocol_version = "HTTP/1.1"
 
-if __name__ == '__main__':
+    run_simple(
+        application=app,
+        hostname=host,
+        port=port,
+        threaded=True,
+        request_handler=HTTP11WSGIRequestHandler,
+        use_reloader=True,
+    )
+
+
+if __name__ == "__main__":
     scriptine.run()

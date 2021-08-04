@@ -19,28 +19,32 @@ from ..helper import get_local_cache_url
 from geobox.model import LocalWMTSSource, ExternalWMTSSource
 from geobox.lib.couchdb import CouchDB
 
-map_view = Blueprint('map_view', __name__)
+map_view = Blueprint("map_view", __name__)
 
-@map_view.route('/map')
+
+@map_view.route("/map")
 def map():
     raster_sources = g.db.query(LocalWMTSSource).all()
     base_layer = g.db.query(ExternalWMTSSource).filter_by(background_layer=True).first()
     base_layer.bbox = base_layer.bbox_from_view_coverage()
     cache_url = get_local_cache_url(request)
 
-    couch = CouchDB('http://%s:%s' % ('127.0.0.1',
-        current_app.config.geobox_state.config.get('couchdb', 'port')),
-        current_app.config.geobox_state.config.get('web', 'coverages_from_couchdb'))
+    couch = CouchDB(
+        "http://%s:%s"
+        % ("127.0.0.1", current_app.config.geobox_state.config.get("couchdb", "port")),
+        current_app.config.geobox_state.config.get("web", "coverages_from_couchdb"),
+    )
 
     records = couch.load_records()
     vector_geometries = []
     for record in records:
-        if 'geometry' in record: # check if record has geometry type
+        if "geometry" in record:  # check if record has geometry type
             vector_geometries.append(record)
 
-    return render_template('map.html',
+    return render_template(
+        "map.html",
         cache_url=cache_url,
         base_layer=base_layer,
         sources=raster_sources,
-        vector_geometries=vector_geometries
+        vector_geometries=vector_geometries,
     )

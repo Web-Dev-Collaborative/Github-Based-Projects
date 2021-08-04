@@ -16,28 +16,43 @@
 import os
 import sys
 
-from flask import Flask, g, request, make_response, jsonify, render_template, flash, redirect, url_for, session, abort
+from flask import (
+    Flask,
+    g,
+    request,
+    make_response,
+    jsonify,
+    render_template,
+    flash,
+    redirect,
+    url_for,
+    session,
+    abort,
+)
 
 # XXX olt: do not import from flask.ext, makes trouble with pyinstaller
 from flaskext.babel import Babel
 
 import logging
+
 log = logging.getLogger(__name__)
+
 
 def create_app(app_state):
     app = Flask(__name__)
     app.debug = True
 
-    if getattr(sys, 'frozen', None):
+    if getattr(sys, "frozen", None):
         # set root_path to data dir from PyInstaller
         basedir = sys._MEIPASS
-        app.root_path = os.path.join(basedir, os.path.join(*__name__.split('.')))
+        app.root_path = os.path.join(basedir, os.path.join(*__name__.split(".")))
 
     app.config.geobox_state = app_state
 
-    app.config['SECRET_KEY'] = app_state.config.get('web', 'secret_key')
+    app.config["SECRET_KEY"] = app_state.config.get("web", "secret_key")
 
     from . import views
+
     app.register_blueprint(views.main)
     app.register_blueprint(views.map)
     app.register_blueprint(views.tasks)
@@ -47,7 +62,6 @@ def create_app(app_state):
     app.register_blueprint(views.vector)
     app.register_blueprint(views.downloads)
 
-
     @app.before_request
     def before_request():
         from helper import request_for_static
@@ -56,22 +70,26 @@ def create_app(app_state):
         if request_for_static():
             return
 
-        username = session.get('username', False)
-        if not username and request.endpoint != 'user_view.login':
-             abort(403)
+        username = session.get("username", False)
+        if not username and request.endpoint != "user_view.login":
+            abort(403)
 
     @app.teardown_request
     def teardown_request(exception):
         """Closes the database again at the end of the request."""
-        if hasattr(g, 'db'):
+        if hasattr(g, "db"):
             g.db.close()
 
     from .helper import css_alert_category, add_auth_to_url
-    app.jinja_env.globals.update(css_alert_category=css_alert_category, add_auth_to_url=add_auth_to_url)
+
+    app.jinja_env.globals.update(
+        css_alert_category=css_alert_category, add_auth_to_url=add_auth_to_url
+    )
 
     configure_i18n(app, app_state.locale())
     configure_errorhandlers(app)
     return app
+
 
 def configure_i18n(app, locale):
     babel = Babel(app)
@@ -80,36 +98,38 @@ def configure_i18n(app, locale):
     def get_locale():
         return locale
 
+
 def configure_errorhandlers(app):
 
     if app.testing:
         return
 
     from flaskext.babel import _
+
     @app.errorhandler(405)
     def not_allowed(error):
         if request.is_xhr:
-            return jsonify(error=_('Sorry, method not allowed'))
+            return jsonify(error=_("Sorry, method not allowed"))
         return make_response(render_template("errors/405.html", error=error), 405)
 
     @app.errorhandler(404)
     def page_not_found(error):
         if request.is_xhr:
-            return jsonify(error=_('Sorry, page not found'))
+            return jsonify(error=_("Sorry, page not found"))
         return make_response(render_template("errors/404.html", error=error), 404)
 
     @app.errorhandler(403)
     def forbidden(error):
         if request.is_xhr:
-            return jsonify(error=_('Sorry, not allowed'))
-        flash(_('Please log in first...'), 'error')
-        login_url = '%s?next=%s' % (url_for('user_view.login'), request.url)
+            return jsonify(error=_("Sorry, not allowed"))
+        flash(_("Please log in first..."), "error")
+        login_url = "%s?next=%s" % (url_for("user_view.login"), request.url)
         return redirect(login_url)
 
     @app.errorhandler(500)
     def server_error(error):
         if request.is_xhr:
-            return jsonify(error=_('Sorry, an error has occurred'))
+            return jsonify(error=_("Sorry, an error has occurred"))
         return make_response(render_template("errors/500.html", error=error), 500)
 
     @app.errorhandler(401)

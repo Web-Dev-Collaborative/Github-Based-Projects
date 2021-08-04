@@ -45,68 +45,107 @@ import sys
 import glob
 import math
 
-__version__ = '$id$'[5:-1]
+__version__ = "$id$"[5:-1]
 verbose = 0
 quiet = 0
 
 
 # =============================================================================
-def raster_copy( s_fh, s_xoff, s_yoff, s_xsize, s_ysize, s_band_n,
-                 t_fh, t_xoff, t_yoff, t_xsize, t_ysize, t_band_n,
-                 nodata=None ):
+def raster_copy(
+    s_fh,
+    s_xoff,
+    s_yoff,
+    s_xsize,
+    s_ysize,
+    s_band_n,
+    t_fh,
+    t_xoff,
+    t_yoff,
+    t_xsize,
+    t_ysize,
+    t_band_n,
+    nodata=None,
+):
 
     if nodata is not None:
         return raster_copy_with_nodata(
-            s_fh, s_xoff, s_yoff, s_xsize, s_ysize, s_band_n,
-            t_fh, t_xoff, t_yoff, t_xsize, t_ysize, t_band_n,
-            nodata )
+            s_fh,
+            s_xoff,
+            s_yoff,
+            s_xsize,
+            s_ysize,
+            s_band_n,
+            t_fh,
+            t_xoff,
+            t_yoff,
+            t_xsize,
+            t_ysize,
+            t_band_n,
+            nodata,
+        )
 
     if verbose != 0:
-        print('Copy %d,%d,%d,%d to %d,%d,%d,%d.' \
-              % (s_xoff, s_yoff, s_xsize, s_ysize,
-             t_xoff, t_yoff, t_xsize, t_ysize ))
+        print(
+            "Copy %d,%d,%d,%d to %d,%d,%d,%d."
+            % (s_xoff, s_yoff, s_xsize, s_ysize, t_xoff, t_yoff, t_xsize, t_ysize)
+        )
 
-    s_band = s_fh.GetRasterBand( s_band_n )
-    t_band = t_fh.GetRasterBand( t_band_n )
+    s_band = s_fh.GetRasterBand(s_band_n)
+    t_band = t_fh.GetRasterBand(t_band_n)
 
-    data = s_band.ReadRaster( s_xoff, s_yoff, s_xsize, s_ysize,
-                             t_xsize, t_ysize, t_band.DataType )
-    t_band.WriteRaster( t_xoff, t_yoff, t_xsize, t_ysize,
-                        data, t_xsize, t_ysize, t_band.DataType )
-
+    data = s_band.ReadRaster(
+        s_xoff, s_yoff, s_xsize, s_ysize, t_xsize, t_ysize, t_band.DataType
+    )
+    t_band.WriteRaster(
+        t_xoff, t_yoff, t_xsize, t_ysize, data, t_xsize, t_ysize, t_band.DataType
+    )
 
     return 0
 
+
 # =============================================================================
-def raster_copy_with_nodata( s_fh, s_xoff, s_yoff, s_xsize, s_ysize, s_band_n,
-                             t_fh, t_xoff, t_yoff, t_xsize, t_ysize, t_band_n,
-                             nodata ):
+def raster_copy_with_nodata(
+    s_fh,
+    s_xoff,
+    s_yoff,
+    s_xsize,
+    s_ysize,
+    s_band_n,
+    t_fh,
+    t_xoff,
+    t_yoff,
+    t_xsize,
+    t_ysize,
+    t_band_n,
+    nodata,
+):
     try:
         import numpy as Numeric
     except ImportError:
         import Numeric
 
     if verbose != 0:
-        print('Copy %d,%d,%d,%d to %d,%d,%d,%d.' \
-              % (s_xoff, s_yoff, s_xsize, s_ysize,
-             t_xoff, t_yoff, t_xsize, t_ysize ))
+        print(
+            "Copy %d,%d,%d,%d to %d,%d,%d,%d."
+            % (s_xoff, s_yoff, s_xsize, s_ysize, t_xoff, t_yoff, t_xsize, t_ysize)
+        )
 
-    s_band = s_fh.GetRasterBand( s_band_n )
-    t_band = t_fh.GetRasterBand( t_band_n )
+    s_band = s_fh.GetRasterBand(s_band_n)
+    t_band = t_fh.GetRasterBand(t_band_n)
 
-    data_src = s_band.ReadAsArray( s_xoff, s_yoff, s_xsize, s_ysize,
-                                   t_xsize, t_ysize )
-    data_dst = t_band.ReadAsArray( t_xoff, t_yoff, t_xsize, t_ysize )
+    data_src = s_band.ReadAsArray(s_xoff, s_yoff, s_xsize, s_ysize, t_xsize, t_ysize)
+    data_dst = t_band.ReadAsArray(t_xoff, t_yoff, t_xsize, t_ysize)
 
-    nodata_test = Numeric.equal(data_src,nodata)
-    to_write = Numeric.choose( nodata_test, (data_src, data_dst) )
+    nodata_test = Numeric.equal(data_src, nodata)
+    to_write = Numeric.choose(nodata_test, (data_src, data_dst))
 
-    t_band.WriteArray( to_write, t_xoff, t_yoff )
+    t_band.WriteArray(to_write, t_xoff, t_yoff)
 
     return 0
 
+
 # =============================================================================
-def names_to_fileinfos( names ):
+def names_to_fileinfos(names):
     """
     Translate a list of GDAL filenames, into file_info objects.
 
@@ -119,10 +158,11 @@ def names_to_fileinfos( names ):
     file_infos = []
     for name in names:
         fi = file_info()
-        if fi.init_from_name( name ) == 1:
-            file_infos.append( fi )
+        if fi.init_from_name(name) == 1:
+            file_infos.append(fi)
 
     return file_infos
+
 
 # *****************************************************************************
 class file_info:
@@ -136,7 +176,7 @@ class file_info:
 
         Returns 1 on success or 0 if the file can't be opened.
         """
-        fh = gdal.Open( filename )
+        fh = gdal.Open(filename)
         if fh is None:
             return 0
 
@@ -160,16 +200,13 @@ class file_info:
 
         return 1
 
-    def report( self ):
-        print('Filename: '+ self.filename)
-        print('File Size: %dx%dx%d' \
-              % (self.xsize, self.ysize, self.bands))
-        print('Pixel Size: %f x %f' \
-              % (self.geotransform[1],self.geotransform[5]))
-        print('UL:(%f,%f)   LR:(%f,%f)' \
-              % (self.ulx,self.uly,self.lrx,self.lry))
+    def report(self):
+        print("Filename: " + self.filename)
+        print("File Size: %dx%dx%d" % (self.xsize, self.ysize, self.bands))
+        print("Pixel Size: %f x %f" % (self.geotransform[1], self.geotransform[5]))
+        print("UL:(%f,%f)   LR:(%f,%f)" % (self.ulx, self.uly, self.lrx, self.lry))
 
-    def copy_into( self, t_fh, s_band = 1, t_band = 1, nodata_arg=None ):
+    def copy_into(self, t_fh, s_band=1, t_band=1, nodata_arg=None):
         """
         Copy this files image into target file.
 
@@ -194,14 +231,14 @@ class file_info:
         t_lry = t_geotransform[3] + t_fh.RasterYSize * t_geotransform[5]
 
         # figure out intersection region
-        tgw_ulx = max(t_ulx,self.ulx)
-        tgw_lrx = min(t_lrx,self.lrx)
+        tgw_ulx = max(t_ulx, self.ulx)
+        tgw_lrx = min(t_lrx, self.lrx)
         if t_geotransform[5] < 0:
-            tgw_uly = min(t_uly,self.uly)
-            tgw_lry = max(t_lry,self.lry)
+            tgw_uly = min(t_uly, self.uly)
+            tgw_lry = max(t_lry, self.lry)
         else:
-            tgw_uly = max(t_uly,self.uly)
-            tgw_lry = min(t_lry,self.lry)
+            tgw_uly = max(t_uly, self.uly)
+            tgw_lry = min(t_lry, self.lry)
 
         # do they even intersect?
         if tgw_ulx >= tgw_lrx:
@@ -214,10 +251,12 @@ class file_info:
         # compute target window in pixel coordinates.
         tw_xoff = int((tgw_ulx - t_geotransform[0]) / t_geotransform[1] + 0.1)
         tw_yoff = int((tgw_uly - t_geotransform[3]) / t_geotransform[5] + 0.1)
-        tw_xsize = int((tgw_lrx - t_geotransform[0])/t_geotransform[1] + 0.5) \
-                   - tw_xoff
-        tw_ysize = int((tgw_lry - t_geotransform[3])/t_geotransform[5] + 0.5) \
-                   - tw_yoff
+        tw_xsize = (
+            int((tgw_lrx - t_geotransform[0]) / t_geotransform[1] + 0.5) - tw_xoff
+        )
+        tw_ysize = (
+            int((tgw_lry - t_geotransform[3]) / t_geotransform[5] + 0.5) - tw_yoff
+        )
 
         if tw_xsize < 1 or tw_ysize < 1:
             return 1
@@ -225,46 +264,63 @@ class file_info:
         # Compute source window in pixel coordinates.
         sw_xoff = int((tgw_ulx - self.geotransform[0]) / self.geotransform[1])
         sw_yoff = int((tgw_uly - self.geotransform[3]) / self.geotransform[5])
-        sw_xsize = int((tgw_lrx - self.geotransform[0]) \
-                       / self.geotransform[1] + 0.5) - sw_xoff
-        sw_ysize = int((tgw_lry - self.geotransform[3]) \
-                       / self.geotransform[5] + 0.5) - sw_yoff
+        sw_xsize = (
+            int((tgw_lrx - self.geotransform[0]) / self.geotransform[1] + 0.5) - sw_xoff
+        )
+        sw_ysize = (
+            int((tgw_lry - self.geotransform[3]) / self.geotransform[5] + 0.5) - sw_yoff
+        )
 
         if sw_xsize < 1 or sw_ysize < 1:
             return 1
 
         # Open the source file, and copy the selected region.
-        s_fh = gdal.Open( self.filename )
+        s_fh = gdal.Open(self.filename)
 
-        return \
-            raster_copy( s_fh, sw_xoff, sw_yoff, sw_xsize, sw_ysize, s_band,
-                         t_fh, tw_xoff, tw_yoff, tw_xsize, tw_ysize, t_band,
-                         nodata_arg )
+        return raster_copy(
+            s_fh,
+            sw_xoff,
+            sw_yoff,
+            sw_xsize,
+            sw_ysize,
+            s_band,
+            t_fh,
+            tw_xoff,
+            tw_yoff,
+            tw_xsize,
+            tw_ysize,
+            t_band,
+            nodata_arg,
+        )
 
 
 # =============================================================================
 def Usage():
-    print('Usage: gdal_merge.py [-o out_filename] [-of out_format] [-co NAME=VALUE]*')
-    print('                     [-ps pixelsize_x pixelsize_y] [-tap] [-separate] [-q] [-v] [-pct]')
+    print("Usage: gdal_merge.py [-o out_filename] [-of out_format] [-co NAME=VALUE]*")
+    print(
+        "                     [-ps pixelsize_x pixelsize_y] [-tap] [-separate] [-q] [-v] [-pct]"
+    )
     print('                     [-ul_lr ulx uly lrx lry] [-init "value [value...]"]')
-    print('                     [-n nodata_value] [-a_nodata output_nodata_value]')
-    print('                     [-ot datatype] [-createonly] input_files')
-    print('                     [--help-general]')
-    print('')
+    print("                     [-n nodata_value] [-a_nodata output_nodata_value]")
+    print("                     [-ot datatype] [-createonly] input_files")
+    print("                     [--help-general]")
+    print("")
+
 
 # =============================================================================
 #
 # Program mainline.
 #
 
-def main( argv=None ):
+
+def main(argv=None):
 
     global verbose, quiet
     verbose = 0
     quiet = 0
     names = []
-    format = 'GTiff'
-    out_file = 'out.tif'
+    format = "GTiff"
+    out_file = "out.tif"
 
     ulx = None
     psize_x = None
@@ -281,116 +337,119 @@ def main( argv=None ):
     gdal.AllRegister()
     if argv is None:
         argv = sys.argv
-    argv = gdal.GeneralCmdLineProcessor( argv )
+    argv = gdal.GeneralCmdLineProcessor(argv)
     if argv is None:
-        sys.exit( 0 )
+        sys.exit(0)
 
     # Parse command line arguments.
     i = 1
     while i < len(argv):
         arg = argv[i]
 
-        if arg == '-o':
+        if arg == "-o":
             i = i + 1
             out_file = argv[i]
 
-        elif arg == '-v':
+        elif arg == "-v":
             verbose = 1
 
-        elif arg == '-q' or arg == '-quiet':
+        elif arg == "-q" or arg == "-quiet":
             quiet = 1
 
-        elif arg == '-createonly':
+        elif arg == "-createonly":
             createonly = 1
 
-        elif arg == '-separate':
+        elif arg == "-separate":
             separate = 1
 
-        elif arg == '-seperate':
+        elif arg == "-seperate":
             separate = 1
 
-        elif arg == '-pct':
+        elif arg == "-pct":
             copy_pct = 1
 
-        elif arg == '-ot':
+        elif arg == "-ot":
             i = i + 1
-            band_type = gdal.GetDataTypeByName( argv[i] )
+            band_type = gdal.GetDataTypeByName(argv[i])
             if band_type == gdal.GDT_Unknown:
-                print('Unknown GDAL data type: %s' % argv[i])
-                sys.exit( 1 )
+                print("Unknown GDAL data type: %s" % argv[i])
+                sys.exit(1)
 
-        elif arg == '-init':
+        elif arg == "-init":
             i = i + 1
             str_pre_init = argv[i].split()
             for x in str_pre_init:
                 pre_init.append(float(x))
 
-        elif arg == '-n':
+        elif arg == "-n":
             i = i + 1
             nodata = float(argv[i])
 
-        elif arg == '-a_nodata':
+        elif arg == "-a_nodata":
             i = i + 1
             a_nodata = float(argv[i])
 
-        elif arg == '-f':
+        elif arg == "-f":
             # for backward compatibility.
             i = i + 1
             format = argv[i]
 
-        elif arg == '-of':
+        elif arg == "-of":
             i = i + 1
             format = argv[i]
 
-        elif arg == '-co':
+        elif arg == "-co":
             i = i + 1
-            create_options.append( argv[i] )
+            create_options.append(argv[i])
 
-        elif arg == '-ps':
-            psize_x = float(argv[i+1])
-            psize_y = -1 * abs(float(argv[i+2]))
+        elif arg == "-ps":
+            psize_x = float(argv[i + 1])
+            psize_y = -1 * abs(float(argv[i + 2]))
             i = i + 2
 
-        elif arg == '-tap':
+        elif arg == "-tap":
             bTargetAlignedPixels = True
 
-        elif arg == '-ul_lr':
-            ulx = float(argv[i+1])
-            uly = float(argv[i+2])
-            lrx = float(argv[i+3])
-            lry = float(argv[i+4])
+        elif arg == "-ul_lr":
+            ulx = float(argv[i + 1])
+            uly = float(argv[i + 2])
+            lrx = float(argv[i + 3])
+            lry = float(argv[i + 4])
             i = i + 4
 
-        elif arg[:1] == '-':
-            print('Unrecognised command option: %s' % arg)
+        elif arg[:1] == "-":
+            print("Unrecognised command option: %s" % arg)
             Usage()
-            sys.exit( 1 )
+            sys.exit(1)
 
         else:
             # Expand any possible wildcards from command line arguments
-            f = glob.glob( arg )
+            f = glob.glob(arg)
             if len(f) == 0:
-                print('File not found: "%s"' % (str( arg )))
-            names += f # append 1 or more files
+                print('File not found: "%s"' % (str(arg)))
+            names += f  # append 1 or more files
         i = i + 1
 
     if len(names) == 0:
-        print('No input files selected.')
+        print("No input files selected.")
         Usage()
-        sys.exit( 1 )
+        sys.exit(1)
 
     Driver = gdal.GetDriverByName(format)
     if Driver is None:
-        print('Format driver %s not found, pick a supported driver.' % format)
-        sys.exit( 1 )
+        print("Format driver %s not found, pick a supported driver." % format)
+        sys.exit(1)
 
     DriverMD = Driver.GetMetadata()
-    if 'DCAP_CREATE' not in DriverMD:
-        print('Format driver %s does not support creation and piecewise writing.\nPlease select a format that does, such as GTiff (the default) or HFA (Erdas Imagine).' % format)
-        sys.exit( 1 )
+    if "DCAP_CREATE" not in DriverMD:
+        print(
+            "Format driver %s does not support creation and piecewise writing.\nPlease select a format that does, such as GTiff (the default) or HFA (Erdas Imagine)."
+            % format
+        )
+        sys.exit(1)
 
     # Collect information on all the source files.
-    file_infos = names_to_fileinfos( names )
+    file_infos = names_to_fileinfos(names)
 
     if ulx is None:
         ulx = file_infos[0].ulx
@@ -412,8 +471,8 @@ def main( argv=None ):
         band_type = file_infos[0].band_type
 
     # Try opening as an existing file.
-    gdal.PushErrorHandler( 'CPLQuietErrorHandler' )
-    t_fh = gdal.Open( out_file, gdal.GA_Update )
+    gdal.PushErrorHandler("CPLQuietErrorHandler")
+    t_fh = gdal.Open(out_file, gdal.GA_Update)
     gdal.PopErrorHandler()
 
     # Create output file if it does not already exist.
@@ -430,57 +489,56 @@ def main( argv=None ):
         xsize = int((lrx - ulx) / geotransform[1] + 0.5)
         ysize = int((lry - uly) / geotransform[5] + 0.5)
 
-
         if separate != 0:
-            bands=0
+            bands = 0
 
             for fi in file_infos:
-                bands=bands + fi.bands
+                bands = bands + fi.bands
         else:
             bands = file_infos[0].bands
 
-
-        t_fh = Driver.Create( out_file, xsize, ysize, bands,
-                              band_type, create_options )
+        t_fh = Driver.Create(out_file, xsize, ysize, bands, band_type, create_options)
         if t_fh is None:
-            print('Creation failed, terminating gdal_merge.')
-            sys.exit( 1 )
+            print("Creation failed, terminating gdal_merge.")
+            sys.exit(1)
 
-        t_fh.SetGeoTransform( geotransform )
-        t_fh.SetProjection( file_infos[0].projection )
+        t_fh.SetGeoTransform(geotransform)
+        t_fh.SetProjection(file_infos[0].projection)
 
         if copy_pct:
             t_fh.GetRasterBand(1).SetRasterColorTable(file_infos[0].ct)
     else:
         if separate != 0:
-            bands=0
+            bands = 0
             for fi in file_infos:
-                bands=bands + fi.bands
-            if t_fh.RasterCount < bands :
-                print('Existing output file has less bands than the input files. You should delete it before. Terminating gdal_merge.')
-                sys.exit( 1 )
+                bands = bands + fi.bands
+            if t_fh.RasterCount < bands:
+                print(
+                    "Existing output file has less bands than the input files. You should delete it before. Terminating gdal_merge."
+                )
+                sys.exit(1)
         else:
-            bands = min(file_infos[0].bands,t_fh.RasterCount)
+            bands = min(file_infos[0].bands, t_fh.RasterCount)
 
     # Do we need to set nodata value ?
     if a_nodata is not None:
         for i in range(t_fh.RasterCount):
-            t_fh.GetRasterBand(i+1).SetNoDataValue(a_nodata)
+            t_fh.GetRasterBand(i + 1).SetNoDataValue(a_nodata)
 
     # Do we need to pre-initialize the whole mosaic file to some value?
     if pre_init is not None:
         if t_fh.RasterCount <= len(pre_init):
             for i in range(t_fh.RasterCount):
-                t_fh.GetRasterBand(i+1).Fill( pre_init[i] )
+                t_fh.GetRasterBand(i + 1).Fill(pre_init[i])
         elif len(pre_init) == 1:
             for i in range(t_fh.RasterCount):
-                t_fh.GetRasterBand(i+1).Fill( pre_init[0] )
+                t_fh.GetRasterBand(i + 1).Fill(pre_init[0])
 
     # Copy data from source files into output file.
     t_band = 1
 
     if quiet == 0 and verbose == 0:
-        progress( 0.0 )
+        progress(0.0)
     fi_processed = 0
 
     for fi in file_infos:
@@ -489,25 +547,31 @@ def main( argv=None ):
 
         if verbose != 0:
             print("")
-            print("Processing file %5d of %5d, %6.3f%% completed." \
-                  % (fi_processed+1,len(file_infos),
-                     fi_processed * 100.0 / len(file_infos)) )
+            print(
+                "Processing file %5d of %5d, %6.3f%% completed."
+                % (
+                    fi_processed + 1,
+                    len(file_infos),
+                    fi_processed * 100.0 / len(file_infos),
+                )
+            )
             fi.report()
 
-        if separate == 0 :
-            for band in range(1, bands+1):
-                fi.copy_into( t_fh, band, band, nodata )
+        if separate == 0:
+            for band in range(1, bands + 1):
+                fi.copy_into(t_fh, band, band, nodata)
         else:
-            for band in range(1, fi.bands+1):
-                fi.copy_into( t_fh, band, t_band, nodata )
-                t_band = t_band+1
+            for band in range(1, fi.bands + 1):
+                fi.copy_into(t_fh, band, t_band, nodata)
+                t_band = t_band + 1
 
-        fi_processed = fi_processed+1
+        fi_processed = fi_processed + 1
         if quiet == 0 and verbose == 0:
-            progress( fi_processed / float(len(file_infos))  )
+            progress(fi_processed / float(len(file_infos)))
 
     # Force file to be closed.
     t_fh = None
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     sys.exit(main())

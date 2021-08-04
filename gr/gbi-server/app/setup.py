@@ -21,17 +21,17 @@ GBI Server
 from setuptools import setup, find_packages
 
 setup(
-    name='gbi_server',
-    version='1.0',
-    url='https://github.com/omniscale/gbi-server',
-    license='Apache License 2.0',
-    author='Oliver Tonnhofer',
-    author_email='support@omniscale.de',
-    description='GBI-Server application',
+    name="gbi_server",
+    version="1.0",
+    url="https://github.com/omniscale/gbi-server",
+    license="Apache License 2.0",
+    author="Oliver Tonnhofer",
+    author_email="support@omniscale.de",
+    description="GBI-Server application",
     long_description=__doc__,
     packages=find_packages(),
     zip_safe=False,
-    install_requires=[], # see requirements.txt
+    install_requires=[],  # see requirements.txt
     include_package_data=True,
-    package_data={'': ['*.*']},
+    package_data={"": ["*.*"]},
 )

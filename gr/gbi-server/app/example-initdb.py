@@ -24,22 +24,25 @@ from gbi_server import model
 from gbi_server.application import create_app
 from gbi_server.extensions import db
 
+
 def init_db(app):
     db.app = app
     # db.drop_app() # uncomment to clear database
     db.create_all()
 
     admin = model.User(
-        email='admin@example.org',
+        email="admin@example.org",
         active=True,
         verified=True,
         type=model.User.Type.ADMIN,
-        passwort=bcrypt.hashpw('changeme', bcrypt.gensalt(10))
+        passwort=bcrypt.hashpw("changeme", bcrypt.gensalt(10)),
     )
     db.session.add(admin)
     db.session.commit()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     import config
+
     app = create_app(config.GBIConfig)
     init_db(app)

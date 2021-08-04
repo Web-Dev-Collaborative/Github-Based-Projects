@@ -15,17 +15,18 @@
 
 from flask.ext.mail import Mail
 from flask.ext.sqlalchemy import SQLAlchemy
-#from flask.ext.cache import Cache
+
+# from flask.ext.cache import Cache
 from flask.ext.assets import Environment
 from flask.ext.login import LoginManager
 
 from gbi_server.authproxy import proxy
 
-__all__ = ['mail', 'db', 'assets', 'tileproxy', 'couchdbproxy']
+__all__ = ["mail", "db", "assets", "tileproxy", "couchdbproxy"]
 
 mail = Mail()
 db = SQLAlchemy()
-#cache = Cache()
+# cache = Cache()
 assets = Environment()
 login_manager = LoginManager()
 

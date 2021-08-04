@@ -17,5 +17,5 @@ from blinker import Namespace
 
 gbi_server_signals = Namespace()
 
-features_updated = gbi_server_signals.signal('features_updated')
-authtoken_changes = gbi_server_signals.signal('authtoken_changes')
+features_updated = gbi_server_signals.signal("features_updated")
+authtoken_changes = gbi_server_signals.signal("authtoken_changes")

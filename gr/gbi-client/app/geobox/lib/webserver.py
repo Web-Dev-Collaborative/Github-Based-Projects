@@ -27,18 +27,21 @@ class WSGIRequestHandler(werkzeug.serving.WSGIRequestHandler):
             lvl = logging.INFO
         self.server.logger.log(lvl, message, *args)
 
+
 class WebServerThread(threading.Thread):
     """
     WSGI server that runs in a seperate thread and support graceful
     shutdown.
     """
+
     def __init__(self, host, port, app, logger_name=__name__):
         threading.Thread.__init__(self)
         self.app = app
         self.host = host
         self.port = port
-        self.server = werkzeug.serving.ThreadedWSGIServer(self.host, self.port,
-            self.app, handler=WSGIRequestHandler)
+        self.server = werkzeug.serving.ThreadedWSGIServer(
+            self.host, self.port, self.app, handler=WSGIRequestHandler
+        )
         self.server.logger = logging.getLogger(logger_name)
 
     def run(self):
@@ -48,6 +51,6 @@ class WebServerThread(threading.Thread):
         self.server.shutdown_signal = True
         # make request to server so that it can handle the shutdown_signal
         try:
-            requests.get('http://%s:%d/__' % (self.host, self.port), timeout=1)
+            requests.get("http://%s:%d/__" % (self.host, self.port), timeout=1)
         except requests.exceptions.RequestException:
             pass
