@@ -1,0 +1,16 @@
+{
+  "name": "gregor-foobar",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "repository": "github:gr2m/gregor-foobar",
+  "devDependencies": {
+    "semantic-release": "^4.3.5"
+  }
+}
