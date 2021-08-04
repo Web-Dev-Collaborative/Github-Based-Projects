@@ -1,0 +1,14 @@
+<div id="doc">
+  <div class="page-header">
+    <h2>Doc: <%= doc.id %></h2>
+  </div>
+
+  <div class="errors-container"></div>
+
+  <textarea class="doc-code"><%= JSON.stringify(doc.attributes, null, "  ") %></textarea>
+  <br />
+  <p>
+    <button class="save-doc btn btn-large btn-primary" type="button">Save</button>
+  </p>
+
+</div>

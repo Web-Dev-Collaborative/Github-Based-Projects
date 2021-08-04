@@ -1,0 +1,60 @@
+/*!
+ *
+ * Cloudant less style files
+ *
+ */
+@import "bootstrap/bootstrap.less";
+@import "config.less";
+@import "logs.less";
+@import "prettyprint.less";
+@import "database.less";
+
+/*!
+ *
+ * OVERRIDES
+ *
+ * Override styles from included less files here. Record where the style is
+ * originally defined.
+ *
+ */
+
+//
+// Breadcrumbs
+
+.breadcrumb {
+  background-color: transparent;
+  padding-left: 0px;
+  li {
+    color: @grayLight;
+    background-color: transparent;
+    a {
+      color: @grayLight;
+    }
+  }
+  .divider {
+    padding: 0 5px;
+    color: @grayLight; //ccc
+  }
+  .active {
+    color: @black;
+    font-weight: bold;
+  }
+}
+
+
+// Navs
+// ------
+
+.nav-tabs > li > a {
+  background-color: @grayLighter;
+}
+
+.dropdown-menu li > a {
+  font-size: 12px;
+}
+
+.nav-list .divider {
+  color: @grayLight;
+  // This function is defined in mixins
+  .nav-divider(transparent, @white);
+}

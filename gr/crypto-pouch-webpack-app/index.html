@@ -1,0 +1,37 @@
+<html lang=="en">
+  <head>
+    <title>crypto-pouch test app</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <h1>crypto-pouch test app</h1>
+
+    <div class="local">
+      <h2>local encrypted databse</h2>
+      <p>
+        <button class='put-btn'>put</button>
+        <button class='put-attachment-btn'>putAttachment</button>
+        <button class='bulk-docs-btn'>bulkDocs</button>
+        <button class='sync-btn'>sync</button>
+        <button class='clear-btn'>remove all</button>
+      </p>
+      <table class="data"></table>
+      <code><pre class='log'></pre></code>
+    </div>
+
+    <div class="remote">
+      <h2>Remote databse <small>(<a href="http://127.0.0.1:8079/_utils/#/database/crypto-test/_all_docs">fauxton</a>)</small></h2>
+      <p>
+        <button class='put-btn'>put</button>
+        <button class='put-attachment-btn'>putAttachment</button>
+        <button class='bulk-docs-btn'>bulkDocs</button>
+        <button class='sync-btn'>sync</button>
+        <button class='clear-btn'>remove all</button>
+      </p>
+      <table class="data"></table>
+      <code><pre class='log'></pre></code>
+    </div>
+
+    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+  </body>
+</html>

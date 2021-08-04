@@ -1,0 +1,57 @@
+{
+  "name": "deprecation",
+  "version": "0.0.0-development",
+  "description": "Log a deprecation message with stack",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "build": "pack build",
+    "pretest": "npm run -s build",
+    "test": "node test.js"
+  },
+  "keywords": [
+    "deprecate",
+    "deprecated",
+    "deprecation"
+  ],
+  "author": "Gregor Martynus (https://twitter.com/gr2m",
+  "license": "ISC",
+  "repository": "github:gr2m/deprecation",
+  "devDependencies": {
+    "@pika/pack": "^0.3.7",
+    "@pika/plugin-build-node": "^0.4.0",
+    "@pika/plugin-build-types": "^0.4.0",
+    "@pika/plugin-build-web": "^0.4.0",
+    "@pika/plugin-standard-pkg": "^0.4.0",
+    "semantic-release": "^17.2.3"
+  },
+  "dependencies": {},
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ],
+      [
+        "@pika/plugin-build-types"
+      ]
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./pkg"
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  }
+}

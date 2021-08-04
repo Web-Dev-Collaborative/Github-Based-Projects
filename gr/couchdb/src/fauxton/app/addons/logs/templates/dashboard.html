@@ -1,0 +1,32 @@
+ <h2> Couchdb Logs </h2>
+  <table class="table table-bordered" >
+  <thead>
+    <tr>
+      <th class="Date">Date</th>
+      <th class="Log Level">Log Value</th>
+      <th class="Pid">Pid</th>
+      <th class="Args">Url</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% _.each(logs, function (log) { %>
+    <tr class="<%= log.log_level %>">
+      <td>
+        <!-- TODO: better format the date -->
+        <%= log.date.replace(/ /g,'') %>
+      </td>
+      <td>
+        <%= log.log_level.replace(/ /g,'') %>
+      </td>
+      <td>
+        <%= _.escape(log.pid) %>
+      </td>
+      <td>
+        <!-- TODO: split the line, maybe put method in it's own column -->
+        <%= _.escape(log.args) %>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

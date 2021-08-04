@@ -1,0 +1,28 @@
+{
+  "fails": [
+    {
+      "message": "Asynchronous Failure"
+    }
+  ],
+  "warnings": [
+    {
+      "message": "Asynchronous Warning"
+    }
+  ],
+  "messages": [
+    {
+      "message": "Asynchronous Message"
+    }
+  ],
+  "markdowns": [
+    {
+      "message": "Asynchronous Markdown"
+    }
+  ],
+  "scheduled": [
+    {},
+    {},
+    {},
+    {}
+  ]
+}

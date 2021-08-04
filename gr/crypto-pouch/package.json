@@ -1,0 +1,40 @@
+{
+  "name": "crypto-pouch",
+  "version": "1.2.1",
+  "description": "encrypted pouchdb/couchdb database",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js | tspec",
+    "build": "browserify ./ >  bundle.js",
+    "min": "browserify ./ | uglifyjs -mc > bundle.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/calvinmetcalf/crypto-pouch.git"
+  },
+  "keywords": [
+    "pouchdb",
+    "couchdb",
+    "encrypted"
+  ],
+  "author": "Calvin Metcalf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/calvinmetcalf/crypto-pouch/issues"
+  },
+  "homepage": "https://github.com/calvinmetcalf/crypto-pouch",
+  "dependencies": {
+    "chacha": "^2.1.0",
+    "node-uuid": "^1.4.3",
+    "pouchdb-promise": "0.0.0",
+    "transform-pouch": "^1.0.2"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "memdown": "^1.0.0",
+    "pouchdb": "^5.2.1",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.4.0",
+    "uglify-js": "^2.4.15"
+  }
+}

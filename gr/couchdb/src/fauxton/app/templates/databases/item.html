@@ -1,0 +1,10 @@
+<td width="10">
+  <label class="checkbox">
+    <input type="checkbox" class="row-select">
+  </label>
+</td>
+<td>
+  <a href="#/database/<%= database.get("name") %>/_all_docs?limit=100"><%= database.get("name") %></a>
+</td>
+<td><%= database.status.get("disk_size")  %></td>
+<td><%= database.status.get("doc_count")  %></td>

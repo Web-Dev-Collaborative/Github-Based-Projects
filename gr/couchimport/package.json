@@ -1,0 +1,38 @@
+{
+  "name": "couchimport",
+  "version": "0.6.2",
+  "description": "CouchImport - command-line helper to bulk import/export data from CSV/TSV",
+  "repository": "https://github.com/glynnbird/couchimport.git",
+  "keywords": [
+    "CouchDB",
+    "Cloudant",
+    "couch",
+    "command-line",
+    "couchimport",
+    "couchexport"
+  ],
+  "author": "Glynn Bird <glynn.bird@gmail.com>",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "JSONStream": "1.0.3",
+    "async": "2.4.1",
+    "cloudant": "1.8.0",
+    "csv-parse": "1.2.0",
+    "debug": "2.6.8",
+    "minimist": "1.2.0",
+    "underscore": "1.8.3"
+  },
+  "devDependencies": {
+    "mocha": "3.4.2",
+    "should": "11.2.1",
+    "nock": "9.0.13"
+  },
+  "main": "./app.js",
+  "bin": {
+    "couchimport": "bin/couchimport.bin.js",
+    "couchexport": "bin/couchexport.bin.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
