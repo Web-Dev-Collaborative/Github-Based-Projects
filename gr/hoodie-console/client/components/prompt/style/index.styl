@@ -1,0 +1,50 @@
+.prompt
+    .command
+        position relative
+        border-bottom 1px solid #ddd
+        outline none
+
+        pre
+            padding 10px 10px 10px 30px
+            font-weight bold
+
+            .cursor
+                display inline-block
+                width 2px
+                height 20px
+                margin -3px 0
+
+                animation 1s blink step-end infinite
+
+    &:before
+        content '>'
+        display block
+        position absolute
+        top 10px
+        left 10px
+
+        font-weight bold
+
+.prompt-has-focus .prompt
+    position absolute
+    top 0
+    left 0
+    right 0
+    bottom 0
+
+    .command
+        position absolute
+        top 0
+        left 0
+        right 0
+        bottom 60px
+        overflow auto
+
+@keyframes blink {
+    from, to {
+        background-color: transparent;
+    }
+    50% {
+        background-color: black;
+    }
+}

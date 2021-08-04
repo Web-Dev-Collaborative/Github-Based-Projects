@@ -1,0 +1,4 @@
+<body class="{{cssClasses}}">
+    <nav></nav>
+    <main></main>
+</body>
