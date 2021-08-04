@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`github getGitLog  1`] = `
+Array [
+  Object {
+    "authorEmail": "lisowski54@gmail.com",
+    "authorName": "Andrew Lisowski",
+    "files": Array [
+      "<PROJECT_ROOT>/src/__tests__/git.test.ts",
+    ],
+    "hash": "a7f6634429731055a5a44bae24ac88c5f9822e58",
+    "subject": "update tests
+",
+  },
+]
+`;

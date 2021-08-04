@@ -1,0 +1,30 @@
+{
+  "name": "async-get-set-store",
+  "version": "0.0.0-development",
+  "description": "Async get/set/unset API for one object using localStorage",
+  "main": "index.js",
+  "scripts": {
+    "coverage": "istanbul cover test.js",
+    "coverage:upload": "istanbul-coveralls",
+    "test": "node test.js",
+    "posttest": "standard"
+  },
+  "repository": "github:gr2m/async-get-set-store",
+  "keywords": [
+    "localstorage",
+    "api",
+    "store"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "humble-localstorage": "^2.0.0"
+  },
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "istanbul-coveralls": "^1.0.3",
+    "standard": "^14.0.2",
+    "tape": "^5.0.0",
+    "semantic-release": "^17.0.0"
+  }
+}

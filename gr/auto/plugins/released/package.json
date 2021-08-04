@@ -1,0 +1,44 @@
+{
+  "name": "@auto-it/released",
+  "version": "9.9.0",
+  "main": "dist/index.js",
+  "description": "Released plugin for auto. Comments with version + extra",
+  "author": {
+    "name": "Andrew Lisowski",
+    "email": "lisowski54@gmail.com"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/intuit/auto"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "automation",
+    "semantic",
+    "release",
+    "github",
+    "labels",
+    "automated",
+    "continuos integration",
+    "changelog",
+    "released",
+    "comment"
+  ],
+  "scripts": {
+    "build": "tsc -b",
+    "start": "npm run build -- -w",
+    "lint": "eslint src --ext .ts",
+    "test": "jest --maxWorkers=2 --config ../../package.json"
+  },
+  "dependencies": {
+    "@auto-it/core": "link:../../packages/core",
+    "deepmerge": "^4.0.0",
+    "tslib": "1.10.0"
+  }
+}
