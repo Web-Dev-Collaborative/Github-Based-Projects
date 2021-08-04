@@ -1,0 +1,21 @@
+on: [push]
+name: Test
+jobs:
+  readmeExamples:
+    name: "[TEST] README examples"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - run: "npm ci"
+      - run: "npm run build"
+      - name: "README example"
+        uses: ./
+        id: audit
+        env:
+          APP_ID: ${{ secrets.OPENCONTOSO_APP_ID }}
+          PRIVATE_KEY: ${{ secrets.OPENCONTOSO_PRIVATE_KEY }}
+      - run: |
+          echo '${{ steps.audit.outputs.repositories }}'

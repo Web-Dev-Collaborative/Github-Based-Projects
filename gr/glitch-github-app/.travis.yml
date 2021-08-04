@@ -1,0 +1,23 @@
+language: node_js
+cache:
+  directories:
+    - $HOME/.npm
+node_js: lts/*
+addons:
+  chrome: stable
+after_success:
+  - npm run semantic-release
+
+# Trigger a push build on master and greenkeeper branches + PRs build on every branches
+# Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
+branches:
+  only:
+    - master
+    - /^greenkeeper.*$/
+
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: DEBUG=glitch-deploy* npx glitch-deploy
+  on:
+    branch: master

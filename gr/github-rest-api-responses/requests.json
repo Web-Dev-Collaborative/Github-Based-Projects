@@ -1,0 +1,5417 @@
+[
+  {
+    "scope": "apps",
+    "idName": "create-from-manifest",
+    "method": "POST",
+    "path": "/app-manifests/:code/conversions",
+    "params": [
+      "code"
+    ],
+    "headers": {
+      "accept": "application/vnd.fury"
+    }
+  },
+  {
+    "scope": "apps",
+    "idName": "get-authenticated",
+    "method": "GET",
+    "path": "/app",
+    "params": [],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "apps",
+    "idName": "list-installations",
+    "method": "GET",
+    "path": "/app/installations",
+    "params": [],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "apps",
+    "idName": "get-installation",
+    "method": "GET",
+    "path": "/app/installations/:installation_id",
+    "params": [
+      "installation_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "apps",
+    "idName": "create-installation-token",
+    "method": "POST",
+    "path": "/app/installations/:installation_id/access_tokens",
+    "params": [
+      "installation_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "revoke-grant-for-application",
+    "method": "DELETE",
+    "path": "/applications/:client_id/grants/:access_token",
+    "params": [
+      "client_id",
+      "access_token"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "check-authorization",
+    "method": "GET",
+    "path": "/applications/:client_id/tokens/:access_token",
+    "params": [
+      "client_id",
+      "access_token"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "reset-authorization",
+    "method": "POST",
+    "path": "/applications/:client_id/tokens/:access_token",
+    "params": [
+      "client_id",
+      "access_token"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "revoke-authorization-for-application",
+    "method": "DELETE",
+    "path": "/applications/:client_id/tokens/:access_token",
+    "params": [
+      "client_id",
+      "access_token"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "list-grants",
+    "method": "GET",
+    "path": "/applications/grants",
+    "params": []
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "get-grant",
+    "method": "GET",
+    "path": "/applications/grants/:grant_id",
+    "params": [
+      "grant_id"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "delete-grant",
+    "method": "DELETE",
+    "path": "/applications/grants/:grant_id",
+    "params": [
+      "grant_id"
+    ]
+  },
+  {
+    "scope": "apps",
+    "idName": "get-by-slug",
+    "method": "GET",
+    "path": "/apps/:app_slug",
+    "params": [
+      "app_slug"
+    ],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "list-authorizations",
+    "method": "GET",
+    "path": "/authorizations",
+    "params": []
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "create-authorization",
+    "method": "POST",
+    "path": "/authorizations",
+    "params": [
+      "note"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "get-authorization",
+    "method": "GET",
+    "path": "/authorizations/:authorization_id",
+    "params": [
+      "authorization_id"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "update-authorization",
+    "method": "PATCH",
+    "path": "/authorizations/:authorization_id",
+    "params": [
+      "authorization_id"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "delete-authorization",
+    "method": "DELETE",
+    "path": "/authorizations/:authorization_id",
+    "params": [
+      "authorization_id"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "get-or-create-authorization-for-app",
+    "method": "PUT",
+    "path": "/authorizations/clients/:client_id",
+    "params": [
+      "client_id",
+      "client_secret"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "get-or-create-authorization-for-app-and-fingerprint",
+    "method": "PUT",
+    "path": "/authorizations/clients/:client_id/:fingerprint",
+    "params": [
+      "client_id",
+      "fingerprint",
+      "client_secret"
+    ]
+  },
+  {
+    "scope": "oauthAuthorizations",
+    "idName": "get-or-create-authorization-for-app-fingerprint",
+    "method": "PUT",
+    "path": "/authorizations/clients/:client_id/:fingerprint",
+    "params": [
+      "client_id",
+      "fingerprint",
+      "client_secret"
+    ]
+  },
+  {
+    "scope": "codesOfConduct",
+    "idName": "list-conduct-codes",
+    "method": "GET",
+    "path": "/codes_of_conduct",
+    "params": [],
+    "headers": {
+      "accept": "application/vnd.scarlet-witch"
+    }
+  },
+  {
+    "scope": "codesOfConduct",
+    "idName": "get-conduct-code",
+    "method": "GET",
+    "path": "/codes_of_conduct/:key",
+    "params": [
+      "key"
+    ],
+    "headers": {
+      "accept": "application/vnd.scarlet-witch"
+    }
+  },
+  {
+    "scope": "apps",
+    "idName": "create-content-attachment",
+    "method": "POST",
+    "path": "/content_references/:content_reference_id/attachments",
+    "params": [
+      "content_reference_id",
+      "title",
+      "body"
+    ],
+    "headers": {
+      "accept": "application/vnd.corsair"
+    }
+  },
+  {
+    "scope": "emojis",
+    "idName": "get",
+    "method": "GET",
+    "path": "/emojis",
+    "params": []
+  },
+  {
+    "scope": "activity",
+    "idName": "list-public-events",
+    "method": "GET",
+    "path": "/events",
+    "params": []
+  },
+  {
+    "scope": "activity",
+    "idName": "list-feeds",
+    "method": "GET",
+    "path": "/feeds",
+    "params": []
+  },
+  {
+    "scope": "gists",
+    "idName": "list",
+    "method": "GET",
+    "path": "/gists",
+    "params": []
+  },
+  {
+    "scope": "gists",
+    "idName": "create",
+    "method": "POST",
+    "path": "/gists",
+    "params": [
+      "files"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "get",
+    "method": "GET",
+    "path": "/gists/:gist_id",
+    "params": [
+      "gist_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "edit",
+    "method": "PATCH",
+    "path": "/gists/:gist_id",
+    "params": [
+      "gist_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "delete",
+    "method": "DELETE",
+    "path": "/gists/:gist_id",
+    "params": [
+      "gist_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "get-revision",
+    "method": "GET",
+    "path": "/gists/:gist_id/:sha",
+    "params": [
+      "gist_id",
+      "sha"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "list-comments",
+    "method": "GET",
+    "path": "/gists/:gist_id/comments",
+    "params": [
+      "gist_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "create-comment",
+    "method": "POST",
+    "path": "/gists/:gist_id/comments",
+    "params": [
+      "gist_id",
+      "body"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "get-comment",
+    "method": "GET",
+    "path": "/gists/:gist_id/comments/:comment_id",
+    "params": [
+      "gist_id",
+      "comment_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "edit-comment",
+    "method": "PATCH",
+    "path": "/gists/:gist_id/comments/:comment_id",
+    "params": [
+      "gist_id",
+      "comment_id",
+      "body"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "delete-comment",
+    "method": "DELETE",
+    "path": "/gists/:gist_id/comments/:comment_id",
+    "params": [
+      "gist_id",
+      "comment_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "list-commits",
+    "method": "GET",
+    "path": "/gists/:gist_id/commits",
+    "params": [
+      "gist_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "list-forks",
+    "method": "GET",
+    "path": "/gists/:gist_id/forks",
+    "params": [
+      "gist_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "fork",
+    "method": "POST",
+    "path": "/gists/:gist_id/forks",
+    "params": [
+      "gist_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "check-is-starred",
+    "method": "GET",
+    "path": "/gists/:gist_id/star",
+    "params": [
+      "gist_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "star",
+    "method": "PUT",
+    "path": "/gists/:gist_id/star",
+    "params": [
+      "gist_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "unstar",
+    "method": "DELETE",
+    "path": "/gists/:gist_id/star",
+    "params": [
+      "gist_id"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "list-public",
+    "method": "GET",
+    "path": "/gists/public",
+    "params": []
+  },
+  {
+    "scope": "gists",
+    "idName": "list-starred",
+    "method": "GET",
+    "path": "/gists/starred",
+    "params": []
+  },
+  {
+    "scope": "gitignore",
+    "idName": "list-templates",
+    "method": "GET",
+    "path": "/gitignore/templates",
+    "params": []
+  },
+  {
+    "scope": "gitignore",
+    "idName": "get-template",
+    "method": "GET",
+    "path": "/gitignore/templates/:name",
+    "params": [
+      "name"
+    ]
+  },
+  {
+    "scope": "apps",
+    "idName": "list-repos",
+    "method": "GET",
+    "path": "/installation/repositories",
+    "params": [],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "issues",
+    "idName": "list",
+    "method": "GET",
+    "path": "/issues",
+    "params": []
+  },
+  {
+    "scope": "search",
+    "idName": "issues-legacy",
+    "method": "GET",
+    "path": "/legacy/issues/search/:owner/:repository/:state/:keyword",
+    "params": [
+      "owner",
+      "repository",
+      "state",
+      "keyword"
+    ]
+  },
+  {
+    "scope": "search",
+    "idName": "repos-legacy",
+    "method": "GET",
+    "path": "/legacy/repos/search/:keyword",
+    "params": [
+      "keyword"
+    ]
+  },
+  {
+    "scope": "search",
+    "idName": "email-legacy",
+    "method": "GET",
+    "path": "/legacy/user/email/:email",
+    "params": [
+      "email"
+    ]
+  },
+  {
+    "scope": "search",
+    "idName": "users-legacy",
+    "method": "GET",
+    "path": "/legacy/user/search/:keyword",
+    "params": [
+      "keyword"
+    ]
+  },
+  {
+    "scope": "licenses",
+    "idName": "list-commonly-used",
+    "method": "GET",
+    "path": "/licenses",
+    "params": []
+  },
+  {
+    "scope": "licenses",
+    "idName": "list",
+    "method": "GET",
+    "path": "/licenses",
+    "params": []
+  },
+  {
+    "scope": "licenses",
+    "idName": "get",
+    "method": "GET",
+    "path": "/licenses/:license",
+    "params": [
+      "license"
+    ]
+  },
+  {
+    "scope": "markdown",
+    "idName": "render",
+    "method": "POST",
+    "path": "/markdown",
+    "params": [
+      "text"
+    ]
+  },
+  {
+    "scope": "markdown",
+    "idName": "render-raw",
+    "method": "POST",
+    "path": "/markdown/raw",
+    "params": [
+      "data"
+    ]
+  },
+  {
+    "scope": "apps",
+    "idName": "check-account-is-associated-with-any",
+    "method": "GET",
+    "path": "/marketplace_listing/accounts/:account_id",
+    "params": [
+      "account_id"
+    ]
+  },
+  {
+    "scope": "apps",
+    "idName": "list-plans",
+    "method": "GET",
+    "path": "/marketplace_listing/plans",
+    "params": []
+  },
+  {
+    "scope": "apps",
+    "idName": "list-accounts-user-or-org-on-plan",
+    "method": "GET",
+    "path": "/marketplace_listing/plans/:plan_id/accounts",
+    "params": [
+      "plan_id"
+    ]
+  },
+  {
+    "scope": "apps",
+    "idName": "check-account-is-associated-with-any-stubbed",
+    "method": "GET",
+    "path": "/marketplace_listing/stubbed/accounts/:account_id",
+    "params": [
+      "account_id"
+    ]
+  },
+  {
+    "scope": "apps",
+    "idName": "list-plans-stubbed",
+    "method": "GET",
+    "path": "/marketplace_listing/stubbed/plans",
+    "params": []
+  },
+  {
+    "scope": "apps",
+    "idName": "list-accounts-user-or-org-on-plan-stubbed",
+    "method": "GET",
+    "path": "/marketplace_listing/stubbed/plans/:plan_id/accounts",
+    "params": [
+      "plan_id"
+    ]
+  },
+  {
+    "scope": "meta",
+    "idName": "get",
+    "method": "GET",
+    "path": "/meta",
+    "params": []
+  },
+  {
+    "scope": "activity",
+    "idName": "list-public-events-for-repo-network",
+    "method": "GET",
+    "path": "/networks/:owner/:repo/events",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-notifications",
+    "method": "GET",
+    "path": "/notifications",
+    "params": []
+  },
+  {
+    "scope": "activity",
+    "idName": "mark-as-read",
+    "method": "PUT",
+    "path": "/notifications",
+    "params": []
+  },
+  {
+    "scope": "activity",
+    "idName": "get-thread",
+    "method": "GET",
+    "path": "/notifications/threads/:thread_id",
+    "params": [
+      "thread_id"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "mark-thread-as-read",
+    "method": "PATCH",
+    "path": "/notifications/threads/:thread_id",
+    "params": [
+      "thread_id"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "get-thread-subscription",
+    "method": "GET",
+    "path": "/notifications/threads/:thread_id/subscription",
+    "params": [
+      "thread_id"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "set-thread-subscription",
+    "method": "PUT",
+    "path": "/notifications/threads/:thread_id/subscription",
+    "params": [
+      "thread_id"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "delete-thread-subscription",
+    "method": "DELETE",
+    "path": "/notifications/threads/:thread_id/subscription",
+    "params": [
+      "thread_id"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "list",
+    "method": "GET",
+    "path": "/organizations",
+    "params": []
+  },
+  {
+    "scope": "orgs",
+    "idName": "get",
+    "method": "GET",
+    "path": "/orgs/:org",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "edit",
+    "method": "PATCH",
+    "path": "/orgs/:org",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "list-blocked-users",
+    "method": "GET",
+    "path": "/orgs/:org/blocks",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "check-blocked-user",
+    "method": "GET",
+    "path": "/orgs/:org/blocks/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "block-user",
+    "method": "PUT",
+    "path": "/orgs/:org/blocks/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "unblock-user",
+    "method": "DELETE",
+    "path": "/orgs/:org/blocks/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-public-events-for-org",
+    "method": "GET",
+    "path": "/orgs/:org/events",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "list-hooks",
+    "method": "GET",
+    "path": "/orgs/:org/hooks",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "create-hook",
+    "method": "POST",
+    "path": "/orgs/:org/hooks",
+    "params": [
+      "org",
+      "name",
+      "config"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "get-hook",
+    "method": "GET",
+    "path": "/orgs/:org/hooks/:hook_id",
+    "params": [
+      "org",
+      "hook_id"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "edit-hook",
+    "method": "PATCH",
+    "path": "/orgs/:org/hooks/:hook_id",
+    "params": [
+      "org",
+      "hook_id"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "delete-hook",
+    "method": "DELETE",
+    "path": "/orgs/:org/hooks/:hook_id",
+    "params": [
+      "org",
+      "hook_id"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "ping-hook",
+    "method": "POST",
+    "path": "/orgs/:org/hooks/:hook_id/pings",
+    "params": [
+      "org",
+      "hook_id"
+    ]
+  },
+  {
+    "scope": "apps",
+    "idName": "find-org-installation",
+    "method": "GET",
+    "path": "/orgs/:org/installation",
+    "params": [
+      "org"
+    ],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "interactions",
+    "idName": "get-restrictions-for-org",
+    "method": "GET",
+    "path": "/orgs/:org/interaction-limits",
+    "params": [
+      "org"
+    ],
+    "headers": {
+      "accept": "application/vnd.sombra"
+    }
+  },
+  {
+    "scope": "interactions",
+    "idName": "add-or-update-restrictions-for-org",
+    "method": "PUT",
+    "path": "/orgs/:org/interaction-limits",
+    "params": [
+      "org",
+      "limit"
+    ],
+    "headers": {
+      "accept": "application/vnd.sombra"
+    }
+  },
+  {
+    "scope": "interactions",
+    "idName": "remove-restrictions-for-org",
+    "method": "DELETE",
+    "path": "/orgs/:org/interaction-limits",
+    "params": [
+      "org"
+    ],
+    "headers": {
+      "accept": "application/vnd.sombra"
+    }
+  },
+  {
+    "scope": "orgs",
+    "idName": "list-pending-invitations",
+    "method": "GET",
+    "path": "/orgs/:org/invitations",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "create-invitation",
+    "method": "POST",
+    "path": "/orgs/:org/invitations",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "list-invitation-teams",
+    "method": "GET",
+    "path": "/orgs/:org/invitations/:invitation_id/teams",
+    "params": [
+      "org",
+      "invitation_id"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "list-for-org",
+    "method": "GET",
+    "path": "/orgs/:org/issues",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "list-members",
+    "method": "GET",
+    "path": "/orgs/:org/members",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "check-membership",
+    "method": "GET",
+    "path": "/orgs/:org/members/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "remove-member",
+    "method": "DELETE",
+    "path": "/orgs/:org/members/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "get-membership",
+    "method": "GET",
+    "path": "/orgs/:org/memberships/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "add-or-update-membership",
+    "method": "PUT",
+    "path": "/orgs/:org/memberships/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "remove-membership",
+    "method": "DELETE",
+    "path": "/orgs/:org/memberships/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "migrations",
+    "idName": "list-for-org",
+    "method": "GET",
+    "path": "/orgs/:org/migrations",
+    "params": [
+      "org"
+    ],
+    "headers": {
+      "accept": "application/vnd.wyandotte"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "start-for-org",
+    "method": "POST",
+    "path": "/orgs/:org/migrations",
+    "params": [
+      "org",
+      "repositories"
+    ]
+  },
+  {
+    "scope": "migrations",
+    "idName": "get-status-for-org",
+    "method": "GET",
+    "path": "/orgs/:org/migrations/:migration_id",
+    "params": [
+      "org",
+      "migration_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.wyandotte"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "get-archive-for-org",
+    "method": "GET",
+    "path": "/orgs/:org/migrations/:migration_id/archive",
+    "params": [
+      "org",
+      "migration_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.wyandotte"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "delete-archive-for-org",
+    "method": "DELETE",
+    "path": "/orgs/:org/migrations/:migration_id/archive",
+    "params": [
+      "org",
+      "migration_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.wyandotte"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "unlock-repo-for-org",
+    "method": "DELETE",
+    "path": "/orgs/:org/migrations/:migration_id/repos/:repo_name/lock",
+    "params": [
+      "org",
+      "migration_id",
+      "repo_name"
+    ],
+    "headers": {
+      "accept": "application/vnd.wyandotte"
+    }
+  },
+  {
+    "scope": "orgs",
+    "idName": "list-outside-collaborators",
+    "method": "GET",
+    "path": "/orgs/:org/outside_collaborators",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "convert-member-to-outside-collaborator",
+    "method": "PUT",
+    "path": "/orgs/:org/outside_collaborators/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "remove-outside-collaborator",
+    "method": "DELETE",
+    "path": "/orgs/:org/outside_collaborators/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "projects",
+    "idName": "list-for-org",
+    "method": "GET",
+    "path": "/orgs/:org/projects",
+    "params": [
+      "org"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "create-for-org",
+    "method": "POST",
+    "path": "/orgs/:org/projects",
+    "params": [
+      "org",
+      "name"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "orgs",
+    "idName": "list-public-members",
+    "method": "GET",
+    "path": "/orgs/:org/public_members",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "check-public-membership",
+    "method": "GET",
+    "path": "/orgs/:org/public_members/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "publicize-membership",
+    "method": "PUT",
+    "path": "/orgs/:org/public_members/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "conceal-membership",
+    "method": "DELETE",
+    "path": "/orgs/:org/public_members/:username",
+    "params": [
+      "org",
+      "username"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-for-org",
+    "method": "GET",
+    "path": "/orgs/:org/repos",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "create-in-org",
+    "method": "POST",
+    "path": "/orgs/:org/repos",
+    "params": [
+      "org",
+      "name"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "list",
+    "method": "GET",
+    "path": "/orgs/:org/teams",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "create",
+    "method": "POST",
+    "path": "/orgs/:org/teams",
+    "params": [
+      "org",
+      "name"
+    ]
+  },
+  {
+    "scope": "projects",
+    "idName": "get",
+    "method": "GET",
+    "path": "/projects/:project_id",
+    "params": [
+      "project_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "update",
+    "method": "PATCH",
+    "path": "/projects/:project_id",
+    "params": [
+      "project_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "delete",
+    "method": "DELETE",
+    "path": "/projects/:project_id",
+    "params": [
+      "project_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "list-collaborators",
+    "method": "GET",
+    "path": "/projects/:project_id/collaborators",
+    "params": [
+      "project_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "add-collaborator",
+    "method": "PUT",
+    "path": "/projects/:project_id/collaborators/:username",
+    "params": [
+      "project_id",
+      "username"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "remove-collaborator",
+    "method": "DELETE",
+    "path": "/projects/:project_id/collaborators/:username",
+    "params": [
+      "project_id",
+      "username"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "review-user-permission-level",
+    "method": "GET",
+    "path": "/projects/:project_id/collaborators/:username/permission",
+    "params": [
+      "project_id",
+      "username"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "list-columns",
+    "method": "GET",
+    "path": "/projects/:project_id/columns",
+    "params": [
+      "project_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "create-column",
+    "method": "POST",
+    "path": "/projects/:project_id/columns",
+    "params": [
+      "project_id",
+      "name"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "get-column",
+    "method": "GET",
+    "path": "/projects/columns/:column_id",
+    "params": [
+      "column_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "update-column",
+    "method": "PATCH",
+    "path": "/projects/columns/:column_id",
+    "params": [
+      "column_id",
+      "name"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "delete-column",
+    "method": "DELETE",
+    "path": "/projects/columns/:column_id",
+    "params": [
+      "column_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "list-cards",
+    "method": "GET",
+    "path": "/projects/columns/:column_id/cards",
+    "params": [
+      "column_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "create-card",
+    "method": "POST",
+    "path": "/projects/columns/:column_id/cards",
+    "params": [
+      "column_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "move-column",
+    "method": "POST",
+    "path": "/projects/columns/:column_id/moves",
+    "params": [
+      "column_id",
+      "position"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "get-card",
+    "method": "GET",
+    "path": "/projects/columns/cards/:card_id",
+    "params": [
+      "card_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "update-card",
+    "method": "PATCH",
+    "path": "/projects/columns/cards/:card_id",
+    "params": [
+      "card_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "delete-card",
+    "method": "DELETE",
+    "path": "/projects/columns/cards/:card_id",
+    "params": [
+      "card_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "move-card",
+    "method": "POST",
+    "path": "/projects/columns/cards/:card_id/moves",
+    "params": [
+      "card_id",
+      "position"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "rateLimit",
+    "idName": "get",
+    "method": "GET",
+    "path": "/rate_limit",
+    "params": []
+  },
+  {
+    "scope": "reactions",
+    "idName": "delete",
+    "method": "DELETE",
+    "path": "/reactions/:reaction_id",
+    "params": [
+      "reaction_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo,application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "get",
+    "method": "GET",
+    "path": "/repos/:owner/:repo",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "edit",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo",
+    "params": [
+      "owner",
+      "repo",
+      "name"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "delete",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-archive-link",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/:archive_format/:ref",
+    "params": [
+      "owner",
+      "repo",
+      "archive_format",
+      "ref"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "list-assignees",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/assignees",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "check-assignee",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/assignees/:assignee",
+    "params": [
+      "owner",
+      "repo",
+      "assignee"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-branches",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-branch",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches/:branch",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-branch-protection",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches/:branch/protection",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "update-branch-protection",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/branches/:branch/protection",
+    "params": [
+      "owner",
+      "repo",
+      "branch",
+      "required_status_checks",
+      "enforce_admins",
+      "required_pull_request_reviews",
+      "restrictions"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-branch-protection",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/branches/:branch/protection",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-protected-branch-admin-enforcement",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "add-protected-branch-admin-enforcement",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-protected-branch-admin-enforcement",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/enforce_admins",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-protected-branch-pull-request-review-enforcement",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "update-protected-branch-pull-request-review-enforcement",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-protected-branch-pull-request-review-enforcement",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_pull_request_reviews",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-protected-branch-required-signatures",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ],
+    "headers": {
+      "accept": "application/vnd.zzzax"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "add-protected-branch-required-signatures",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ],
+    "headers": {
+      "accept": "application/vnd.zzzax"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-protected-branch-required-signatures",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_signatures",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ],
+    "headers": {
+      "accept": "application/vnd.zzzax"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "get-protected-branch-required-status-checks",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "update-protected-branch-required-status-checks",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-protected-branch-required-status-checks",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-protected-branch-required-status-checks-contexts",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "add-protected-branch-required-status-checks-contexts",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+    "params": [
+      "owner",
+      "repo",
+      "branch",
+      "contexts"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "replace-protected-branch-required-status-checks-contexts",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+    "params": [
+      "owner",
+      "repo",
+      "branch",
+      "contexts"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-protected-branch-required-status-checks-contexts",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/required_status_checks/contexts",
+    "params": [
+      "owner",
+      "repo",
+      "branch",
+      "contexts"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-protected-branch-restrictions",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-protected-branch-restrictions",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-protected-branch-team-restrictions",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "add-protected-branch-team-restrictions",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
+    "params": [
+      "owner",
+      "repo",
+      "branch",
+      "teams"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "replace-protected-branch-team-restrictions",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
+    "params": [
+      "owner",
+      "repo",
+      "branch",
+      "teams"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-protected-branch-team-restrictions",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/teams",
+    "params": [
+      "owner",
+      "repo",
+      "branch",
+      "teams"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-protected-branch-user-restrictions",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
+    "params": [
+      "owner",
+      "repo",
+      "branch"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "add-protected-branch-user-restrictions",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
+    "params": [
+      "owner",
+      "repo",
+      "branch",
+      "users"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "replace-protected-branch-user-restrictions",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
+    "params": [
+      "owner",
+      "repo",
+      "branch",
+      "users"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-protected-branch-user-restrictions",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/branches/:branch/protection/restrictions/users",
+    "params": [
+      "owner",
+      "repo",
+      "branch",
+      "users"
+    ]
+  },
+  {
+    "scope": "checks",
+    "idName": "create",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/check-runs",
+    "params": [
+      "owner",
+      "repo",
+      "name",
+      "head_sha"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "checks",
+    "idName": "get",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/check-runs/:check_run_id",
+    "params": [
+      "owner",
+      "repo",
+      "check_run_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "checks",
+    "idName": "update",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/check-runs/:check_run_id",
+    "params": [
+      "owner",
+      "repo",
+      "check_run_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "checks",
+    "idName": "list-annotations",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/check-runs/:check_run_id/annotations",
+    "params": [
+      "owner",
+      "repo",
+      "check_run_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "checks",
+    "idName": "create-suite",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/check-suites",
+    "params": [
+      "owner",
+      "repo",
+      "head_sha"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "checks",
+    "idName": "get-suite",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/check-suites/:check_suite_id",
+    "params": [
+      "owner",
+      "repo",
+      "check_suite_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "checks",
+    "idName": "list-for-suite",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/check-suites/:check_suite_id/check-runs",
+    "params": [
+      "owner",
+      "repo",
+      "check_suite_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "checks",
+    "idName": "rerequest-suite",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/check-suites/:check_suite_id/rerequest",
+    "params": [
+      "owner",
+      "repo",
+      "check_suite_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "checks",
+    "idName": "set-suites-preferences",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/check-suites/preferences",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "list-collaborators",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/collaborators",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "check-collaborator",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/collaborators/:username",
+    "params": [
+      "owner",
+      "repo",
+      "username"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "add-collaborator",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/collaborators/:username",
+    "params": [
+      "owner",
+      "repo",
+      "username"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-collaborator",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/collaborators/:username",
+    "params": [
+      "owner",
+      "repo",
+      "username"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-collaborator-permission-level",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/collaborators/:username/permission",
+    "params": [
+      "owner",
+      "repo",
+      "username"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-commit-comments",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/comments",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-commit-comment",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/comments/:comment_id",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "update-commit-comment",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/comments/:comment_id",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id",
+      "body"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "delete-commit-comment",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/comments/:comment_id",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id"
+    ]
+  },
+  {
+    "scope": "reactions",
+    "idName": "list-for-commit-comment",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/comments/:comment_id/reactions",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "reactions",
+    "idName": "create-for-commit-comment",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/comments/:comment_id/reactions",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id",
+      "content"
+    ],
+    "headers": {
+      "accept": "application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "list-commits",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/commits",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-commit-ref-sha",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/commits/:ref",
+    "params": [
+      "owner",
+      "repo",
+      "ref"
+    ]
+  },
+  {
+    "scope": "checks",
+    "idName": "list-for-ref",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/commits/:ref/check-runs",
+    "params": [
+      "owner",
+      "repo",
+      "ref"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "checks",
+    "idName": "list-suites-for-ref",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/commits/:ref/check-suites",
+    "params": [
+      "owner",
+      "repo",
+      "ref"
+    ],
+    "headers": {
+      "accept": "application/vnd.antiope"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "list-comments-for-commit",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/commits/:ref/comments",
+    "params": [
+      "owner",
+      "repo",
+      "ref"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-combined-status-for-ref",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/commits/:ref/status",
+    "params": [
+      "owner",
+      "repo",
+      "ref"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-statuses-for-ref",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/commits/:ref/statuses",
+    "params": [
+      "owner",
+      "repo",
+      "ref"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-commit",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/commits/:sha",
+    "params": [
+      "owner",
+      "repo",
+      "sha"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "create-commit-comment",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/commits/:sha/comments",
+    "params": [
+      "owner",
+      "repo",
+      "sha",
+      "body"
+    ]
+  },
+  {
+    "scope": "codesOfConduct",
+    "idName": "get-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/community/code_of_conduct",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.scarlet-witch"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "retrieve-community-profile-metrics",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/community/profile",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "compare-commits",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/compare/:base...:head",
+    "params": [
+      "owner",
+      "repo",
+      "base",
+      "head"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-contents",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/contents/:path",
+    "params": [
+      "owner",
+      "repo",
+      "path"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "create-file",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/contents/:path",
+    "params": [
+      "owner",
+      "repo",
+      "path",
+      "message",
+      "content"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "update-file",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/contents/:path",
+    "params": [
+      "owner",
+      "repo",
+      "path",
+      "message",
+      "content",
+      "sha"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "delete-file",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/contents/:path",
+    "params": [
+      "owner",
+      "repo",
+      "path",
+      "message",
+      "sha"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-contributors",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/contributors",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-deployments",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/deployments",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "create-deployment",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/deployments",
+    "params": [
+      "owner",
+      "repo",
+      "ref"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-deployment",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/deployments/:deployment_id",
+    "params": [
+      "owner",
+      "repo",
+      "deployment_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-deployment-statuses",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/deployments/:deployment_id/statuses",
+    "params": [
+      "owner",
+      "repo",
+      "deployment_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "create-deployment-status",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/deployments/:deployment_id/statuses",
+    "params": [
+      "owner",
+      "repo",
+      "deployment_id",
+      "state"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-deployment-status",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/deployments/:deployment_id/statuses/:status_id",
+    "params": [
+      "owner",
+      "repo",
+      "deployment_id",
+      "status_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-downloads",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/downloads",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-download",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/downloads/:download_id",
+    "params": [
+      "owner",
+      "repo",
+      "download_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "delete-download",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/downloads/:download_id",
+    "params": [
+      "owner",
+      "repo",
+      "download_id"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-repo-events",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/events",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-forks",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/forks",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "create-fork",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/forks",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "create-blob",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/git/blobs",
+    "params": [
+      "owner",
+      "repo",
+      "content"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "get-blob",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/git/blobs/:file_sha",
+    "params": [
+      "owner",
+      "repo",
+      "file_sha"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "create-commit",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/git/commits",
+    "params": [
+      "owner",
+      "repo",
+      "message",
+      "tree",
+      "parents"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "get-commit",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/git/commits/:commit_sha",
+    "params": [
+      "owner",
+      "repo",
+      "commit_sha"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "create-ref",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/git/refs",
+    "params": [
+      "owner",
+      "repo",
+      "ref",
+      "sha"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "list-refs",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/git/refs/:namespace",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "get-ref",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/git/refs/:ref",
+    "params": [
+      "owner",
+      "repo",
+      "ref"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "update-ref",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/git/refs/:ref",
+    "params": [
+      "owner",
+      "repo",
+      "ref",
+      "sha"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "delete-ref",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/git/refs/:ref",
+    "params": [
+      "owner",
+      "repo",
+      "ref"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "create-tag",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/git/tags",
+    "params": [
+      "owner",
+      "repo",
+      "tag",
+      "message",
+      "object",
+      "type"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "get-tag",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/git/tags/:tag_sha",
+    "params": [
+      "owner",
+      "repo",
+      "tag_sha"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "create-tree",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/git/trees",
+    "params": [
+      "owner",
+      "repo",
+      "tree"
+    ]
+  },
+  {
+    "scope": "git",
+    "idName": "get-tree",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/git/trees/:tree_sha",
+    "params": [
+      "owner",
+      "repo",
+      "tree_sha"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-hooks",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/hooks",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "create-hook",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/hooks",
+    "params": [
+      "owner",
+      "repo",
+      "config"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-hook",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/hooks/:hook_id",
+    "params": [
+      "owner",
+      "repo",
+      "hook_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "edit-hook",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/hooks/:hook_id",
+    "params": [
+      "owner",
+      "repo",
+      "hook_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "delete-hook",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/hooks/:hook_id",
+    "params": [
+      "owner",
+      "repo",
+      "hook_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "ping-hook",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/hooks/:hook_id/pings",
+    "params": [
+      "owner",
+      "repo",
+      "hook_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "test-push-hook",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/hooks/:hook_id/tests",
+    "params": [
+      "owner",
+      "repo",
+      "hook_id"
+    ]
+  },
+  {
+    "scope": "migrations",
+    "idName": "get-import-progress",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/import",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.barred-rock"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "update-import",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/import",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.barred-rock"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "start-import",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/import",
+    "params": [
+      "owner",
+      "repo",
+      "vcs_url"
+    ],
+    "headers": {
+      "accept": "application/vnd.barred-rock"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "cancel-import",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/import",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.barred-rock"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "get-commit-authors",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/import/authors",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.barred-rock"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "map-commit-author",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/import/authors/:author_id",
+    "params": [
+      "owner",
+      "repo",
+      "author_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.barred-rock"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "get-large-files",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/import/large_files",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.barred-rock"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "set-lfs-preference",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/import/lfs",
+    "params": [
+      "owner",
+      "repo",
+      "use_lfs"
+    ],
+    "headers": {
+      "accept": "application/vnd.barred-rock"
+    }
+  },
+  {
+    "scope": "apps",
+    "idName": "find-repo-installation",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/installation",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "interactions",
+    "idName": "get-restrictions-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/interaction-limits",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.sombra"
+    }
+  },
+  {
+    "scope": "interactions",
+    "idName": "add-or-update-restrictions-for-repo",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/interaction-limits",
+    "params": [
+      "owner",
+      "repo",
+      "limit"
+    ],
+    "headers": {
+      "accept": "application/vnd.sombra"
+    }
+  },
+  {
+    "scope": "interactions",
+    "idName": "remove-restrictions-for-repo",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/interaction-limits",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.sombra"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "list-invitations",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/invitations",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "update-invitation",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/invitations/:invitation_id",
+    "params": [
+      "owner",
+      "repo",
+      "invitation_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "delete-invitation",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/invitations/:invitation_id",
+    "params": [
+      "owner",
+      "repo",
+      "invitation_id"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "list-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "create",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/issues",
+    "params": [
+      "owner",
+      "repo",
+      "title"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "get",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/:number",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "edit",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/issues/:number",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "add-assignees",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/issues/:number/assignees",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "remove-assignees",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/issues/:number/assignees",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "list-comments",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/:number/comments",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "create-comment",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/issues/:number/comments",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "body"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "list-events",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/:number/events",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "list-labels-on-issue",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/:number/labels",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "add-labels",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/issues/:number/labels",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "labels"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "replace-labels",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/issues/:number/labels",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "remove-labels",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/issues/:number/labels",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "remove-label",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/issues/:number/labels/:name",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "name"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "lock",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/issues/:number/lock",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "unlock",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/issues/:number/lock",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "reactions",
+    "idName": "list-for-issue",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/:number/reactions",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ],
+    "headers": {
+      "accept": "application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "reactions",
+    "idName": "create-for-issue",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/issues/:number/reactions",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "content"
+    ],
+    "headers": {
+      "accept": "application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "issues",
+    "idName": "list-events-for-timeline",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/:number/timeline",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ],
+    "headers": {
+      "accept": "application/vnd.mockingbird"
+    }
+  },
+  {
+    "scope": "issues",
+    "idName": "list-comments-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/comments",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "get-comment",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/comments/:comment_id",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "edit-comment",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/issues/comments/:comment_id",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id",
+      "body"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "delete-comment",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/issues/comments/:comment_id",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id"
+    ]
+  },
+  {
+    "scope": "reactions",
+    "idName": "list-for-issue-comment",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/comments/:comment_id/reactions",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "reactions",
+    "idName": "create-for-issue-comment",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/issues/comments/:comment_id/reactions",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id",
+      "content"
+    ],
+    "headers": {
+      "accept": "application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "issues",
+    "idName": "list-events-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/events",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "get-event",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/issues/events/:event_id",
+    "params": [
+      "owner",
+      "repo",
+      "event_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-deploy-keys",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/keys",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "add-deploy-key",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/keys",
+    "params": [
+      "owner",
+      "repo",
+      "key"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-deploy-key",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/keys/:key_id",
+    "params": [
+      "owner",
+      "repo",
+      "key_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "remove-deploy-key",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/keys/:key_id",
+    "params": [
+      "owner",
+      "repo",
+      "key_id"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "list-labels-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/labels",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "create-label",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/labels",
+    "params": [
+      "owner",
+      "repo",
+      "name",
+      "color"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "update-label",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/labels/:current_name",
+    "params": [
+      "owner",
+      "repo",
+      "current_name"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "get-label",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/labels/:name",
+    "params": [
+      "owner",
+      "repo",
+      "name"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "delete-label",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/labels/:name",
+    "params": [
+      "owner",
+      "repo",
+      "name"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-languages",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/languages",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "licenses",
+    "idName": "get-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/license",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "merge",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/merges",
+    "params": [
+      "owner",
+      "repo",
+      "base",
+      "head"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "list-milestones-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/milestones",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "create-milestone",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/milestones",
+    "params": [
+      "owner",
+      "repo",
+      "title"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "get-milestone",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/milestones/:number",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "update-milestone",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/milestones/:number",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "delete-milestone",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/milestones/:number",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "issues",
+    "idName": "list-labels-for-milestone",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/milestones/:number/labels",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-notifications-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/notifications",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "mark-notifications-as-read-for-repo",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/notifications",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-pages",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pages",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "enable-pages-site",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pages",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.switcheroo"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "update-information-about-pages-site",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/pages",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "disable-pages-site",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/pages",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.switcheroo"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "list-pages-builds",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pages/builds",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "request-page-build",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pages/builds",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.mister-fantastic"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "get-pages-build",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pages/builds/:build_id",
+    "params": [
+      "owner",
+      "repo",
+      "build_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-latest-pages-build",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pages/builds/latest",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "projects",
+    "idName": "list-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/projects",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "projects",
+    "idName": "create-for-repo",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/projects",
+    "params": [
+      "owner",
+      "repo",
+      "name"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "pulls",
+    "idName": "list",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "create",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls",
+    "params": [
+      "owner",
+      "repo",
+      "title",
+      "head",
+      "base"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "create-from-issue",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls",
+    "params": [
+      "owner",
+      "repo",
+      "issue",
+      "head",
+      "base"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "get",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/:number",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "update",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/pulls/:number",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "list-comments",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/:number/comments",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "create-comment",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls/:number/comments",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "body",
+      "commit_id",
+      "path",
+      "position"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "create-comment-reply",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls/:number/comments",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "body",
+      "in_reply_to"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "list-commits",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/:number/commits",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "list-files",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/:number/files",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "check-if-merged",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/:number/merge",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "merge",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/pulls/:number/merge",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "list-review-requests",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "create-review-request",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "delete-review-request",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/pulls/:number/requested_reviewers",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "list-reviews",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "create-review",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews",
+    "params": [
+      "owner",
+      "repo",
+      "number"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "get-review",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "review_id"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "update-review",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "review_id",
+      "body"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "delete-pending-review",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "review_id"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "get-comments-for-review",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/comments",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "review_id"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "dismiss-review",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/dismissals",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "review_id",
+      "message"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "submit-review",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls/:number/reviews/:review_id/events",
+    "params": [
+      "owner",
+      "repo",
+      "number",
+      "review_id",
+      "event"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "list-comments-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/comments",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "get-comment",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/comments/:comment_id",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "edit-comment",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/pulls/comments/:comment_id",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id",
+      "body"
+    ]
+  },
+  {
+    "scope": "pulls",
+    "idName": "delete-comment",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/pulls/comments/:comment_id",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id"
+    ]
+  },
+  {
+    "scope": "reactions",
+    "idName": "list-for-pull-request-review-comment",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "reactions",
+    "idName": "create-for-pull-request-review-comment",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/pulls/comments/:comment_id/reactions",
+    "params": [
+      "owner",
+      "repo",
+      "comment_id",
+      "content"
+    ],
+    "headers": {
+      "accept": "application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "get-readme",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/readme",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-releases",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/releases",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "create-release",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/releases",
+    "params": [
+      "owner",
+      "repo",
+      "tag_name"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-release",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/releases/:release_id",
+    "params": [
+      "owner",
+      "repo",
+      "release_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "edit-release",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/releases/:release_id",
+    "params": [
+      "owner",
+      "repo",
+      "release_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "delete-release",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/releases/:release_id",
+    "params": [
+      "owner",
+      "repo",
+      "release_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-assets-for-release",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/releases/:release_id/assets",
+    "params": [
+      "owner",
+      "repo",
+      "release_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-release-asset",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/releases/assets/:asset_id",
+    "params": [
+      "owner",
+      "repo",
+      "asset_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "edit-release-asset",
+    "method": "PATCH",
+    "path": "/repos/:owner/:repo/releases/assets/:asset_id",
+    "params": [
+      "owner",
+      "repo",
+      "asset_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "delete-release-asset",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/releases/assets/:asset_id",
+    "params": [
+      "owner",
+      "repo",
+      "asset_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-latest-release",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/releases/latest",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-release-by-tag",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/releases/tags/:tag",
+    "params": [
+      "owner",
+      "repo",
+      "tag"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-stargazers-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/stargazers",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-code-frequency-stats",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/stats/code_frequency",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-commit-activity-stats",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/stats/commit_activity",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-contributors-stats",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/stats/contributors",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-participation-stats",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/stats/participation",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-punch-card-stats",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/stats/punch_card",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "create-status",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/statuses/:sha",
+    "params": [
+      "owner",
+      "repo",
+      "sha",
+      "state"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-watchers-for-repo",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/subscribers",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "get-repo-subscription",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/subscription",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "set-repo-subscription",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/subscription",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "delete-repo-subscription",
+    "method": "DELETE",
+    "path": "/repos/:owner/:repo/subscription",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-tags",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/tags",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-teams",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/teams",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-topics",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/topics",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "replace-topics",
+    "method": "PUT",
+    "path": "/repos/:owner/:repo/topics",
+    "params": [
+      "owner",
+      "repo",
+      "names"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-clones",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/traffic/clones",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-top-paths",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/traffic/popular/paths",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-top-referrers",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/traffic/popular/referrers",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "get-views",
+    "method": "GET",
+    "path": "/repos/:owner/:repo/traffic/views",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "transfer",
+    "method": "POST",
+    "path": "/repos/:owner/:repo/transfer",
+    "params": [
+      "owner",
+      "repo"
+    ],
+    "headers": {
+      "accept": "application/vnd.nightshade"
+    }
+  },
+  {
+    "scope": "repos",
+    "idName": "list-public",
+    "method": "GET",
+    "path": "/repositories",
+    "params": []
+  },
+  {
+    "scope": "scim",
+    "idName": "list-provisioned-identities",
+    "method": "GET",
+    "path": "/scim/v2/organizations/:org/Users",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "scim",
+    "idName": "provision-and-invite-users",
+    "method": "POST",
+    "path": "/scim/v2/organizations/:org/Users",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "scim",
+    "idName": "provision-invite-users",
+    "method": "POST",
+    "path": "/scim/v2/organizations/:org/Users",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "scim",
+    "idName": "get-provisioning-details-for-user",
+    "method": "GET",
+    "path": "/scim/v2/organizations/:org/Users/:external_identity_guid",
+    "params": [
+      "org",
+      "external_identity_guid"
+    ]
+  },
+  {
+    "scope": "scim",
+    "idName": "update-user-attribute",
+    "method": "PATCH",
+    "path": "/scim/v2/organizations/:org/Users/:external_identity_guid",
+    "params": [
+      "org",
+      "external_identity_guid"
+    ]
+  },
+  {
+    "scope": "scim",
+    "idName": "update-provisioned-org-membership",
+    "method": "PUT",
+    "path": "/scim/v2/organizations/:org/Users/:external_identity_guid",
+    "params": [
+      "org",
+      "external_identity_guid"
+    ]
+  },
+  {
+    "scope": "scim",
+    "idName": "remove-user-from-org",
+    "method": "DELETE",
+    "path": "/scim/v2/organizations/:org/Users/:external_identity_guid",
+    "params": [
+      "org",
+      "external_identity_guid"
+    ]
+  },
+  {
+    "scope": "search",
+    "idName": "code",
+    "method": "GET",
+    "path": "/search/code",
+    "params": [
+      "q"
+    ]
+  },
+  {
+    "scope": "search",
+    "idName": "commits",
+    "method": "GET",
+    "path": "/search/commits",
+    "params": [
+      "q"
+    ],
+    "headers": {
+      "accept": "application/vnd.cloak"
+    }
+  },
+  {
+    "scope": "search",
+    "idName": "issues-and-pull-requests",
+    "method": "GET",
+    "path": "/search/issues",
+    "params": [
+      "q"
+    ]
+  },
+  {
+    "scope": "search",
+    "idName": "issues",
+    "method": "GET",
+    "path": "/search/issues",
+    "params": [
+      "q"
+    ]
+  },
+  {
+    "scope": "search",
+    "idName": "labels",
+    "method": "GET",
+    "path": "/search/labels",
+    "params": [
+      "repository_id",
+      "q"
+    ]
+  },
+  {
+    "scope": "search",
+    "idName": "repos",
+    "method": "GET",
+    "path": "/search/repositories",
+    "params": [
+      "q"
+    ]
+  },
+  {
+    "scope": "search",
+    "idName": "topics",
+    "method": "GET",
+    "path": "/search/topics",
+    "params": [
+      "q"
+    ]
+  },
+  {
+    "scope": "search",
+    "idName": "users",
+    "method": "GET",
+    "path": "/search/users",
+    "params": [
+      "q"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "get",
+    "method": "GET",
+    "path": "/teams/:team_id",
+    "params": [
+      "team_id"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "edit",
+    "method": "PATCH",
+    "path": "/teams/:team_id",
+    "params": [
+      "team_id",
+      "name"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "delete",
+    "method": "DELETE",
+    "path": "/teams/:team_id",
+    "params": [
+      "team_id"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "list-discussions",
+    "method": "GET",
+    "path": "/teams/:team_id/discussions",
+    "params": [
+      "team_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "create-discussion",
+    "method": "POST",
+    "path": "/teams/:team_id/discussions",
+    "params": [
+      "team_id",
+      "title",
+      "body"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "get-discussion",
+    "method": "GET",
+    "path": "/teams/:team_id/discussions/:discussion_number",
+    "params": [
+      "team_id",
+      "discussion_number"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "edit-discussion",
+    "method": "PATCH",
+    "path": "/teams/:team_id/discussions/:discussion_number",
+    "params": [
+      "team_id",
+      "discussion_number"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "delete-discussion",
+    "method": "DELETE",
+    "path": "/teams/:team_id/discussions/:discussion_number",
+    "params": [
+      "team_id",
+      "discussion_number"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "list-discussion-comments",
+    "method": "GET",
+    "path": "/teams/:team_id/discussions/:discussion_number/comments",
+    "params": [
+      "team_id",
+      "discussion_number"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "create-discussion-comment",
+    "method": "POST",
+    "path": "/teams/:team_id/discussions/:discussion_number/comments",
+    "params": [
+      "team_id",
+      "discussion_number",
+      "body"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "get-discussion-comment",
+    "method": "GET",
+    "path": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+    "params": [
+      "team_id",
+      "discussion_number",
+      "comment_number"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "edit-discussion-comment",
+    "method": "PATCH",
+    "path": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+    "params": [
+      "team_id",
+      "discussion_number",
+      "comment_number",
+      "body"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "delete-discussion-comment",
+    "method": "DELETE",
+    "path": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number",
+    "params": [
+      "team_id",
+      "discussion_number",
+      "comment_number"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo"
+    }
+  },
+  {
+    "scope": "reactions",
+    "idName": "list-for-team-discussion-comment",
+    "method": "GET",
+    "path": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
+    "params": [
+      "team_id",
+      "discussion_number",
+      "comment_number"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo,application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "reactions",
+    "idName": "create-for-team-discussion-comment",
+    "method": "POST",
+    "path": "/teams/:team_id/discussions/:discussion_number/comments/:comment_number/reactions",
+    "params": [
+      "team_id",
+      "discussion_number",
+      "comment_number",
+      "content"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo,application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "reactions",
+    "idName": "list-for-team-discussion",
+    "method": "GET",
+    "path": "/teams/:team_id/discussions/:discussion_number/reactions",
+    "params": [
+      "team_id",
+      "discussion_number"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo,application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "reactions",
+    "idName": "create-for-team-discussion",
+    "method": "POST",
+    "path": "/teams/:team_id/discussions/:discussion_number/reactions",
+    "params": [
+      "team_id",
+      "discussion_number",
+      "content"
+    ],
+    "headers": {
+      "accept": "application/vnd.echo,application/vnd.squirrel-girl"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "list-pending-invitations",
+    "method": "GET",
+    "path": "/teams/:team_id/invitations",
+    "params": [
+      "team_id"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "list-members",
+    "method": "GET",
+    "path": "/teams/:team_id/members",
+    "params": [
+      "team_id"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "get-member",
+    "method": "GET",
+    "path": "/teams/:team_id/members/:username",
+    "params": [
+      "team_id",
+      "username"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "add-member",
+    "method": "PUT",
+    "path": "/teams/:team_id/members/:username",
+    "params": [
+      "team_id",
+      "username"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "remove-member",
+    "method": "DELETE",
+    "path": "/teams/:team_id/members/:username",
+    "params": [
+      "team_id",
+      "username"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "get-membership",
+    "method": "GET",
+    "path": "/teams/:team_id/memberships/:username",
+    "params": [
+      "team_id",
+      "username"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "add-or-update-membership",
+    "method": "PUT",
+    "path": "/teams/:team_id/memberships/:username",
+    "params": [
+      "team_id",
+      "username"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "remove-membership",
+    "method": "DELETE",
+    "path": "/teams/:team_id/memberships/:username",
+    "params": [
+      "team_id",
+      "username"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "list-projects",
+    "method": "GET",
+    "path": "/teams/:team_id/projects",
+    "params": [
+      "team_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "review-project",
+    "method": "GET",
+    "path": "/teams/:team_id/projects/:project_id",
+    "params": [
+      "team_id",
+      "project_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "add-or-update-project",
+    "method": "PUT",
+    "path": "/teams/:team_id/projects/:project_id",
+    "params": [
+      "team_id",
+      "project_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "teams",
+    "idName": "remove-project",
+    "method": "DELETE",
+    "path": "/teams/:team_id/projects/:project_id",
+    "params": [
+      "team_id",
+      "project_id"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "list-repos",
+    "method": "GET",
+    "path": "/teams/:team_id/repos",
+    "params": [
+      "team_id"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "check-manages-repo",
+    "method": "GET",
+    "path": "/teams/:team_id/repos/:owner/:repo",
+    "params": [
+      "team_id",
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "add-or-update-repo",
+    "method": "PUT",
+    "path": "/teams/:team_id/repos/:owner/:repo",
+    "params": [
+      "team_id",
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "remove-repo",
+    "method": "DELETE",
+    "path": "/teams/:team_id/repos/:owner/:repo",
+    "params": [
+      "team_id",
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "list-child",
+    "method": "GET",
+    "path": "/teams/:team_id/teams",
+    "params": [
+      "team_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.hellcat"
+    }
+  },
+  {
+    "scope": "users",
+    "idName": "get-authenticated",
+    "method": "GET",
+    "path": "/user",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "update-authenticated",
+    "method": "PATCH",
+    "path": "/user",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "list-blocked",
+    "method": "GET",
+    "path": "/user/blocks",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "check-blocked",
+    "method": "GET",
+    "path": "/user/blocks/:username",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "block",
+    "method": "PUT",
+    "path": "/user/blocks/:username",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "unblock",
+    "method": "DELETE",
+    "path": "/user/blocks/:username",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "toggle-primary-email-visibility",
+    "method": "PATCH",
+    "path": "/user/email/visibility",
+    "params": [
+      "email",
+      "visibility"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "list-emails",
+    "method": "GET",
+    "path": "/user/emails",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "add-emails",
+    "method": "POST",
+    "path": "/user/emails",
+    "params": [
+      "emails"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "delete-emails",
+    "method": "DELETE",
+    "path": "/user/emails",
+    "params": [
+      "emails"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "list-followers-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/followers",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "list-following-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/following",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "check-following",
+    "method": "GET",
+    "path": "/user/following/:username",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "follow",
+    "method": "PUT",
+    "path": "/user/following/:username",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "unfollow",
+    "method": "DELETE",
+    "path": "/user/following/:username",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "list-gpg-keys",
+    "method": "GET",
+    "path": "/user/gpg_keys",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "create-gpg-key",
+    "method": "POST",
+    "path": "/user/gpg_keys",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "get-gpg-key",
+    "method": "GET",
+    "path": "/user/gpg_keys/:gpg_key_id",
+    "params": [
+      "gpg_key_id"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "delete-gpg-key",
+    "method": "DELETE",
+    "path": "/user/gpg_keys/:gpg_key_id",
+    "params": [
+      "gpg_key_id"
+    ]
+  },
+  {
+    "scope": "apps",
+    "idName": "list-installations-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/installations",
+    "params": [],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "apps",
+    "idName": "list-installation-repos-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/installations/:installation_id/repositories",
+    "params": [
+      "installation_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "apps",
+    "idName": "add-repo-to-installation",
+    "method": "PUT",
+    "path": "/user/installations/:installation_id/repositories/:repository_id",
+    "params": [
+      "installation_id",
+      "repository_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "apps",
+    "idName": "remove-repo-from-installation",
+    "method": "DELETE",
+    "path": "/user/installations/:installation_id/repositories/:repository_id",
+    "params": [
+      "installation_id",
+      "repository_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "issues",
+    "idName": "list-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/issues",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "list-public-keys",
+    "method": "GET",
+    "path": "/user/keys",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "create-public-key",
+    "method": "POST",
+    "path": "/user/keys",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "get-public-key",
+    "method": "GET",
+    "path": "/user/keys/:key_id",
+    "params": [
+      "key_id"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "delete-public-key",
+    "method": "DELETE",
+    "path": "/user/keys/:key_id",
+    "params": [
+      "key_id"
+    ]
+  },
+  {
+    "scope": "apps",
+    "idName": "list-marketplace-purchases-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/marketplace_purchases",
+    "params": []
+  },
+  {
+    "scope": "apps",
+    "idName": "list-marketplace-purchases-for-authenticated-user-stubbed",
+    "method": "GET",
+    "path": "/user/marketplace_purchases/stubbed",
+    "params": []
+  },
+  {
+    "scope": "orgs",
+    "idName": "list-memberships",
+    "method": "GET",
+    "path": "/user/memberships/orgs",
+    "params": []
+  },
+  {
+    "scope": "orgs",
+    "idName": "get-membership-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/memberships/orgs/:org",
+    "params": [
+      "org"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "edit-membership",
+    "method": "PATCH",
+    "path": "/user/memberships/orgs/:org",
+    "params": [
+      "org",
+      "state"
+    ]
+  },
+  {
+    "scope": "migrations",
+    "idName": "list-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/migrations",
+    "params": [],
+    "headers": {
+      "accept": "application/vnd.wyandotte"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "start-for-authenticated-user",
+    "method": "POST",
+    "path": "/user/migrations",
+    "params": [
+      "repositories"
+    ]
+  },
+  {
+    "scope": "migrations",
+    "idName": "get-status-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/migrations/:migration_id",
+    "params": [
+      "migration_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.wyandotte"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "get-archive-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/migrations/:migration_id/archive",
+    "params": [
+      "migration_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.wyandotte"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "delete-archive-for-authenticated-user",
+    "method": "DELETE",
+    "path": "/user/migrations/:migration_id/archive",
+    "params": [
+      "migration_id"
+    ],
+    "headers": {
+      "accept": "application/vnd.wyandotte"
+    }
+  },
+  {
+    "scope": "migrations",
+    "idName": "unlock-repo-for-authenticated-user",
+    "method": "DELETE",
+    "path": "/user/migrations/:migration_id/repos/:repo_name/lock",
+    "params": [
+      "migration_id",
+      "repo_name"
+    ],
+    "headers": {
+      "accept": "application/vnd.wyandotte"
+    }
+  },
+  {
+    "scope": "orgs",
+    "idName": "list-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/orgs",
+    "params": []
+  },
+  {
+    "scope": "projects",
+    "idName": "create-for-authenticated-user",
+    "method": "POST",
+    "path": "/user/projects",
+    "params": [
+      "name"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "users",
+    "idName": "list-public-emails",
+    "method": "GET",
+    "path": "/user/public_emails",
+    "params": []
+  },
+  {
+    "scope": "repos",
+    "idName": "list",
+    "method": "GET",
+    "path": "/user/repos",
+    "params": []
+  },
+  {
+    "scope": "repos",
+    "idName": "create-for-authenticated-user",
+    "method": "POST",
+    "path": "/user/repos",
+    "params": [
+      "name"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-invitations-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/repository_invitations",
+    "params": []
+  },
+  {
+    "scope": "repos",
+    "idName": "accept-invitation",
+    "method": "PATCH",
+    "path": "/user/repository_invitations/:invitation_id",
+    "params": [
+      "invitation_id"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "decline-invitation",
+    "method": "DELETE",
+    "path": "/user/repository_invitations/:invitation_id",
+    "params": [
+      "invitation_id"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-repos-starred-by-authenticated-user",
+    "method": "GET",
+    "path": "/user/starred",
+    "params": []
+  },
+  {
+    "scope": "activity",
+    "idName": "check-starring-repo",
+    "method": "GET",
+    "path": "/user/starred/:owner/:repo",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "star-repo",
+    "method": "PUT",
+    "path": "/user/starred/:owner/:repo",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "unstar-repo",
+    "method": "DELETE",
+    "path": "/user/starred/:owner/:repo",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-watched-repos-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/subscriptions",
+    "params": []
+  },
+  {
+    "scope": "activity",
+    "idName": "check-watching-repo-legacy",
+    "method": "GET",
+    "path": "/user/subscriptions/:owner/:repo",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "watch-repo-legacy",
+    "method": "PUT",
+    "path": "/user/subscriptions/:owner/:repo",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "stop-watching-repo-legacy",
+    "method": "DELETE",
+    "path": "/user/subscriptions/:owner/:repo",
+    "params": [
+      "owner",
+      "repo"
+    ]
+  },
+  {
+    "scope": "teams",
+    "idName": "list-for-authenticated-user",
+    "method": "GET",
+    "path": "/user/teams",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "list",
+    "method": "GET",
+    "path": "/users",
+    "params": []
+  },
+  {
+    "scope": "users",
+    "idName": "get-by-username",
+    "method": "GET",
+    "path": "/users/:username",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-events-for-user",
+    "method": "GET",
+    "path": "/users/:username/events",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-events-for-org",
+    "method": "GET",
+    "path": "/users/:username/events/orgs/:org",
+    "params": [
+      "username",
+      "org"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-public-events-for-user",
+    "method": "GET",
+    "path": "/users/:username/events/public",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "list-followers-for-user",
+    "method": "GET",
+    "path": "/users/:username/followers",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "list-following-for-user",
+    "method": "GET",
+    "path": "/users/:username/following",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "check-following-for-user",
+    "method": "GET",
+    "path": "/users/:username/following/:target_user",
+    "params": [
+      "username",
+      "target_user"
+    ]
+  },
+  {
+    "scope": "gists",
+    "idName": "list-public-for-user",
+    "method": "GET",
+    "path": "/users/:username/gists",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "list-gpg-keys-for-user",
+    "method": "GET",
+    "path": "/users/:username/gpg_keys",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "users",
+    "idName": "get-context-for-user",
+    "method": "GET",
+    "path": "/users/:username/hovercard",
+    "params": [
+      "username"
+    ],
+    "headers": {
+      "accept": "application/vnd.hagar"
+    }
+  },
+  {
+    "scope": "apps",
+    "idName": "find-user-installation",
+    "method": "GET",
+    "path": "/users/:username/installation",
+    "params": [
+      "username"
+    ],
+    "headers": {
+      "accept": "application/vnd.machine-man"
+    }
+  },
+  {
+    "scope": "users",
+    "idName": "list-public-keys-for-user",
+    "method": "GET",
+    "path": "/users/:username/keys",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "orgs",
+    "idName": "list-for-user",
+    "method": "GET",
+    "path": "/users/:username/orgs",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "projects",
+    "idName": "list-for-user",
+    "method": "GET",
+    "path": "/users/:username/projects",
+    "params": [
+      "username"
+    ],
+    "headers": {
+      "accept": "application/vnd.inertia"
+    }
+  },
+  {
+    "scope": "activity",
+    "idName": "list-received-events-for-user",
+    "method": "GET",
+    "path": "/users/:username/received_events",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-received-public-events-for-user",
+    "method": "GET",
+    "path": "/users/:username/received_events/public",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "list-for-user",
+    "method": "GET",
+    "path": "/users/:username/repos",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-repos-starred-by-user",
+    "method": "GET",
+    "path": "/users/:username/starred",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "activity",
+    "idName": "list-repos-watched-by-user",
+    "method": "GET",
+    "path": "/users/:username/subscriptions",
+    "params": [
+      "username"
+    ]
+  },
+  {
+    "scope": "repos",
+    "idName": "upload-release-asset",
+    "method": "POST",
+    "path": ":url",
+    "params": [
+      "url",
+      "Content-Length",
+      "Content-Type",
+      "name",
+      "file"
+    ]
+  }
+]

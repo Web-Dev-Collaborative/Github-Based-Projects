@@ -1,0 +1,45 @@
+{
+  "name": "github-organization-repository-auditing-action",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A simple GitHub Action written in JavaScript",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build index.js -o dist"
+  },
+  "repository": "github:gr2m/github-organization-repository-auditing-action",
+  "keywords": [
+    "github-action"
+  ],
+  "author": "Gregor Martynus (https://twitter.com/gr2m)",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.2.7",
+    "dotenv": "^8.2.0",
+    "octokit": "^1.0.3"
+  },
+  "devDependencies": {
+    "@semantic-release/git": "^9.0.0",
+    "@vercel/ncc": "^0.28.3",
+    "semantic-release": "^17.4.2"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ],
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "dist/index.js"
+          ],
+          "message": "build(release): compiled action for ${nextRelease.version}\n\n[skip ci]"
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  }
+}
