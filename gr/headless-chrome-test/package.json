@@ -1,0 +1,17 @@
+{
+  "name": "headless-chrome-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "tap test.js"
+  },
+  "repository": "github:gr2m/headless-chrome-test",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "simple-headless-chrome": "^2.5.10",
+    "tap": "^10.7.0"
+  }
+}

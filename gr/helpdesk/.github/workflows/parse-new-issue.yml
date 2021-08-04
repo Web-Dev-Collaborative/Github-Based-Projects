@@ -1,0 +1,20 @@
+name: "Parse new issue"
+
+on:
+  issues:
+    types:
+      - opened
+      # for debugging
+      - reopened
+
+jobs:
+  updateIssue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: stefanbuck/github-issue-praser@main
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/01_show_idea.yml
+
+      - run: echo '${{ steps.issue-parser.outputs.jsonString }}'

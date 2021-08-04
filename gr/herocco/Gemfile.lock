@@ -1,0 +1,22 @@
+GIT
+  remote: git://github.com/gr2m/rocco.git
+  revision: 711802a242081dfa48ede7522ffa0a4ff9129146
+  specs:
+    rocco (0.5)
+      mustache
+      rdiscount
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    mustache (0.99.1)
+    rack (1.2.1)
+    rdiscount (1.6.8)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rack
+  rdiscount
+  rocco!

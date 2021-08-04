@@ -1,0 +1,181 @@
+body {
+  padding:          0;
+  margin:           0;
+  height:           100%;
+  overflow:         hidden;
+  
+  background:       #000;
+}
+
+#world {
+  position:         absolute;
+}
+#snake {
+  position:         absolute;
+}
+
+.body {
+  background-color: #2592E1;
+  position:         absolute;
+  z-index:          1;
+  opacity:          1;
+  padding:          0;
+ 
+  -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.5); /* Saf3.0+, Chrome */
+  -webkit-border-radius: 3px;
+}
+
+.body.dir_0 { /*stop*/
+  opacity:          0.2;
+  background-color: #c00;
+  z-index:          99999999 !important;
+  padding:          0 !important;
+  margin:           0 !important;
+  
+  -webkit-border-radius: 32px !important;
+}
+/*up*/
+.body.dir_1 {
+  margin-top:       -2px;
+  padding-top:      2px;
+}
+.body.dir_1:last-child { 
+  -webkit-border-bottom-left-radius:12px;
+  -webkit-border-bottom-right-radius:12px;
+}
+/*right*/
+.body.dir_2 {
+  padding-right:      2px;
+}
+.body.dir_2:last-child { 
+  -webkit-border-bottom-left-radius:12px;
+  -webkit-border-top-left-radius:12px;
+}
+/*down*/
+.body.dir_3 {
+  padding-bottom:      2px;
+}
+.body.dir_3:last-child { 
+  -webkit-border-top-left-radius:12px;
+  -webkit-border-top-right-radius:12px;
+}
+/*left*/
+.body.dir_4 {
+  margin-left:       -2px;
+  padding-left:      2px;
+}
+.body.dir_4:last-child { 
+  -webkit-border-top-right-radius:12px;
+  -webkit-border-bottom-right-radius:12px;
+}
+
+/* top -> left */
+.body.dir_4 + .body.dir_1 {
+  -webkit-border-top-right-radius:24px;
+  -webkit-border-bottom-left-radius:2px;
+}
+.body.dir_4 + .body.dir_1 + .body.dir_1 {
+  margin-top:       -32px;
+  padding-top:      32px;
+  -webkit-border-top-right-radius:24px;
+}
+/* right -> top */
+.body.dir_1 + .body.dir_2 {
+  -webkit-border-bottom-right-radius:24px;
+  -webkit-border-top-left-radius:2px;
+}
+.body.dir_1 + .body.dir_2 + .body.dir_2{
+  padding-right:      32px;
+  -webkit-border-bottom-right-radius:24px;
+}
+/* bottom -> right */
+.body.dir_2 + .body.dir_3 {
+  -webkit-border-bottom-left-radius:24px;
+  -webkit-border-top-right-radius:2px;
+}
+.body.dir_2 + .body.dir_3 + .body.dir_3 {
+  padding-bottom:   32px;
+  -webkit-border-bottom-left-radius:24px;
+}
+/* left -> bottom */
+.body.dir_3 + .body.dir_4 {
+  -webkit-border-top-left-radius:24px;
+  -webkit-border-bottom-right-radius:2px;
+}
+.body.dir_3 + .body.dir_4 + .body.dir_4 {
+  margin-left:      -32px;
+  padding-left:      32px;
+  -webkit-border-top-left-radius:24px;
+}
+
+/* left -> top */
+.body.dir_1 + .body.dir_4 {
+  -webkit-border-bottom-left-radius:24px;
+  -webkit-border-top-right-radius:2px;
+}
+.body.dir_1 + .body.dir_4 + .body.dir_4 {
+  margin-left:      -32px;
+  padding-left:     32px;
+  
+  -webkit-border-bottom-left-radius:24px;
+}
+/* top -> right */
+.body.dir_2 + .body.dir_1 {
+  -webkit-border-top-left-radius:24px;
+  -webkit-border-bottom-right-radius:2px;
+}
+.body.dir_2 + .body.dir_1 + .body.dir_1 {
+  margin-top:       -32px;
+  padding-top:      32px;
+  
+  -webkit-border-top-left-radius:24px;
+}
+/* right -> bottom */
+.body.dir_3 + .body.dir_2 {
+  -webkit-border-top-right-radius:24px;
+  -webkit-border-bottom-left-radius:2px;
+}
+.body.dir_3 + .body.dir_2 .body.dir_2 {
+  padding-right:    32px;
+  -webkit-border-top-right-radius:24px;
+}
+/* bottom -> left */
+.body.dir_4 + .body.dir_3 {
+  -webkit-border-bottom-right-radius:24px;
+  -webkit-border-top-left-radius:2px;
+}
+.body.dir_4 + .body.dir_3 .body.dir_3 {
+  padding-bottom:   32px;
+  -webkit-border-bottom-right-radius:24px;
+}
+
+.fruit {
+  position:         absolute;
+  background-color: #c00;
+  
+  -webkit-border-radius: 100px; 
+}
+/* head */
+.body:first-child { 
+  background-color: #FF8215;
+  -webkit-border-top-left-radius:12px;
+  -webkit-border-top-right-radius:12px;
+}
+.body:first-child:before,
+.body:first-child:after {
+  display:          none;
+}
+
+
+#level {
+  position:         absolute;
+}
+
+.block {
+  position:         absolute;
+}
+.block.taken {
+          box-shadow: 1px 1px 3px #000; /* Opera 10.5, IE 9.0 */
+     -moz-box-shadow: 1px 1px 3px #000; /* FF3.5+ */
+  -webkit-box-shadow: 1px 1px 3px #000; /* Saf3.0+, Chrome */
+}

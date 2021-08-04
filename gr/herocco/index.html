@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <meta charset="utf-8"> 
+  <title>Herocco – Vanilla code documentation en demand!</title> 
+  
+  <link rel="stylesheet" href="http://github.com/jashkenas/docco/raw/0.3.0/resources/docco.css" type="text/css">
+  <link rel="stylesheet" href="http://gr2m.github.com/awesome-buttons/awesome-buttons.css" type="text/css">
+  
+  <style type="text/css" media="screen">
+    body {
+      text-align:       center;
+      background-color: #f9f9f9;
+      
+    }
+    h1 {
+      font-weight:      normal;
+      font-size:        2.4em;
+      
+    }
+    h1 + p {
+      font-size:        1.2em; 
+    }
+    
+    input {
+      font:             inherit;
+      text-align:       center;
+      
+      padding:          .2em;
+      display:          block;
+      width:            50em;
+      margin:           0 auto 1em;
+    }
+    
+    ul {
+      list-style:       none;
+      padding-left:     0;
+    }
+    button.awesome          { padding: 8px 14px 9px !important; font-size: 14px !important; }
+    button.awesome:active   { padding: 9px 14px 8px !important; }
+  </style>
+  
+</head> 
+<body> 
+  <h1>Herocco – Vanilla code documentation en demand!</h1>
+  
+  <p>
+    Do you like to <a href="http://jashkenas.github.com/docco/">look at Code the vanilla way</a>?
+    Herocco is your new buddy! Put in the URL of a source file in the text input below:
+  </p>
+  
+  <form>
+    <input type="text" id="url" value="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js" />
+    <button class="awesome" onclick="location.href = '/' + document.getElementById('url').value; return false;">Load the source code and make it vanilla!</button>
+  </form>
+  
+  <p>
+    <small>supported by now: <a href="http://herocco.heroku.com/http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.js">Javascript</a>, <a href="http://herocco.heroku.com/https://raw.github.com/yolk/mite-rb/master/lib/mite-rb.rb">Ruby</a>, <a href="http://herocco.heroku.com/http://gr2m.github.com/awesome-buttons/awesome-buttons.css">CSS</a> | <a href="http://github.com/gr2m/herocco">SOURCE</a> | <a href="http://twitter.com/gr2m">FEEDBACK</a></small>
+  </p>
+  
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-805275-2']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+  </script>
+</body> 
+</html>

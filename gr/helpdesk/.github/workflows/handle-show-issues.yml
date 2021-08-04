@@ -1,0 +1,44 @@
+name: "Handle show issues"
+
+on:
+  issues:
+    types:
+      - closed
+      - edited
+      - labeled
+      - reopened
+      - unlabeled
+
+  workflow_dispatch: {}
+
+concurrency:
+  group: update-shows
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'show')
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+      - run: npm ci
+      - run: node update-show-sections-in-readmes.js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GR2M_PAT }}
+      - run: node get-schow-schedules.js
+        id: show-schedules
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: gr2m/set-cron-schedule-action@v2
+        with:
+          token: ${{ secrets.GR2M_PAT_WITH_WORKFLOW_SCOPE }}
+          cron: ${{ steps.show-schedules.outputs.schedule_start }}
+          workflow: handle-show-start.yml
+      - uses: gr2m/set-cron-schedule-action@v2
+        with:
+          token: ${{ secrets.GR2M_PAT_WITH_WORKFLOW_SCOPE }}
+          cron: ${{ steps.show-schedules.outputs.schedule_announcement }}
+          workflow: handle-show-announcement.yml

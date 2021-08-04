@@ -1,0 +1,21 @@
+{
+  "name": "helpdesk",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Answering all your (and some of my own) GitHub API/automation questions live at [twitch.tv/gregorcodes](https://www.twitch.tv/gregorcodes)",
+  "scripts": {},
+  "repository": "https://github.com/gr2m/helpdesk",
+  "keywords": [],
+  "author": "Gregor Martynus (https://twitter.com/gr2m)",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.4.0",
+    "@octokit/core": "^3.4.0",
+    "@octokit/plugin-paginate-rest": "^2.13.3",
+    "dayjs": "^1.10.5",
+    "dotenv": "^10.0.0",
+    "oauth-1.0a": "^2.2.6",
+    "readme-box": "^1.0.0"
+  }
+}

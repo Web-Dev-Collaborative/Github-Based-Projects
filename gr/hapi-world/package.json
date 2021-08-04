@@ -1,0 +1,20 @@
+{
+  "name": "hapi-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "standard"
+  },
+  "repository": "github:gr2m/hapi-world",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^10.0.3"
+  },
+  "dependencies": {
+    "hapi": "^16.5.2"
+  }
+}
