@@ -11,7 +11,5 @@
   "note_url": null,
   "created_at": "2013-09-28T18:44:39Z",
   "updated_at": "2013-09-28T18:44:39Z",
-  "scopes": [
-    "public_repo"
-  ]
+  "scopes": ["public_repo"]
 }

@@ -796,7 +796,7 @@ type App implements Node {
     """
     Ordering options for IP allow list entries returned.
     """
-    orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
+    orderBy: IpAllowListEntryOrder = { field: ALLOW_LIST_VALUE, direction: ASC }
   ): IpAllowListEntryConnection!
 
   """
@@ -993,7 +993,10 @@ type AssignedEvent implements Node {
   """
   Identifies the user who was assigned.
   """
-  user: User @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
+  user: User
+    @deprecated(
+      reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC."
+    )
 }
 
 """
@@ -2443,7 +2446,7 @@ input CheckRunAction {
   description: String!
 
   """
-  A reference for the action on the integrator's system. 
+  A reference for the action on the integrator's system.
   """
   identifier: String!
 
@@ -3492,7 +3495,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
     """
     Ordering options for pull requests.
     """
-    orderBy: PullRequestOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: PullRequestOrder = { field: CREATED_AT, direction: ASC }
   ): PullRequestConnection
 
   """
@@ -3668,7 +3671,7 @@ type Commit implements GitObject & Node & Subscribable & UniformResourceLocatabl
     """
     Ordering options for deployments returned from the connection.
     """
-    orderBy: DeploymentOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: DeploymentOrder = { field: CREATED_AT, direction: ASC }
   ): DeploymentConnection
 
   """
@@ -4284,7 +4287,7 @@ type CommitContributionsByRepository {
     """
     Ordering options for commit contributions returned from the connection.
     """
-    orderBy: CommitContributionOrder = {field: OCCURRED_AT, direction: DESC}
+    orderBy: CommitContributionOrder = { field: OCCURRED_AT, direction: DESC }
   ): CreatedCommitContributionConnection!
 
   """
@@ -4670,7 +4673,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedIssueContributionConnection!
 
   """
@@ -4766,7 +4769,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedPullRequestContributionConnection!
 
   """
@@ -4816,7 +4819,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedPullRequestReviewContributionConnection!
 
   """
@@ -4861,7 +4864,7 @@ type ContributionsCollection {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedRepositoryContributionConnection!
 
   """
@@ -6047,7 +6050,9 @@ type CreatedIssueContributionEdge {
 """
 Represents either a issue the viewer can access or a restricted contribution.
 """
-union CreatedIssueOrRestrictedContribution = CreatedIssueContribution | RestrictedContribution
+union CreatedIssueOrRestrictedContribution =
+    CreatedIssueContribution
+  | RestrictedContribution
 
 """
 Represents the contribution a user made on GitHub by opening a pull request.
@@ -6129,7 +6134,9 @@ type CreatedPullRequestContributionEdge {
 """
 Represents either a pull request the viewer can access or a restricted contribution.
 """
-union CreatedPullRequestOrRestrictedContribution = CreatedPullRequestContribution | RestrictedContribution
+union CreatedPullRequestOrRestrictedContribution =
+    CreatedPullRequestContribution
+  | RestrictedContribution
 
 """
 Represents the contribution a user made by leaving a review on a pull request.
@@ -6298,7 +6305,9 @@ type CreatedRepositoryContributionEdge {
 """
 Represents either a repository the viewer can access or a restricted contribution.
 """
-union CreatedRepositoryOrRestrictedContribution = CreatedRepositoryContribution | RestrictedContribution
+union CreatedRepositoryOrRestrictedContribution =
+    CreatedRepositoryContribution
+  | RestrictedContribution
 
 """
 Represents a mention made by one issue or pull request to another.
@@ -7997,7 +8006,7 @@ type Discussion implements Comment & Deletable & Labelable & Lockable & Node & R
     """
     Ordering options for labels returned from the connection.
     """
-    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: LabelOrder = { field: CREATED_AT, direction: ASC }
   ): LabelConnection
 
   """
@@ -8830,7 +8839,7 @@ type Enterprise implements Node {
     """
     Ordering options for members returned from the connection.
     """
-    orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+    orderBy: EnterpriseMemberOrder = { field: LOGIN, direction: ASC }
 
     """
     Only return members within the organizations with these logins
@@ -8880,7 +8889,7 @@ type Enterprise implements Node {
     """
     Ordering options for organizations returned from the connection.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The search string to look for.
@@ -9142,7 +9151,10 @@ type EnterpriseBillingInfo {
   """
   The number of available seats across all owned organizations based on the unique number of billable users.
   """
-  availableSeats: Int! @deprecated(reason: "`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC.")
+  availableSeats: Int!
+    @deprecated(
+      reason: "`availableSeats` will be replaced with `totalAvailableLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalAvailableLicenses instead. Removal on 2020-01-01 UTC."
+    )
 
   """
   The bandwidth quota in GB for all organizations owned by the enterprise.
@@ -9162,7 +9174,10 @@ type EnterpriseBillingInfo {
   """
   The total seats across all organizations owned by the enterprise.
   """
-  seats: Int! @deprecated(reason: "`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC.")
+  seats: Int!
+    @deprecated(
+      reason: "`seats` will be replaced with `totalLicenses` to provide more clarity on the value being returned Use EnterpriseBillingInfo.totalLicenses instead. Removal on 2020-01-01 UTC."
+    )
 
   """
   The storage quota in GB for all organizations owned by the enterprise.
@@ -9368,7 +9383,10 @@ type EnterpriseMemberEdge {
   """
   Whether the user does not have a license for the enterprise.
   """
-  isUnlicensed: Boolean! @deprecated(reason: "All members consume a license Removal on 2021-01-01 UTC.")
+  isUnlicensed: Boolean!
+    @deprecated(
+      reason: "All members consume a license Removal on 2021-01-01 UTC."
+    )
 
   """
   The item at the end of the edge.
@@ -9533,7 +9551,10 @@ type EnterpriseOutsideCollaboratorEdge {
   """
   Whether the outside collaborator does not have a license for the enterprise.
   """
-  isUnlicensed: Boolean! @deprecated(reason: "All outside collaborators consume a license Removal on 2021-01-01 UTC.")
+  isUnlicensed: Boolean!
+    @deprecated(
+      reason: "All outside collaborators consume a license Removal on 2021-01-01 UTC."
+    )
 
   """
   The item at the end of the edge.
@@ -9567,7 +9588,7 @@ type EnterpriseOutsideCollaboratorEdge {
     """
     Ordering options for repositories.
     """
-    orderBy: RepositoryOrder = {field: NAME, direction: ASC}
+    orderBy: RepositoryOrder = { field: NAME, direction: ASC }
   ): EnterpriseRepositoryInfoConnection!
 }
 
@@ -9602,7 +9623,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for administrators returned from the connection.
     """
-    orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+    orderBy: EnterpriseMemberOrder = { field: LOGIN, direction: ASC }
 
     """
     The search string to look for.
@@ -9677,7 +9698,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -9717,7 +9738,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The permission to find organizations for.
@@ -9762,7 +9783,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for verifiable domains returned.
     """
-    orderBy: VerifiableDomainOrder = {field: DOMAIN, direction: ASC}
+    orderBy: VerifiableDomainOrder = { field: DOMAIN, direction: ASC }
   ): VerifiableDomainConnection!
 
   """
@@ -9797,7 +9818,10 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for Enterprise Server installations returned.
     """
-    orderBy: EnterpriseServerInstallationOrder = {field: HOST_NAME, direction: ASC}
+    orderBy: EnterpriseServerInstallationOrder = {
+      field: HOST_NAME
+      direction: ASC
+    }
   ): EnterpriseServerInstallationConnection!
 
   """
@@ -9832,7 +9856,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for IP allow list entries returned.
     """
-    orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
+    orderBy: IpAllowListEntryOrder = { field: ALLOW_LIST_VALUE, direction: ASC }
   ): IpAllowListEntryConnection!
 
   """
@@ -9883,7 +9907,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -9938,7 +9962,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting to find organizations for.
@@ -9978,7 +10002,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10018,7 +10042,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10058,7 +10082,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10103,7 +10127,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10143,7 +10167,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10188,7 +10212,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10228,7 +10252,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for outside collaborators returned from the connection.
     """
-    orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+    orderBy: EnterpriseMemberOrder = { field: LOGIN, direction: ASC }
 
     """
     The search string to look for.
@@ -10268,7 +10292,10 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for pending enterprise administrator invitations returned from the connection.
     """
-    orderBy: EnterpriseAdministratorInvitationOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: EnterpriseAdministratorInvitationOrder = {
+      field: CREATED_AT
+      direction: DESC
+    }
 
     """
     The search string to look for.
@@ -10308,7 +10335,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for pending repository collaborator invitations returned from the connection.
     """
-    orderBy: RepositoryInvitationOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: RepositoryInvitationOrder = { field: CREATED_AT, direction: DESC }
 
     """
     The search string to look for.
@@ -10343,13 +10370,16 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for pending repository collaborator invitations returned from the connection.
     """
-    orderBy: RepositoryInvitationOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: RepositoryInvitationOrder = { field: CREATED_AT, direction: DESC }
 
     """
     The search string to look for.
     """
     query: String
-  ): EnterprisePendingCollaboratorConnection! @deprecated(reason: "Repository invitations can now be associated with an email, not only an invitee. Use the `pendingCollaboratorInvitations` field instead. Removal on 2020-10-01 UTC.")
+  ): EnterprisePendingCollaboratorConnection!
+    @deprecated(
+      reason: "Repository invitations can now be associated with an email, not only an invitee. Use the `pendingCollaboratorInvitations` field instead. Removal on 2020-10-01 UTC."
+    )
 
   """
   A list of pending member invitations for organizations in the enterprise.
@@ -10413,7 +10443,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10453,7 +10483,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10488,7 +10518,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for support entitlement users returned from the connection.
     """
-    orderBy: EnterpriseMemberOrder = {field: LOGIN, direction: ASC}
+    orderBy: EnterpriseMemberOrder = { field: LOGIN, direction: ASC }
   ): EnterpriseMemberConnection!
 
   """
@@ -10523,7 +10553,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10563,7 +10593,7 @@ type EnterpriseOwnerInfo {
     """
     Ordering options for organizations with this setting.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The setting value to find organizations for.
@@ -10609,7 +10639,10 @@ type EnterprisePendingCollaboratorEdge {
   """
   Whether the invited collaborator does not have a license for the enterprise.
   """
-  isUnlicensed: Boolean! @deprecated(reason: "All pending collaborators consume a license Removal on 2021-01-01 UTC.")
+  isUnlicensed: Boolean!
+    @deprecated(
+      reason: "All pending collaborators consume a license Removal on 2021-01-01 UTC."
+    )
 
   """
   The item at the end of the edge.
@@ -10643,7 +10676,7 @@ type EnterprisePendingCollaboratorEdge {
     """
     Ordering options for repositories.
     """
-    orderBy: RepositoryOrder = {field: NAME, direction: ASC}
+    orderBy: RepositoryOrder = { field: NAME, direction: ASC }
   ): EnterpriseRepositoryInfoConnection!
 }
 
@@ -10689,7 +10722,10 @@ type EnterprisePendingMemberInvitationEdge {
   """
   Whether the invitation has a license for the enterprise.
   """
-  isUnlicensed: Boolean! @deprecated(reason: "All pending members consume a license Removal on 2020-07-01 UTC.")
+  isUnlicensed: Boolean!
+    @deprecated(
+      reason: "All pending members consume a license Removal on 2020-07-01 UTC."
+    )
 
   """
   The item at the end of the edge.
@@ -10816,7 +10852,7 @@ type EnterpriseServerInstallation implements Node {
     """
     Ordering options for Enterprise Server user accounts returned from the connection.
     """
-    orderBy: EnterpriseServerUserAccountOrder = {field: LOGIN, direction: ASC}
+    orderBy: EnterpriseServerUserAccountOrder = { field: LOGIN, direction: ASC }
   ): EnterpriseServerUserAccountConnection!
 
   """
@@ -10846,7 +10882,10 @@ type EnterpriseServerInstallation implements Node {
     """
     Ordering options for Enterprise Server user accounts uploads returned from the connection.
     """
-    orderBy: EnterpriseServerUserAccountsUploadOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: EnterpriseServerUserAccountsUploadOrder = {
+      field: CREATED_AT
+      direction: DESC
+    }
   ): EnterpriseServerUserAccountsUploadConnection!
 }
 
@@ -10961,7 +11000,10 @@ type EnterpriseServerUserAccount implements Node {
     """
     Ordering options for Enterprise Server user account emails returned from the connection.
     """
-    orderBy: EnterpriseServerUserAccountEmailOrder = {field: EMAIL, direction: ASC}
+    orderBy: EnterpriseServerUserAccountEmailOrder = {
+      field: EMAIL
+      direction: ASC
+    }
   ): EnterpriseServerUserAccountEmailConnection!
 
   """
@@ -11350,7 +11392,7 @@ type EnterpriseUserAccount implements Actor & Node {
     """
     Ordering options for organizations returned from the connection.
     """
-    orderBy: OrganizationOrder = {field: LOGIN, direction: ASC}
+    orderBy: OrganizationOrder = { field: LOGIN, direction: ASC }
 
     """
     The search string to look for.
@@ -13187,7 +13229,7 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     """
     Ordering options for labels returned from the connection.
     """
-    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: LabelOrder = { field: CREATED_AT, direction: ASC }
   ): LabelConnection
 
   """
@@ -13353,7 +13395,10 @@ type Issue implements Assignable & Closable & Comment & Labelable & Lockable & N
     Allows filtering timeline events by a `since` timestamp.
     """
     since: DateTime
-  ): IssueTimelineConnection! @deprecated(reason: "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2020-10-01 UTC.")
+  ): IssueTimelineConnection!
+    @deprecated(
+      reason: "`timeline` will be removed Use Issue.timelineItems instead. Removal on 2020-10-01 UTC."
+    )
 
   """
   A list of events, comments, commits, etc. associated with the issue.
@@ -13794,7 +13839,7 @@ type IssueContributionsByRepository {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedIssueContributionConnection!
 
   """
@@ -13974,7 +14019,26 @@ type IssueTimelineConnection {
 """
 An item in an issue timeline
 """
-union IssueTimelineItem = AssignedEvent | ClosedEvent | Commit | CrossReferencedEvent | DemilestonedEvent | IssueComment | LabeledEvent | LockedEvent | MilestonedEvent | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
+union IssueTimelineItem =
+    AssignedEvent
+  | ClosedEvent
+  | Commit
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MilestonedEvent
+  | ReferencedEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | SubscribedEvent
+  | TransferredEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 An edge in a connection.
@@ -13994,7 +14058,37 @@ type IssueTimelineItemEdge {
 """
 An item in an issue timeline
 """
-union IssueTimelineItems = AddedToProjectEvent | AssignedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DisconnectedEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union IssueTimelineItems =
+    AddedToProjectEvent
+  | AssignedEvent
+  | ClosedEvent
+  | CommentDeletedEvent
+  | ConnectedEvent
+  | ConvertedNoteToIssueEvent
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | DisconnectedEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MarkedAsDuplicateEvent
+  | MentionedEvent
+  | MilestonedEvent
+  | MovedColumnsInProjectEvent
+  | PinnedEvent
+  | ReferencedEvent
+  | RemovedFromProjectEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | SubscribedEvent
+  | TransferredEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnmarkedAsDuplicateEvent
+  | UnpinnedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 The connection type for IssueTimelineItems.
@@ -14449,7 +14543,7 @@ enum LabelOrderField {
   CREATED_AT
 
   """
-  Order labels by name 
+  Order labels by name
   """
   NAME
 }
@@ -14485,7 +14579,7 @@ interface Labelable {
     """
     Ordering options for labels returned from the connection.
     """
-    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: LabelOrder = { field: CREATED_AT, direction: ASC }
   ): LabelConnection
 }
 
@@ -15433,7 +15527,7 @@ interface MemberStatusable {
     """
     Ordering options for user statuses returned from the connection.
     """
-    orderBy: UserStatusOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: UserStatusOrder = { field: UPDATED_AT, direction: DESC }
   ): UserStatusConnection!
 }
 
@@ -20449,7 +20543,10 @@ type OrgRestoreMemberAuditEntry implements AuditEntry & Node & OrganizationAudit
 """
 Types of memberships that can be restored for an Organization member.
 """
-union OrgRestoreMemberAuditEntryMembership = OrgRestoreMemberMembershipOrganizationAuditEntryData | OrgRestoreMemberMembershipRepositoryAuditEntryData | OrgRestoreMemberMembershipTeamAuditEntryData
+union OrgRestoreMemberAuditEntryMembership =
+    OrgRestoreMemberMembershipOrganizationAuditEntryData
+  | OrgRestoreMemberMembershipRepositoryAuditEntryData
+  | OrgRestoreMemberMembershipTeamAuditEntryData
 
 """
 Metadata for an organization membership for org.restore_member actions
@@ -21162,7 +21259,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     Ordering options for the returned audit log entries.
     """
-    orderBy: AuditLogOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: AuditLogOrder = { field: CREATED_AT, direction: DESC }
 
     """
     The query string to filter audit entries
@@ -21237,7 +21334,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     Ordering options for verifiable domains returned.
     """
-    orderBy: VerifiableDomainOrder = {field: DOMAIN, direction: ASC}
+    orderBy: VerifiableDomainOrder = { field: DOMAIN, direction: ASC }
   ): VerifiableDomainConnection
 
   """
@@ -21288,7 +21385,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     Ordering options for IP allow list entries returned.
     """
-    orderBy: IpAllowListEntryOrder = {field: ALLOW_LIST_VALUE, direction: ASC}
+    orderBy: IpAllowListEntryOrder = { field: ALLOW_LIST_VALUE, direction: ASC }
   ): IpAllowListEntryConnection!
 
   """
@@ -21359,7 +21456,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     Ordering options for user statuses returned from the connection.
     """
-    orderBy: UserStatusOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: UserStatusOrder = { field: UPDATED_AT, direction: DESC }
   ): UserStatusConnection!
 
   """
@@ -21444,7 +21541,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     Ordering of the returned packages.
     """
-    orderBy: PackageOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: PackageOrder = { field: CREATED_AT, direction: DESC }
 
     """
     Filter registry package by type.
@@ -21744,7 +21841,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     Ordering options for discussions returned from the connection.
     """
-    orderBy: DiscussionOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: DiscussionOrder = { field: CREATED_AT, direction: DESC }
 
     """
     Filter discussions to only those in a specific repository.
@@ -21795,7 +21892,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     Ordering options for the users and organizations returned from the connection.
     """
-    orderBy: SponsorOrder = {field: RELEVANCE, direction: DESC}
+    orderBy: SponsorOrder = { field: RELEVANCE, direction: DESC }
   ): SponsorConnection!
 
   """
@@ -21825,7 +21922,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     Ordering options for sponsors returned from the connection.
     """
-    orderBy: SponsorOrder = {field: RELEVANCE, direction: DESC}
+    orderBy: SponsorOrder = { field: RELEVANCE, direction: DESC }
 
     """
     If given, will filter for sponsors at the given tier. Will only return
@@ -21861,7 +21958,7 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
     """
     Ordering options for activity returned from the connection.
     """
-    orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
+    orderBy: SponsorsActivityOrder = { field: TIMESTAMP, direction: DESC }
 
     """
     Filter activities returned to only those that occurred in a given time range.
@@ -22090,7 +22187,65 @@ type Organization implements Actor & MemberStatusable & Node & PackageOwner & Pr
 """
 An audit entry in an organization audit log.
 """
-union OrganizationAuditEntry = MembersCanDeleteReposClearAuditEntry | MembersCanDeleteReposDisableAuditEntry | MembersCanDeleteReposEnableAuditEntry | OauthApplicationCreateAuditEntry | OrgAddBillingManagerAuditEntry | OrgAddMemberAuditEntry | OrgBlockUserAuditEntry | OrgConfigDisableCollaboratorsOnlyAuditEntry | OrgConfigEnableCollaboratorsOnlyAuditEntry | OrgCreateAuditEntry | OrgDisableOauthAppRestrictionsAuditEntry | OrgDisableSamlAuditEntry | OrgDisableTwoFactorRequirementAuditEntry | OrgEnableOauthAppRestrictionsAuditEntry | OrgEnableSamlAuditEntry | OrgEnableTwoFactorRequirementAuditEntry | OrgInviteMemberAuditEntry | OrgInviteToBusinessAuditEntry | OrgOauthAppAccessApprovedAuditEntry | OrgOauthAppAccessDeniedAuditEntry | OrgOauthAppAccessRequestedAuditEntry | OrgRemoveBillingManagerAuditEntry | OrgRemoveMemberAuditEntry | OrgRemoveOutsideCollaboratorAuditEntry | OrgRestoreMemberAuditEntry | OrgUnblockUserAuditEntry | OrgUpdateDefaultRepositoryPermissionAuditEntry | OrgUpdateMemberAuditEntry | OrgUpdateMemberRepositoryCreationPermissionAuditEntry | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry | PrivateRepositoryForkingDisableAuditEntry | PrivateRepositoryForkingEnableAuditEntry | RepoAccessAuditEntry | RepoAddMemberAuditEntry | RepoAddTopicAuditEntry | RepoArchivedAuditEntry | RepoChangeMergeSettingAuditEntry | RepoConfigDisableAnonymousGitAccessAuditEntry | RepoConfigDisableCollaboratorsOnlyAuditEntry | RepoConfigDisableContributorsOnlyAuditEntry | RepoConfigDisableSockpuppetDisallowedAuditEntry | RepoConfigEnableAnonymousGitAccessAuditEntry | RepoConfigEnableCollaboratorsOnlyAuditEntry | RepoConfigEnableContributorsOnlyAuditEntry | RepoConfigEnableSockpuppetDisallowedAuditEntry | RepoConfigLockAnonymousGitAccessAuditEntry | RepoConfigUnlockAnonymousGitAccessAuditEntry | RepoCreateAuditEntry | RepoDestroyAuditEntry | RepoRemoveMemberAuditEntry | RepoRemoveTopicAuditEntry | RepositoryVisibilityChangeDisableAuditEntry | RepositoryVisibilityChangeEnableAuditEntry | TeamAddMemberAuditEntry | TeamAddRepositoryAuditEntry | TeamChangeParentTeamAuditEntry | TeamRemoveMemberAuditEntry | TeamRemoveRepositoryAuditEntry
+union OrganizationAuditEntry =
+    MembersCanDeleteReposClearAuditEntry
+  | MembersCanDeleteReposDisableAuditEntry
+  | MembersCanDeleteReposEnableAuditEntry
+  | OauthApplicationCreateAuditEntry
+  | OrgAddBillingManagerAuditEntry
+  | OrgAddMemberAuditEntry
+  | OrgBlockUserAuditEntry
+  | OrgConfigDisableCollaboratorsOnlyAuditEntry
+  | OrgConfigEnableCollaboratorsOnlyAuditEntry
+  | OrgCreateAuditEntry
+  | OrgDisableOauthAppRestrictionsAuditEntry
+  | OrgDisableSamlAuditEntry
+  | OrgDisableTwoFactorRequirementAuditEntry
+  | OrgEnableOauthAppRestrictionsAuditEntry
+  | OrgEnableSamlAuditEntry
+  | OrgEnableTwoFactorRequirementAuditEntry
+  | OrgInviteMemberAuditEntry
+  | OrgInviteToBusinessAuditEntry
+  | OrgOauthAppAccessApprovedAuditEntry
+  | OrgOauthAppAccessDeniedAuditEntry
+  | OrgOauthAppAccessRequestedAuditEntry
+  | OrgRemoveBillingManagerAuditEntry
+  | OrgRemoveMemberAuditEntry
+  | OrgRemoveOutsideCollaboratorAuditEntry
+  | OrgRestoreMemberAuditEntry
+  | OrgUnblockUserAuditEntry
+  | OrgUpdateDefaultRepositoryPermissionAuditEntry
+  | OrgUpdateMemberAuditEntry
+  | OrgUpdateMemberRepositoryCreationPermissionAuditEntry
+  | OrgUpdateMemberRepositoryInvitationPermissionAuditEntry
+  | PrivateRepositoryForkingDisableAuditEntry
+  | PrivateRepositoryForkingEnableAuditEntry
+  | RepoAccessAuditEntry
+  | RepoAddMemberAuditEntry
+  | RepoAddTopicAuditEntry
+  | RepoArchivedAuditEntry
+  | RepoChangeMergeSettingAuditEntry
+  | RepoConfigDisableAnonymousGitAccessAuditEntry
+  | RepoConfigDisableCollaboratorsOnlyAuditEntry
+  | RepoConfigDisableContributorsOnlyAuditEntry
+  | RepoConfigDisableSockpuppetDisallowedAuditEntry
+  | RepoConfigEnableAnonymousGitAccessAuditEntry
+  | RepoConfigEnableCollaboratorsOnlyAuditEntry
+  | RepoConfigEnableContributorsOnlyAuditEntry
+  | RepoConfigEnableSockpuppetDisallowedAuditEntry
+  | RepoConfigLockAnonymousGitAccessAuditEntry
+  | RepoConfigUnlockAnonymousGitAccessAuditEntry
+  | RepoCreateAuditEntry
+  | RepoDestroyAuditEntry
+  | RepoRemoveMemberAuditEntry
+  | RepoRemoveTopicAuditEntry
+  | RepositoryVisibilityChangeDisableAuditEntry
+  | RepositoryVisibilityChangeEnableAuditEntry
+  | TeamAddMemberAuditEntry
+  | TeamAddRepositoryAuditEntry
+  | TeamChangeParentTeamAuditEntry
+  | TeamRemoveMemberAuditEntry
+  | TeamRemoveRepositoryAuditEntry
 
 """
 The connection type for OrganizationAuditEntry.
@@ -22667,7 +22822,7 @@ type Package implements Node {
     """
     Ordering of the returned packages.
     """
-    orderBy: PackageVersionOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: PackageVersionOrder = { field: CREATED_AT, direction: DESC }
   ): PackageVersionConnection!
 }
 
@@ -22886,7 +23041,7 @@ interface PackageOwner {
     """
     Ordering of the returned packages.
     """
-    orderBy: PackageOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: PackageOrder = { field: CREATED_AT, direction: DESC }
 
     """
     Filter registry package by type.
@@ -22939,7 +23094,10 @@ enum PackageType {
   """
   A docker image.
   """
-  DOCKER @deprecated(reason: "DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2021-06-21 UTC.")
+  DOCKER
+    @deprecated(
+      reason: "DOCKER will be removed from this enum as this type will be migrated to only be used by the Packages REST API. Removal on 2021-06-21 UTC."
+    )
 
   """
   A maven package.
@@ -22998,7 +23156,7 @@ type PackageVersion implements Node {
     """
     Ordering of the returned package files.
     """
-    orderBy: PackageFileOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: PackageFileOrder = { field: CREATED_AT, direction: ASC }
   ): PackageFileConnection!
   id: ID!
 
@@ -25007,7 +25165,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     """
     Ordering options for labels returned from the connection.
     """
-    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: LabelOrder = { field: CREATED_AT, direction: ASC }
   ): LabelConnection
 
   """
@@ -25376,7 +25534,10 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     Allows filtering timeline events by a `since` timestamp.
     """
     since: DateTime
-  ): PullRequestTimelineConnection! @deprecated(reason: "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2020-10-01 UTC.")
+  ): PullRequestTimelineConnection!
+    @deprecated(
+      reason: "`timeline` will be removed Use PullRequest.timelineItems instead. Removal on 2020-10-01 UTC."
+    )
 
   """
   A list of events, comments, commits, etc. associated with the pull request.
@@ -25787,7 +25948,7 @@ type PullRequestContributionsByRepository {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedPullRequestContributionConnection!
 
   """
@@ -26474,7 +26635,7 @@ type PullRequestReviewContributionsByRepository {
     """
     Ordering options for contributions returned from the connection.
     """
-    orderBy: ContributionOrder = {direction: DESC}
+    orderBy: ContributionOrder = { direction: DESC }
   ): CreatedPullRequestReviewContributionConnection!
 
   """
@@ -26817,7 +26978,40 @@ type PullRequestTimelineConnection {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItem = AssignedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | Commit | CommitCommentThread | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MergedEvent | MilestonedEvent | PullRequestReview | PullRequestReviewComment | PullRequestReviewThread | ReferencedEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItem =
+    AssignedEvent
+  | BaseRefDeletedEvent
+  | BaseRefForcePushedEvent
+  | ClosedEvent
+  | Commit
+  | CommitCommentThread
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | DeployedEvent
+  | DeploymentEnvironmentChangedEvent
+  | HeadRefDeletedEvent
+  | HeadRefForcePushedEvent
+  | HeadRefRestoredEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MergedEvent
+  | MilestonedEvent
+  | PullRequestReview
+  | PullRequestReviewComment
+  | PullRequestReviewThread
+  | ReferencedEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | ReviewDismissedEvent
+  | ReviewRequestRemovedEvent
+  | ReviewRequestedEvent
+  | SubscribedEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 An edge in a connection.
@@ -26837,7 +27031,62 @@ type PullRequestTimelineItemEdge {
 """
 An item in a pull request timeline
 """
-union PullRequestTimelineItems = AddedToProjectEvent | AssignedEvent | AutoMergeDisabledEvent | AutoMergeEnabledEvent | AutoRebaseEnabledEvent | AutoSquashEnabledEvent | AutomaticBaseChangeFailedEvent | AutomaticBaseChangeSucceededEvent | BaseRefChangedEvent | BaseRefDeletedEvent | BaseRefForcePushedEvent | ClosedEvent | CommentDeletedEvent | ConnectedEvent | ConvertToDraftEvent | ConvertedNoteToIssueEvent | CrossReferencedEvent | DemilestonedEvent | DeployedEvent | DeploymentEnvironmentChangedEvent | DisconnectedEvent | HeadRefDeletedEvent | HeadRefForcePushedEvent | HeadRefRestoredEvent | IssueComment | LabeledEvent | LockedEvent | MarkedAsDuplicateEvent | MentionedEvent | MergedEvent | MilestonedEvent | MovedColumnsInProjectEvent | PinnedEvent | PullRequestCommit | PullRequestCommitCommentThread | PullRequestReview | PullRequestReviewThread | PullRequestRevisionMarker | ReadyForReviewEvent | ReferencedEvent | RemovedFromProjectEvent | RenamedTitleEvent | ReopenedEvent | ReviewDismissedEvent | ReviewRequestRemovedEvent | ReviewRequestedEvent | SubscribedEvent | TransferredEvent | UnassignedEvent | UnlabeledEvent | UnlockedEvent | UnmarkedAsDuplicateEvent | UnpinnedEvent | UnsubscribedEvent | UserBlockedEvent
+union PullRequestTimelineItems =
+    AddedToProjectEvent
+  | AssignedEvent
+  | AutoMergeDisabledEvent
+  | AutoMergeEnabledEvent
+  | AutoRebaseEnabledEvent
+  | AutoSquashEnabledEvent
+  | AutomaticBaseChangeFailedEvent
+  | AutomaticBaseChangeSucceededEvent
+  | BaseRefChangedEvent
+  | BaseRefDeletedEvent
+  | BaseRefForcePushedEvent
+  | ClosedEvent
+  | CommentDeletedEvent
+  | ConnectedEvent
+  | ConvertToDraftEvent
+  | ConvertedNoteToIssueEvent
+  | CrossReferencedEvent
+  | DemilestonedEvent
+  | DeployedEvent
+  | DeploymentEnvironmentChangedEvent
+  | DisconnectedEvent
+  | HeadRefDeletedEvent
+  | HeadRefForcePushedEvent
+  | HeadRefRestoredEvent
+  | IssueComment
+  | LabeledEvent
+  | LockedEvent
+  | MarkedAsDuplicateEvent
+  | MentionedEvent
+  | MergedEvent
+  | MilestonedEvent
+  | MovedColumnsInProjectEvent
+  | PinnedEvent
+  | PullRequestCommit
+  | PullRequestCommitCommentThread
+  | PullRequestReview
+  | PullRequestReviewThread
+  | PullRequestRevisionMarker
+  | ReadyForReviewEvent
+  | ReferencedEvent
+  | RemovedFromProjectEvent
+  | RenamedTitleEvent
+  | ReopenedEvent
+  | ReviewDismissedEvent
+  | ReviewRequestRemovedEvent
+  | ReviewRequestedEvent
+  | SubscribedEvent
+  | TransferredEvent
+  | UnassignedEvent
+  | UnlabeledEvent
+  | UnlockedEvent
+  | UnmarkedAsDuplicateEvent
+  | UnpinnedEvent
+  | UnsubscribedEvent
+  | UserBlockedEvent
 
 """
 The connection type for PullRequestTimelineItems.
@@ -27630,7 +27879,7 @@ type Query {
     """
     Ordering options for the returned topics.
     """
-    orderBy: SecurityAdvisoryOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: SecurityAdvisoryOrder = { field: UPDATED_AT, direction: DESC }
 
     """
     Filter advisories to those published since a time in the past.
@@ -27685,7 +27934,7 @@ type Query {
     """
     Ordering options for the returned topics.
     """
-    orderBy: SecurityVulnerabilityOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: SecurityVulnerabilityOrder = { field: UPDATED_AT, direction: DESC }
 
     """
     A package name to filter vulnerabilities by.
@@ -27740,7 +27989,7 @@ type Query {
     """
     Ordering options for users and organizations returned from the connection.
     """
-    orderBy: SponsorableOrder = {field: LOGIN, direction: ASC}
+    orderBy: SponsorableOrder = { field: LOGIN, direction: ASC }
 
     """
     Optional organization username for whose dependencies should be checked.
@@ -27759,7 +28008,10 @@ type Query {
     Select the Sponsors listing which matches this slug
     """
     slug: String!
-  ): SponsorsListing @deprecated(reason: "`Query.sponsorsListing` will be removed. Use `Sponsorable.sponsorsListing` instead. Removal on 2020-04-01 UTC.")
+  ): SponsorsListing
+    @deprecated(
+      reason: "`Query.sponsorsListing` will be removed. Use `Sponsorable.sponsorsListing` instead. Removal on 2020-04-01 UTC."
+    )
 
   """
   Look up a topic by name.
@@ -28107,7 +28359,10 @@ type ReactionGroup {
     Returns the last _n_ elements from the list.
     """
     last: Int
-  ): ReactingUserConnection! @deprecated(reason: "Reactors can now be mannequins, bots, and organizations. Use the `reactors` field instead. Removal on 2021-10-01 UTC.")
+  ): ReactingUserConnection!
+    @deprecated(
+      reason: "Reactors can now be mannequins, bots, and organizations. Use the `reactors` field instead. Removal on 2021-10-01 UTC."
+    )
 
   """
   Whether or not the authenticated user has left a reaction on the subject.
@@ -32018,7 +32273,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     """
     Ordering options for deployments returned from the connection.
     """
-    orderBy: DeploymentOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: DeploymentOrder = { field: CREATED_AT, direction: ASC }
   ): DeploymentConnection!
 
   """
@@ -32098,7 +32353,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     """
     Ordering options for discussions returned from the connection.
     """
-    orderBy: DiscussionOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: DiscussionOrder = { field: UPDATED_AT, direction: DESC }
   ): DiscussionConnection!
 
   """
@@ -32398,7 +32653,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     """
     Ordering options for labels returned from the connection.
     """
-    orderBy: LabelOrder = {field: CREATED_AT, direction: ASC}
+    orderBy: LabelOrder = { field: CREATED_AT, direction: ASC }
 
     """
     If provided, searches labels by name and description.
@@ -32608,7 +32863,7 @@ type Repository implements Node & PackageOwner & ProjectOwner & RepositoryInfo &
     """
     Ordering of the returned packages.
     """
-    orderBy: PackageOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: PackageOrder = { field: CREATED_AT, direction: DESC }
 
     """
     Filter registry package by type.
@@ -33363,7 +33618,7 @@ interface RepositoryDiscussionAuthor {
     """
     Ordering options for discussions returned from the connection.
     """
-    orderBy: DiscussionOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: DiscussionOrder = { field: CREATED_AT, direction: DESC }
 
     """
     Filter discussions to only those in a specific repository.
@@ -33775,7 +34030,10 @@ enum RepositoryInvitationOrderField {
   """
   Order repository invitations by invitee login
   """
-  INVITEE_LOGIN @deprecated(reason: "`INVITEE_LOGIN` is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee. Removal on 2020-10-01 UTC.")
+  INVITEE_LOGIN
+    @deprecated(
+      reason: "`INVITEE_LOGIN` is no longer a valid field value. Repository invitations can now be associated with an email, not only an invitee. Removal on 2020-10-01 UTC."
+    )
 }
 
 """
@@ -35011,7 +35269,15 @@ enum SavedReplyOrderField {
 """
 The results of a search.
 """
-union SearchResultItem = App | Discussion | Issue | MarketplaceListing | Organization | PullRequest | Repository | User
+union SearchResultItem =
+    App
+  | Discussion
+  | Issue
+  | MarketplaceListing
+  | Organization
+  | PullRequest
+  | Repository
+  | User
 
 """
 A list of results that matched against a search query.
@@ -35235,7 +35501,7 @@ type SecurityAdvisory implements Node {
     """
     Ordering options for the returned topics.
     """
-    orderBy: SecurityVulnerabilityOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: SecurityVulnerabilityOrder = { field: UPDATED_AT, direction: DESC }
 
     """
     A package name to filter vulnerabilities by.
@@ -35922,7 +36188,7 @@ interface Sponsorable {
     """
     Ordering options for the users and organizations returned from the connection.
     """
-    orderBy: SponsorOrder = {field: RELEVANCE, direction: DESC}
+    orderBy: SponsorOrder = { field: RELEVANCE, direction: DESC }
   ): SponsorConnection!
 
   """
@@ -35952,7 +36218,7 @@ interface Sponsorable {
     """
     Ordering options for sponsors returned from the connection.
     """
-    orderBy: SponsorOrder = {field: RELEVANCE, direction: DESC}
+    orderBy: SponsorOrder = { field: RELEVANCE, direction: DESC }
 
     """
     If given, will filter for sponsors at the given tier. Will only return
@@ -35988,7 +36254,7 @@ interface Sponsorable {
     """
     Ordering options for activity returned from the connection.
     """
-    orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
+    orderBy: SponsorsActivityOrder = { field: TIMESTAMP, direction: DESC }
 
     """
     Filter activities returned to only those that occurred in a given time range.
@@ -36443,7 +36709,10 @@ type SponsorsListing implements Node {
     """
     Ordering options for Sponsors tiers returned from the connection.
     """
-    orderBy: SponsorsTierOrder = {field: MONTHLY_PRICE_IN_CENTS, direction: ASC}
+    orderBy: SponsorsTierOrder = {
+      field: MONTHLY_PRICE_IN_CENTS
+      direction: ASC
+    }
   ): SponsorsTierConnection
 }
 
@@ -36645,7 +36914,10 @@ type Sponsorship implements Node {
   """
   The entity that is being sponsored
   """
-  maintainer: User! @deprecated(reason: "`Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC.")
+  maintainer: User!
+    @deprecated(
+      reason: "`Sponsorship.maintainer` will be removed. Use `Sponsorship.sponsorable` instead. Removal on 2020-04-01 UTC."
+    )
 
   """
   The privacy level for this sponsorship.
@@ -36655,7 +36927,10 @@ type Sponsorship implements Node {
   """
   The user that is sponsoring. Returns null if the sponsorship is private or if sponsor is not a user.
   """
-  sponsor: User @deprecated(reason: "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC.")
+  sponsor: User
+    @deprecated(
+      reason: "`Sponsorship.sponsor` will be removed. Use `Sponsorship.sponsorEntity` instead. Removal on 2020-10-01 UTC."
+    )
 
   """
   The user or organization that is sponsoring, if you have permission to view them.
@@ -37628,7 +37903,7 @@ type Team implements MemberStatusable & Node & Subscribable {
     """
     Ordering options for user statuses returned from the connection.
     """
-    orderBy: UserStatusOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: UserStatusOrder = { field: UPDATED_AT, direction: DESC }
   ): UserStatusConnection!
 
   """
@@ -39729,7 +40004,10 @@ type UnassignedEvent implements Node {
   """
   Identifies the subject (user) who was unassigned.
   """
-  user: User @deprecated(reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC.")
+  user: User
+    @deprecated(
+      reason: "Assignees can now be mannequins. Use the `assignee` field instead. Removal on 2020-01-01 UTC."
+    )
 }
 
 """
@@ -42537,7 +42815,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     Ordering of the returned packages.
     """
-    orderBy: PackageOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: PackageOrder = { field: CREATED_AT, direction: DESC }
 
     """
     Filter registry package by type.
@@ -42938,7 +43216,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     Ordering options for discussions returned from the connection.
     """
-    orderBy: DiscussionOrder = {field: CREATED_AT, direction: DESC}
+    orderBy: DiscussionOrder = { field: CREATED_AT, direction: DESC }
 
     """
     Filter discussions to only those in a specific repository.
@@ -42978,7 +43256,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     The field to order saved replies by.
     """
-    orderBy: SavedReplyOrder = {field: UPDATED_AT, direction: DESC}
+    orderBy: SavedReplyOrder = { field: UPDATED_AT, direction: DESC }
   ): SavedReplyConnection
 
   """
@@ -43008,7 +43286,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     Ordering options for the users and organizations returned from the connection.
     """
-    orderBy: SponsorOrder = {field: RELEVANCE, direction: DESC}
+    orderBy: SponsorOrder = { field: RELEVANCE, direction: DESC }
   ): SponsorConnection!
 
   """
@@ -43038,7 +43316,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     Ordering options for sponsors returned from the connection.
     """
-    orderBy: SponsorOrder = {field: RELEVANCE, direction: DESC}
+    orderBy: SponsorOrder = { field: RELEVANCE, direction: DESC }
 
     """
     If given, will filter for sponsors at the given tier. Will only return
@@ -43074,7 +43352,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     Ordering options for activity returned from the connection.
     """
-    orderBy: SponsorsActivityOrder = {field: TIMESTAMP, direction: DESC}
+    orderBy: SponsorsActivityOrder = { field: TIMESTAMP, direction: DESC }
 
     """
     Filter activities returned to only those that occurred in a given time range.

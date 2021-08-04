@@ -1,9 +1,6 @@
 [
   {
-    "scopes": [
-      "repo",
-      "user"
-    ],
+    "scopes": ["repo", "user"],
     "id": 1,
     "url": "https://api.github.com/authorizations/1",
     "app": {

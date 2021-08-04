@@ -26,7 +26,7 @@ Each Octokit will work towards meeting these requirements:
 | [Maintained](#maintained)       | ✅         | 🌔   | 🌑   |
 | [Collaborative](#collaborative) | ✅         | 🌑   | 🌑   |
 
-Key: 🌑 Not started — 🌔 In progress —  ✅ Meets requirements
+Key: 🌑 Not started — 🌔 In progress — ✅ Meets requirements
 
 ## Complete
 
@@ -103,6 +103,5 @@ The GitHub employee is expected to:
 ## Collaborative
 
 The SDK shares as many resources and tools as possible with other SDKs, such as [routes](https://github.com/octokit/routes), [fixtures](https://github.com/octokit/fixtures), and release tooling.
-
 
 The maintainer has access to GitHub's ecosystem and documentation teams, there is a process for communicating new APIs, and opportunities to give feedback on unreleased features.

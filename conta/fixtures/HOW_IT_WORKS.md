@@ -1,11 +1,11 @@
 # How it works
 
-* [Recording](#recording)
-* [Updating fixtures](#updating-fixtures)
-* [Creating new fixtures](#creating-fixtures)
-* [Automated pull requests when API change](#automated-pull-requests-when-api-change)
-* [Normalizations](#normalizations)
-* [Cron job](#cron-job)
+- [Recording](#recording)
+- [Updating fixtures](#updating-fixtures)
+- [Creating new fixtures](#creating-fixtures)
+- [Automated pull requests when API change](#automated-pull-requests-when-api-change)
+- [Normalizations](#normalizations)
+- [Cron job](#cron-job)
 
 [![](assets/octokit-fixtures-introduction.png)](https://youtu.be/L851arJSMhM)
 
@@ -27,9 +27,10 @@ and recording both requests and responses into JSON files. Each scenario has the
 
   To keep requests from being captured as fixture (e.g. to create/delete a
   temporary request), set the request Header `X-Octokit-Fixture-Ignore` to `'true'`.
+
 - **`raw-fixture.json`**  
   The raw request and response before normalization, which is used for integration tests and debugging. Only sensitive credentials are removed
-- **`normalized-fixture`** <a name="normalized-fixture-file"></a>    
+- **`normalized-fixture`** <a name="normalized-fixture-file"></a>  
   The result of the recorded fixtures after normalization.
 
 ## Recording
@@ -49,7 +50,6 @@ the normalized and raw fixtures will be updated.
 To create a new scenario, follow the steps below which describe the process
 for the example to create a new scenario "Get repository" for GitHub’s public
 api at https://api.github.com, make sure to adapt it for your own scenario.
-
 
 1. Create the folder `scenarios/api.github.com/get-repository/`. In that folder,
    create a [`record.js`](#record-js-file) file.

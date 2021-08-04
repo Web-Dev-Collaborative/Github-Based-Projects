@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-Object.defineProperty(exports, '__esModule', { value: true });
+Object.defineProperty(exports, "__esModule", { value: true });
 
-var request = require('@octokit/request');
-var universalUserAgent = require('universal-user-agent');
+var request = require("@octokit/request");
+var universalUserAgent = require("universal-user-agent");
 
 const VERSION = "0.0.0-development";
 
@@ -13,7 +13,7 @@ class GraphqlError extends Error {
     super(message);
     Object.assign(this, response.data);
     Object.assign(this, {
-      headers: response.headers
+      headers: response.headers,
     });
     this.name = "GraphqlError";
     this.request = request; // Maintains proper stack trace (only available on V8)
@@ -24,27 +24,44 @@ class GraphqlError extends Error {
       Error.captureStackTrace(this, this.constructor);
     }
   }
-
 }
 
-const NON_VARIABLE_OPTIONS = ["method", "baseUrl", "url", "headers", "request", "query", "mediaType"];
+const NON_VARIABLE_OPTIONS = [
+  "method",
+  "baseUrl",
+  "url",
+  "headers",
+  "request",
+  "query",
+  "mediaType",
+];
 const FORBIDDEN_VARIABLE_OPTIONS = ["query", "method", "url"];
 const GHES_V3_SUFFIX_REGEX = /\/api\/v3\/?$/;
 function graphql(request, query, options) {
   if (options) {
     if (typeof query === "string" && "query" in options) {
-      return Promise.reject(new Error(`[@octokit/graphql] "query" cannot be used as variable name`));
+      return Promise.reject(
+        new Error(`[@octokit/graphql] "query" cannot be used as variable name`)
+      );
     }
 
     for (const key in options) {
       if (!FORBIDDEN_VARIABLE_OPTIONS.includes(key)) continue;
-      return Promise.reject(new Error(`[@octokit/graphql] "${key}" cannot be used as variable name`));
+      return Promise.reject(
+        new Error(`[@octokit/graphql] "${key}" cannot be used as variable name`)
+      );
     }
   }
 
-  const parsedOptions = typeof query === "string" ? Object.assign({
-    query
-  }, options) : query;
+  const parsedOptions =
+    typeof query === "string"
+      ? Object.assign(
+          {
+            query,
+          },
+          options
+        )
+      : query;
   const requestOptions = Object.keys(parsedOptions).reduce((result, key) => {
     if (NON_VARIABLE_OPTIONS.includes(key)) {
       result[key] = parsedOptions[key];
@@ -66,7 +83,7 @@ function graphql(request, query, options) {
     requestOptions.url = baseUrl.replace(GHES_V3_SUFFIX_REGEX, "/api/graphql");
   }
 
-  return request(requestOptions).then(response => {
+  return request(requestOptions).then((response) => {
     if (response.data.errors) {
       const headers = {};
 
@@ -76,7 +93,7 @@ function graphql(request, query, options) {
 
       throw new GraphqlError(requestOptions, {
         headers,
-        data: response.data
+        data: response.data,
       });
     }
 
@@ -93,21 +110,21 @@ function withDefaults(request$1, newDefaults) {
 
   return Object.assign(newApi, {
     defaults: withDefaults.bind(null, newRequest),
-    endpoint: request.request.endpoint
+    endpoint: request.request.endpoint,
   });
 }
 
 const graphql$1 = withDefaults(request.request, {
   headers: {
-    "user-agent": `octokit-graphql.js/${VERSION} ${universalUserAgent.getUserAgent()}`
+    "user-agent": `octokit-graphql.js/${VERSION} ${universalUserAgent.getUserAgent()}`,
   },
   method: "POST",
-  url: "/graphql"
+  url: "/graphql",
 });
 function withCustomRequest(customRequest) {
   return withDefaults(customRequest, {
     method: "POST",
-    url: "/graphql"
+    url: "/graphql",
   });
 }
 
