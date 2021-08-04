@@ -1,0 +1,913 @@
+# Translations template for PROJECT.
+# Copyright (C) 2012 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2012-12-19 09:31+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 0.9.6\n"
+
+#: geobox/web/__init__.py:92
+msgid "Sorry, method not allowed"
+msgstr ""
+
+#: geobox/web/__init__.py:98
+msgid "Sorry, page not found"
+msgstr ""
+
+#: geobox/web/__init__.py:104
+msgid "Sorry, not allowed"
+msgstr ""
+
+#: geobox/web/__init__.py:105
+msgid "Please log in first..."
+msgstr ""
+
+#: geobox/web/__init__.py:112
+msgid "Sorry, an error has occurred"
+msgstr ""
+
+#: geobox/web/__init__.py:118
+msgid "Login required"
+msgstr ""
+
+#: geobox/web/__init__.py:119
+msgid "Please login to see this page"
+msgstr ""
+
+#: geobox/web/forms.py:164 geobox/web/templates/downloads.html:12
+#: geobox/web/templates/projects/exports.html:12
+#: geobox/web/templates/projects/imports.html:12
+#: geobox/web/templates/tasks/task_list.html:87
+msgid "title"
+msgstr ""
+
+#: geobox/web/forms.py:169
+msgid "level needs to be bigger or equal to start level"
+msgstr ""
+
+#: geobox/web/forms.py:172
+msgid "username"
+msgstr ""
+
+#: geobox/web/forms.py:173
+msgid "Password"
+msgstr ""
+
+#: geobox/web/forms.py:187
+msgid "select coverage"
+msgstr ""
+
+#: geobox/web/forms.py:190 geobox/web/forms.py:201
+msgid "start level"
+msgstr ""
+
+#: geobox/web/forms.py:191 geobox/web/forms.py:202
+msgid "end level"
+msgstr ""
+
+#: geobox/web/forms.py:192 geobox/web/forms.py:203
+msgid "raster_source"
+msgstr ""
+
+#: geobox/web/forms.py:193
+msgid "update_tiles"
+msgstr ""
+
+#: geobox/web/forms.py:199 geobox/web/templates/admin.html:12
+msgid "format"
+msgstr ""
+
+#: geobox/web/forms.py:200
+msgid "srs"
+msgstr ""
+
+#: geobox/web/forms.py:204 geobox/web/forms.py:211
+msgid "mapping name"
+msgstr ""
+
+#: geobox/web/forms.py:210
+msgid "file name"
+msgstr ""
+
+#: geobox/web/forms.py:215
+msgid "path"
+msgstr ""
+
+#: geobox/web/templates/admin.html:4 geobox/web/templates/admin.html:55
+#: geobox/web/templates/index.html:46
+msgid "settings"
+msgstr ""
+
+#: geobox/web/templates/admin.html:7
+msgid "local raster sources"
+msgstr ""
+
+#: geobox/web/templates/admin.html:10 geobox/web/templates/admin.html:36
+msgid "name"
+msgstr ""
+
+#: geobox/web/templates/admin.html:11 geobox/web/templates/admin.html:37
+msgid "layer"
+msgstr ""
+
+#: geobox/web/templates/admin.html:13
+#: geobox/web/templates/projects/imports.html:15
+msgid "zoom level"
+msgstr ""
+
+#: geobox/web/templates/admin.html:25 geobox/web/templates/admin.html:102
+#: geobox/web/templates/projects/exports.html:35
+#: geobox/web/templates/projects/imports.html:46
+#: geobox/web/templates/tasks/task_list.html:52
+msgid "remove"
+msgstr ""
+
+#: geobox/web/templates/admin.html:33
+msgid "local vector sources"
+msgstr ""
+
+#: geobox/web/templates/admin.html:47
+msgid "clear database"
+msgstr ""
+
+#: geobox/web/templates/admin.html:56
+msgid "local net access"
+msgstr ""
+
+#: geobox/web/templates/admin.html:57
+msgid "tooltip local net access"
+msgstr ""
+
+#: geobox/web/templates/admin.html:61
+#: geobox/web/templates/tasks/task_list.html:28
+#: geobox/web/templates/tasks/task_list.html:88
+msgid "status"
+msgstr ""
+
+#: geobox/web/templates/admin.html:63
+msgid "activated"
+msgstr ""
+
+#: geobox/web/templates/admin.html:65
+msgid "deactivated"
+msgstr ""
+
+#: geobox/web/templates/admin.html:71
+msgid "deactivate"
+msgstr ""
+
+#: geobox/web/templates/admin.html:73
+msgid "activate"
+msgstr ""
+
+#: geobox/web/templates/admin.html:77
+msgid "Context documents"
+msgstr ""
+
+#: geobox/web/templates/admin.html:83
+msgid "load context"
+msgstr ""
+
+#: geobox/web/templates/admin.html:88
+msgid "Logging"
+msgstr ""
+
+#: geobox/web/templates/admin.html:89
+msgid "open logview"
+msgstr ""
+
+#: geobox/web/templates/admin.html:91
+msgid "Files"
+msgstr ""
+
+#: geobox/web/templates/admin.html:92
+msgid "open external file explorer"
+msgstr ""
+
+#: geobox/web/templates/admin.html:95
+msgid "External tile box"
+msgstr ""
+
+#: geobox/web/templates/admin.html:101
+msgid "add and start tilebox"
+msgstr ""
+
+#: geobox/web/templates/base.html:24 geobox/web/templates/index.html:3
+msgid "home"
+msgstr ""
+
+#: geobox/web/templates/base.html:28 geobox/web/templates/login.html:3
+#: geobox/web/templates/login.html:10 geobox/web/templates/login.html:22
+msgid "login"
+msgstr ""
+
+#: geobox/web/templates/base.html:30
+msgid "logout"
+msgstr ""
+
+#: geobox/web/templates/downloads.html:4 geobox/web/templates/downloads.html:7
+msgid "Downloads"
+msgstr ""
+
+#: geobox/web/templates/downloads.html:13
+#: geobox/web/templates/projects/exports.html:14
+#: geobox/web/templates/projects/imports.html:13
+#: geobox/web/templates/tasks/task_list.html:25
+msgid "updated"
+msgstr ""
+
+#: geobox/web/templates/downloads.html:14
+msgid "files"
+msgstr ""
+
+#: geobox/web/templates/downloads.html:24
+msgid "go to export details"
+msgstr ""
+
+#: geobox/web/templates/downloads.html:26
+msgid "no project for export"
+msgstr ""
+
+#: geobox/web/templates/downloads.html:36
+msgid "as zip file"
+msgstr ""
+
+#: geobox/web/templates/downloads.html:44
+msgid "open export on external explorer"
+msgstr ""
+
+#: geobox/web/templates/index.html:10
+msgid "Welcome to GeoBox"
+msgstr ""
+
+#: geobox/web/templates/index.html:12
+msgid "welcome info text"
+msgstr ""
+
+#: geobox/web/templates/index.html:12
+msgid "download usermanual"
+msgstr ""
+
+#: geobox/web/templates/index.html:16
+#: geobox/web/templates/vector/import.html:36
+msgid "import"
+msgstr ""
+
+#: geobox/web/templates/index.html:18
+msgid "import raster"
+msgstr ""
+
+#: geobox/web/templates/index.html:19
+msgid "import vector"
+msgstr ""
+
+#: geobox/web/templates/index.html:24
+msgid "export"
+msgstr ""
+
+#: geobox/web/templates/index.html:26
+msgid "export raster/vector"
+msgstr ""
+
+#: geobox/web/templates/index.html:31 geobox/web/templates/index.html:33
+#: geobox/web/templates/tasks/task_list.html:83
+msgid "tasks"
+msgstr ""
+
+#: geobox/web/templates/index.html:34
+msgid "downloads"
+msgstr ""
+
+#: geobox/web/templates/index.html:39 geobox/web/templates/index.html:41
+msgid "map"
+msgstr ""
+
+#: geobox/web/templates/index.html:48
+msgid "administation"
+msgstr ""
+
+#: geobox/web/templates/log_view.html:3
+msgid "log_view"
+msgstr ""
+
+#: geobox/web/templates/log_view.html:7
+msgid "logs"
+msgstr ""
+
+#: geobox/web/templates/macros.html:25
+msgid "white background map"
+msgstr ""
+
+#: geobox/web/templates/macros.html:62
+msgid "download coverage"
+msgstr ""
+
+#: geobox/web/templates/map.html:2
+msgid "map and information"
+msgstr ""
+
+#: geobox/web/templates/map.html:13
+msgid "vector_layer_title"
+msgstr ""
+
+#: geobox/web/templates/map.html:18
+msgid "local maps"
+msgstr ""
+
+#: geobox/web/templates/map.html:19
+msgid "tooltip - show all imported maps"
+msgstr ""
+
+#: geobox/web/templates/errors/403.html:7
+#: geobox/web/templates/errors/403.html:9
+msgid "Not allowed."
+msgstr ""
+
+#: geobox/web/templates/errors/403.html:10
+msgid ""
+"You will redirect automatically to the login page. \n"
+"\tIf this does not happen, please click on the following link"
+msgstr ""
+
+#: geobox/web/templates/errors/403.html:12
+msgid "Login page"
+msgstr ""
+
+#: geobox/web/templates/errors/404.html:2
+#: geobox/web/templates/errors/404.html:4
+msgid "File not found."
+msgstr ""
+
+#: geobox/web/templates/errors/405.html:2
+#: geobox/web/templates/errors/405.html:4
+msgid "Method not allowed"
+msgstr ""
+
+#: geobox/web/templates/errors/500.html:2
+#: geobox/web/templates/errors/500.html:4
+msgid "Internal error."
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:3
+msgid "export project edit"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:11
+msgid "projects exporteditor"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:18
+msgid "raster layers"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:19
+msgid "tooltip - export rasterlayer"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:27
+#: geobox/web/templates/projects/export_edit.html:36
+#: geobox/web/templates/projects/import_edit.html:19
+msgid "start level needs to be lower or equal to end level"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:30
+#: geobox/web/templates/projects/export_edit.html:39
+msgid "remove raster"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:43
+msgid "add raster"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:47
+msgid "vector layer"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:48
+msgid "tooltip - export vectorlayer"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:53
+#: geobox/web/templates/projects/export_edit.html:80
+msgid "remove vector"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:61
+#: geobox/web/templates/projects/import_edit.html:28
+msgid "save"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:62
+#: geobox/web/templates/projects/import_edit.html:29
+msgid "start"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:81
+msgid "add vector"
+msgstr ""
+
+#: geobox/web/templates/projects/export_edit.html:83
+msgid "level"
+msgstr ""
+
+#: geobox/web/templates/projects/exports.html:3
+msgid "export project overview"
+msgstr ""
+
+#: geobox/web/templates/projects/exports.html:6
+msgid "projects export"
+msgstr ""
+
+#: geobox/web/templates/projects/exports.html:7
+msgid "tooltip - overview over all raster export projects"
+msgstr ""
+
+#: geobox/web/templates/projects/exports.html:13
+#: geobox/web/templates/projects/imports.html:16
+msgid "download size"
+msgstr ""
+
+#: geobox/web/templates/projects/exports.html:24
+#: geobox/web/templates/projects/imports.html:36
+#: geobox/web/templates/projects/macros.html:49
+#: geobox/web/templates/projects/macros.html:50
+msgid "MB"
+msgstr ""
+
+#: geobox/web/templates/projects/exports.html:29
+#: geobox/web/templates/projects/imports.html:40
+msgid "edit"
+msgstr ""
+
+#: geobox/web/templates/projects/exports.html:32
+msgid "start export"
+msgstr ""
+
+#: geobox/web/templates/projects/exports.html:53
+msgid "export project has no layer"
+msgstr ""
+
+#: geobox/web/templates/projects/exports.html:62
+msgid "new export project"
+msgstr ""
+
+#: geobox/web/templates/projects/import_edit.html:3
+msgid "import project edit"
+msgstr ""
+
+#: geobox/web/templates/projects/import_edit.html:13
+msgid "Import Editor"
+msgstr ""
+
+#: geobox/web/templates/projects/imports.html:3
+msgid "import project overview"
+msgstr ""
+
+#: geobox/web/templates/projects/imports.html:6
+msgid "projects import"
+msgstr ""
+
+#: geobox/web/templates/projects/imports.html:7
+msgid "tooltip - overview over all raster import projects"
+msgstr ""
+
+#: geobox/web/templates/projects/imports.html:14
+msgid "layer name"
+msgstr ""
+
+#: geobox/web/templates/projects/imports.html:43
+msgid "start import"
+msgstr ""
+
+#: geobox/web/templates/projects/imports.html:54
+msgid "new import project"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:13
+msgid "drawing options"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:14
+msgid "tooltip - drawing options"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:17
+msgid "info_button draw_feautre bbox"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:19
+msgid "info_button draw mulitpolgon"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:21
+msgid "info_button edit feature"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:23
+msgid "info_button delete feature"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:28
+msgid "delete all features"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:34
+msgid "load coverage"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:36
+msgid "load vectorimports as coverage"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:46
+msgid "Information"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:47
+msgid "tooltip - information about data volumen"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:49
+msgid "Data volume"
+msgstr ""
+
+#: geobox/web/templates/projects/macros.html:50
+msgid "free disk space"
+msgstr ""
+
+#: geobox/web/templates/tasks/detail.html:3
+msgid "task detail"
+msgstr ""
+
+#: geobox/web/templates/tasks/detail.html:9
+msgid "id"
+msgstr ""
+
+#: geobox/web/templates/tasks/detail.html:10
+msgid "error"
+msgstr ""
+
+#: geobox/web/templates/tasks/detail.html:11
+msgid "is running"
+msgstr ""
+
+#: geobox/web/templates/tasks/detail.html:12
+msgid "is active"
+msgstr ""
+
+#: geobox/web/templates/tasks/detail.html:13
+msgid "is paused"
+msgstr ""
+
+#: geobox/web/templates/tasks/task_list.html:3
+msgid "task overview"
+msgstr ""
+
+#: geobox/web/templates/tasks/task_list.html:32
+msgid "progress"
+msgstr ""
+
+#: geobox/web/templates/tasks/task_list.html:39
+msgid "tooltip - task the page reload every 5 second"
+msgstr ""
+
+#: geobox/web/templates/tasks/task_list.html:42
+msgid "type"
+msgstr ""
+
+#: geobox/web/templates/tasks/task_list.html:46
+msgid "pause"
+msgstr ""
+
+#: geobox/web/templates/tasks/task_list.html:49
+msgid "continue"
+msgstr ""
+
+#: geobox/web/templates/tasks/task_list.html:63
+msgid "running"
+msgstr ""
+
+#: geobox/web/templates/tasks/task_list.html:65
+msgid "not running"
+msgstr ""
+
+#: geobox/web/templates/tasks/task_list.html:89
+msgid "date created"
+msgstr ""
+
+#: geobox/web/templates/tasks/task_list.html:99
+msgid "tasks without project"
+msgstr ""
+
+#: geobox/web/templates/vector/import.html:3
+#: geobox/web/templates/vector/import.html:8 geobox/model/tasks.py:78
+msgid "vector import"
+msgstr ""
+
+#: geobox/web/templates/vector/import.html:11
+msgid "Upload Shapefile"
+msgstr ""
+
+#: geobox/web/templates/vector/import.html:12
+msgid "tooltip upload shapefile"
+msgstr ""
+
+#: geobox/web/templates/vector/import.html:18
+msgid "upload"
+msgstr ""
+
+#: geobox/web/templates/vector/import.html:21
+msgid ""
+"you can also save your shapefile directly to the geobox import folder. "
+"Reload this site after this."
+msgstr ""
+
+#: geobox/web/templates/vector/import.html:24
+msgid "open external explorer for import"
+msgstr ""
+
+#: geobox/web/templates/vector/import.html:28
+msgid "import vectordata"
+msgstr ""
+
+#: geobox/web/templates/vector/import.html:29
+msgid "tooltip import vectordata"
+msgstr ""
+
+#: geobox/web/views/admin.py:59
+msgid "load context document successful"
+msgstr ""
+
+#: geobox/web/views/admin.py:61
+msgid "password not correct"
+msgstr ""
+
+#: geobox/web/views/admin.py:89
+msgid "cleared database"
+msgstr ""
+
+#: geobox/web/views/admin.py:110
+msgid "delete sucessful"
+msgstr ""
+
+#: geobox/web/views/admin.py:112
+msgid "delete not sucessful"
+msgstr ""
+
+#: geobox/web/views/admin.py:124
+msgid "settings changed. restart required"
+msgstr ""
+
+#: geobox/web/views/project.py:101 geobox/web/views/project.py:191
+#: geobox/web/views/vector.py:88
+msgid "form error"
+msgstr ""
+
+#: geobox/web/views/tasks.py:59
+msgid "paused task successful"
+msgstr ""
+
+#: geobox/web/views/tasks.py:70
+msgid "start task successful"
+msgstr ""
+
+#: geobox/web/views/tasks.py:80
+msgid "delete task successful"
+msgstr ""
+
+#: geobox/web/views/user.py:46
+msgid "username or password not correct"
+msgstr ""
+
+#: geobox/web/views/vector.py:73
+msgid "invalid mapping"
+msgstr ""
+
+#: geobox/web/views/vector.py:76
+msgid "invalid shapefile"
+msgstr ""
+
+#: geobox/web/views/vector.py:91
+#, python-format
+msgid "file %(name)s missing"
+msgstr ""
+
+#: geobox/web/views/vector.py:93
+#, python-format
+msgid "failed to upload %(name)s"
+msgstr ""
+
+#: geobox/web/views/vector.py:95
+#, python-format
+msgid "filetype of %(name)s not allowed"
+msgstr ""
+
+#: geobox/web/views/vector.py:97
+#, python-format
+msgid "file %(name)s uploaded"
+msgstr ""
+
+#: geobox/model/layer.py:24 geobox/model/tasks.py:109
+msgid "raster import"
+msgstr ""
+
+#: geobox/model/layer.py:35 geobox/model/tasks.py:128
+msgid "raster export"
+msgstr ""
+
+#: geobox/model/layer.py:47 geobox/model/tasks.py:87
+msgid "vector export"
+msgstr ""
+
+#: geobox/model/project.py:59
+msgid "project export"
+msgstr ""
+
+#: geobox/model/project.py:70
+msgid "project import"
+msgstr ""
+
+#: geobox/model/tasks.py:96
+msgid "replication"
+msgstr ""
+
+#: geobox/lib/trayicon.py:58
+msgid "GeoBox"
+msgstr ""
+
+#: geobox/lib/trayicon.py:112
+msgid "Close"
+msgstr ""
+
+#: geobox/lib/trayicon.py:128
+msgid "Open"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:55
+#, python-format
+msgid "Invalid field name '%s'."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:62
+#, python-format
+msgid "Field must be equal to %(other_name)s."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:94
+#, python-format
+msgid "Field must be at least %(min)d character long."
+msgid_plural "Field must be at least %(min)d characters long."
+msgstr[0] ""
+msgstr[1] ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:97
+#, python-format
+msgid "Field cannot be longer than %(max)d character."
+msgid_plural "Field cannot be longer than %(max)d characters."
+msgstr[0] ""
+msgstr[1] ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:100
+#, python-format
+msgid "Field must be between %(min)d and %(max)d characters long."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:135
+#, python-format
+msgid "Number must be greater than %(min)s."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:137
+#, python-format
+msgid "Number must be less than %(max)s."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:139
+#, python-format
+msgid "Number must be between %(min)s and %(max)s."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:188
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:221
+msgid "This field is required."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:249
+msgid "Invalid input."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:268
+msgid "Invalid email address."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:297
+msgid "Invalid IP address."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:345
+msgid "Invalid Mac address."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:370
+msgid "Invalid URL."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:388
+msgid "Invalid UUID."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:415
+#, python-format
+msgid "Invalid value, must be one of: %(values)s."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/validators.py:442
+#, python-format
+msgid "Invalid value, can't be any of: %(values)s."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:90
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/django/fields.py:89
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:125
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:175
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:180
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/fields/core.py:419
+msgid "Not a valid choice"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:109
+msgid "Not a valid list"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:47
+msgid "Invalid CSRF Token"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:57
+msgid "CSRF token missing"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:65
+msgid "CSRF failed"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:70
+msgid "CSRF token expired"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:50
+msgid "Please input a date/time value"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:62
+msgid "Invalid date/time input"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/validators.py:33
+msgid "Already exists."
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/fields/core.py:412
+msgid "Invalid Choice: could not coerce"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/fields/core.py:445
+msgid "Invalid choice(s): one or more data inputs could not be coerced"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/fields/core.py:452
+#, python-format
+msgid "'%(value)s' is not a valid choice for this field"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/fields/core.py:507
+msgid "Not a valid integer value"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/fields/core.py:554
+msgid "Not a valid decimal value"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/fields/core.py:581
+msgid "Not a valid float value"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/fields/core.py:632
+msgid "Not a valid datetime value"
+msgstr ""
+
+#: /Users/dominikhelle/Documents/venv/igreen/lib/python2.7/site-packages/wtforms/fields/core.py:649
+msgid "Not a valid date value"
+msgstr ""
+

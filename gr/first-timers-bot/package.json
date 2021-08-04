@@ -1,0 +1,45 @@
+{
+  "name": "first-timers-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "now-start": "PRIVATE_KEY=$(echo $PRIVATE_KEY | base64 -d) DEBUG=probot* npm start",
+    "start": "probot run ./server.js",
+    "pretest": "standard",
+    "test": "tap --coverage 'test/{integration,unit}/*-test.js'",
+    "coverage": "tap --coverage-report=text-lcov | coveralls"
+  },
+  "dependencies": {
+    "debug": "^3.0.1",
+    "probot": "^1.1.0"
+  },
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "github": "^11.0.0",
+    "nock": "^9.0.14",
+    "simple-mock": "^0.8.0",
+    "standard": "^10.0.3",
+    "tap": "^10.7.2"
+  },
+  "engines": {
+    "node": "8.1.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/first-timers-only-bot"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "node",
+    "server"
+  ],
+  "now": {
+    "alias": "first-timers-bot",
+    "env": {
+      "APP_ID": "@app-id",
+      "NODE_ENV": "production",
+      "PRIVATE_KEY": "@private-key",
+      "WEBHOOK_SECRET": "@webhook-secret"
+    }
+  }
+}

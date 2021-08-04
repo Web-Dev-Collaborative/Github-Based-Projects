@@ -1,0 +1,16 @@
+{
+  "name": "funky-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": "github:gr2m/funky-app",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "funky-sloth-42": "^2.0.0"
+  }
+}
