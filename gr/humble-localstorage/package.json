@@ -1,0 +1,37 @@
+{
+  "name": "humble-localstorage",
+  "description": "wraps localStorage and adds .getObject(), .setObject(), .isPersistent",
+  "main": "lib/index.js",
+  "scripts": {
+    "pretest": "standard",
+    "test": "mocha 'test/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gr2m/humble-localstorage.git"
+  },
+  "keywords": [
+    "localstorage",
+    "browser",
+    "data"
+  ],
+  "author": "Gregor Martynus",
+  "license": "MIT",
+  "bugs": {
+    "url": "http://github.com/gr2m/humble-localstorage/issues"
+  },
+  "homepage": "http://gr2m.github.io/humble-localstorage/",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^6.0.0",
+    "semantic-release": "^15.12.0",
+    "sinon": "^7.1.1",
+    "standard": "^14.0.0"
+  },
+  "dependencies": {
+    "has-localstorage": "^1.0.1",
+    "localstorage-memory": "^1.0.2"
+  },
+  "version": "0.0.0-development"
+}
