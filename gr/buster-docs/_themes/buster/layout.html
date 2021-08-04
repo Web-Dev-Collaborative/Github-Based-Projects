@@ -1,0 +1,36 @@
+{%- extends "basic/layout.html" %}
+
+{%- block header %}
+<div class="headerwrapper">
+  <div class="beta-banner"></div>
+  <div class="header">
+    <a href="{{ pathto(master_doc) }}">
+      <img src="{{ pathto('_static/buster-logo.png', 1) }}" class="logo">
+    </a>
+
+    <ul class="menu">
+      <li><a href="{{ pathto(master_doc) }}">Home</a></li>
+      <li><a href="{{ pathto('download') }}">Download</a></li>
+      <li><a href="{{ pathto('community') }}">Community</a></li>
+      <li><a href="https://github.com/busterjs/buster/issues">Issue tracker</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+{%- block relbar2 %}{% endblock %}
+
+{%- block footer %}
+<div class="footerwrapper">
+  <div class="footer">
+    &copy; Copyright {{ copyright }}.
+    Buster.JS uses <a href="http://semver.org/">semantic versioning</a>.
+    Code released under the
+    <a href="http://www.opensource.org/licenses/bsd-license.php">
+    BSD license</a>.
+    Documentation released under
+    <a href="http://creativecommons.org/licenses/by-sa/3.0/">
+    CC Attribution-Share Alike</a>.
+  </div>
+</div>
+{% endblock %}

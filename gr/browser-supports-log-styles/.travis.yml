@@ -1,0 +1,26 @@
+sudo: false
+language: node_js
+cache:
+  directories:
+    - node_modules
+notifications:
+  email: false
+node_js:
+  - stable
+before_install:
+  - nvm install $NODE
+  - nvm use $NODE
+  - npm i -g npm
+before_script:
+  - npm prune
+script: npm run $COMMAND
+after_success:
+  - npm run test:coverage && npm run test:coverage:upload
+  - npm run semantic-release
+env:
+  matrix:
+  - NODE=0.10 COMMAND=test
+  - NODE=4 COMMAND=test
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/
