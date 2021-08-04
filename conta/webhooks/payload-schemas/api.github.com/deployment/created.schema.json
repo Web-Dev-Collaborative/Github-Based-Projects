@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "deployment$created",
+  "type": "object",
+  "required": [
+    "action",
+    "deployment",
+    "workflow",
+    "workflow_run",
+    "repository",
+    "sender"
+  ],
+  "properties": {
+    "action": { "type": "string", "enum": ["created"] },
+    "deployment": {
+      "type": "object",
+      "description": "The [deployment](https://docs.github.com/en/rest/reference/repos#list-deployments).",
+      "required": [
+        "url",
+        "id",
+        "node_id",
+        "sha",
+        "ref",
+        "task",
+        "payload",
+        "original_environment",
+        "environment",
+        "description",
+        "creator",
+        "created_at",
+        "updated_at",
+        "statuses_url",
+        "repository_url"
+      ],
+      "properties": {
+        "url": { "type": "string", "format": "uri" },
+        "id": { "type": "integer" },
+        "node_id": { "type": "string" },
+        "sha": { "type": "string" },
+        "ref": { "type": "string" },
+        "task": { "type": "string" },
+        "payload": {
+          "type": "object",
+          "required": [],
+          "additionalProperties": false
+        },
+        "original_environment": { "type": "string" },
+        "environment": { "type": "string" },
+        "description": { "type": "null" },
+        "creator": { "$ref": "common/user.schema.json" },
+        "created_at": { "type": "string" },
+        "updated_at": { "type": "string" },
+        "statuses_url": { "type": "string", "format": "uri" },
+        "repository_url": { "type": "string", "format": "uri" },
+        "performed_via_github_app": {
+          "oneOf": [{ "$ref": "common/app.schema.json" }, { "type": "null" }]
+        }
+      },
+      "additionalProperties": false
+    },
+    "workflow": { "type": "null" },
+    "workflow_run": { "type": "null" },
+    "repository": { "$ref": "common/repository.schema.json" },
+    "sender": { "$ref": "common/user.schema.json" },
+    "installation": { "$ref": "common/installation-lite.schema.json" },
+    "organization": { "$ref": "common/organization.schema.json" }
+  },
+  "additionalProperties": false,
+  "title": "deployment created event"
+}

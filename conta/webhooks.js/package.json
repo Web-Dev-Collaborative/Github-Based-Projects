@@ -1,0 +1,89 @@
+{
+  "name": "@octokit/webhooks",
+  "version": "0.0.0-development",
+  "description": "GitHub webhook events toolset for Node.js",
+  "keywords": [],
+  "repository": "github:octokit/webhooks.js",
+  "license": "MIT",
+  "author": "Gregor Martynus (https://twitter.com/gr2m)",
+  "scripts": {
+    "build": "pika build",
+    "coverage": "jest --coverage && open coverage/lcov-report/index.html",
+    "generate-types": "ts-node --transpile-only scripts/generate-types.ts",
+    "lint": "prettier --check 'src/**/*.{ts,json}' 'scripts/**/*' 'test/**/*.ts' README.md package.json",
+    "lint:fix": "prettier --write 'src/**/*.{ts,json}' 'scripts/**/*' 'test/**/*.ts' README.md package.json",
+    "pretest": "npm run -s lint",
+    "test": "jest --coverage",
+    "validate:ts": "tsc --noEmit --noImplicitAny --target es2020 --esModuleInterop --moduleResolution node test/typescript-validate.ts"
+  },
+  "prettier": {},
+  "dependencies": {
+    "@octokit/request-error": "^2.0.2",
+    "@octokit/webhooks-methods": "^2.0.0",
+    "@octokit/webhooks-types": "4.2.2",
+    "aggregate-error": "^3.1.0"
+  },
+  "devDependencies": {
+    "@jest/types": "^27.0.0",
+    "@octokit/tsconfig": "^1.0.1",
+    "@octokit/webhooks-schemas": "4.2.2",
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.9.2",
+    "@pika/plugin-build-web": "^0.9.2",
+    "@pika/plugin-ts-standard-pkg": "^0.9.2",
+    "@types/jest": "^26.0.9",
+    "@types/json-schema": "^7.0.7",
+    "@types/node": "^14.0.14",
+    "@types/node-fetch": "^2.5.8",
+    "@types/prettier": "^2.0.0",
+    "axios": "^0.21.0",
+    "express": "^4.17.1",
+    "get-port": "^5.0.0",
+    "jest": "^27.0.0",
+    "node-fetch": "^2.6.1",
+    "prettier": "2.3.2",
+    "prettier-plugin-packagejson": "^2.2.9",
+    "semantic-release": "^17.0.0",
+    "ts-jest": "^27.0.0",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.1.5"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ],
+      [
+        "@pika/plugin-build-web"
+      ]
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./pkg"
+        }
+      ]
+    ]
+  },
+  "renovate": {
+    "extends": [
+      "github>octokit/.github"
+    ],
+    "ignoreDeps": [
+      "@octokit/webhooks-schemas",
+      "@octokit/webhooks-types"
+    ]
+  }
+}

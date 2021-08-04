@@ -1,0 +1,10 @@
+{
+  "extends": "@octokit/tsconfig",
+  "include": ["src/**/*"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS",
+      "esModuleInterop": true
+    }
+  }
+}

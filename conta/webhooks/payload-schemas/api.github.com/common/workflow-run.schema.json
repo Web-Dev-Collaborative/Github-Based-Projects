@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "common/workflow-run.schema.json",
+  "required": [
+    "artifacts_url",
+    "cancel_url",
+    "check_suite_url",
+    "check_suite_id",
+    "check_suite_node_id",
+    "conclusion",
+    "created_at",
+    "event",
+    "head_branch",
+    "head_commit",
+    "head_repository",
+    "head_sha",
+    "html_url",
+    "id",
+    "jobs_url",
+    "logs_url",
+    "node_id",
+    "name",
+    "pull_requests",
+    "repository",
+    "rerun_url",
+    "run_number",
+    "status",
+    "updated_at",
+    "url",
+    "workflow_id",
+    "workflow_url"
+  ],
+  "type": "object",
+  "properties": {
+    "artifacts_url": { "type": "string", "format": "uri" },
+    "cancel_url": { "type": "string", "format": "uri" },
+    "check_suite_url": { "type": "string", "format": "uri" },
+    "check_suite_id": { "type": "integer" },
+    "check_suite_node_id": { "type": "string" },
+    "conclusion": {
+      "type": ["string", "null"],
+      "enum": [
+        "success",
+        "failure",
+        "neutral",
+        "cancelled",
+        "timed_out",
+        "action_required",
+        "stale",
+        null
+      ]
+    },
+    "created_at": { "type": "string", "format": "date-time" },
+    "event": { "type": "string" },
+    "head_branch": { "type": "string" },
+    "head_commit": { "$ref": "commit-simple.schema.json" },
+    "head_repository": { "$ref": "repository-lite.schema.json" },
+    "head_sha": { "type": "string" },
+    "html_url": { "type": "string", "format": "uri" },
+    "id": { "type": "integer" },
+    "jobs_url": { "type": "string", "format": "uri" },
+    "logs_url": { "type": "string", "format": "uri" },
+    "node_id": { "type": "string" },
+    "name": { "type": "string" },
+    "pull_requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["url", "id", "number", "head", "base"],
+        "properties": {
+          "url": { "type": "string", "format": "uri" },
+          "id": { "type": "number" },
+          "number": { "type": "number" },
+          "head": {
+            "type": "object",
+            "required": ["ref", "sha", "repo"],
+            "properties": {
+              "ref": { "type": "string" },
+              "sha": { "type": "string" },
+              "repo": { "$ref": "repo-ref.schema.json" }
+            },
+            "additionalProperties": false
+          },
+          "base": {
+            "type": "object",
+            "required": ["ref", "sha", "repo"],
+            "properties": {
+              "ref": { "type": "string" },
+              "sha": { "type": "string" },
+              "repo": { "$ref": "repo-ref.schema.json" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "repository": { "$ref": "repository-lite.schema.json" },
+    "rerun_url": { "type": "string", "format": "uri" },
+    "run_number": { "type": "integer" },
+    "status": {
+      "type": "string",
+      "enum": ["requested", "in_progress", "completed", "queued"]
+    },
+    "updated_at": { "type": "string", "format": "date-time" },
+    "url": { "type": "string", "format": "uri" },
+    "workflow_id": { "type": "integer" },
+    "workflow_url": { "type": "string", "format": "uri" }
+  },
+  "additionalProperties": false,
+  "title": "Workflow Run"
+}

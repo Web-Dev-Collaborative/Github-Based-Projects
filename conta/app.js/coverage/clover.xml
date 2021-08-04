@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1628103399797" clover="3.2.0">
+  <project timestamp="1628103399797" name="All files">
+    <metrics statements="107" coveredstatements="107" conditionals="25" coveredconditionals="25" methods="26" coveredmethods="26" elements="158" coveredelements="158" complexity="0" loc="107" ncloc="107" packages="2" files="8" classes="8"/>
+    <package name="src">
+      <metrics statements="85" coveredstatements="85" conditionals="18" coveredconditionals="18" methods="22" coveredmethods="22"/>
+      <file name="each-installation.ts" path="/workspace/octokit/conta/app.js/src/each-installation.ts">
+        <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <line num="1" count="10" type="stmt"/>
+        <line num="6" count="10" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="9" count="30" type="stmt"/>
+        <line num="14" count="10" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="27" count="10" type="stmt"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="30" count="3" type="stmt"/>
+        <line num="35" count="3" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="42" count="3" type="stmt"/>
+      </file>
+      <file name="each-repository.ts" path="/workspace/octokit/conta/app.js/src/each-repository.ts">
+        <metrics statements="21" coveredstatements="21" conditionals="6" coveredconditionals="6" methods="6" coveredmethods="6"/>
+        <line num="1" count="10" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="12" count="30" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="48" count="10" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="54" count="3" type="stmt"/>
+        <line num="55" count="3" type="stmt"/>
+        <line num="60" count="3" type="stmt"/>
+        <line num="61" count="3" type="stmt"/>
+        <line num="62" count="3" type="stmt"/>
+      </file>
+      <file name="get-installation-octokit.ts" path="/workspace/octokit/conta/app.js/src/get-installation-octokit.ts">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="10" type="stmt"/>
+        <line num="6" count="10" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+      </file>
+      <file name="index.ts" path="/workspace/octokit/conta/app.js/src/index.ts">
+        <metrics statements="29" coveredstatements="29" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="8"/>
+        <line num="1" count="10" type="stmt"/>
+        <line num="2" count="10" type="stmt"/>
+        <line num="3" count="10" type="stmt"/>
+        <line num="13" count="10" type="stmt"/>
+        <line num="14" count="10" type="stmt"/>
+        <line num="15" count="10" type="stmt"/>
+        <line num="16" count="10" type="stmt"/>
+        <line num="17" count="10" type="stmt"/>
+        <line num="31" count="10" type="stmt"/>
+        <line num="32" count="10" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="72" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="75" count="30" type="stmt"/>
+        <line num="88" count="30" type="stmt"/>
+        <line num="94" count="30" type="stmt"/>
+        <line num="105" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="107" count="28" type="stmt"/>
+        <line num="109" count="2" type="stmt"/>
+        <line num="111" count="1" type="stmt"/>
+        <line num="117" count="30" type="cond" truecount="2" falsecount="0"/>
+        <line num="118" count="28" type="stmt"/>
+        <line num="124" count="2" type="stmt"/>
+        <line num="126" count="1" type="stmt"/>
+        <line num="133" count="30" type="stmt"/>
+        <line num="137" count="30" type="stmt"/>
+        <line num="140" count="30" type="stmt"/>
+        <line num="146" count="18" type="stmt"/>
+      </file>
+      <file name="version.ts" path="/workspace/octokit/conta/app.js/src/version.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="10" type="stmt"/>
+      </file>
+      <file name="webhooks.ts" path="/workspace/octokit/conta/app.js/src/webhooks.ts">
+        <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
+        <line num="2" count="10" type="stmt"/>
+        <line num="3" count="10" type="stmt"/>
+        <line num="4" count="10" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="14" count="28" type="stmt"/>
+        <line num="17" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.middleware.node">
+      <metrics statements="22" coveredstatements="22" conditionals="7" coveredconditionals="7" methods="4" coveredmethods="4"/>
+      <file name="index.ts" path="/workspace/octokit/conta/app.js/src/middleware/node/index.ts">
+        <metrics statements="19" coveredstatements="19" conditionals="7" coveredconditionals="7" methods="3" coveredmethods="3"/>
+        <line num="7" count="10" type="stmt"/>
+        <line num="8" count="10" type="stmt"/>
+        <line num="11" count="10" type="stmt"/>
+        <line num="25" count="10" type="stmt"/>
+        <line num="29" count="7" type="stmt"/>
+        <line num="39" count="7" type="stmt"/>
+        <line num="46" count="7" type="stmt"/>
+        <line num="52" count="7" type="stmt"/>
+        <line num="57" count="7" type="stmt"/>
+        <line num="63" count="10" type="stmt"/>
+        <line num="70" count="7" type="stmt"/>
+        <line num="72" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="75" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="76" count="3" type="stmt"/>
+        <line num="79" count="3" type="stmt"/>
+        <line num="80" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="82" count="2" type="stmt"/>
+        <line num="85" count="1" type="stmt"/>
+      </file>
+      <file name="on-unhandled-request-default.ts" path="/workspace/octokit/conta/app.js/src/middleware/node/on-unhandled-request-default.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="7" count="10" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

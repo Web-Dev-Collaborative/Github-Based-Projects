@@ -1,0 +1,97 @@
+{
+  "name": "@octokit/app",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.0.0-development",
+  "description": "GitHub Apps toolset for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "build": "pika build",
+    "lint": "prettier --check {src,test}/* *.md package.json",
+    "lint:fix": "prettier --write {src,test}/* *.md package.json",
+    "pretest": "npm run -s lint",
+    "test": "jest --coverage",
+    "test:typescript": "npx tsc --noEmit --declaration --noUnusedLocals --esModuleInterop --strict test/typescript-validate.ts"
+  },
+  "repository": "github:octokit/app.js",
+  "author": "Gregor Martynus (https://github.com/gr2m)",
+  "license": "MIT",
+  "dependencies": {
+    "@octokit/auth-app": "^3.3.0",
+    "@octokit/auth-unauthenticated": "^2.0.4",
+    "@octokit/core": "^3.4.0",
+    "@octokit/oauth-app": "^3.3.2",
+    "@octokit/plugin-paginate-rest": "^2.13.3",
+    "@octokit/types": "^6.13.0",
+    "@octokit/webhooks": "^9.0.1"
+  },
+  "devDependencies": {
+    "@pika/pack": "^0.5.0",
+    "@pika/plugin-build-node": "^0.9.1",
+    "@pika/plugin-ts-standard-pkg": "^0.9.1",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.14.6",
+    "@types/node-fetch": "^2.5.8",
+    "express": "^4.17.1",
+    "fetch-mock": "^9.10.7",
+    "jest": "^27.0.0",
+    "mockdate": "^3.0.2",
+    "node-fetch": "^2.6.1",
+    "prettier": "2.3.2",
+    "semantic-release": "^17.0.0",
+    "semantic-release-plugin-update-version-in-files": "^1.0.0",
+    "ts-jest": "^27.0.0-next.12",
+    "typescript": "^4.0.5"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "coverageThreshold": {
+      "global": {
+        "statements": 100,
+        "branches": 100,
+        "functions": 100,
+        "lines": 100
+      }
+    }
+  },
+  "@pika/pack": {
+    "pipeline": [
+      [
+        "@pika/plugin-ts-standard-pkg"
+      ],
+      [
+        "@pika/plugin-build-node"
+      ]
+    ]
+  },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/github",
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./pkg"
+        }
+      ],
+      [
+        "semantic-release-plugin-update-version-in-files",
+        {
+          "files": [
+            "pkg/dist-web/*",
+            "pkg/dist-node/*",
+            "pkg/*/version.*"
+          ]
+        }
+      ]
+    ]
+  },
+  "renovate": {
+    "extends": [
+      "github>octokit/.github"
+    ]
+  }
+}
