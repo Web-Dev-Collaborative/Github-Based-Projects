@@ -1,0 +1,55 @@
+baseURL = "https://ethicalsource.dev"
+# canonifyURLs = true
+languageCode = "en-us"
+title = "Ethical Source"
+disableKinds = ["RSS"]
+
+DefaultContentLanguage = "en"
+hasCJKLanguage = true
+EnableMissingTranslationPlaceholders = true
+
+uglyURLs = true
+
+googleAnalytics = "UA-56802475-3"
+
+[mediaTypes]
+[mediaTypes."text/markdown"]
+suffix = "md"
+
+[mediaTypes."text/plain"]
+suffix = "txt"
+
+[mediaTypes."text/asciidoc"]
+suffix = "adoc"
+
+[outputFormats]
+[outputFormats.Markdown]
+mediaType = "text/markdown"
+isPlainText = true
+baseName = "LICENSE"
+
+[outputFormats.PlainText]
+mediaType = "text/plain"
+isPlainText = true
+baseName = "LICENSE"
+
+[outputFormats.AsciiDoc]
+mediaType = "text/asciidoc"
+isPlainText = true
+baseName = "LICENSE"
+
+[outputs]
+home = ["html"]
+page = ["html", "markdown", "plaintext", "asciidoc"]
+
+# Add all translated languages here.
+[Languages]
+[Languages.en]
+languageName = "English"
+languageCode = "en"
+weight = 1
+
+[Languages.es]
+languageName = "Español"
+languageCode = "es-mx"
+

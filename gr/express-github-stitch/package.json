@@ -1,0 +1,33 @@
+{
+  "name": "@gr2m/express-github-stitch",
+  "version": "0.0.0-development",
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "express plugin for stitching GitHubâs GraphQL API",
+  "scripts": {
+    "test": "standard",
+    "semantic-release": "semantic-release"
+  },
+  "keywords": [
+    "graphql",
+    "schema stitching",
+    "stitching"
+  ],
+  "author": "Gregor Martynus (https://twitter.com/gr2m)",
+  "repository": "github:gr2m/express-github-stitch",
+  "license": "MIT",
+  "dependencies": {
+    "@gr2m/github-graphql-schema": "^2.0.0",
+    "apollo-server-express": "^2.0.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "graphql-tools": "^4.0.0",
+    "node-fetch": "^2.0.0"
+  },
+  "devDependencies": {
+    "semantic-release": "^17.0.0",
+    "standard": "^14.0.0",
+    "travis-deploy-once": "^5.0.0"
+  }
+}
